@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class UIManager : SingletonDestroy<UIManager>
+public class GameManager : Singleton<GameManager>
 {
     
 }
