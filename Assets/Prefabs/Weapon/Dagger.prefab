@@ -161,4 +161,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49322007ae6f3224ea4d09dbbdc6b97f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weaponType: 2
+  data: {fileID: 11400000, guid: 306a59ff9e5d9db43862c5e0b1d831e5, type: 2}
