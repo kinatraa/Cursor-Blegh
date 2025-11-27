@@ -119,7 +119,7 @@ public class WaveController : MonoBehaviour
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.red;
-        Gizmos.DrawWireCube(spawnCenter, new Vector3(spawnAreaSize.x, 1, spawnAreaSize.y));
+        Gizmos.DrawWireCube(spawnCenter, new Vector3(spawnAreaSize.x, spawnAreaSize.y, 1));
     }
 }
 
