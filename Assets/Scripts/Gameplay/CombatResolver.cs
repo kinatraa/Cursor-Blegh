@@ -19,4 +19,16 @@ public static class CombatResolver
             weapon.TakeDamage();
         }
     }
+    
+    public static void CollisionResolve(BaseWeapon weapon, BaseMonsterProjectile projectile)
+    {
+        if (!weapon || !projectile) return;
+
+        if (weapon.currentState == WeaponState.NORMAL)
+        {
+            weapon.TakeDamage();
+        }
+        projectile.Destroy();
+    }
+    
 }

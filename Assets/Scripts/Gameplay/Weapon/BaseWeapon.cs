@@ -26,6 +26,11 @@ public abstract class BaseWeapon : MonoBehaviour
             BaseMonster monster = other.GetComponent<BaseMonster>();
             CombatResolver.CollisionResolve(this, monster);
         }
+        else if (other.CompareTag(ConstTag.MONSTER_PROJECTILE))
+        {
+            BaseMonsterProjectile projectile = other.GetComponent<BaseMonsterProjectile>();
+            CombatResolver.CollisionResolve(this, projectile);
+        }
     }
 
     public void TakeDamage(int damage = 1)
