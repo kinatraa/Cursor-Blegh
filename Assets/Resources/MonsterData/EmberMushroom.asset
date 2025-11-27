@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 23ea0db9dfeaaa942af66cacb30426eb, type: 3}
-  m_Name: FlameSlime
+  m_Name: EmberMushroom
   m_EditorClassIdentifier: 
   monsterName: 
   description: 
-  type: 11
+  type: 6
   size: 0
   rank: 0
-  hp: 20
-  score: 40
-  attackType: 1
+  hp: 0
+  score: 0
+  attackType: 0

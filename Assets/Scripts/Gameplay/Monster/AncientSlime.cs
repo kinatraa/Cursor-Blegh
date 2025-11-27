@@ -32,7 +32,7 @@ public class AncientSlime : BaseMonster
         };
 
         var childPrefab = GameplayManager.Instance.monsterController.monsterPrefabs
-            .FirstOrDefault(m => m.data.type == MonsterType.ANCIENT_SLIME 
+            .FirstOrDefault(m => m.data.type == MonsterType.SLIME_PRIMORDIAL 
                                  && m.data.size == size);
         foreach (var pos in positions)
         {

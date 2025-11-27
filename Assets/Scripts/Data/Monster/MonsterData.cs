@@ -23,17 +23,20 @@ public class MonsterData : ScriptableObject
 public enum MonsterType
 {
     NONE = 0,
-    ANCIENT_SLIME = 1,
+    SLIME_PRIMORDIAL = 1,
     INFERNO_BEAST = 2,
-    BONE_MARKSMAN = 3,
-    BONE_ASSASSIN = 4,
-    SOLAR_EYE = 5,
-    THUNDER_BEAST = 6,
-    TOXIC_SLIME = 7,
-    FLAME_SLIME = 8,
-    WRAITH_SORCERER = 9,
-    DRAKE_BEAST = 10,
-    DEMON_KING = 11,
+    ELF_MARKSMAN = 3,
+    ELF_ASSASSIN = 4,
+    SKELETON_KING = 5,
+    EMBER_MUSHROOM = 6,
+    TOXIC_MUSHROOM = 7,
+    SOLAR_EYE = 8,
+    THUNDER_BEAST = 9,
+    TOXIC_SLIME = 10,
+    FLAME_SLIME = 11,
+    WRAITH_SORCERER = 12,
+    DRAKE_BEAST = 13,
+    DEMON_KING = 14,
 }
 
 public enum AttackType

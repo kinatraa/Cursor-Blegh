@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   monsterName: 
   description: 
-  type: 7
+  type: 10
   size: 1
   rank: 0
   hp: 90

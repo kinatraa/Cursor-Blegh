@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 23ea0db9dfeaaa942af66cacb30426eb, type: 3}
-  m_Name: BoneAssassin
+  m_Name: ElfMarksman
   m_EditorClassIdentifier: 
   monsterName: 
   description: 
-  type: 4
+  type: 3
   size: 0
   rank: 0
-  hp: 45
+  hp: 35
   score: 20
-  attackType: 0
+  attackType: 1
