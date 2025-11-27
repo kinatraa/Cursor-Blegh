@@ -14,9 +14,14 @@ public class WaveController : MonoBehaviour
 
     private WaveCollection waveData;
     private int maxConfiguredWave = 0; 
+    
+    private MonsterController _monsterController;
+    private MonsterSizeConfig _monsterSizeConfig;
 
     void Start()
     {
+        _monsterController = GameplayManager.Instance.monsterController;
+        _monsterSizeConfig = MonsterSizeConfig.Instance;
         LoadWaveConfig();
         SimulateSpawnLogic();
     }
@@ -53,27 +58,38 @@ public class WaveController : MonoBehaviour
         if (currentWave > maxConfiguredWave)
         {
             effectiveWave = ((currentWave - 1) % maxConfiguredWave) + 1;
-            cycleIndex = (currentWave - 1) / maxConfiguredWave;
         }
         
         WaveConfig config = waveData.waves.Find(w => effectiveWave >= w.wave_min && effectiveWave <= w.wave_max);
-
+        List<SpawnData> currentBatchSpawns = new List<SpawnData>();
         if (config == null)
         {
             Debug.LogWarning($"Not found wave config: {effectiveWave}");
             return;
         }
-        
-        string prefix = cycleIndex > 0 ? $"<color=magenta>[CYCLE {cycleIndex}]</color> " : "";
 
         if (config.is_boss_wave)
         {
             foreach (var enemy in config.fixed_enemies)
             {
+                MonsterType mType= ParseMonsterType(enemy.id);
+                MonsterSize mSize= ParseMonsterSize(enemy.size);
+                float radius = _monsterSizeConfig.GetRadius(mType, mSize);
                 for (int i = 0; i < enemy.count; i++)
                 {
-                    Vector3 pos = GetRandomPosition();
-                    Debug.Log($" Generate [{enemy.id} - {enemy.size}] at {FormatVector(pos)}");
+                    Vector3 pos = GetValidSpawnPosition(radius, currentBatchSpawns);
+                    if (pos != Vector3.zero)
+                    {
+                        _monsterController.SpawnMonster(mType, pos);
+                        
+                        currentBatchSpawns.Add(new SpawnData{position = pos, radius = radius});
+
+                        Debug.Log($"Generate [{enemy.id} - {enemy.size}] at {FormatVector(pos)}");
+                    }
+                    else
+                    {
+                        Debug.LogWarning($"Không tìm được chỗ trống cho {enemy.id}!");
+                    }
                 }
             }
         }
@@ -86,22 +102,68 @@ public class WaveController : MonoBehaviour
                 EnemySpawnRate chosen = PickEnemyByRatio(config.enemies);
                 if (chosen != null)
                 {
-                    Vector3 pos = GetRandomPosition();
-                    Debug.Log($"[{i + 1}/{totalToSpawn}] Sinh [{chosen.id} - {chosen.size}] tại {FormatVector(pos)}");
+                    MonsterType mType= ParseMonsterType(chosen.id);
+                    MonsterSize mSize= ParseMonsterSize(chosen.size);
+                    float radius = _monsterSizeConfig.GetRadius(mType, mSize);
+                    
+                    Vector3 pos = GetValidSpawnPosition(radius, currentBatchSpawns);
+                    
+                    if (pos != Vector3.zero)
+                    {
+                        _monsterController.SpawnMonster(mType, pos);
+                        currentBatchSpawns.Add(new SpawnData { position = pos, radius = radius });
+                        Debug.Log($"[{i + 1}/{totalToSpawn}] Sinh [{chosen.id} - {chosen.size}] tại {FormatVector(pos)}");
+                    }
                 }
             }
         }
         Debug.Log("========================================\n");
     }
     
+    Vector3 GetValidSpawnPosition(float myRadius, List<SpawnData> existingSpawns)
+    {
+        int maxAttempts = 30; // Thử tối đa 30 lần
+        for (int i = 0; i < maxAttempts; i++)
+        {
+            Vector3 candidatePos = GetRandomPosition();
+            bool overlap = false;
+            foreach (var other in existingSpawns)
+            {
+                float distance = Vector3.Distance(candidatePos, other.position);
+                if (distance < (myRadius + other.radius)) 
+                {
+                    overlap = true;
+                    break;
+                }
+            }
+            if (!overlap)
+            {
+                return candidatePos;
+            }
+        }
+        return Vector3.zero; 
+    }
+    
     Vector3 GetRandomPosition()
     {
         float randomX = Random.Range(-spawnAreaSize.x / 2, spawnAreaSize.x / 2);
-        float randomZ = Random.Range(-spawnAreaSize.y / 2, spawnAreaSize.y / 2);
-        return spawnCenter + new Vector3(randomX, 0, randomZ);
+        float randomY = Random.Range(-spawnAreaSize.y / 2, spawnAreaSize.y / 2);
+        return spawnCenter + new Vector3(randomX, randomY, 0);
     }
 
     string FormatVector(Vector3 v) => $"({v.x:F1}, {v.y:F1}, {v.z:F1})";
+    
+    MonsterType ParseMonsterType(string monsterType)
+    {
+        if (System.Enum.TryParse<MonsterType>(monsterType, true, out MonsterType result)) return result;
+        return MonsterType.NONE;
+    }
+
+    MonsterSize ParseMonsterSize(string monsterSize)
+    {
+        if (System.Enum.TryParse<MonsterSize>(monsterSize, true, out MonsterSize result)) return result;
+        return MonsterSize.SMALL;
+    }
 
     EnemySpawnRate PickEnemyByRatio(List<EnemySpawnRate> enemies)
     {
@@ -123,6 +185,11 @@ public class WaveController : MonoBehaviour
     }
 }
 
+public struct SpawnData
+{
+    public Vector3 position;
+    public float radius;
+}
 [System.Serializable] public class WaveCollection { public List<WaveConfig> waves; }
 [System.Serializable] public class WaveConfig { 
     public int wave_min; public int wave_max; 
