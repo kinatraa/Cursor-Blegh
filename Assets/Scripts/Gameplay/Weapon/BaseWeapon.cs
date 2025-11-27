@@ -8,6 +8,16 @@ public abstract class BaseWeapon : MonoBehaviour
     public WeaponData data;
 
     public int currentHp;
+    
+    public WeaponState currentState = WeaponState.NORMAL;
+    
+    private SpriteRenderer _sr;
+    private Coroutine _takeDamageCoroutine;
+
+    private void Awake()
+    {
+        _sr = GetComponent<SpriteRenderer>();
+    }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -20,6 +30,11 @@ public abstract class BaseWeapon : MonoBehaviour
 
     public void TakeDamage(int damage = 1)
     {
+        if (currentState == WeaponState.NORMAL)
+        {
+            _takeDamageCoroutine = StartCoroutine(IETakeDamageAlert());
+        }
+
         currentHp -= damage;
         if (currentHp <= 0)
         {
@@ -27,9 +42,30 @@ public abstract class BaseWeapon : MonoBehaviour
             Destroy(gameObject);
         }
     }
+
+    private IEnumerator IETakeDamageAlert()
+    {
+        currentState = WeaponState.BLINK;
+        int times = 3;
+        while (times-- > 0)
+        {
+            _sr.color = Color.red;
+            yield return new WaitForSeconds(0.2f);
+            _sr.color = Color.white;
+            yield return new WaitForSeconds(0.2f);
+        }
+
+        currentState = WeaponState.NORMAL;
+    }
     
     public void ResetWeapon()
     {
         currentHp = data.hp;
     }
+}
+
+public enum WeaponState
+{
+    NORMAL = 0,
+    BLINK = 1,
 }

@@ -8,15 +8,15 @@ public static class CombatResolver
     {
         if (!weapon || !monster) return;
 
-        if (monster.onAttack)
+        if (weapon.currentState == WeaponState.BLINK) return;
+        
+        int damage = weapon.data.atk;
+        if(Random.Range(0, 100) < weapon.data.crit) damage = (int)(damage * (weapon.data.critDmg / 100f));
+        monster.TakeDamage(damage);
+
+        if (monster is AncientSlime { currentState: MonsterState.ATTACK })
         {
             weapon.TakeDamage();
-        }
-        else
-        {
-            int damage = weapon.data.atk;
-            if(Random.Range(0, 100) < weapon.data.crit) damage = (int)(damage * (weapon.data.critDmg / 100f));
-            monster.TakeDamage(damage);
         }
     }
 }

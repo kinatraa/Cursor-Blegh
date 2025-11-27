@@ -19,7 +19,7 @@ public class AncientSlime : BaseMonster
         base.Die();
     }
 
-    void SpawnChildren(MonsterSize size, int count, float offset)
+    private void SpawnChildren(MonsterSize size, int count, float offset)
     {
         Vector2 center = transform.position;
 
