@@ -42,6 +42,7 @@ public class WeaponController : MonoBehaviour
             if (weapon.data.weaponType == type)
             {
                 weapon.gameObject.SetActive(true);
+                weapon.ResetWeapon();
                 currentWeapon = weapon;
             }
             else

@@ -4,14 +4,9 @@ using UnityEngine;
 
 public class MonsterController : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
+    public List<BaseMonster> monsterPrefabs = new List<BaseMonster>();
+    
+    public void SpawnMonster(MonsterType type, int amount)
     {
         
     }
