@@ -15,8 +15,21 @@ public abstract class BaseMonster : MonoBehaviour
     
     private void Awake()
     {
-        _sr = GetComponent<SpriteRenderer>();
-        
+    	_sr = GetComponent<SpriteRenderer>();
+    
+        if (data != null)
+        {
+            var clonedData = ScriptableObject.CreateInstance<MonsterData>();
+            clonedData.monsterName = data.monsterName;
+            clonedData.description = data.description;
+            clonedData.type = data.type;
+            clonedData.size = data.size;
+            clonedData.rank = data.rank;
+            clonedData.hp = data.hp;
+            clonedData.score = data.score;
+            clonedData.attackType = data.attackType;
+            data = clonedData;
+        }
         ResetMonster();
     }
 
@@ -82,6 +95,9 @@ public abstract class BaseMonster : MonoBehaviour
         currentState = MonsterState.IDLE;
         currentHp = data.hp;
     }
+    
+    public MonsterType GetMonsterType() => data.type;
+    public MonsterSize GetMonsterSize() => data.size;
 }
 
 public enum MonsterState

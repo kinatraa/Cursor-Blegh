@@ -16,12 +16,10 @@ public class WaveController : MonoBehaviour
     private int maxConfiguredWave = 0; 
     
     private MonsterController _monsterController;
-    private MonsterSizeConfig _monsterSizeConfig;
 
     void Start()
     {
         _monsterController = GameplayManager.Instance.monsterController;
-        _monsterSizeConfig = MonsterSizeConfig.Instance;
         LoadWaveConfig();
         SimulateSpawnLogic();
     }
@@ -53,7 +51,6 @@ public class WaveController : MonoBehaviour
         if (waveData == null || maxConfiguredWave == 0) return;
         
         int effectiveWave = currentWave; 
-        int cycleIndex = 0;              
 
         if (currentWave > maxConfiguredWave)
         {
@@ -72,15 +69,22 @@ public class WaveController : MonoBehaviour
         {
             foreach (var enemy in config.fixed_enemies)
             {
-                MonsterType mType= ParseMonsterType(enemy.id);
-                MonsterSize mSize= ParseMonsterSize(enemy.size);
-                float radius = _monsterSizeConfig.GetRadius(mType, mSize);
+                MonsterType mType = ParseMonsterType(enemy.id);
+                MonsterSize mSize = ParseMonsterSize(enemy.size);
+                float radius = _monsterController.GetMonsterRadius(mType, mSize);
+
+                if (!_monsterController.HasMonster(mType, mSize))
+                {
+                    Debug.LogWarning($"<color=red>Prefab [{enemy.id} - {enemy.size}] not found in MonsterController!</color>");
+                    continue;
+                }
+                
                 for (int i = 0; i < enemy.count; i++)
                 {
                     Vector3 pos = GetValidSpawnPosition(radius, currentBatchSpawns);
                     if (pos != Vector3.zero)
                     {
-                        _monsterController.SpawnMonster(mType, pos);
+                        _monsterController.SpawnMonster(mType, pos, mSize);
                         
                         currentBatchSpawns.Add(new SpawnData{position = pos, radius = radius});
 
@@ -96,21 +100,26 @@ public class WaveController : MonoBehaviour
         else
         {
             int totalToSpawn = Random.Range(config.count_min, config.count_max + 1); 
-         
             for (int i = 0; i < totalToSpawn; i++)
             {
                 EnemySpawnRate chosen = PickEnemyByRatio(config.enemies);
                 if (chosen != null)
                 {
-                    MonsterType mType= ParseMonsterType(chosen.id);
-                    MonsterSize mSize= ParseMonsterSize(chosen.size);
-                    float radius = _monsterSizeConfig.GetRadius(mType, mSize);
+                    MonsterType mType = ParseMonsterType(chosen.id);
+                    MonsterSize mSize = ParseMonsterSize(chosen.size);
+                    float radius = _monsterController.GetMonsterRadius(mType, mSize);
+
+                    if (!_monsterController.HasMonster(mType, mSize))
+                    {
+                        Debug.LogWarning($"<color=red>Prefab [{chosen.id} - {chosen.size}] not found in MonsterController!</color>");
+                        continue;
+                    }
                     
                     Vector3 pos = GetValidSpawnPosition(radius, currentBatchSpawns);
                     
                     if (pos != Vector3.zero)
                     {
-                        _monsterController.SpawnMonster(mType, pos);
+                        _monsterController.SpawnMonster(mType, pos, mSize);
                         currentBatchSpawns.Add(new SpawnData { position = pos, radius = radius });
                         Debug.Log($"[{i + 1}/{totalToSpawn}] Sinh [{chosen.id} - {chosen.size}] tại {FormatVector(pos)}");
                     }
@@ -122,7 +131,7 @@ public class WaveController : MonoBehaviour
     
     Vector3 GetValidSpawnPosition(float myRadius, List<SpawnData> existingSpawns)
     {
-        int maxAttempts = 30; // Thử tối đa 30 lần
+        int maxAttempts = 30;
         for (int i = 0; i < maxAttempts; i++)
         {
             Vector3 candidatePos = GetRandomPosition();
