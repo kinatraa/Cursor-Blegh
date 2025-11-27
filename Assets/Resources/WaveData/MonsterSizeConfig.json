@@ -1,0 +1,79 @@
+﻿{
+  "monster_sizes": [
+    {
+      "type": "SLIME_PRIMORDIAL",
+      "scale": 1.0,
+      "radius": 1.2
+    },
+    {
+      "type": "INFERNO_BEAST",
+      "scale": 1.2,
+      "radius": 0.6
+    },
+    {
+      "type": "ELF_MARKSMAN",
+      "scale": 0.8,
+      "radius": 0.4
+    },
+    {
+      "type": "ELF_ASSASSIN",
+      "scale": 0.8,
+      "radius": 0.4
+    },
+    {
+      "type": "EMBER_MUSHROOM",
+      "scale": 1.1,
+      "radius": 0.55
+    },
+    {
+      "type": "TOXIC_MUSHROOM",
+      "scale": 1.1,
+      "radius": 0.55
+    },
+    {
+      "type": "THUNDER_BEAST",
+      "scale": 1.3,
+      "radius": 0.7
+    },
+    {
+      "type": "TOXIC_SLIME",
+      "scale": 1.0,
+      "radius": 0.5
+    },
+    {
+      "type": "FLAME_SLIME",
+      "scale": 0.8,
+      "radius": 0.4
+    },
+    {
+      "type": "SOLAR_EYE",
+      "scale": 2.0,
+      "radius": 1.0
+    },
+    {
+      "type": "WRAITH_SORCERER",
+      "scale": 2.2,
+      "radius": 1.0
+    },
+    {
+      "type": "DRAKE_BEAST",
+      "scale": 2.5,
+      "radius": 1.2
+    },
+    {
+      "type": "SKELETON_KING",
+      "scale": 3.5,
+      "radius": 1.5
+    },
+    {
+      "type": "DEMON_KING",
+      "scale": 4.0,
+      "radius": 2.0
+    }
+  ],
+  "size_multipliers": {
+    "SMALL": 0.7,
+    "MEDIUM": 1.0,
+    "LARGE": 1.5
+  }
+}
