@@ -22,9 +22,9 @@ public enum AttackRange
     Melee=0,  
     Ranged=11  
 }
-public enum MonsterSize
-{
-    Small=0,  
-    Medium=1,
-    Large=2 
-}
+// public enum MonsterSize
+// {
+//     Small=0,  
+//     Medium=1,
+//     Large=2 
+// }

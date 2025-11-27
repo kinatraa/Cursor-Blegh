@@ -1,0 +1,144 @@
+﻿{
+  "waves": [
+    {
+      "wave_min": 1,
+      "wave_max": 2,
+      "count_min": 9,
+      "count_max": 9,
+      "is_boss_wave": false,
+      "enemies": [
+        { "id": "SlimeNguyenThuy", "size": "Small", "ratio": 90 },
+        { "id": "SlimeNguyenThuy", "size": "Medium", "ratio": 10 }
+      ]
+    },
+    {
+      "wave_min": 3,
+      "wave_max": 5,
+      "count_min": 9,
+      "count_max": 12,
+      "is_boss_wave": false,
+      "enemies": [
+        { "id": "SlimeNguyenThuy", "size": "Small", "ratio": 60 },
+        { "id": "SlimeNguyenThuy", "size": "Medium", "ratio": 30 },
+        { "id": "YeuTinhThienXa", "size": "Small", "ratio": 10 }
+      ]
+    },
+    {
+      "wave_min": 6,
+      "wave_max": 9,
+      "count_min": 12,
+      "count_max": 15,
+      "is_boss_wave": false,
+      "enemies": [
+        { "id": "SlimeNguyenThuy", "size": "Small", "ratio": 20 },
+        { "id": "SlimeNguyenThuy", "size": "Medium", "ratio": 20 },
+        { "id": "YeuTinhThienXa", "size": "Small", "ratio": 20 },
+        { "id": "NamMau", "size": "Medium", "ratio": 20 },
+        { "id": "YeuTinhSatThu", "size": "Small", "ratio": 20 }
+      ]
+    },
+    {
+      "wave_min": 10,
+      "wave_max": 10,
+      "count_min": 12,
+      "count_max": 15,
+      "is_boss_wave": false,
+      "enemies": [
+        { "id": "SlimeNguyenThuy", "size": "Small", "ratio": 60 },
+        { "id": "SlimeNguyenThuy", "size": "Medium", "ratio": 20 },
+        { "id": "SlimeNguyenThuy", "size": "Large", "ratio": 20 }
+      ]
+    },
+    {
+      "wave_min": 11,
+      "wave_max": 19,
+      "count_min": 12,
+      "count_max": 15,
+      "is_boss_wave": false,
+      "enemies": [
+        { "id": "SlimeNguyenThuy", "size": "Small", "ratio": 15 },
+        { "id": "SlimeNguyenThuy", "size": "Medium", "ratio": 15 },
+        { "id": "SlimeNguyenThuy", "size": "Large", "ratio": 10 },
+        { "id": "YeuTinhThienXa", "size": "Small", "ratio": 7 },
+        { "id": "NamMau", "size": "Medium", "ratio": 7 },
+        { "id": "YeuTinhSatThu", "size": "Small", "ratio": 6 },
+        { "id": "NamBang", "size": "Medium", "ratio": 20 },
+        { "id": "LoiThu", "size": "Medium", "ratio": 20 }
+      ]
+    },
+    {
+      "wave_min": 20,
+      "wave_max": 20,
+      "count_min": 15,
+      "count_max": 15,
+      "is_boss_wave": false,
+      "enemies": [
+        { "id": "SlimeNguyenThuy", "size": "Small", "ratio": 30 },
+        { "id": "SlimeNguyenThuy", "size": "Medium", "ratio": 40 },
+        { "id": "SlimeNguyenThuy", "size": "Large", "ratio": 30 }
+      ]
+    },
+    {
+      "wave_min": 21,
+      "wave_max": 29,
+      "count_min": 15,
+      "count_max": 18,
+      "is_boss_wave": false,
+      "enemies": [
+        { "id": "SlimeNguyenThuy", "size": "Small", "ratio": 15 },
+        { "id": "SlimeNguyenThuy", "size": "Medium", "ratio": 15 },
+        { "id": "SlimeNguyenThuy", "size": "Large", "ratio": 10 },
+        { "id": "YeuTinhThienXa", "size": "Small", "ratio": 5 },
+        { "id": "NamMau", "size": "Medium", "ratio": 5 },
+        { "id": "YeuTinhSatThu", "size": "Small", "ratio": 5 },
+        { "id": "NamBang", "size": "Medium", "ratio": 5 },
+        { "id": "LoiThu", "size": "Medium", "ratio": 20 },
+        { "id": "PhapSuULinh", "size": "Large", "ratio": 10 },
+        { "id": "LongThu", "size": "Large", "ratio": 10 }
+      ]
+    },
+    {
+      "wave_min": 30,
+      "wave_max": 30,
+      "count_min": 15,
+      "count_max": 18,
+      "is_boss_wave": false,
+      "enemies": [
+        { "id": "SlimeNguyenThuy", "size": "Small", "ratio": 20 },
+        { "id": "SlimeNguyenThuy", "size": "Medium", "ratio": 40 },
+        { "id": "SlimeNguyenThuy", "size": "Large", "ratio": 40 }
+      ]
+    },
+    {
+      "wave_min": 31,
+      "wave_max": 39,
+      "count_min": 18,
+      "count_max": 20,
+      "is_boss_wave": false,
+      "enemies": [
+        { "id": "SlimeNguyenThuy", "size": "Small", "ratio": 10 },
+        { "id": "SlimeNguyenThuy", "size": "Medium", "ratio": 10 },
+        { "id": "SlimeNguyenThuy", "size": "Large", "ratio": 10 },
+        { "id": "YeuTinhThienXa", "size": "Small", "ratio": 5 },
+        { "id": "NamMau", "size": "Medium", "ratio": 5 },
+        { "id": "YeuTinhSatThu", "size": "Small", "ratio": 5 },
+        { "id": "NamBang", "size": "Medium", "ratio": 5 },
+        { "id": "LoiThu", "size": "Medium", "ratio": 20 },
+        { "id": "PhapSuULinh", "size": "Large", "ratio": 20 },
+        { "id": "LongThu", "size": "Large", "ratio": 20 }
+      ]
+    },
+    {
+      "wave_min": 40,
+      "wave_max": 40,
+      "count_min": 5,
+      "count_max": 5,
+      "is_boss_wave": true,
+      "fixed_enemies": [
+        { "id": "SlimeNguyenThuy", "size": "Large", "count": 2 },
+        { "id": "YeuTinhThienXa", "size": "Small", "count": 2 },
+        { "id": "VuaXuong", "size": "Large", "count": 1 }
+      ]
+    }
+  ]
+}
