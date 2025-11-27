@@ -244,7 +244,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0df2c44dc8f59e438686952ce02e5d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  monsterPrefabs: []
+  monsterPrefabs:
+  - {fileID: 3854556328192479162, guid: bea1a6a044d28ea44bc95ffcfa01cbc0, type: 3}
+  - {fileID: 2037938528874112490, guid: d4f9dc4c2a909d14bbb321267cc88218, type: 3}
+  - {fileID: 7777069330320015776, guid: 912be8ff3a2301d4995a7d0b6e6a290b, type: 3}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -479,7 +482,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1179435694}
-  - component: {fileID: 1179435693}
+  - component: {fileID: 1179435695}
   m_Layer: 0
   m_Name: WaveController
   m_TagString: Untagged
@@ -487,22 +490,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1179435693
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1179435692}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 517fdcc314356be459aaffe523ad524b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  waveConfigFile: {fileID: 4900000, guid: b8702bef772dc0f4b86d60efe0ab3c6d, type: 3}
-  spawnAreaSize: {x: 20, y: 7}
-  spawnCenter: {x: 0, y: 0, z: 0}
-  currentWave: 1
 --- !u!4 &1179435694
 Transform:
   m_ObjectHideFlags: 0
@@ -518,6 +505,22 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1179435695
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1179435692}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 517fdcc314356be459aaffe523ad524b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  waveConfigFile: {fileID: 4900000, guid: b8702bef772dc0f4b86d60efe0ab3c6d, type: 3}
+  spawnAreaSize: {x: 20, y: 7}
+  spawnCenter: {x: 0, y: 0, z: 0}
+  currentWave: 1
 --- !u!1001 &1235159088
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -653,6 +656,51 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1733306581
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1733306582}
+  - component: {fileID: 1733306583}
+  m_Layer: 0
+  m_Name: MonsterSizeConfig
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1733306582
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1733306581}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1733306583
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1733306581}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e613729ce4c4810be570a3de82d4050, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  jsonFile: {fileID: 4900000, guid: bf3219f3f09c4a8381fb2547460e24e0, type: 3}
 --- !u!1001 &162972857993744551
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -784,5 +832,6 @@ SceneRoots:
   - {fileID: 749485107}
   - {fileID: 319726305}
   - {fileID: 1090187800}
+  - {fileID: 1733306582}
   - {fileID: 1179435694}
   - {fileID: 1614906634}
