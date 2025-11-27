@@ -245,9 +245,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   monsterPrefabs:
+  - {fileID: 7777069330320015776, guid: 912be8ff3a2301d4995a7d0b6e6a290b, type: 3}
   - {fileID: 3854556328192479162, guid: bea1a6a044d28ea44bc95ffcfa01cbc0, type: 3}
   - {fileID: 2037938528874112490, guid: d4f9dc4c2a909d14bbb321267cc88218, type: 3}
-  - {fileID: 7777069330320015776, guid: 912be8ff3a2301d4995a7d0b6e6a290b, type: 3}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -701,6 +701,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   jsonFile: {fileID: 4900000, guid: bf3219f3f09c4a8381fb2547460e24e0, type: 3}
+  _multipliers:
+    SMALL: 0
+    MEDIUM: 0
+    LARGE: 0
 --- !u!1001 &162972857993744551
 PrefabInstance:
   m_ObjectHideFlags: 0
