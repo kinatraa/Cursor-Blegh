@@ -6,7 +6,7 @@ public class InfernoBeast : BaseMonster
 {
 
     [Header("Attack Settings")]
-    [SerializeField] private BulletInferno bulletPrefab;
+    [SerializeField] private BaseMonsterProjectile bulletPrefab;
     [SerializeField] private int minBullets = 1;
     [SerializeField] private int maxBullets = 2;
     [SerializeField] private float bulletSpawnRadius = 0.5f;
