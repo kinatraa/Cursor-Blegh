@@ -41,6 +41,7 @@ public abstract class BaseWeapon : MonoBehaviour
         }
 
         currentHp -= damage;
+        GameEventManager.InvokeUpdatePlayerHp(currentHp);
         Debug.Log("Player damaged " + damage);
         if (currentHp <= 0)
         {
@@ -67,6 +68,7 @@ public abstract class BaseWeapon : MonoBehaviour
     public void ResetWeapon()
     {
         currentHp = data.hp;
+        GameEventManager.InvokeUpdatePlayerMaxHp(currentHp);
     }
 }
 
