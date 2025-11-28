@@ -41,6 +41,7 @@ public abstract class BaseWeapon : MonoBehaviour
         }
 
         currentHp -= damage;
+        Debug.Log("Player damaged " + damage);
         if (currentHp <= 0)
         {
             // Lose

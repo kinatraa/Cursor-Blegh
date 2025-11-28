@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 2077201364744148313}
   - component: {fileID: 6135290043857781532}
   - component: {fileID: 7777069330320015776}
+  - component: {fileID: -1569360820309831479}
   m_Layer: 0
   m_Name: AncientSlime 0
   m_TagString: Monster
@@ -75,7 +76,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 0a8e3ca10306bf94883db1dade2e8c2f, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 8f2c2cd87a111c346beb415121a1efc6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -135,4 +136,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   data: {fileID: 11400000, guid: 5ee595f6c618e604394367867ec658cc, type: 2}
   currentHp: 0
-  onAttack: 0
+  currentState: 0
+--- !u!95 &-1569360820309831479
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4415121988781423171}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 53d11980eee64af49897ca326d041e36, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0

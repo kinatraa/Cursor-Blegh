@@ -5,8 +5,15 @@ using UnityEngine;
 
 public class AncientSlime : BaseMonster
 {
-    protected override void Die()
+    protected override IEnumerator IEDieSequence()
     {
+        PlayAnimation(ANIM_DIE); 
+        
+        yield return null; 
+        
+        float animLength = _animator.GetCurrentAnimatorStateInfo(0).length;
+        yield return new WaitForSeconds(animLength);
+        
         if (data.size == MonsterSize.LARGE)
         {
             SpawnChildren(MonsterSize.MEDIUM, 4, 1f);
@@ -15,8 +22,8 @@ public class AncientSlime : BaseMonster
         {
             SpawnChildren(MonsterSize.SMALL , 4, 0.5f);
         }
-
-        base.Die();
+        
+        Destroy(gameObject);
     }
 
     private void SpawnChildren(MonsterSize size, int count, float offset)
