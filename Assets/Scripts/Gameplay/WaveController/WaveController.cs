@@ -12,8 +12,8 @@ public class WaveController : MonoBehaviour
     [Header("Stats")]
     public int currentWave = 1; 
 
-    private WaveCollection waveData;
-    private int maxConfiguredWave = 0; 
+    private WaveCollection _waveData;
+    private int _maxConfiguredWave = 0; 
     
     private MonsterController _monsterController;
 
@@ -37,27 +37,27 @@ public class WaveController : MonoBehaviour
     {
         if (waveConfigFile != null)
         {
-            waveData = JsonUtility.FromJson<WaveCollection>(waveConfigFile.text);
+            _waveData = JsonUtility.FromJson<WaveCollection>(waveConfigFile.text);
             
-            if (waveData.waves != null && waveData.waves.Count > 0)
+            if (_waveData.waves != null && _waveData.waves.Count > 0)
             {
-                maxConfiguredWave = waveData.waves.Max(w => w.wave_max);
+                _maxConfiguredWave = _waveData.waves.Max(w => w.wave_max);
             }
         }
     }
 
     void SimulateSpawnLogic()
     {
-        if (waveData == null || maxConfiguredWave == 0) return;
+        if (_waveData == null || _maxConfiguredWave == 0) return;
         
         int effectiveWave = currentWave; 
 
-        if (currentWave > maxConfiguredWave)
+        if (currentWave > _maxConfiguredWave)
         {
-            effectiveWave = ((currentWave - 1) % maxConfiguredWave) + 1;
+            effectiveWave = ((currentWave - 1) % _maxConfiguredWave) + 1;
         }
         
-        WaveConfig config = waveData.waves.Find(w => effectiveWave >= w.wave_min && effectiveWave <= w.wave_max);
+        WaveConfig config = _waveData.waves.Find(w => effectiveWave >= w.wave_min && effectiveWave <= w.wave_max);
         List<SpawnData> currentBatchSpawns = new List<SpawnData>();
         if (config == null)
         {

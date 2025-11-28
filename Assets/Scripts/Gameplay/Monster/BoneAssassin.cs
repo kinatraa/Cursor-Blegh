@@ -5,27 +5,27 @@ using UnityEngine;
 public class BoneAssassin : BaseMonster
 {
     [Header("Attack Settings")]
-    [SerializeField] private BaseMonsterProjectile bulletPrefab;
-    [SerializeField] private float bulletSpawnRadius = 0.5f;
-    [SerializeField] private float delayBeforeTeleport = 2f;
-    [SerializeField] private float teleportSpeed = 10f;
+    [SerializeField] private BaseMonsterProjectile _bulletPrefab;
+    [SerializeField] private float _bulletSpawnRadius = 0.5f;
+    [SerializeField] private float _delayBeforeTeleport = 2f;
+    [SerializeField] private float _teleportSpeed = 10f;
 
     [Header("Teleport Settings")]
-    [SerializeField] private float fadeOutDuration = 0.5f; 
-    [SerializeField] private float invisibleDuration = 2f;
-    [SerializeField] private float fadeInDuration = 0.5f;
+    [SerializeField] private float _fadeOutDuration = 0.5f; 
+    [SerializeField] private float _invisibleDuration = 2f;
+    [SerializeField] private float _fadeInDuration = 0.5f;
     
     protected override IEnumerator IEAttackPlayer()
     {
         _sr.color = Color.red;
         SpawnBullet();
 
-        yield return new WaitForSeconds(delayBeforeTeleport);
+        yield return new WaitForSeconds(_delayBeforeTeleport);
 
         yield return StartCoroutine(IETeleportToRandomPosition());
 
-        float totalTeleportTime = fadeOutDuration + invisibleDuration + fadeInDuration;
-        float remainingTime = _remainingAnimTime - delayBeforeTeleport - totalTeleportTime;
+        float totalTeleportTime = _fadeOutDuration + _invisibleDuration + _fadeInDuration;
+        float remainingTime = _remainingAnimTime - _delayBeforeTeleport - totalTeleportTime;
         if (remainingTime > 0)
         {
             yield return new WaitForSeconds(remainingTime);
@@ -35,15 +35,15 @@ public class BoneAssassin : BaseMonster
     }
 
     private void SpawnBullet(){
-        if (bulletPrefab == null){
+        if (_bulletPrefab == null){
             Debug.LogWarning("Bullet prefab is not assigned!");
             return;
         }
 
-        Vector3 spawnOffset = Random.insideUnitCircle.normalized * bulletSpawnRadius;
+        Vector3 spawnOffset = Random.insideUnitCircle.normalized * _bulletSpawnRadius;
         Vector3 spawnPosition = transform.position + spawnOffset;
         
-        var bulletInstance = Instantiate(bulletPrefab, spawnPosition, Quaternion.identity);
+        var bulletInstance = Instantiate(_bulletPrefab, spawnPosition, Quaternion.identity);
 
         Vector3 playerPosition = GameplayManager.Instance.weaponController.currentWeapon.transform.position;
 
@@ -68,27 +68,27 @@ public class BoneAssassin : BaseMonster
             yield break;
         }
 
-        yield return StartCoroutine(FadeOut());
+        yield return StartCoroutine(IEFadeOut());
 
         transform.position = newPosition;
 
-        yield return new WaitForSeconds(invisibleDuration);
+        yield return new WaitForSeconds(_invisibleDuration);
 
-        yield return StartCoroutine(FadeIn());
+        yield return StartCoroutine(IEFadeIn());
 
         Debug.Log("BoneAssassin teleported to a new position.");
     }   
 
-    private IEnumerator FadeOut()
+    private IEnumerator IEFadeOut()
     {
         float elapsed = 0f;
         Color startColor = _sr.color;
         Color targetColor = new Color(startColor.r, startColor.g, startColor.b, 0f);
         
-        while (elapsed < fadeOutDuration)
+        while (elapsed < _fadeOutDuration)
         {
             elapsed += Time.deltaTime;
-            float t = elapsed / fadeOutDuration;
+            float t = elapsed / _fadeOutDuration;
             _sr.color = Color.Lerp(startColor, targetColor, t);
             yield return null;
         }
@@ -96,16 +96,16 @@ public class BoneAssassin : BaseMonster
         _sr.color = targetColor;
     }
     
-    private IEnumerator FadeIn()
+    private IEnumerator IEFadeIn()
     {
         float elapsed = 0f;
         Color startColor = _sr.color;
         Color targetColor = new Color(startColor.r, startColor.g, startColor.b, 1f);
         
-        while (elapsed < fadeInDuration)
+        while (elapsed < _fadeInDuration)
         {
             elapsed += Time.deltaTime;
-            float t = elapsed / fadeInDuration;
+            float t = elapsed / _fadeInDuration;
             _sr.color = Color.Lerp(startColor, targetColor, t);
             yield return null;
         }

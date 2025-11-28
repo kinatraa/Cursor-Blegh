@@ -9,12 +9,12 @@ public abstract class BaseMonsterProjectile : MonoBehaviour
     public float existTime = 5f;
 
     protected Vector3 _targetPosition;
-    protected bool isMoving = false;
+    protected bool _isMoving = false;
 
     public void StartProjectile(Vector3 target)
     {
         _targetPosition = target;
-        isMoving = true;
+        _isMoving = true;
         SetTarget(_targetPosition);
     }
     protected virtual void SetTarget(Vector3 targetPosition = new Vector3())
@@ -28,7 +28,7 @@ public abstract class BaseMonsterProjectile : MonoBehaviour
 
         Vector3 dir = (targetPosition - transform.position).normalized;
 
-        while (timer < existTime && isMoving)
+        while (timer < existTime && _isMoving)
         {
             timer += Time.deltaTime;
 
@@ -43,7 +43,7 @@ public abstract class BaseMonsterProjectile : MonoBehaviour
 
     public void Destroy()
     {
-        isMoving = false;
+        _isMoving = false;
         Destroy(gameObject);
     }
 }

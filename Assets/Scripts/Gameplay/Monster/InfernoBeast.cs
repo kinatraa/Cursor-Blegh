@@ -6,16 +6,16 @@ public class InfernoBeast : BaseMonster
 {
 
     [Header("Attack Settings")]
-    [SerializeField] private BaseMonsterProjectile bulletPrefab;
-    [SerializeField] private int minBullets = 1;
-    [SerializeField] private int maxBullets = 2;
-    [SerializeField] private float bulletSpawnRadius = 0.5f;
+    [SerializeField] private BaseMonsterProjectile _bulletPrefab;
+    [SerializeField] private int _minBullets = 1;
+    [SerializeField] private int _maxBullets = 2;
+    [SerializeField] private float _bulletSpawnRadius = 0.5f;
 
     protected override IEnumerator IEAttackPlayer()
     {
         _sr.color = Color.red;
 
-        int bulletCount = Random.Range(minBullets, maxBullets + 1);
+        int bulletCount = Random.Range(_minBullets, _maxBullets + 1);
         for (int i = 0; i < bulletCount; i++)
         {
             SpawnBullet();
@@ -25,15 +25,15 @@ public class InfernoBeast : BaseMonster
     }
 
     private void SpawnBullet(){
-        if (bulletPrefab == null){
+        if (_bulletPrefab == null){
             Debug.LogWarning("Bullet prefab is not assigned!");
             return;
         }
 
-        Vector3 spawnOffset = Random.insideUnitCircle.normalized * bulletSpawnRadius;
+        Vector3 spawnOffset = Random.insideUnitCircle.normalized * _bulletSpawnRadius;
         Vector3 spawnPosition = transform.position + spawnOffset;
         
-        var bulletInstance = Instantiate(bulletPrefab, spawnPosition, Quaternion.identity);
+        var bulletInstance = Instantiate(_bulletPrefab, spawnPosition, Quaternion.identity);
 
         Vector3 playerPosition = GameplayManager.Instance.weaponController.currentWeapon.transform.position;
 

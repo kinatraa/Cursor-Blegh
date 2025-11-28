@@ -21,8 +21,8 @@ public abstract class BaseMonster : MonoBehaviour
     
     protected float _remainingAnimTime;
     
-    [SerializeField] private float chargePhaseRatio = 0.6f;
-    [SerializeField] private bool flipOnUpdate= true;
+    [SerializeField] private float _chargePhaseRatio = 0.6f;
+    [SerializeField] private bool _flipOnUpdate= true;
     
     private void Awake()
     {
@@ -38,7 +38,7 @@ public abstract class BaseMonster : MonoBehaviour
     }
 
     private void Update(){
-        if (flipOnUpdate){
+        if (_flipOnUpdate){
             UpdateFacingDirection();
         }
     }
@@ -99,7 +99,7 @@ public abstract class BaseMonster : MonoBehaviour
         yield return null;
         float totalDuration = _animator.GetCurrentAnimatorStateInfo(0).length;
         
-        float chargeTime = totalDuration * chargePhaseRatio;
+        float chargeTime = totalDuration * _chargePhaseRatio;
         
         _remainingAnimTime = totalDuration - chargeTime;
         

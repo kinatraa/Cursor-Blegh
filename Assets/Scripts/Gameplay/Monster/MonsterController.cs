@@ -7,8 +7,7 @@ using UnityEngine;
 public class MonsterController : MonoBehaviour
 {
     public List<BaseMonster> monsterPrefabs = new List<BaseMonster>();
-
-    // Dictionary để cache theo type và size
+    
     private Dictionary<(MonsterType type, MonsterSize size), BaseMonster> _monsterDict = 
         new Dictionary<(MonsterType type, MonsterSize size), BaseMonster>();
     
@@ -66,7 +65,7 @@ public class MonsterController : MonoBehaviour
             return 0.5f;
         }
         
-        // Lấy kích thước sprite từ prefab (đã có sẵn scale và size)
+        // Lấy kích thước sprite từ prefab
         float radius = Mathf.Max(
             spriteRenderer.sprite.bounds.size.x * spriteRenderer.transform.localScale.x,
             spriteRenderer.sprite.bounds.size.y * spriteRenderer.transform.localScale.y

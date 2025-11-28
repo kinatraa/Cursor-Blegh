@@ -28,6 +28,12 @@ public static class CombatResolver
         {
             weapon.TakeDamage();
         }
+
+        if (projectile is LaserBeam)
+        {
+            return;
+        }
+        
         projectile.Destroy();
     }
     

@@ -5,9 +5,9 @@ using UnityEngine;
 public class FlameSlime : BaseMonster
 {
     [Header("Attack Settings")]
-    [SerializeField] private BaseMonsterProjectile bulletPrefab;
-    [SerializeField] private float bulletSpawnRadius = 0.5f;
-    [SerializeField] private float shootDistance = 10f;
+    [SerializeField] private BaseMonsterProjectile _bulletPrefab;
+    [SerializeField] private float _bulletSpawnRadius = 0.5f;
+    [SerializeField] private float _shootDistance = 10f;
     
     protected override IEnumerator IEAttackPlayer()
     {
@@ -24,18 +24,18 @@ public class FlameSlime : BaseMonster
 
     private void SpawnBulletInDirection(float angleDegrees)
     {
-        if (bulletPrefab == null){
+        if (_bulletPrefab == null){
             Debug.LogWarning("Bullet prefab is not assigned!");
             return;
         }
 
         Vector3 spawnPosition = transform.position;
 
-        var bulletInstance = Instantiate(bulletPrefab, spawnPosition, Quaternion.identity);
+        var bulletInstance = Instantiate(_bulletPrefab, spawnPosition, Quaternion.identity);
 
         float angleRadians = angleDegrees * Mathf.Deg2Rad;
         Vector3 direction = new Vector3(Mathf.Cos(angleRadians), Mathf.Sin(angleRadians), 0);
-        Vector3 targetPosition = transform.position + direction * shootDistance;
+        Vector3 targetPosition = transform.position + direction * _shootDistance;
 
         bulletInstance.StartProjectile(targetPosition);
 

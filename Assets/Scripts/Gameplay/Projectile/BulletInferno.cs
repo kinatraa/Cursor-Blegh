@@ -5,8 +5,8 @@ using UnityEngine;
 public class BulletInferno : BaseMonsterProjectile
 {
     [Header("Inferno Settings")]
-    [SerializeField] private float homingDuration = 2f; 
-    [SerializeField] private float homingStrength = 1f;
+    [SerializeField] private float _homingDuration = 2f; 
+    [SerializeField] private float _homingStrength = 1f;
 
     protected override IEnumerator IEProjectileMove(Vector3 targetPosition)
     {
@@ -14,14 +14,14 @@ public class BulletInferno : BaseMonsterProjectile
         float homingTimer = 0f;
         Vector3 finalDirection = Vector3.zero;
 
-        while (timer < existTime && isMoving)
+        while (timer < existTime && _isMoving)
         {
             timer += Time.deltaTime;
             homingTimer += Time.deltaTime;
 
             Vector3 direction;
 
-            if (homingTimer < homingDuration)
+            if (homingTimer < _homingDuration)
             {
                 var playerController = GameplayManager.Instance.weaponController.currentWeapon;
                 if (playerController != null)
@@ -31,7 +31,7 @@ public class BulletInferno : BaseMonsterProjectile
                     
                     Vector3 currentDir = (targetPosition - transform.position).normalized;
                     
-                    direction = Vector3.Lerp(currentDir, toPlayer, homingStrength * Time.deltaTime * 5f).normalized;
+                    direction = Vector3.Lerp(currentDir, toPlayer, _homingStrength * Time.deltaTime * 5f).normalized;
                     
                     targetPosition = currentPlayerPos;
                     finalDirection = direction;
