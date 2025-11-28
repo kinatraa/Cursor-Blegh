@@ -113,7 +113,7 @@ public abstract class BaseMonster : MonoBehaviour
         yield return new WaitForSeconds(_remainingAnimTime);
     }
 
-    public void TakeDamage(int damage)
+    public virtual void TakeDamage(int damage)
     {
         Debug.Log($"{gameObject.name} is taking damage {damage}");
         currentHp -= damage;
@@ -122,6 +122,7 @@ public abstract class BaseMonster : MonoBehaviour
             Die();
         }
     }
+    
 
     protected virtual void Die()
     {

@@ -28,7 +28,7 @@ public class FlameSlime : BaseMonster
             Debug.LogWarning("Bullet prefab is not assigned!");
             return;
         }
-
+        
         Vector3 spawnPosition = transform.position;
 
         var bulletInstance = Instantiate(_bulletPrefab, spawnPosition, Quaternion.identity);

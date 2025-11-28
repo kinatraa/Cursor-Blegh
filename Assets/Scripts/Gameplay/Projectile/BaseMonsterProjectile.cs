@@ -7,7 +7,7 @@ public abstract class BaseMonsterProjectile : MonoBehaviour
 {
     public float speed = 5f;
     public float existTime = 5f;
-
+    
     protected Vector3 _targetPosition;
     protected bool _isMoving = false;
 
@@ -32,7 +32,7 @@ public abstract class BaseMonsterProjectile : MonoBehaviour
         {
             timer += Time.deltaTime;
 
-            transform.position += dir * (speed * Time.deltaTime);
+            transform.position += dir * ((speed) * Time.deltaTime);
 
             yield return null;
         }
