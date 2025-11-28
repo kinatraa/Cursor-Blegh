@@ -8,6 +8,7 @@ public class GameplayManager : SingletonDestroy<GameplayManager>
     [Header("Controller")] 
     public WeaponController weaponController;
     public MonsterController monsterController;
+    public WaveController waveController;
     
     [Header("Test Level Data")] public WeaponType weaponType;
     

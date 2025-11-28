@@ -419,6 +419,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weaponController: {fileID: 1090187801}
   monsterController: {fileID: 319726306}
+  waveController: {fileID: 1179435695}
   weaponType: 2
 --- !u!1 &1090187798
 GameObject:

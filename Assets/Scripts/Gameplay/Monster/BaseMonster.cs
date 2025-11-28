@@ -22,6 +22,7 @@ public abstract class BaseMonster : MonoBehaviour
     protected float _remainingAnimTime;
     
     [SerializeField] private float chargePhaseRatio = 0.6f;
+    [SerializeField] private bool flipOnUpdate= true;
     
     private void Awake()
     {
@@ -34,6 +35,30 @@ public abstract class BaseMonster : MonoBehaviour
     private void Start()
     {
         _behaviorCoroutine = StartCoroutine(IEStateChange());
+    }
+
+    private void Update(){
+        if (flipOnUpdate){
+            UpdateFacingDirection();
+        }
+    }
+
+    protected void UpdateFacingDirection(){
+        var playerController = GameplayManager.Instance.weaponController.currentWeapon;
+        if (playerController != null)
+        {
+            Vector3 playerPos = playerController.transform.position;
+            Vector3 directionToPlayer = playerPos - transform.position;
+            
+            if (directionToPlayer.x < 0)
+            {
+                _sr.flipX = true;
+            }
+            else if (directionToPlayer.x > 0)
+            {
+                _sr.flipX = false;
+            }
+        }
     }
 
     protected void PlayAnimation(string stateName, float transitionDuration = 0.1f)
@@ -109,6 +134,19 @@ public abstract class BaseMonster : MonoBehaviour
         yield return null;
         yield return new WaitForSeconds(_animator.GetCurrentAnimatorStateInfo(0).length);
         Destroy(gameObject);
+    }
+
+    public float GetMonsterRadius()
+    {
+        var spriteRenderer = GetComponentInChildren<SpriteRenderer>();
+        if (spriteRenderer != null && spriteRenderer.sprite != null)
+        {
+            return Mathf.Max(
+                spriteRenderer.sprite.bounds.size.x * transform.localScale.x,
+                spriteRenderer.sprite.bounds.size.y * transform.localScale.y
+            ) * 0.5f;
+        }
+        return 0.5f;
     }
 
     private void ResetMonster()
