@@ -22,6 +22,7 @@ public abstract class BaseMonster : MonoBehaviour
     protected float _remainingAnimTime;
     
     [SerializeField] private float _chargePhaseRatio = 0.6f;
+    protected float getChargePhaseRatio() => _chargePhaseRatio;
     [SerializeField] private bool _flipOnUpdate= true;
     
     private void Awake()
