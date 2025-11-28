@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &723428728262007246
+--- !u!1 &1512210793147141124
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,40 +8,39 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 6104177022665392725}
-  - component: {fileID: 8167132161456147552}
-  - component: {fileID: 1348737160383665508}
-  - component: {fileID: 7372128273616224062}
-  - component: {fileID: 5052004644184857683}
+  - component: {fileID: 4778534829151492455}
+  - component: {fileID: 7174025167128912350}
+  - component: {fileID: 7952658005898702095}
+  - component: {fileID: 6691201293295814347}
   m_Layer: 0
-  m_Name: InfernoBeast
-  m_TagString: Monster
+  m_Name: Bullet
+  m_TagString: MonsterProjectile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &6104177022665392725
+--- !u!4 &4778534829151492455
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 723428728262007246}
+  m_GameObject: {fileID: 1512210793147141124}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.009236, y: 1.2824748, z: 0}
-  m_LocalScale: {x: 3, y: 3, z: 3}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &8167132161456147552
+--- !u!212 &7174025167128912350
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 723428728262007246}
+  m_GameObject: {fileID: 1512210793147141124}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -76,44 +75,24 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 373663766, guid: f6063c08c706f694780a434f84329dd2, type: 3}
+  m_Sprite: {fileID: 53396789, guid: 59d6fd698cac2844dbc97e49684e4c0f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 2.56, y: 2.56}
+  m_Size: {x: 0.8125, y: 0.8125}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &1348737160383665508
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 723428728262007246}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b2ff168b87ca7924b996dfa035bef58f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  data: {fileID: 11400000, guid: 4959f0c5ebb5aad429cdd2058fa703cb, type: 2}
-  currentHp: 0
-  currentState: 0
-  chargePhaseRatio: 0.6
-  bulletPrefab: {fileID: 6691201293295814347, guid: 7c783d9dae5686f4ca7e1cb699c27038, type: 3}
-  minBullets: 1
-  maxBullets: 2
-  bulletSpawnRadius: 0.5
---- !u!58 &7372128273616224062
+--- !u!58 &7952658005898702095
 CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 723428728262007246}
+  m_GameObject: {fileID: 1512210793147141124}
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
@@ -139,27 +118,20 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.05}
+  m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.25
---- !u!95 &5052004644184857683
-Animator:
-  serializedVersion: 5
+  m_Radius: 0.40625
+--- !u!114 &6691201293295814347
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 723428728262007246}
+  m_GameObject: {fileID: 1512210793147141124}
   m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 1e25fda9894623e41917d09f3f43ac8d, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 97c9b77e094f4f09b7cd26605c4318ad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 10
+  existTime: 3

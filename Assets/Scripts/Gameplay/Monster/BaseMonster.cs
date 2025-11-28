@@ -19,6 +19,8 @@ public abstract class BaseMonster : MonoBehaviour
     protected const string ANIM_ATTACK = "Attack";
     protected const string ANIM_DIE = "Die";
     
+    protected float _remainingAnimTime;
+    
     [SerializeField] private float chargePhaseRatio = 0.6f;
     
     private void Awake()
@@ -63,8 +65,6 @@ public abstract class BaseMonster : MonoBehaviour
         _sr.color = Color.white;
         yield return new WaitForSeconds(Random.Range(3.0f, 5.0f));
     }
-
-    private float _remainingAnimTime;
 
     protected virtual IEnumerator IECharging()
     {
