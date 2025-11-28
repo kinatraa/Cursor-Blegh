@@ -36,5 +36,15 @@ public static class CombatResolver
         
         projectile.Destroy();
     }
-    
+
+    public static void MonsterDamageWeapon(BaseWeapon weapon, BaseMonster monster)
+    {
+        if (!weapon || !monster) return;
+
+        if (weapon.currentState == WeaponState.NORMAL)
+        {
+            weapon.TakeDamage();
+            Debug.Log($"<color=red>{monster.name} damaged {weapon.name}</color>");
+        }
+    }
 }
