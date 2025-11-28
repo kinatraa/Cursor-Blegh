@@ -158,8 +158,8 @@ MonoBehaviour:
   data: {fileID: 11400000, guid: d97ec15d11fe7e849985ad49575b648e, type: 2}
   currentHp: 0
   currentState: 0
-  chargePhaseRatio: 0.6
-  flipOnUpdate: 1
-  bulletPrefab: {fileID: 989959159585767392, guid: f999ab6bc651dba41955000a34ee51c3, type: 3}
-  bulletSpawnRadius: 0.5
-  shootDistance: 10
+  _chargePhaseRatio: 0.6
+  _flipOnUpdate: 1
+  _bulletPrefab: {fileID: 989959159585767392, guid: f999ab6bc651dba41955000a34ee51c3, type: 3}
+  _bulletSpawnRadius: 0.5
+  _shootDistance: 10

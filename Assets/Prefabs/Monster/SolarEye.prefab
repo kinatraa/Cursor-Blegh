@@ -160,7 +160,7 @@ MonoBehaviour:
   currentState: 0
   _chargePhaseRatio: 0.6
   _flipOnUpdate: 1
-  _laserPrefab: {fileID: 0}
+  _laserPrefab: {fileID: 4602900366159854681, guid: 62af2f17a392eed4f96f8fb956cc0acf, type: 3}
   _laserCount: 4
   _laserLength: 30
   _randomAngles: 0

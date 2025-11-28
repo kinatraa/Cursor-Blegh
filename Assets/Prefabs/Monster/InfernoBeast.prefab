@@ -10,8 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 6104177022665392725}
   - component: {fileID: 8167132161456147552}
-  - component: {fileID: 1348737160383665508}
   - component: {fileID: 7372128273616224062}
+  - component: {fileID: 1348737160383665508}
   - component: {fileID: 5052004644184857683}
   m_Layer: 0
   m_Name: InfernoBeast
@@ -87,26 +87,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &1348737160383665508
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 723428728262007246}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b2ff168b87ca7924b996dfa035bef58f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  data: {fileID: 11400000, guid: 4959f0c5ebb5aad429cdd2058fa703cb, type: 2}
-  currentHp: 0
-  currentState: 0
-  chargePhaseRatio: 0.6
-  bulletPrefab: {fileID: 6691201293295814347, guid: 7c783d9dae5686f4ca7e1cb699c27038, type: 3}
-  minBullets: 1
-  maxBullets: 2
-  bulletSpawnRadius: 0.5
 --- !u!58 &7372128273616224062
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -142,6 +122,27 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0.05}
   serializedVersion: 2
   m_Radius: 0.25
+--- !u!114 &1348737160383665508
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 723428728262007246}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b2ff168b87ca7924b996dfa035bef58f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  data: {fileID: 11400000, guid: 4959f0c5ebb5aad429cdd2058fa703cb, type: 2}
+  currentHp: 0
+  currentState: 0
+  _chargePhaseRatio: 0.6
+  _flipOnUpdate: 1
+  _bulletPrefab: {fileID: 6691201293295814347, guid: 7c783d9dae5686f4ca7e1cb699c27038, type: 3}
+  _minBullets: 1
+  _maxBullets: 2
+  _bulletSpawnRadius: 0.5
 --- !u!95 &5052004644184857683
 Animator:
   serializedVersion: 5
