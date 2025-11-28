@@ -1,0 +1,710 @@
+fileFormatVersion: 2
+guid: eeea0cda716a9484bb3d911efd4baf26
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 0
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 32
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: 4
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: WraithSorcerer_2
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 272
+        width: 67
+        height: 71
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6bccab39f6cf2ce498bcd6faa05d5759
+      internalID: 139761166
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WraithSorcerer_3
+      rect:
+        serializedVersion: 2
+        x: 104
+        y: 272
+        width: 62
+        height: 71
+      alignment: 9
+      pivot: {x: 0.5933274, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cf1efce13b2ecc9448b6cbb991fb8fb0
+      internalID: -47233646
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WraithSorcerer_5
+      rect:
+        serializedVersion: 2
+        x: 182
+        y: 270
+        width: 68
+        height: 71
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4cf83ab1964c3df42829281a0ae69324
+      internalID: -939613537
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WraithSorcerer_6
+      rect:
+        serializedVersion: 2
+        x: 260
+        y: 271
+        width: 68
+        height: 71
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e52ec4c3baaf4c947b30d8eb2954c33e
+      internalID: -1467121100
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WraithSorcerer_7
+      rect:
+        serializedVersion: 2
+        x: 339
+        y: 271
+        width: 68
+        height: 71
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b47e69de3744c014980cc69b88c72067
+      internalID: 90773193
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WraithSorcerer_8
+      rect:
+        serializedVersion: 2
+        x: 417
+        y: 271
+        width: 63
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c8a9c01df64027a4e90e49229b9794ff
+      internalID: -647802612
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WraithSorcerer_10
+      rect:
+        serializedVersion: 2
+        x: 500
+        y: 271
+        width: 67
+        height: 71
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 16d01c82537d2a042acda0b4d369b6a9
+      internalID: 1984329775
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WraithSorcerer_11
+      rect:
+        serializedVersion: 2
+        x: 581
+        y: 271
+        width: 62
+        height: 71
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 03d5ac4e5fa3dff429556a31c654481c
+      internalID: -885149605
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WraithSorcerer_25
+      rect:
+        serializedVersion: 2
+        x: 26
+        y: 150
+        width: 62
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9445c4749dad2684fb60feaa58488735
+      internalID: 2101313890
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WraithSorcerer_26
+      rect:
+        serializedVersion: 2
+        x: 97
+        y: 150
+        width: 62
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dd1ccdc31774e9b43bb4c1afe2e84f41
+      internalID: -1414499471
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WraithSorcerer_27
+      rect:
+        serializedVersion: 2
+        x: 165
+        y: 135
+        width: 61
+        height: 88
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c8915ebd05f927a499067e304af2eddc
+      internalID: -170833243
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WraithSorcerer_28
+      rect:
+        serializedVersion: 2
+        x: 239
+        y: 135
+        width: 60
+        height: 95
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d65d0b682435a8c4f93e11ec08eb76db
+      internalID: -1333323248
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WraithSorcerer_29
+      rect:
+        serializedVersion: 2
+        x: 314
+        y: 135
+        width: 60
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 39b606cf386bfcd4fa1c3f8921c961cf
+      internalID: -1689887139
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WraithSorcerer_30
+      rect:
+        serializedVersion: 2
+        x: 398
+        y: 150
+        width: 55
+        height: 77
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2c024ddde261b324dbb87589dcdbad2a
+      internalID: -383674808
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WraithSorcerer_31
+      rect:
+        serializedVersion: 2
+        x: 465
+        y: 150
+        width: 54
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f63beb2ea75222a41a4036a85892af3e
+      internalID: -1471831087
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WraithSorcerer_32
+      rect:
+        serializedVersion: 2
+        x: 542
+        y: 150
+        width: 58
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0ed3de3a9608d804f84c5809f2a58f0d
+      internalID: -2087209955
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WraithSorcerer_33
+      rect:
+        serializedVersion: 2
+        x: 605
+        y: 150
+        width: 59
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bfb0ea11a21c4974fa8f9b1061e2191c
+      internalID: 1587378992
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WraithSorcerer_42
+      rect:
+        serializedVersion: 2
+        x: 26
+        y: 25
+        width: 63
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 704438c392e209c41b9004c1690af8f1
+      internalID: 1509497769
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WraithSorcerer_43
+      rect:
+        serializedVersion: 2
+        x: 104
+        y: 25
+        width: 62
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 02d707254734eb64eaab0aa8a821faa8
+      internalID: 1499737576
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WraithSorcerer_44
+      rect:
+        serializedVersion: 2
+        x: 184
+        y: 23
+        width: 62
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 006a9b8e64220184d856b5d8e2c8a94e
+      internalID: -63815287
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WraithSorcerer_45
+      rect:
+        serializedVersion: 2
+        x: 262
+        y: 22
+        width: 65
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6847621e853ac924fa5a76e6cf1e6ccf
+      internalID: -1201429247
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WraithSorcerer_46
+      rect:
+        serializedVersion: 2
+        x: 341
+        y: 13
+        width: 68
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b1134b764d6e57b40b3cc2c0c8386128
+      internalID: -2109894209
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WraithSorcerer_47
+      rect:
+        serializedVersion: 2
+        x: 620
+        y: 48
+        width: 24
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6f49bb90effb048489fcc742f69f589e
+      internalID: 1322521943
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WraithSorcerer_49
+      rect:
+        serializedVersion: 2
+        x: 431
+        y: 20
+        width: 67
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9a68cec19b3f9c6469892de83baf7339
+      internalID: -1906392943
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WraithSorcerer_50
+      rect:
+        serializedVersion: 2
+        x: 528
+        y: 31
+        width: 38
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 26f5d9b3e2bbbaa40973b2e7707c274f
+      internalID: 1778576195
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: b8c9427196c992c44aa9a6f43b5822f8
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      WraithSorcerer_0: -1605640505
+      WraithSorcerer_1: 532542308
+      WraithSorcerer_10: 1984329775
+      WraithSorcerer_11: -885149605
+      WraithSorcerer_12: -597463817
+      WraithSorcerer_13: -1116033688
+      WraithSorcerer_14: -257581676
+      WraithSorcerer_15: 1408978874
+      WraithSorcerer_16: -465455695
+      WraithSorcerer_17: -109632040
+      WraithSorcerer_18: -698537762
+      WraithSorcerer_19: -369162554
+      WraithSorcerer_2: 139761166
+      WraithSorcerer_20: 131714262
+      WraithSorcerer_21: -1391566814
+      WraithSorcerer_22: 1190408251
+      WraithSorcerer_23: 629431573
+      WraithSorcerer_24: -436744733
+      WraithSorcerer_25: 2101313890
+      WraithSorcerer_26: -1414499471
+      WraithSorcerer_27: -170833243
+      WraithSorcerer_28: -1333323248
+      WraithSorcerer_29: -1689887139
+      WraithSorcerer_3: -47233646
+      WraithSorcerer_30: -383674808
+      WraithSorcerer_31: -1471831087
+      WraithSorcerer_32: -2087209955
+      WraithSorcerer_33: 1587378992
+      WraithSorcerer_34: 549723190
+      WraithSorcerer_35: 1465423479
+      WraithSorcerer_36: -1282672403
+      WraithSorcerer_37: -1365718229
+      WraithSorcerer_38: -1103255023
+      WraithSorcerer_39: -2052914396
+      WraithSorcerer_4: -1563039564
+      WraithSorcerer_40: 645692020
+      WraithSorcerer_41: 547062489
+      WraithSorcerer_42: 1509497769
+      WraithSorcerer_43: 1499737576
+      WraithSorcerer_44: -63815287
+      WraithSorcerer_45: -1201429247
+      WraithSorcerer_46: -2109894209
+      WraithSorcerer_47: 1322521943
+      WraithSorcerer_48: 1840456487
+      WraithSorcerer_49: -1906392943
+      WraithSorcerer_5: -939613537
+      WraithSorcerer_50: 1778576195
+      WraithSorcerer_51: 292753701
+      WraithSorcerer_52: 899559347
+      WraithSorcerer_53: 1129039297
+      WraithSorcerer_54: -1189639518
+      WraithSorcerer_55: -273882516
+      WraithSorcerer_56: -140641264
+      WraithSorcerer_57: 1126428172
+      WraithSorcerer_6: -1467121100
+      WraithSorcerer_7: 90773193
+      WraithSorcerer_8: -647802612
+      WraithSorcerer_9: 1932102676
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
