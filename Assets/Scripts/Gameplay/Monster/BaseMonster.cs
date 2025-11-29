@@ -160,8 +160,18 @@ public abstract class BaseMonster : MonoBehaviour
     
     private void OnDisable()
     {
-        GameplayManager.Instance.weaponController.currentWeapon.GainScore(data.score);
-        GameplayManager.Instance.monsterController.RemoveMonster(this);
+        StopAllCoroutines();
+       if (GameplayManager.Instance != null &&
+           GameplayManager.Instance.waveController != null)
+       {
+            GameplayManager.Instance.weaponController.currentWeapon.GainScore(data.score);
+            GameplayManager.Instance.monsterController.RemoveMonster(this);
+       }
+    }
+
+    protected virtual void OnDestroy()
+    {
+        StopAllCoroutines();
     }
     
     public MonsterType GetMonsterType() => data.type;

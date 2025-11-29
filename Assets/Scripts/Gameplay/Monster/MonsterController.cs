@@ -91,6 +91,7 @@ public class MonsterController : MonoBehaviour
         }
     }
 
+
     public bool AllMonsterAreCleared()
     {
         return _monsterList.Count == 0;

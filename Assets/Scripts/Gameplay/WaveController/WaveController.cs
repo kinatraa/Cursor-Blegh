@@ -18,7 +18,7 @@ public class WaveController : MonoBehaviour
     private int _maxConfiguredWave = 0; 
     
     private MonsterController _monsterController;
-
+    private int _monsterAliveInWave = 0;
     private void Awake()
     {
         _monsterController = GameplayManager.Instance.monsterController;
