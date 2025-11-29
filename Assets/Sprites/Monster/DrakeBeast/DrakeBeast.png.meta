@@ -1,0 +1,793 @@
+fileFormatVersion: 2
+guid: 60b91908c9312d24b8926d873b7337dc
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 0
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 32
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: 4
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: DrakeBeast_1
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 270
+        width: 63
+        height: 77
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 92eecca0089b4a2408036626c3ffe8cc
+      internalID: 2861409
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DrakeBeast_2
+      rect:
+        serializedVersion: 2
+        x: 91
+        y: 270
+        width: 68
+        height: 77
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5d779694e660bfc4494905a82d48fb37
+      internalID: 610622633
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DrakeBeast_3
+      rect:
+        serializedVersion: 2
+        x: 171
+        y: 270
+        width: 70
+        height: 77
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8394e6e2965d1634b9044c3af4c7fa64
+      internalID: 1619943649
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DrakeBeast_4
+      rect:
+        serializedVersion: 2
+        x: 259
+        y: 270
+        width: 76
+        height: 77
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 64b11ae32dd1f3042a7d3ac29a4d61f6
+      internalID: -211337185
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DrakeBeast_5
+      rect:
+        serializedVersion: 2
+        x: 348
+        y: 270
+        width: 62
+        height: 77
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a47702c7dd5681c449ac48143bdb5b67
+      internalID: 70072040
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DrakeBeast_6
+      rect:
+        serializedVersion: 2
+        x: 430
+        y: 270
+        width: 66
+        height: 77
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d8be7d3a97142554ea23073bfaf84e53
+      internalID: -1556375671
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DrakeBeast_7
+      rect:
+        serializedVersion: 2
+        x: 513
+        y: 270
+        width: 63
+        height: 77
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f2488b1de00890140bf038a65ac0ab64
+      internalID: -1078562624
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DrakeBeast_8
+      rect:
+        serializedVersion: 2
+        x: 596
+        y: 270
+        width: 64
+        height: 77
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 061485b8534b21d40aef82ebd6c5798e
+      internalID: -396670256
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DrakeBeast_14
+      rect:
+        serializedVersion: 2
+        x: 10
+        y: 173
+        width: 68
+        height: 69
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b48038dea8fb2394e95d7fd0e097dc45
+      internalID: -1779154915
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DrakeBeast_15
+      rect:
+        serializedVersion: 2
+        x: 89
+        y: 173
+        width: 75
+        height: 69
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 39a5fee7f3ffaca459f57ce2c7f06d61
+      internalID: 1350954853
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DrakeBeast_16
+      rect:
+        serializedVersion: 2
+        x: 172
+        y: 173
+        width: 76
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 59a48b83c6af4bd4d9811ceedb5a97bb
+      internalID: 1262480585
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DrakeBeast_17
+      rect:
+        serializedVersion: 2
+        x: 259
+        y: 173
+        width: 81
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 807a8b297bca010419dd29dba3ded51d
+      internalID: 168745568
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DrakeBeast_18
+      rect:
+        serializedVersion: 2
+        x: 346
+        y: 173
+        width: 83
+        height: 68
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e1b4521af0f95a542916eb71bb1087df
+      internalID: -2101393280
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DrakeBeast_20
+      rect:
+        serializedVersion: 2
+        x: 433
+        y: 173
+        width: 79
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 43012f1df33f7324e853e7c58d362e56
+      internalID: 1971670469
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DrakeBeast_21
+      rect:
+        serializedVersion: 2
+        x: 517
+        y: 173
+        width: 69
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 93fee35094ed4ff428b734852af68b22
+      internalID: 1684996868
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DrakeBeast_22
+      rect:
+        serializedVersion: 2
+        x: 598
+        y: 173
+        width: 69
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d5f1be49aeccf4c46856ba45f61c92c0
+      internalID: 1268749330
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DrakeBeast_32
+      rect:
+        serializedVersion: 2
+        x: 10
+        y: 78
+        width: 67
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4c9901c16b320f045b2cd3af8704666d
+      internalID: -1304221221
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DrakeBeast_33
+      rect:
+        serializedVersion: 2
+        x: 87
+        y: 78
+        width: 68
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4a3ddfecc8e06144db275b8f84ff3787
+      internalID: -1830723255
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DrakeBeast_34
+      rect:
+        serializedVersion: 2
+        x: 165
+        y: 78
+        width: 68
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eed06a65d05783940a6cc572989a5809
+      internalID: -480448646
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DrakeBeast_35
+      rect:
+        serializedVersion: 2
+        x: 245
+        y: 78
+        width: 75
+        height: 69
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 839bed9194df1c444b787e50cc827bf3
+      internalID: 640966425
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DrakeBeast_43
+      rect:
+        serializedVersion: 2
+        x: 434
+        y: 116
+        width: 7
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3ffc6e1646d65704e9ae17dd937ce213
+      internalID: 1942967756
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DrakeBeast_49
+      rect:
+        serializedVersion: 2
+        x: 17
+        y: 5
+        width: 67
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 68624f10b76804f40b05ae53c02104a9
+      internalID: -403337599
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DrakeBeast_50
+      rect:
+        serializedVersion: 2
+        x: 97
+        y: 5
+        width: 67
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 948a681e9dd02a64182324e370a25b55
+      internalID: 1635836638
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DrakeBeast_51
+      rect:
+        serializedVersion: 2
+        x: 181
+        y: 5
+        width: 67
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a29b5a8ca2882a9428dca5c62627b12b
+      internalID: -1353171072
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DrakeBeast_52
+      rect:
+        serializedVersion: 2
+        x: 259
+        y: 5
+        width: 73
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 646be181019638a478f319ac59518dfd
+      internalID: 1997363864
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DrakeBeast_53
+      rect:
+        serializedVersion: 2
+        x: 341
+        y: 5
+        width: 76
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2c74ad211538eb444b4f7426043832c5
+      internalID: 1788185919
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DrakeBeast_54
+      rect:
+        serializedVersion: 2
+        x: 424
+        y: 5
+        width: 79
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c1a21ff62328e2e49ba141e90b0295bd
+      internalID: -1106978237
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DrakeBeast_55
+      rect:
+        serializedVersion: 2
+        x: 505
+        y: 5
+        width: 83
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6a3b85ad88982d54d9461c7e56b7a84f
+      internalID: -708555918
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DrakeBeast_56
+      rect:
+        serializedVersion: 2
+        x: 600
+        y: 5
+        width: 70
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1dad36a384368d24fa3cf6e198da3723
+      internalID: -233577489
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 8593a25025c9371468b5c064fd3c05cc
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      DrakeBeast_0: 291953874
+      DrakeBeast_1: 2861409
+      DrakeBeast_10: -280989507
+      DrakeBeast_11: 428188773
+      DrakeBeast_12: 1154179583
+      DrakeBeast_13: -1946331808
+      DrakeBeast_14: -1779154915
+      DrakeBeast_15: 1350954853
+      DrakeBeast_16: 1262480585
+      DrakeBeast_17: 168745568
+      DrakeBeast_18: -2101393280
+      DrakeBeast_19: -55707519
+      DrakeBeast_2: 610622633
+      DrakeBeast_20: 1971670469
+      DrakeBeast_21: 1684996868
+      DrakeBeast_22: 1268749330
+      DrakeBeast_23: -466329520
+      DrakeBeast_24: -144885781
+      DrakeBeast_25: -1907655824
+      DrakeBeast_26: -2104607401
+      DrakeBeast_27: -400725321
+      DrakeBeast_28: -1439461502
+      DrakeBeast_29: 1790701881
+      DrakeBeast_3: 1619943649
+      DrakeBeast_30: 272264696
+      DrakeBeast_31: 940850625
+      DrakeBeast_32: -1304221221
+      DrakeBeast_33: -1830723255
+      DrakeBeast_34: -480448646
+      DrakeBeast_35: 640966425
+      DrakeBeast_36: 355060320
+      DrakeBeast_37: 223803201
+      DrakeBeast_38: 1657933800
+      DrakeBeast_39: -1167148664
+      DrakeBeast_4: -211337185
+      DrakeBeast_40: 1768899201
+      DrakeBeast_41: 1139413264
+      DrakeBeast_42: 857440107
+      DrakeBeast_43: 1942967756
+      DrakeBeast_44: 1094797782
+      DrakeBeast_45: -1297272002
+      DrakeBeast_46: 1126420910
+      DrakeBeast_47: 1496279914
+      DrakeBeast_48: 838504230
+      DrakeBeast_49: -403337599
+      DrakeBeast_5: 70072040
+      DrakeBeast_50: 1635836638
+      DrakeBeast_51: -1353171072
+      DrakeBeast_52: 1997363864
+      DrakeBeast_53: 1788185919
+      DrakeBeast_54: -1106978237
+      DrakeBeast_55: -708555918
+      DrakeBeast_56: -233577489
+      DrakeBeast_6: -1556375671
+      DrakeBeast_7: -1078562624
+      DrakeBeast_8: -396670256
+      DrakeBeast_9: -1852067983
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
