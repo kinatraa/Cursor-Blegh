@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Pixelplacement;
 using UnityEngine;
 
 public class GameplayManager : SingletonDestroy<GameplayManager>
@@ -9,6 +10,7 @@ public class GameplayManager : SingletonDestroy<GameplayManager>
     public WeaponController weaponController;
     public MonsterController monsterController;
     public WaveController waveController;
+    public StateMachine stateController;
     
     [Header("Test Level Data")] public WeaponType weaponType;
     
