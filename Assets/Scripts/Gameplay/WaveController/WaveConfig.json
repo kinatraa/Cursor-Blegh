@@ -7,8 +7,8 @@
       "count_max": 9,
       "is_boss_wave": false,
       "enemies": [
-        { "id": "SLIME_PRIMORDIAL", "size": "SMALL", "ratio": 90 },
-        { "id": "SLIME_PRIMORDIAL", "size": "MEDIUM", "ratio": 10 }
+        { "id": "SLIME_PRIMORDIAL", "size": "SMALL", "min_count": 8, "max_count": 8 },
+        { "id": "SLIME_PRIMORDIAL", "size": "MEDIUM", "min_count": 1, "max_count": 1 }
       ]
     },
     {
@@ -18,9 +18,9 @@
       "count_max": 12,
       "is_boss_wave": false,
       "enemies": [
-        { "id": "SLIME_PRIMORDIAL", "size": "SMALL", "ratio": 60 },
-        { "id": "SLIME_PRIMORDIAL", "size": "MEDIUM", "ratio": 30 },
-        { "id": "ELF_MARKSMAN", "size": "SMALL", "ratio": 10 }
+        { "id": "SLIME_PRIMORDIAL", "size": "SMALL", "min_count": 5, "max_count": 7 },
+        { "id": "SLIME_PRIMORDIAL", "size": "MEDIUM", "min_count": 3, "max_count": 4 },
+        { "id": "ELF_MARKSMAN", "size": "SMALL", "min_count": 1, "max_count": 2 }
       ]
     },
     {
@@ -30,11 +30,11 @@
       "count_max": 15,
       "is_boss_wave": false,
       "enemies": [
-        { "id": "SLIME_PRIMORDIAL", "size": "SMALL", "ratio": 20 },
-        { "id": "SLIME_PRIMORDIAL", "size": "MEDIUM", "ratio": 20 },
-        { "id": "ELF_MARKSMAN", "size": "SMALL", "ratio": 20 },
-        { "id": "EMBER_MUSHROOM", "size": "MEDIUM", "ratio": 20 },
-        { "id": "ELF_ASSASSIN", "size": "SMALL", "ratio": 20 }
+        { "id": "SLIME_PRIMORDIAL", "size": "SMALL", "min_count": 2, "max_count": 3 },
+        { "id": "SLIME_PRIMORDIAL", "size": "MEDIUM", "min_count": 2, "max_count": 3 },
+        { "id": "ELF_MARKSMAN", "size": "SMALL", "min_count": 2, "max_count": 3 },
+        { "id": "FLAME_SLIME", "size": "MEDIUM", "min_count": 2, "max_count": 3 },
+        { "id": "ELF_ASSASSIN", "size": "SMALL", "min_count": 2, "max_count": 3 }
       ]
     },
     {
@@ -44,9 +44,9 @@
       "count_max": 15,
       "is_boss_wave": false,
       "enemies": [
-        { "id": "SLIME_PRIMORDIAL", "size": "SMALL", "ratio": 60 },
-        { "id": "SLIME_PRIMORDIAL", "size": "MEDIUM", "ratio": 20 },
-        { "id": "SLIME_PRIMORDIAL", "size": "LARGE", "ratio": 20 }
+        { "id": "SLIME_PRIMORDIAL", "size": "SMALL", "min_count": 7, "max_count": 9 },
+        { "id": "SLIME_PRIMORDIAL", "size": "MEDIUM", "min_count": 3, "max_count": 3 },
+        { "id": "SLIME_PRIMORDIAL", "size": "LARGE", "min_count": 2, "max_count": 3 }
       ]
     },
     {
@@ -56,14 +56,14 @@
       "count_max": 15,
       "is_boss_wave": false,
       "enemies": [
-        { "id": "SLIME_PRIMORDIAL", "size": "SMALL", "ratio": 15 },
-        { "id": "SLIME_PRIMORDIAL", "size": "MEDIUM", "ratio": 15 },
-        { "id": "SLIME_PRIMORDIAL", "size": "LARGE", "ratio": 10 },
-        { "id": "ELF_MARKSMAN", "size": "SMALL", "ratio": 7 },
-        { "id": "EMBER_MUSHROOM", "size": "MEDIUM", "ratio": 7 },
-        { "id": "ELF_ASSASSIN", "size": "SMALL", "ratio": 6 },
-        { "id": "TOXIC_MUSHROOM", "size": "MEDIUM", "ratio": 20 },
-        { "id": "THUNDER_BEAST", "size": "MEDIUM", "ratio": 20 }
+        { "id": "SLIME_PRIMORDIAL", "size": "SMALL", "min_count": 2, "max_count": 3 },
+        { "id": "SLIME_PRIMORDIAL", "size": "MEDIUM", "min_count": 2, "max_count": 3 },
+        { "id": "SLIME_PRIMORDIAL", "size": "LARGE", "min_count": 1, "max_count": 2 },
+        { "id": "ELF_MARKSMAN", "size": "SMALL", "min_count": 1, "max_count": 2 },
+        { "id": "FLAME_SLIME", "size": "MEDIUM", "min_count": 1, "max_count": 2 },
+        { "id": "ELF_ASSASSIN", "size": "SMALL", "min_count": 1, "max_count": 1 },
+        { "id": "TOXIC_SLIME", "size": "MEDIUM", "min_count": 2, "max_count": 3 },
+        { "id": "THUNDER_BEAST", "size": "MEDIUM", "min_count": 2, "max_count": 3 }
       ]
     },
     {
@@ -73,9 +73,9 @@
       "count_max": 15,
       "is_boss_wave": false,
       "enemies": [
-        { "id": "SLIME_PRIMORDIAL", "size": "SMALL", "ratio": 30 },
-        { "id": "SLIME_PRIMORDIAL", "size": "MEDIUM", "ratio": 40 },
-        { "id": "SLIME_PRIMORDIAL", "size": "LARGE", "ratio": 30 }
+        { "id": "SLIME_PRIMORDIAL", "size": "SMALL", "min_count": 4, "max_count": 5 },
+        { "id": "SLIME_PRIMORDIAL", "size": "MEDIUM", "min_count": 6, "max_count": 6 },
+        { "id": "SLIME_PRIMORDIAL", "size": "LARGE", "min_count": 4, "max_count": 5 }
       ]
     },
     {
@@ -85,16 +85,16 @@
       "count_max": 18,
       "is_boss_wave": false,
       "enemies": [
-        { "id": "SLIME_PRIMORDIAL", "size": "SMALL", "ratio": 15 },
-        { "id": "SLIME_PRIMORDIAL", "size": "MEDIUM", "ratio": 15 },
-        { "id": "SLIME_PRIMORDIAL", "size": "LARGE", "ratio": 10 },
-        { "id": "ELF_MARKSMAN", "size": "SMALL", "ratio": 5 },
-        { "id": "EMBER_MUSHROOM", "size": "MEDIUM", "ratio": 5 },
-        { "id": "ELF_ASSASSIN", "size": "SMALL", "ratio": 5 },
-        { "id": "TOXIC_MUSHROOM", "size": "MEDIUM", "ratio": 5 },
-        { "id": "THUNDER_BEAST", "size": "MEDIUM", "ratio": 20 },
-        { "id": "WRAITH_SORCERER", "size": "LARGE", "ratio": 10 },
-        { "id": "DRAKE_BEAST", "size": "LARGE", "ratio": 10 }
+        { "id": "SLIME_PRIMORDIAL", "size": "SMALL", "min_count": 2, "max_count": 3 },
+        { "id": "SLIME_PRIMORDIAL", "size": "MEDIUM", "min_count": 2, "max_count": 3 },
+        { "id": "SLIME_PRIMORDIAL", "size": "LARGE", "min_count": 2, "max_count": 2 },
+        { "id": "ELF_MARKSMAN", "size": "SMALL", "min_count": 1, "max_count": 2 },
+        { "id": "FLAME_SLIME", "size": "MEDIUM", "min_count": 1, "max_count": 2 },
+        { "id": "ELF_ASSASSIN", "size": "SMALL", "min_count": 1, "max_count": 2 },
+        { "id": "TOXIC_SLIME", "size": "MEDIUM", "min_count": 1, "max_count": 2 },
+        { "id": "THUNDER_BEAST", "size": "MEDIUM", "min_count": 3, "max_count": 4 },
+        { "id": "WRAITH_SORCERER", "size": "LARGE", "min_count": 1, "max_count": 2 },
+        { "id": "DRAKE_BEAST", "size": "LARGE", "min_count": 1, "max_count": 2 }
       ]
     },
     {
@@ -104,9 +104,9 @@
       "count_max": 18,
       "is_boss_wave": false,
       "enemies": [
-        { "id": "SLIME_PRIMORDIAL", "size": "SMALL", "ratio": 20 },
-        { "id": "SLIME_PRIMORDIAL", "size": "MEDIUM", "ratio": 40 },
-        { "id": "SLIME_PRIMORDIAL", "size": "LARGE", "ratio": 40 }
+        { "id": "SLIME_PRIMORDIAL", "size": "SMALL", "min_count": 3, "max_count": 4 },
+        { "id": "SLIME_PRIMORDIAL", "size": "MEDIUM", "min_count": 6, "max_count": 7 },
+        { "id": "SLIME_PRIMORDIAL", "size": "LARGE", "min_count": 6, "max_count": 7 }
       ]
     },
     {
@@ -116,16 +116,16 @@
       "count_max": 20,
       "is_boss_wave": false,
       "enemies": [
-        { "id": "SLIME_PRIMORDIAL", "size": "SMALL", "ratio": 10 },
-        { "id": "SLIME_PRIMORDIAL", "size": "MEDIUM", "ratio": 10 },
-        { "id": "SLIME_PRIMORDIAL", "size": "LARGE", "ratio": 10 },
-        { "id": "ELF_MARKSMAN", "size": "SMALL", "ratio": 5 },
-        { "id": "EMBER_MUSHROOM", "size": "MEDIUM", "ratio": 5 },
-        { "id": "ELF_ASSASSIN", "size": "SMALL", "ratio": 5 },
-        { "id": "TOXIC_MUSHROOM", "size": "MEDIUM", "ratio": 5 },
-        { "id": "THUNDER_BEAST", "size": "MEDIUM", "ratio": 20 },
-        { "id": "WRAITH_SORCERER", "size": "LARGE", "ratio": 20 },
-        { "id": "DRAKE_BEAST", "size": "LARGE", "ratio": 20 }
+        { "id": "SLIME_PRIMORDIAL", "size": "SMALL", "min_count": 2, "max_count": 3 },
+        { "id": "SLIME_PRIMORDIAL", "size": "MEDIUM", "min_count": 2, "max_count": 3 },
+        { "id": "SLIME_PRIMORDIAL", "size": "LARGE", "min_count": 2, "max_count": 3 },
+        { "id": "ELF_MARKSMAN", "size": "SMALL", "min_count": 1, "max_count": 2 },
+        { "id": "FLAME_SLIME", "size": "MEDIUM", "min_count": 1, "max_count": 2 },
+        { "id": "ELF_ASSASSIN", "size": "SMALL", "min_count": 1, "max_count": 2 },
+        { "id": "TOXIC_SLIME", "size": "MEDIUM", "min_count": 1, "max_count": 2 },
+        { "id": "THUNDER_BEAST", "size": "MEDIUM", "min_count": 4, "max_count": 5 },
+        { "id": "WRAITH_SORCERER", "size": "LARGE", "min_count": 4, "max_count": 5 },
+        { "id": "DRAKE_BEAST", "size": "LARGE", "min_count": 4, "max_count": 5 }
       ]
     },
     {
@@ -134,10 +134,10 @@
       "count_min": 5,
       "count_max": 5,
       "is_boss_wave": true,
-      "fixed_enemies": [
-        { "id": "SLIME_PRIMORDIAL", "size": "LARGE", "count": 2 },
-        { "id": "ELF_MARKSMAN", "size": "SMALL", "count": 2 },
-        { "id": "SKELETON_KING", "size": "LARGE", "count": 1 }
+      "enemies": [
+        { "id": "SLIME_PRIMORDIAL", "size": "LARGE", "min_count": 2, "max_count": 2 },
+        { "id": "ELF_MARKSMAN", "size": "SMALL", "min_count": 2, "max_count": 2 },
+        { "id": "DEMON_KING", "size": "LARGE", "min_count": 1, "max_count": 1 }
       ]
     }
   ]

@@ -15,7 +15,8 @@ public abstract class BaseMonster : MonoBehaviour
     protected Animator _animator;
     protected BaseWeapon _currentWeapon;
     private Coroutine _behaviorCoroutine;
-    
+    private Coroutine _blinkCoroutine;
+
     protected const string ANIM_IDLE = "Idle";
     protected const string ANIM_ATTACK = "Attack";
     protected const string ANIM_DIE = "Die";
@@ -25,6 +26,14 @@ public abstract class BaseMonster : MonoBehaviour
     [SerializeField] private float _chargePhaseRatio = 0.6f;
     protected float ChargePhaseRatio => _chargePhaseRatio;
     [SerializeField] private bool _flipOnUpdate = true;
+
+    [Header("Visual Effects")]
+    [SerializeField] private float _blinkDuration = 0.5f;
+    [SerializeField] private int _blinkCount = 3;
+    [SerializeField] private Color _damageColor = Color.red;
+    [SerializeField] private float _fadeOutDuration = 0.5f;
+
+    private bool _isDead = false;
     
     private void Awake()
     {
@@ -118,15 +127,67 @@ public abstract class BaseMonster : MonoBehaviour
     {
         Debug.Log($"{gameObject.name} is taking damage {damage}");
         currentHp -= damage;
+
+        if (_blinkCoroutine != null)
+        {
+            StopCoroutine(_blinkCoroutine);
+        }
+        _blinkCoroutine = StartCoroutine(IEBlinkEffect());
+
         if (currentHp <= 0)
         {
             Die();
         }
     }
 
+    private IEnumerator IEBlinkEffect()
+    {
+        Color originalColor = _sr.color;
+        float blinkInterval = _blinkDuration / (_blinkCount * 2);
+        
+        for (int i = 0; i < _blinkCount; i++)
+        {
+            if (_isDead) yield break;
+            
+            _sr.color = _damageColor;
+            yield return new WaitForSeconds(blinkInterval);
+            
+            if (_isDead) yield break;
+            
+            _sr.color = originalColor;
+            yield return new WaitForSeconds(blinkInterval);
+        }
+        
+        if (!_isDead)
+        {
+            _sr.color = originalColor;
+        }
+    }
+
     protected virtual void Die()
     {
-        if (_behaviorCoroutine != null) StopCoroutine(_behaviorCoroutine);
+        if (_isDead) return;
+        
+        _isDead = true;
+        
+        if (_behaviorCoroutine != null) 
+        {
+            StopCoroutine(_behaviorCoroutine);
+            _behaviorCoroutine = null;
+        }
+        
+        if (_blinkCoroutine != null)
+        {
+            StopCoroutine(_blinkCoroutine);
+            _blinkCoroutine = null;
+        }
+
+        var collider = GetComponent<Collider2D>();
+        if (collider != null)
+        {
+            collider.enabled = false;
+        }
+        
         StartCoroutine(IEDieSequence());
     }
     
@@ -135,8 +196,25 @@ public abstract class BaseMonster : MonoBehaviour
         PlayAnimation(ANIM_DIE);
         float animLength = _animator.GetCurrentAnimatorStateInfo(0).length;
         yield return new WaitForSeconds(animLength);
-        
+        yield return StartCoroutine(IEFadeOut());
         Destroy(gameObject);
+    }
+
+    private IEnumerator IEFadeOut()
+    {
+        float elapsed = 0f;
+        Color startColor = _sr.color;
+        Color targetColor = new Color(startColor.r, startColor.g, startColor.b, 0f);
+        
+        while (elapsed < _fadeOutDuration)
+        {
+            elapsed += Time.deltaTime;
+            float t = elapsed / _fadeOutDuration;
+            _sr.color = Color.Lerp(startColor, targetColor, t);
+            yield return null;
+        }
+        
+        _sr.color = targetColor;
     }
 
     public float GetMonsterRadius()

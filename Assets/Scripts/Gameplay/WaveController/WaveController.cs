@@ -7,7 +7,7 @@ using Random = UnityEngine.Random;
 
 public class WaveController : MonoBehaviour
 {
-    [SerializeField] private TextAsset waveConfigFile;
+    [SerializeField] private TextAsset _waveConfigFile;
     public Vector2 spawnAreaSize = new Vector2(10f, 10f);
     public Vector3 spawnCenter = Vector3.zero;
 
@@ -18,7 +18,6 @@ public class WaveController : MonoBehaviour
     private int _maxConfiguredWave = 0; 
     
     private MonsterController _monsterController;
-    private int _monsterAliveInWave = 0;
     private void Awake()
     {
         _monsterController = GameplayManager.Instance.monsterController;
@@ -40,16 +39,14 @@ public class WaveController : MonoBehaviour
         GameEventManager.InvokeUpdateWave(currentWave);
     }
 
-    void LoadWaveConfig()
+    private void LoadWaveConfig()
     {
-        if (waveConfigFile != null)
-        {
-            _waveData = JsonUtility.FromJson<WaveCollection>(waveConfigFile.text);
+        if (_waveConfigFile == null) return;
+        _waveData = JsonUtility.FromJson<WaveCollection>(_waveConfigFile.text);
             
-            if (_waveData.waves != null && _waveData.waves.Count > 0)
-            {
-                _maxConfiguredWave = _waveData.waves.Max(w => w.wave_max);
-            }
+        if (_waveData.waves is { Count: > 0 })
+        {
+            _maxConfiguredWave = _waveData.waves.Max(w => w.wave_max);
         }
     }
 
@@ -65,75 +62,74 @@ public class WaveController : MonoBehaviour
         }
         
         WaveConfig config = _waveData.waves.Find(w => effectiveWave >= w.wave_min && effectiveWave <= w.wave_max);
-        List<SpawnData> currentBatchSpawns = new List<SpawnData>();
+
         if (config == null)
         {
-            Debug.LogWarning($"Not found wave config: {effectiveWave}");
+            Debug.LogWarning("Not found wave config");
             return;
         }
+        
+        Debug.Log($"=== Start Wave {currentWave} (Config Wave: {effectiveWave}) ===");
+        
+        List<MonsterSpawnInfo> spawnQueue = new List<MonsterSpawnInfo>();
 
-        if (config.is_boss_wave)
+        foreach (var enemyConfig in config.enemies)
         {
-            foreach (var enemy in config.fixed_enemies)
+            int countToSpawn = Random.Range(enemyConfig.min_count, enemyConfig.max_count + 1);
+
+            for (int i = 0; i < countToSpawn; i++)
             {
-                MonsterType mType = ParseMonsterType(enemy.id);
-                MonsterSize mSize = ParseMonsterSize(enemy.size);
-                float radius = _monsterController.GetMonsterRadius(mType, mSize);
-
-                if (!_monsterController.HasMonster(mType, mSize))
-                {
-                    Debug.LogWarning($"<color=red>Prefab [{enemy.id} - {enemy.size}] not found in MonsterController!</color>");
-                    continue;
-                }
-                
-                for (int i = 0; i < enemy.count; i++)
-                {
-                    Vector3 pos = GetValidSpawnPosition(radius, currentBatchSpawns);
-                    if (pos != Vector3.zero)
-                    {
-                        _monsterController.SpawnMonster(mType, pos, mSize);
-                        
-                        currentBatchSpawns.Add(new SpawnData{position = pos, radius = radius});
-
-                        Debug.Log($"Generate [{enemy.id} - {enemy.size}] at {FormatVector(pos)}");
-                    }
-                    else
-                    {
-                        Debug.LogWarning($"Không tìm được chỗ trống cho {enemy.id}!");
-                    }
-                }
+                spawnQueue.Add(new MonsterSpawnInfo 
+                { 
+                    id = enemyConfig.id, 
+                    size = enemyConfig.size 
+                });
             }
         }
-        else
+        
+        ShuffleList(spawnQueue);
+        
+        List<SpawnData> currentBatchSpawns = new List<SpawnData>();
+        
+        for (int i = 0; i < spawnQueue.Count; i++)
         {
-            int totalToSpawn = Random.Range(config.count_min, config.count_max + 1); 
-            for (int i = 0; i < totalToSpawn; i++)
+            var info = spawnQueue[i];
+            MonsterType mType = ParseMonsterType(info.id);
+            MonsterSize mSize = ParseMonsterSize(info.size);
+            
+            if (!_monsterController.HasMonster(mType, mSize))
             {
-                EnemySpawnRate chosen = PickEnemyByRatio(config.enemies);
-                if (chosen != null)
-                {
-                    MonsterType mType = ParseMonsterType(chosen.id);
-                    MonsterSize mSize = ParseMonsterSize(chosen.size);
-                    float radius = _monsterController.GetMonsterRadius(mType, mSize);
+                Debug.LogWarning($"<color=red>Prefab [{info.id} - {info.size}] not found in MonsterController!</color>");
+                continue;
+            }
 
-                    if (!_monsterController.HasMonster(mType, mSize))
-                    {
-                        Debug.LogWarning($"<color=red>Prefab [{chosen.id} - {chosen.size}] not found in MonsterController!</color>");
-                        continue;
-                    }
-                    
-                    Vector3 pos = GetValidSpawnPosition(radius, currentBatchSpawns);
-                    
-                    if (pos != Vector3.zero)
-                    {
-                        _monsterController.SpawnMonster(mType, pos, mSize);
-                        currentBatchSpawns.Add(new SpawnData { position = pos, radius = radius });
-                        Debug.Log($"[{i + 1}/{totalToSpawn}] Sinh [{chosen.id} - {chosen.size}] tại {FormatVector(pos)}");
-                    }
-                }
+            float radius = _monsterController.GetMonsterRadius(mType, mSize);
+            Vector3 pos = GetValidSpawnPosition(radius, currentBatchSpawns);
+
+            if (pos != Vector3.zero)
+            {
+                _monsterController.SpawnMonster(mType, pos, mSize);
+                currentBatchSpawns.Add(new SpawnData { position = pos, radius = radius });
+                Debug.Log($"[{i + 1}/{spawnQueue.Count}] Sinh [{info.id} - {info.size}] tại {FormatVector(pos)}");
+            }
+            else
+            {
+                Debug.LogWarning($"Can't find position for {info.id}!");
             }
         }
+        
         Debug.Log("========================================\n");
+    }
+
+    void ShuffleList<T>(List<T> list)
+    {
+        int n = list.Count;
+        while (n > 1)
+        {
+            n--;
+            int k = Random.Range(0, n + 1);
+            (list[k], list[n]) = (list[n], list[k]);
+        }
     }
     
     Vector3 GetValidSpawnPosition(float myRadius, List<SpawnData> existingSpawns)
@@ -181,19 +177,6 @@ public class WaveController : MonoBehaviour
         return MonsterSize.SMALL;
     }
 
-    EnemySpawnRate PickEnemyByRatio(List<EnemySpawnRate> enemies)
-    {
-        int totalRatio = enemies.Sum(e => e.ratio);
-        int randomVal = Random.Range(0, totalRatio);
-        int currentSum = 0;
-        foreach (var enemy in enemies)
-        {
-            currentSum += enemy.ratio;
-            if (randomVal < currentSum) return enemy;
-        }
-        return enemies.LastOrDefault();
-    }
-
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.red;
@@ -206,13 +189,30 @@ public struct SpawnData
     public Vector3 position;
     public float radius;
 }
-[System.Serializable] public class WaveCollection { public List<WaveConfig> waves; }
+
+public class MonsterSpawnInfo 
+{
+    public string id;
+    public string size;
+}
+
+[System.Serializable]
+public class WaveCollection
+{
+    public List<WaveConfig> waves;
+}
+
 [System.Serializable] public class WaveConfig { 
     public int wave_min; public int wave_max; 
     public int count_min; public int count_max; 
     public bool is_boss_wave; 
-    public List<EnemySpawnRate> enemies; 
-    public List<EnemyFixedSpawn> fixed_enemies; 
+    public List<EnemyConfig> enemies; 
 }
-[System.Serializable] public class EnemySpawnRate { public string id; public string size; public int ratio; }
-[System.Serializable] public class EnemyFixedSpawn { public string id; public string size; public int count; }
+[System.Serializable]
+public class EnemyConfig
+{
+    public string id;
+    public string size;
+    public int min_count;
+    public int max_count;
+}
