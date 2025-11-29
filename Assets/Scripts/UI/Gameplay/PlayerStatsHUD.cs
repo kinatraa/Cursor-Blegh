@@ -1,12 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
-public class UIHUD : MonoBehaviour
+public class PlayerStatsHUD : UIHud
 {
     [Header("Health Bar")]
     public List<RectTransform> heartIcons = new List<RectTransform>();
 
+    public TextMeshProUGUI scoreText;
+    public TextMeshProUGUI waveText;
+    
     public void SetupHealthBar(int maxHp)
     {
         for (int i = 0; i < heartIcons.Count; i++)
@@ -36,5 +40,15 @@ public class UIHUD : MonoBehaviour
                 heartIcons[i].transform.GetChild(0).gameObject.SetActive(true);
             }
         }
+    }
+
+    public void UpdateScoreText(int score)
+    {
+        scoreText.text = $"Score {score}";
+    }
+
+    public void UpdateWaveText(int wave)
+    {
+        waveText.text = $"Wave {wave}";
     }
 }

@@ -13,9 +13,32 @@ public class GameplayManager : SingletonDestroy<GameplayManager>
     public StateMachine stateController;
     
     [Header("Test Level Data")] public WeaponType weaponType;
-    
+
+    private void OnEnable()
+    {
+        GameEventManager.onNextWave += NextWave;
+    }
+
+    private void OnDisable()
+    {
+        GameEventManager.onNextWave -= NextWave;
+    }
+
     private void Start()
     {
         weaponController.ChooseWeapon(weaponType);
+    }
+
+    private void NextWave()
+    {
+        stateController.ChangeState(0);
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            stateController.Next();
+        }
     }
 }

@@ -8,6 +8,7 @@ public abstract class BaseWeapon : MonoBehaviour
     public WeaponData data;
 
     public int currentHp;
+    public int currentScore;
     
     public WeaponState currentState = WeaponState.NORMAL;
     
@@ -42,7 +43,6 @@ public abstract class BaseWeapon : MonoBehaviour
 
         currentHp -= damage;
         GameEventManager.InvokeUpdatePlayerHp(currentHp);
-        Debug.Log("Player damaged " + damage);
         if (currentHp <= 0)
         {
             // Lose
@@ -64,11 +64,20 @@ public abstract class BaseWeapon : MonoBehaviour
 
         currentState = WeaponState.NORMAL;
     }
+
+    public void GainScore(int score)
+    {
+        Debug.Log("Score: " + score);
+        currentScore += score;
+        GameEventManager.InvokeUpdatePlayerScore(currentScore);
+    }
     
     public void ResetWeapon()
     {
         currentHp = data.hp;
+        currentScore = 0;
         GameEventManager.InvokeUpdatePlayerMaxHp(currentHp);
+        GameEventManager.InvokeUpdatePlayerScore(currentScore);
     }
 }
 

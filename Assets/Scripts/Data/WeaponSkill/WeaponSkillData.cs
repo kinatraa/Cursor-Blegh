@@ -1,6 +1,6 @@
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "WeaponSkillData", menuName = "Game/Skill Data")]
+[CreateAssetMenu(fileName = "WeaponSkillData", menuName = "Game/Weapon Skill Data")]
 public class WeaponSkillData : ScriptableObject
 {
     public WeaponSkillType type;

@@ -3,15 +3,23 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameEventManager
+public static class GameEventManager
 {
     public static Action onGameStart;
     public static Action onGameWin;
     public static Action onGameLose;
     public static Action onReplayGame;
 
+    public static Action onNextWave;
+    
+    // State
+    public static Action onChooseUpgradeState;
+
+    // Update
     public static Action<int> onUpdatePlayerMaxHP;
     public static Action<int> onUpdatePlayerHP;
+    public static Action<int> onUpdatePlayerScore;
+    public static Action<int> onUpdateWave;
     
     public static void InvokeGameStart()
     {
@@ -32,6 +40,16 @@ public class GameEventManager
     {
         onReplayGame?.Invoke();
     }
+
+    public static void InvokeNextWave()
+    {
+        onNextWave?.Invoke();
+    }
+
+    public static void InvokeChooseUpgradeState()
+    {
+        onChooseUpgradeState?.Invoke();
+    }
     
     public static void InvokeUpdatePlayerMaxHp(int maxHp)
     {
@@ -41,5 +59,15 @@ public class GameEventManager
     public static void InvokeUpdatePlayerHp(int currentHp)
     {
         onUpdatePlayerHP?.Invoke(currentHp);
+    }
+    
+    public static void InvokeUpdatePlayerScore(int score)
+    {
+        onUpdatePlayerScore?.Invoke(score);
+    }
+
+    public static void InvokeUpdateWave(int wave)
+    {
+        onUpdateWave?.Invoke(wave);
     }
 }

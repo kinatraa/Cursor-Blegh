@@ -6,8 +6,8 @@ using UnityEngine;
 
 public class ChooseUpgradeState : State
 {
-    private void Start()
+    private void OnEnable()
     {
-        Next();
+        GameEventManager.InvokeChooseUpgradeState();
     }
 }

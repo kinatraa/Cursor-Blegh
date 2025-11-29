@@ -8,9 +8,20 @@ public class DelayState : State
 {
     public float waitTime;
 
-    private void Start()
+    private Coroutine _waitCoroutine;
+    
+    private void OnEnable()
     {
-        StartCoroutine(IEWaitTime());
+        _waitCoroutine = StartCoroutine(IEWaitTime());
+    }
+    
+    private void OnDisable()
+    {
+        if (_waitCoroutine != null)
+        {
+            StopCoroutine(_waitCoroutine);
+            _waitCoroutine = null;
+        }
     }
 
     private IEnumerator IEWaitTime()

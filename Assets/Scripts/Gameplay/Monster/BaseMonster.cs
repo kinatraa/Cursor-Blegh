@@ -123,7 +123,6 @@ public abstract class BaseMonster : MonoBehaviour
             Die();
         }
     }
-    
 
     protected virtual void Die()
     {
@@ -134,10 +133,8 @@ public abstract class BaseMonster : MonoBehaviour
     protected virtual IEnumerator IEDieSequence()
     {
         PlayAnimation(ANIM_DIE);
-        yield return null;
-        yield return new WaitForSeconds(_animator.GetCurrentAnimatorStateInfo(0).length);
-        
-        GameplayManager.Instance.monsterController.RemoveMonster(this);
+        float animLength = _animator.GetCurrentAnimatorStateInfo(0).length;
+        yield return new WaitForSeconds(animLength);
         
         Destroy(gameObject);
     }
@@ -159,6 +156,12 @@ public abstract class BaseMonster : MonoBehaviour
     {
         currentState = MonsterState.IDLE;
         currentHp = data.hp;
+    }
+    
+    private void OnDisable()
+    {
+        GameplayManager.Instance.weaponController.currentWeapon.GainScore(data.score);
+        GameplayManager.Instance.monsterController.RemoveMonster(this);
     }
     
     public MonsterType GetMonsterType() => data.type;
