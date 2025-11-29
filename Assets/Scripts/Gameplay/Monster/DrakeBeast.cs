@@ -43,7 +43,7 @@ public class DrakeBeast : BaseMonster
         
         float totalDuration = _animator.GetCurrentAnimatorStateInfo(0).length;
         
-        float chargeTime = totalDuration * getChargePhaseRatio();
+        float chargeTime = totalDuration * ChargePhaseRatio;
         
         _remainingAnimTime = totalDuration - chargeTime;
         

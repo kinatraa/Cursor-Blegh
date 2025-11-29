@@ -38,12 +38,9 @@ public class AncientSlime : BaseMonster
             center + new Vector2( offset, -offset)
         };
 
-        var childPrefab = GameplayManager.Instance.monsterController.monsterPrefabs
-            .FirstOrDefault(m => m.data.type == MonsterType.SLIME_PRIMORDIAL 
-                                 && m.data.size == size);
         foreach (var pos in positions)
         {
-            Instantiate(childPrefab, pos, Quaternion.identity);
+            GameplayManager.Instance.monsterController.SpawnMonster(MonsterType.SLIME_PRIMORDIAL, pos, size);
         }
     }
 }

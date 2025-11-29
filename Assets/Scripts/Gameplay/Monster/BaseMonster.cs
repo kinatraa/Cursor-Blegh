@@ -13,6 +13,7 @@ public abstract class BaseMonster : MonoBehaviour
 
     protected SpriteRenderer _sr;
     protected Animator _animator;
+    protected BaseWeapon _currentWeapon;
     private Coroutine _behaviorCoroutine;
     
     protected const string ANIM_IDLE = "Idle";
@@ -22,13 +23,14 @@ public abstract class BaseMonster : MonoBehaviour
     protected float _remainingAnimTime;
     
     [SerializeField] private float _chargePhaseRatio = 0.6f;
-    protected float getChargePhaseRatio() => _chargePhaseRatio;
-    [SerializeField] private bool _flipOnUpdate= true;
+    protected float ChargePhaseRatio => _chargePhaseRatio;
+    [SerializeField] private bool _flipOnUpdate = true;
     
     private void Awake()
     {
     	_sr = GetComponent<SpriteRenderer>();
         _animator = GetComponent<Animator>();
+        _currentWeapon = GameplayManager.Instance.weaponController.currentWeapon;
         
         ResetMonster();
     }
@@ -45,10 +47,9 @@ public abstract class BaseMonster : MonoBehaviour
     }
 
     protected void UpdateFacingDirection(){
-        var playerController = GameplayManager.Instance.weaponController.currentWeapon;
-        if (playerController != null)
+        if (_currentWeapon)
         {
-            Vector3 playerPos = playerController.transform.position;
+            Vector3 playerPos = _currentWeapon.transform.position;
             Vector3 directionToPlayer = playerPos - transform.position;
             
             if (directionToPlayer.x < 0)
@@ -135,6 +136,9 @@ public abstract class BaseMonster : MonoBehaviour
         PlayAnimation(ANIM_DIE);
         yield return null;
         yield return new WaitForSeconds(_animator.GetCurrentAnimatorStateInfo(0).length);
+        
+        GameplayManager.Instance.monsterController.RemoveMonster(this);
+        
         Destroy(gameObject);
     }
 

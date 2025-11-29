@@ -17,6 +17,8 @@ public class MonsterController : MonoBehaviour
         { MonsterSize.MEDIUM, 1.0f },
         { MonsterSize.LARGE, 1.5f }
     };
+    
+    private List<BaseMonster> _monsterList = new List<BaseMonster>();
 
     private void Awake()
     {
@@ -41,9 +43,10 @@ public class MonsterController : MonoBehaviour
         }
 
         var prefab = _monsterDict[key];
-        var instance = Instantiate(prefab, position, Quaternion.identity, transform);
+        var newMonster = Instantiate(prefab, position, Quaternion.identity, transform);
+        _monsterList.Add(newMonster);
         
-        Debug.Log($"Spawned {instance.data.monsterName} [{type} - {size}] at {position}");
+        Debug.Log($"Spawned {newMonster.data.monsterName} [{type} - {size}] at {position}");
     }
     
     public float GetMonsterRadius(MonsterType type, MonsterSize size)
@@ -65,7 +68,6 @@ public class MonsterController : MonoBehaviour
             return 0.5f;
         }
         
-        // Lấy kích thước sprite từ prefab
         float radius = Mathf.Max(
             spriteRenderer.sprite.bounds.size.x * spriteRenderer.transform.localScale.x,
             spriteRenderer.sprite.bounds.size.y * spriteRenderer.transform.localScale.y
@@ -77,5 +79,15 @@ public class MonsterController : MonoBehaviour
     public bool HasMonster(MonsterType type, MonsterSize size)
     {
         return _monsterDict.ContainsKey((type, size));
+    }
+
+    public void RemoveMonster(BaseMonster monster)
+    {
+        _monsterList.Remove(monster);
+    }
+
+    public bool AllMonsterAreCleared()
+    {
+        return _monsterList.Count == 0;
     }
 }
