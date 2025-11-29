@@ -12,7 +12,9 @@ public class GameplayManager : SingletonDestroy<GameplayManager>
     public WaveController waveController;
     public StateMachine stateController;
     
-    [Header("Test Level Data")] public WeaponType weaponType;
+    [Header("Test Level Data")] 
+    public WeaponType weaponType;
+    public int currentWave = 1;
 
     private void OnEnable()
     {
@@ -27,10 +29,13 @@ public class GameplayManager : SingletonDestroy<GameplayManager>
     private void Start()
     {
         weaponController.ChooseWeapon(weaponType);
+        waveController.SetCurrentWave(currentWave);
     }
 
     private void NextWave()
     {
+        currentWave++;
+        waveController.SetCurrentWave(currentWave);
         stateController.ChangeState(0);
     }
 

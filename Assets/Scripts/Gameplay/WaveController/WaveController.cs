@@ -1,7 +1,9 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
+using Random = UnityEngine.Random;
 
 public class WaveController : MonoBehaviour
 {
@@ -17,11 +19,10 @@ public class WaveController : MonoBehaviour
     
     private MonsterController _monsterController;
 
-    void Start()
+    private void Awake()
     {
         _monsterController = GameplayManager.Instance.monsterController;
         LoadWaveConfig();
-        SimulateSpawnLogic();
     }
 
     void Update()
@@ -31,6 +32,12 @@ public class WaveController : MonoBehaviour
             currentWave++;
             SimulateSpawnLogic();
         }
+    }
+
+    public void SetCurrentWave(int wave)
+    {
+        currentWave = wave;
+        GameEventManager.InvokeUpdateWave(currentWave);
     }
 
     void LoadWaveConfig()
@@ -46,7 +53,7 @@ public class WaveController : MonoBehaviour
         }
     }
 
-    void SimulateSpawnLogic()
+    public void SimulateSpawnLogic()
     {
         if (_waveData == null || _maxConfiguredWave == 0) return;
         

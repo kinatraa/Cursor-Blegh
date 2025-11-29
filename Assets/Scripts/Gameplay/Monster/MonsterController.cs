@@ -84,6 +84,11 @@ public class MonsterController : MonoBehaviour
     public void RemoveMonster(BaseMonster monster)
     {
         _monsterList.Remove(monster);
+
+        if (AllMonsterAreCleared())
+        {
+            GameplayManager.Instance.stateController.Next();
+        }
     }
 
     public bool AllMonsterAreCleared()
