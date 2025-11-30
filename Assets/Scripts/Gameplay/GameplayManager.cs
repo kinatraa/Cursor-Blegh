@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using Pixelplacement;
 using UnityEngine;
 
-public class GameplayManager : SingletonDestroy<GameplayManager>
+public class GameplayManager : Singleton<GameplayManager>
 {
     [Header("Controller")] 
     public WeaponController weaponController;
