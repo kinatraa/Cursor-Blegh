@@ -22,16 +22,23 @@ public abstract class BaseWeapon : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (currentState == WeaponState.SKILL_ACTIVE && data.weaponType == WeaponType.WOODEN_SWORD) return;
 
-        if (currentState == WeaponState.SKILL_ACTIVE && data.weaponType == WeaponType.BATTLE_AXE) return;
+        if (currentState == WeaponState.SKILL_ACTIVE && data.weaponType == WeaponType.WOODEN_SWORD) 
+            return;
+
+        if (currentState == WeaponState.SKILL_ACTIVE && data.weaponType == WeaponType.BATTLE_AXE) 
+            return;
 
         if (other.CompareTag(ConstTag.MONSTER))
         {
             BaseMonster monster = other.GetComponent<BaseMonster>();
-            if (currentState == WeaponState.SKILL_ACTIVE && data.weaponType == WeaponType.DAGGER){
+            
+            if (currentState == WeaponState.SKILL_ACTIVE && data.weaponType == WeaponType.DAGGER)
+            {
                 CombatResolver.WeaponDamageToMonster(this, monster);
-            } else {
+            }
+            else
+            {
                 CombatResolver.CollisionResolve(this, monster);
             }
             GameplayManager.Instance.buffController.CheckBuffs();
@@ -47,21 +54,28 @@ public abstract class BaseWeapon : MonoBehaviour
     {
         if (currentState == WeaponState.NORMAL)
         {
+            if (_takeDamageCoroutine != null)
+            {
+                StopCoroutine(_takeDamageCoroutine);
+            }
             _takeDamageCoroutine = StartCoroutine(IETakeDamageAlert());
         }
 
         currentHp -= damage;
         GameEventManager.InvokeUpdatePlayerHp(currentHp);
+        
         if (currentHp <= 0)
         {
-            // Lose
+            Debug.Log("<color=red>WEAPON DESTROYED!</color>");
             Destroy(gameObject);
         }
     }
 
     private IEnumerator IETakeDamageAlert()
     {
+        WeaponState previousState = currentState;
         currentState = WeaponState.BLINK;
+        
         int times = 3;
         while (times-- > 0)
         {
@@ -69,6 +83,11 @@ public abstract class BaseWeapon : MonoBehaviour
             yield return new WaitForSeconds(0.2f);
             _sr.color = Color.white;
             yield return new WaitForSeconds(0.2f);
+        }
+
+        if (previousState == WeaponState.NORMAL)
+        {
+            currentState = WeaponState.NORMAL;
         }
         
         _takeDamageCoroutine = null;
@@ -85,6 +104,7 @@ public abstract class BaseWeapon : MonoBehaviour
     {
         currentHp = data.hp;
         currentScore = 0;
+        currentState = WeaponState.NORMAL;
         GameEventManager.InvokeUpdatePlayerMaxHp(currentHp);
         GameEventManager.InvokeUpdatePlayerScore(currentScore);
     }

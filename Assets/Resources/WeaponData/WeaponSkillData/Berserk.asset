@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ae10c392a02a3754694111a75bef74f4, type: 3}
-  m_Name: Parry
+  m_Name: Berserk
   m_EditorClassIdentifier: 
   type: 4
   cooldown: 5
-  bonusDamage: 0
+  range: 0
   duration: 1

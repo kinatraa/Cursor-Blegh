@@ -15,5 +15,5 @@ public enum WeaponSkillType
     SPIN_SPLASH = 1,
     STEALTH = 2,
     EARTHQUAKE = 3,
-    PARRY = 4,
+    BERSERK = 4,
 }
