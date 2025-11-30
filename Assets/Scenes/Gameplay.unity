@@ -1870,7 +1870,7 @@ MonoBehaviour:
   stateController: {fileID: 541907409}
   buffController: {fileID: 367418637}
   weaponType: 1
-  currentWave: 0
+  currentWave: 1
 --- !u!1 &937452980
 GameObject:
   m_ObjectHideFlags: 0
