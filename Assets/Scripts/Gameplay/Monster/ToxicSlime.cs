@@ -17,8 +17,8 @@ public class ToxicSlime : BaseMonster
     protected override IEnumerator IEDieSequence()
     {
         PlayAnimation(ANIM_DIE);
-        yield return null;
         yield return new WaitForSeconds(_animator.GetCurrentAnimatorStateInfo(0).length);
+        yield return StartCoroutine(IEFadeOut());
         for (int i = 0; i < 6; i++)
         {
             float angle = i * 60f;

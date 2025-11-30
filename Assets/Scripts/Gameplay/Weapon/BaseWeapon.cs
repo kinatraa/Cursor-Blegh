@@ -22,11 +22,18 @@ public abstract class BaseWeapon : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
+        if (currentState == WeaponState.SKILL_ACTIVE && data.weaponType == WeaponType.WOODEN_SWORD) return;
+
+        if (currentState == WeaponState.SKILL_ACTIVE && data.weaponType == WeaponType.BATTLE_AXE) return;
+
         if (other.CompareTag(ConstTag.MONSTER))
         {
             BaseMonster monster = other.GetComponent<BaseMonster>();
-            CombatResolver.CollisionResolve(this, monster);
-            
+            if (currentState == WeaponState.SKILL_ACTIVE && data.weaponType == WeaponType.DAGGER){
+                CombatResolver.WeaponDamageToMonster(this, monster);
+            } else {
+                CombatResolver.CollisionResolve(this, monster);
+            }
             GameplayManager.Instance.buffController.CheckBuffs();
         }
         else if (other.CompareTag(ConstTag.MONSTER_PROJECTILE))
@@ -63,8 +70,8 @@ public abstract class BaseWeapon : MonoBehaviour
             _sr.color = Color.white;
             yield return new WaitForSeconds(0.2f);
         }
-
-        currentState = WeaponState.NORMAL;
+        
+        _takeDamageCoroutine = null;
     }
 
     public void GainScore(int score)
@@ -87,4 +94,5 @@ public enum WeaponState
 {
     NORMAL = 0,
     BLINK = 1,
+    SKILL_ACTIVE = 2
 }
