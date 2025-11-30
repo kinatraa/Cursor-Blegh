@@ -21,13 +21,20 @@ public class DemonKing : BaseMonster
      [SerializeField] private float _damageInterval = 0.2f;
 
      [Header("Teleport Settings")]
-     [SerializeField] private float _fadeOutDuration = 0.5f; 
+     [SerializeField] private float _fadeOutDurationTeleport = 0.5f; 
      [SerializeField] private float _invisibleDuration = 2f;
      [SerializeField] private float _fadeInDuration = 0.5f;
 
      [Header("Bullet Speed Settings")]
      [SerializeField] private float _normalSpeed = 5f;
      [SerializeField] private float _fastSpeed = 15f;
+     
+     [Header("Laser Attack Settings")]
+     [SerializeField] private LaserBeam _laserPrefab;
+     [SerializeField] private int _laserCount = 4;
+     [SerializeField] private float _laserLength = 30f;
+     [SerializeField] private bool _randomAngles = true; 
+     [SerializeField] private float _startAngleOffset = 0f;
 
      private bool _isExplore = false;
      private bool _isInvincible = false;
@@ -88,15 +95,53 @@ public class DemonKing : BaseMonster
 
      private IEnumerator IESkill1()
      {
-          _sr.color = Color.red;
-          for (int i = 0; i < 4; i++)
-          {
-               float angle = i * 90f;
-               SpawnBulletInDirection(angle, _normalSpeed);
-          }
+          _sr.color = Color.yellow;
+          ShootLasers();
           
           yield return new WaitForSeconds(_remainingAnimTime);
           _sr.color = Color.white;
+     }
+     
+     private void ShootLasers()
+     {
+          if (_laserPrefab == null)
+          {
+               Debug.LogWarning("LaserBeam prefab is not assigned!");
+               return;
+          }
+
+          if (_randomAngles)
+          {
+               for (int i = 0; i < _laserCount; i++)
+               {
+                    float randomAngle = Random.Range(0f, 360f);
+                    SpawnLaser(randomAngle);
+               }
+          }
+          else
+          {
+               float angleStep = 360f / _laserCount;
+            
+               for (int i = 0; i < _laserCount; i++)
+               {
+                    float angle = (i * angleStep) + _startAngleOffset;
+                    SpawnLaser(angle);
+               }
+          }
+        
+          Debug.Log($"<color=cyan>SolarEye fired {_laserCount} lasers!</color>");
+     }
+     
+     private void SpawnLaser(float angleDegrees)
+     {
+          var laser = Instantiate(_laserPrefab, transform.position, Quaternion.identity);
+        
+          float angleRadians = angleDegrees * Mathf.Deg2Rad;
+          Vector3 direction = new Vector3(Mathf.Cos(angleRadians), Mathf.Sin(angleRadians), 0f);
+        
+          laser.Initialize(transform.position, direction, _laserLength);
+        
+          Debug.Log($"<color=yellow>Laser spawned at angle {angleDegrees}°</color>");
      }
      
      private IEnumerator IESkill2()
@@ -147,25 +192,25 @@ public class DemonKing : BaseMonster
                yield break;
           }
           
-          yield return StartCoroutine(IEFadeOut());
+          yield return StartCoroutine(IEFadeOutTeleport());
 
           transform.position = playerPosition;
 
           yield return new WaitForSeconds(_invisibleDuration);
 
-          yield return StartCoroutine(IEFadeIn());
+          yield return StartCoroutine(IEFadeInTeleport());
      }
      
-     private IEnumerator IEFadeOut()
+     private IEnumerator IEFadeOutTeleport()
      {
           float elapsed = 0f;
           Color startColor = _sr.color;
           Color targetColor = new Color(startColor.r, startColor.g, startColor.b, 0f);
         
-          while (elapsed < _fadeOutDuration)
+          while (elapsed < _fadeOutDurationTeleport)
           {
                elapsed += Time.deltaTime;
-               float t = elapsed / _fadeOutDuration;
+               float t = elapsed / _fadeOutDurationTeleport;
                _sr.color = Color.Lerp(startColor, targetColor, t);
                yield return null;
           }
@@ -173,7 +218,7 @@ public class DemonKing : BaseMonster
           _sr.color = targetColor;
      }
     
-     private IEnumerator IEFadeIn()
+     private IEnumerator IEFadeInTeleport()
      {
           float elapsed = 0f;
           Color startColor = _sr.color;

@@ -200,7 +200,7 @@ public abstract class BaseMonster : MonoBehaviour
         Destroy(gameObject);
     }
 
-    private IEnumerator IEFadeOut()
+    protected IEnumerator IEFadeOut()
     {
         float elapsed = 0f;
         Color startColor = _sr.color;
@@ -245,11 +245,6 @@ public abstract class BaseMonster : MonoBehaviour
             GameplayManager.Instance.weaponController.currentWeapon.GainScore(data.score);
             GameplayManager.Instance.monsterController.RemoveMonster(this);
        }
-    }
-
-    protected virtual void OnDestroy()
-    {
-        StopAllCoroutines();
     }
     
     public MonsterType GetMonsterType() => data.type;

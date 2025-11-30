@@ -22,6 +22,7 @@ public abstract class BaseWeapon : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
+        if (currentState == WeaponState.SKILL_ACTIVE && data.weaponType == WeaponType.WOODEN_SWORD) return;
         if (other.CompareTag(ConstTag.MONSTER))
         {
             BaseMonster monster = other.GetComponent<BaseMonster>();
@@ -85,4 +86,5 @@ public enum WeaponState
 {
     NORMAL = 0,
     BLINK = 1,
+    SKILL_ACTIVE = 2
 }

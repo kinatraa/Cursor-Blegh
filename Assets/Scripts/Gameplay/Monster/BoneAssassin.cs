@@ -11,7 +11,7 @@ public class BoneAssassin : BaseMonster
     [SerializeField] private float _teleportSpeed = 10f;
 
     [Header("Teleport Settings")]
-    [SerializeField] private float _fadeOutDuration = 0.5f; 
+    [SerializeField] private float _fadeOutDurationTeleport = 0.5f; 
     [SerializeField] private float _invisibleDuration = 2f;
     [SerializeField] private float _fadeInDuration = 0.5f;
     
@@ -24,7 +24,7 @@ public class BoneAssassin : BaseMonster
 
         yield return StartCoroutine(IETeleportToRandomPosition());
 
-        float totalTeleportTime = _fadeOutDuration + _invisibleDuration + _fadeInDuration;
+        float totalTeleportTime = _fadeOutDurationTeleport + _invisibleDuration + _fadeInDuration;
         float remainingTime = _remainingAnimTime - _delayBeforeTeleport - totalTeleportTime;
         if (remainingTime > 0)
         {
@@ -68,27 +68,27 @@ public class BoneAssassin : BaseMonster
             yield break;
         }
 
-        yield return StartCoroutine(IEFadeOut());
+        yield return StartCoroutine(IEFadeOutTeleport());
 
         transform.position = newPosition;
 
         yield return new WaitForSeconds(_invisibleDuration);
 
-        yield return StartCoroutine(IEFadeIn());
+        yield return StartCoroutine(IEFadeInTeleport());
 
         Debug.Log("BoneAssassin teleported to a new position.");
     }   
 
-    private IEnumerator IEFadeOut()
+    private IEnumerator IEFadeOutTeleport()
     {
         float elapsed = 0f;
         Color startColor = _sr.color;
         Color targetColor = new Color(startColor.r, startColor.g, startColor.b, 0f);
         
-        while (elapsed < _fadeOutDuration)
+        while (elapsed < _fadeOutDurationTeleport)
         {
             elapsed += Time.deltaTime;
-            float t = elapsed / _fadeOutDuration;
+            float t = elapsed / _fadeOutDurationTeleport;
             _sr.color = Color.Lerp(startColor, targetColor, t);
             yield return null;
         }
@@ -96,7 +96,7 @@ public class BoneAssassin : BaseMonster
         _sr.color = targetColor;
     }
     
-    private IEnumerator IEFadeIn()
+    private IEnumerator IEFadeInTeleport()
     {
         float elapsed = 0f;
         Color startColor = _sr.color;

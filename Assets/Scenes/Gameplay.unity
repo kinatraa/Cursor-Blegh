@@ -1601,6 +1601,7 @@ MonoBehaviour:
   waveController: {fileID: 1179435695}
   stateController: {fileID: 541907409}
   weaponType: 1
+  currentWave: 1
 --- !u!1 &937452980
 GameObject:
   m_ObjectHideFlags: 0
@@ -1849,10 +1850,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 517fdcc314356be459aaffe523ad524b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  waveConfigFile: {fileID: 4900000, guid: b8702bef772dc0f4b86d60efe0ab3c6d, type: 3}
+  _waveConfigFile: {fileID: 4900000, guid: b8702bef772dc0f4b86d60efe0ab3c6d, type: 3}
   spawnAreaSize: {x: 13, y: 5.96}
   spawnCenter: {x: 0, y: 0, z: 0}
-  currentWave: 0
+  currentWave: 1
 --- !u!1 &1206816736
 GameObject:
   m_ObjectHideFlags: 0
