@@ -4,13 +4,14 @@ using System.Collections.Generic;
 using Pixelplacement;
 using UnityEngine;
 
-public class GameplayManager : SingletonDestroy<GameplayManager>
+public class GameplayManager : Singleton<GameplayManager>
 {
     [Header("Controller")] 
     public WeaponController weaponController;
     public MonsterController monsterController;
     public WaveController waveController;
     public StateMachine stateController;
+    public BuffController buffController;
     
     [Header("Test Level Data")] 
     public WeaponType weaponType;
