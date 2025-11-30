@@ -30,6 +30,27 @@ public class BuffSystem
                 case BuffType.SHURIKEN:
                     _buffLogicDict[type] = new ShurikenBuff(data);
                     break;
+                case BuffType.SENTINEL_SHIELD:
+                    _buffLogicDict[type] = new SentinelShieldBuff(data);
+                    break;
+                case BuffType.TRUE_SHOT:
+                    _buffLogicDict[type] = new TrueShotBuff(data);
+                    break;
+                case BuffType.POISON_THORN:
+                    _buffLogicDict[type] = new PoisonThornBuff(data);
+                    break;
+                case BuffType.THUNDER_STRIKE:
+                    _buffLogicDict[type] = new ThunderStrikeBuff(data);
+                    break;
+                case BuffType.FROST_PRISON:
+                    _buffLogicDict[type] = new FrostPrisonBuff(data);
+                    break;
+                case BuffType.INFERNO_FLAME:
+                    _buffLogicDict[type] = new InfernoFlameBuff(data);
+                    break;
+                case BuffType.MOLTEN_STONE:
+                    _buffLogicDict[type] = new MoltenStoneBuff(data);
+                    break;
             }
         }
 

@@ -12,9 +12,12 @@ public class BuffData : ScriptableObject
     
     [Header("Identity")]
     public BuffType type;
+    public GameObject prefab;
     
     [Header("Stats")]
     public int maxStack;
+    public float activeRate;
+    public int atk;
 }
 
 public enum BuffType

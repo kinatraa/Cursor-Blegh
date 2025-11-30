@@ -5,7 +5,6 @@ using UnityEngine;
 
 public class BuffController : MonoBehaviour
 {
-    // public List<BaseBuff> buffs = new List<BaseBuff>();
     public List<BaseBuff> currentBuffs = new List<BaseBuff>();
     
     public BuffSystem buffSystem;
@@ -13,7 +12,6 @@ public class BuffController : MonoBehaviour
     private void Awake()
     {
         var allBuffs = Resources.LoadAll<BuffData>("BuffData");
-        Debug.Log(allBuffs.Length);
         buffSystem = new BuffSystem(new List<BuffData>(allBuffs));
     }
 

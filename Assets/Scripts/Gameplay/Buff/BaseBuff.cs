@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[System.Serializable]
 public abstract class BaseBuff
 {
     protected BuffData data;
@@ -23,4 +22,8 @@ public abstract class BaseBuff
     {
         
     }
+    
+    protected Coroutine StartCoroutine(IEnumerator r) 
+        => CoroutineRunner.Instance.StartCoroutine(r);
+
 }

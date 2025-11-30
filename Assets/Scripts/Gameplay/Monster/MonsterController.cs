@@ -19,6 +19,7 @@ public class MonsterController : MonoBehaviour
     };
     
     private List<BaseMonster> _monsterList = new List<BaseMonster>();
+    public List<BaseMonster> MonsterList => _monsterList;
 
     private void Awake()
     {

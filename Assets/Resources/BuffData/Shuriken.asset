@@ -12,8 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b45b8895fbf15742bf3fad68d883252, type: 3}
   m_Name: Shuriken
   m_EditorClassIdentifier: 
-  buffName: 
-  buffIcon: {fileID: 0}
+  buffName: Shuriken
+  buffIcon: {fileID: 21300000, guid: 9ce82e04c78cd3446ab3a7d5ce40e5be, type: 3}
   description: 
   type: 1
+  prefab: {fileID: 7003861720382042040, guid: 59685563c058feb46926d81df3be0144, type: 3}
   maxStack: 8
+  activeRate: 30
+  atk: 5
