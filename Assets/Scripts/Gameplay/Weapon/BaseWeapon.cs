@@ -26,7 +26,11 @@ public abstract class BaseWeapon : MonoBehaviour
         if (other.CompareTag(ConstTag.MONSTER))
         {
             BaseMonster monster = other.GetComponent<BaseMonster>();
-            CombatResolver.CollisionResolve(this, monster);
+            if (currentState == WeaponState.SKILL_ACTIVE && data.weaponType == WeaponType.DAGGER){
+                CombatResolver.WeaponDamageToMonster(this, monster);
+            } else {
+                CombatResolver.CollisionResolve(this, monster);
+            }
         }
         else if (other.CompareTag(ConstTag.MONSTER_PROJECTILE))
         {

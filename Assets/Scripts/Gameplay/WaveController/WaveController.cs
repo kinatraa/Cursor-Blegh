@@ -24,15 +24,6 @@ public class WaveController : MonoBehaviour
         LoadWaveConfig();
     }
 
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            currentWave++;
-            SimulateSpawnLogic();
-        }
-    }
-
     public void SetCurrentWave(int wave)
     {
         currentWave = wave;

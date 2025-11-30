@@ -1600,7 +1600,7 @@ MonoBehaviour:
   monsterController: {fileID: 319726306}
   waveController: {fileID: 1179435695}
   stateController: {fileID: 541907409}
-  weaponType: 1
+  weaponType: 2
   currentWave: 1
 --- !u!1 &937452980
 GameObject:
@@ -1730,7 +1730,7 @@ MonoBehaviour:
   - {fileID: 576804378}
   - {fileID: 83466683}
   - {fileID: 575535885}
-  currentWeapon: {fileID: 0}
+  currentWeapon: {fileID: 576804378}
 --- !u!1 &1159843458
 GameObject:
   m_ObjectHideFlags: 0

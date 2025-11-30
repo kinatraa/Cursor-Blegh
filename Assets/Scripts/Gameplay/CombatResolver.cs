@@ -47,4 +47,14 @@ public static class CombatResolver
             Debug.Log($"<color=red>{monster.name} damaged {weapon.name}</color>");
         }
     }
+
+    public static void WeaponDamageToMonster(BaseWeapon weapon, BaseMonster monster)
+    {
+        if (!weapon || !monster) return;
+
+        int damage = weapon.data.atk;
+        if(Random.Range(0, 100) < weapon.data.crit) damage = (int)(damage * (weapon.data.critDmg / 100f));
+        monster.TakeDamage(damage);
+        Debug.Log($"<color=green>{weapon.name} damaged {monster.name}!</color>");
+    }
 }
