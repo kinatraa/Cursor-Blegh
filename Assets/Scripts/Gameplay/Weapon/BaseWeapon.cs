@@ -26,6 +26,8 @@ public abstract class BaseWeapon : MonoBehaviour
         {
             BaseMonster monster = other.GetComponent<BaseMonster>();
             CombatResolver.CollisionResolve(this, monster);
+            
+            GameplayManager.Instance.buffController.CheckBuffs();
         }
         else if (other.CompareTag(ConstTag.MONSTER_PROJECTILE))
         {

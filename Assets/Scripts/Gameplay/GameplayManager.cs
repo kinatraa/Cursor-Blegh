@@ -11,6 +11,7 @@ public class GameplayManager : SingletonDestroy<GameplayManager>
     public MonsterController monsterController;
     public WaveController waveController;
     public StateMachine stateController;
+    public BuffController buffController;
     
     [Header("Test Level Data")] 
     public WeaponType weaponType;
