@@ -10,6 +10,6 @@ public class FrostPrisonBuff : BaseBuff
 
     public override void Activate()
     {
-        base.Activate();
+        
     }
 }

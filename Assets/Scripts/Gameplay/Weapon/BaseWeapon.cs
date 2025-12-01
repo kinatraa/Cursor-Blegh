@@ -32,6 +32,7 @@ public abstract class BaseWeapon : MonoBehaviour
         if (other.CompareTag(ConstTag.MONSTER))
         {
             BaseMonster monster = other.GetComponent<BaseMonster>();
+            GameplayManager.Instance.monsterController.lastHitMonster = monster;
             
             if (currentState == WeaponState.SKILL_ACTIVE && data.weaponType == WeaponType.DAGGER)
             {
