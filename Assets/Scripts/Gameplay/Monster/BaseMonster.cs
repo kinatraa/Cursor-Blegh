@@ -20,27 +20,28 @@ public abstract class BaseMonster : MonoBehaviour
     protected const string ANIM_IDLE = "Idle";
     protected const string ANIM_ATTACK = "Attack";
     protected const string ANIM_DIE = "Die";
-    
+
     protected float _remainingAnimTime;
-    
+
     [SerializeField] private float _chargePhaseRatio = 0.6f;
     protected float ChargePhaseRatio => _chargePhaseRatio;
     [SerializeField] private bool _flipOnUpdate = true;
 
-    [Header("Visual Effects")]
-    [SerializeField] private float _blinkDuration = 0.5f;
+    [Header("Visual Effects")] [SerializeField]
+    private float _blinkDuration = 0.5f;
+
     [SerializeField] private int _blinkCount = 3;
     [SerializeField] private Color _damageColor = Color.red;
     [SerializeField] private float _fadeOutDuration = 0.5f;
 
     private bool _isDead = false;
-    
+
     private void Awake()
     {
-    	_sr = GetComponent<SpriteRenderer>();
+        _sr = GetComponent<SpriteRenderer>();
         _animator = GetComponent<Animator>();
         _currentWeapon = GameplayManager.Instance.weaponController.currentWeapon;
-        
+
         ResetMonster();
     }
 
@@ -49,18 +50,21 @@ public abstract class BaseMonster : MonoBehaviour
         _behaviorCoroutine = StartCoroutine(IEStateChange());
     }
 
-    private void Update(){
-        if (_flipOnUpdate){
+    private void Update()
+    {
+        if (_flipOnUpdate)
+        {
             UpdateFacingDirection();
         }
     }
 
-    protected void UpdateFacingDirection(){
+    protected void UpdateFacingDirection()
+    {
         if (_currentWeapon)
         {
             Vector3 playerPos = _currentWeapon.transform.position;
             Vector3 directionToPlayer = playerPos - transform.position;
-            
+
             if (directionToPlayer.x < 0)
             {
                 _sr.flipX = true;
@@ -89,7 +93,7 @@ public abstract class BaseMonster : MonoBehaviour
 
             currentState = MonsterState.CHARGE;
             yield return StartCoroutine(IECharging());
-            
+
             currentState = MonsterState.ATTACK;
             yield return StartCoroutine(IEAttackPlayer());
         }
@@ -109,11 +113,11 @@ public abstract class BaseMonster : MonoBehaviour
 
         yield return null;
         float totalDuration = _animator.GetCurrentAnimatorStateInfo(0).length;
-        
+
         float chargeTime = totalDuration * _chargePhaseRatio;
-        
+
         _remainingAnimTime = totalDuration - chargeTime;
-        
+
         yield return new WaitForSeconds(chargeTime);
     }
 
@@ -132,6 +136,7 @@ public abstract class BaseMonster : MonoBehaviour
         {
             StopCoroutine(_blinkCoroutine);
         }
+
         _blinkCoroutine = StartCoroutine(IEBlinkEffect());
 
         if (currentHp <= 0)
@@ -144,20 +149,20 @@ public abstract class BaseMonster : MonoBehaviour
     {
         Color originalColor = _sr.color;
         float blinkInterval = _blinkDuration / (_blinkCount * 2);
-        
+
         for (int i = 0; i < _blinkCount; i++)
         {
             if (_isDead) yield break;
-            
+
             _sr.color = _damageColor;
             yield return new WaitForSeconds(blinkInterval);
-            
+
             if (_isDead) yield break;
-            
+
             _sr.color = originalColor;
             yield return new WaitForSeconds(blinkInterval);
         }
-        
+
         if (!_isDead)
         {
             _sr.color = originalColor;
@@ -167,15 +172,15 @@ public abstract class BaseMonster : MonoBehaviour
     protected virtual void Die()
     {
         if (_isDead) return;
-        
+
         _isDead = true;
-        
-        if (_behaviorCoroutine != null) 
+
+        if (_behaviorCoroutine != null)
         {
             StopCoroutine(_behaviorCoroutine);
             _behaviorCoroutine = null;
         }
-        
+
         if (_blinkCoroutine != null)
         {
             StopCoroutine(_blinkCoroutine);
@@ -187,10 +192,10 @@ public abstract class BaseMonster : MonoBehaviour
         {
             collider.enabled = false;
         }
-        
+
         StartCoroutine(IEDieSequence());
     }
-    
+
     protected virtual IEnumerator IEDieSequence()
     {
         PlayAnimation(ANIM_DIE);
@@ -205,7 +210,7 @@ public abstract class BaseMonster : MonoBehaviour
         float elapsed = 0f;
         Color startColor = _sr.color;
         Color targetColor = new Color(startColor.r, startColor.g, startColor.b, 0f);
-        
+
         while (elapsed < _fadeOutDuration)
         {
             elapsed += Time.deltaTime;
@@ -213,7 +218,7 @@ public abstract class BaseMonster : MonoBehaviour
             _sr.color = Color.Lerp(startColor, targetColor, t);
             yield return null;
         }
-        
+
         _sr.color = targetColor;
     }
 
@@ -227,6 +232,7 @@ public abstract class BaseMonster : MonoBehaviour
                 spriteRenderer.sprite.bounds.size.y * transform.localScale.y
             ) * 0.5f;
         }
+
         return 0.5f;
     }
 
@@ -235,18 +241,23 @@ public abstract class BaseMonster : MonoBehaviour
         currentState = MonsterState.IDLE;
         currentHp = data.hp;
     }
-    
+
     private void OnDisable()
     {
         StopAllCoroutines();
-       if (GameplayManager.Instance != null &&
-           GameplayManager.Instance.waveController != null)
-       {
+        if (GameplayManager.Instance != null &&
+            GameplayManager.Instance.waveController != null)
+        {
+            if (GameplayManager.Instance.monsterController.lastHitMonster == this)
+            {
+                GameplayManager.Instance.monsterController.lastHitMonster = null;
+            }
+
             GameplayManager.Instance.weaponController.currentWeapon.GainScore(data.score);
             GameplayManager.Instance.monsterController.RemoveMonster(this);
-       }
+        }
     }
-    
+
     public MonsterType GetMonsterType() => data.type;
     public MonsterSize GetMonsterSize() => data.size;
 }
