@@ -22,6 +22,7 @@ public class BuffController : MonoBehaviour
             var newBuff = buffSystem.GetBuff(BuffType.SHURIKEN);
             if (newBuff != null)
             {
+                Debug.Log("Added SHURIKEN");
                 newBuff.AddStack();
                 if(!currentBuffs.Contains(newBuff))
                 {

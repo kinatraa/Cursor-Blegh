@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Berserk : BaseWeaponSkill
+public class BerserkSkill : BaseWeaponSkill
 {
 
     [Header("Berserk Settings")]
@@ -23,7 +23,7 @@ public class Berserk : BaseWeaponSkill
     
     private int _originalAtk;
     
-    public Berserk(WeaponSkillData data) : base(data)
+    public BerserkSkill(WeaponSkillData data) : base(data)
     {
     }
 

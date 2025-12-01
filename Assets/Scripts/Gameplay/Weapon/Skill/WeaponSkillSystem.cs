@@ -36,7 +36,7 @@ public class WeaponSkillSystem
                     _skillLogicDict[type] = new EarthquakeSkill(data);
                     break;
                 case WeaponSkillType.BERSERK:
-                    _skillLogicDict[type] = new Berserk(data);
+                    _skillLogicDict[type] = new BerserkSkill(data);
                     break;
             }
         }
