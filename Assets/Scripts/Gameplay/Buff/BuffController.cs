@@ -19,10 +19,10 @@ public class BuffController : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.J))
         {
-            var newBuff = buffSystem.GetBuff(BuffType.SHURIKEN);
+            var newBuff = buffSystem.GetBuff(BuffType.SENTINEL_SHIELD);
             if (newBuff != null)
             {
-                Debug.Log("Added SHURIKEN");
+                Debug.Log("Added SENTINEL_SHIELD");
                 newBuff.AddStack();
                 if(!currentBuffs.Contains(newBuff))
                 {
