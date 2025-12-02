@@ -24,7 +24,7 @@ public class ThunderStrikeBuff : BaseBuff
     private IEnumerator IEActivate()
     {
         BaseMonster hitMonster = GameplayManager.Instance.monsterController.lastHitMonster;
-        if (hitMonster == null || hitMonster.isDead) yield break;
+        if (hitMonster == null) yield break;
 
         Vector3 startPosition = hitMonster.transform.position;
 
