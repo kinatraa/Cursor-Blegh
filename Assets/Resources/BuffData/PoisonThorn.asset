@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: PoisonThorn
   m_EditorClassIdentifier: 
   buffName: 
-  buffIcon: {fileID: 0}
+  buffIcon: {fileID: -1037121756, guid: 59d6fd698cac2844dbc97e49684e4c0f, type: 3}
   description: 
-  type: 0
-  prefab: {fileID: 0}
-  maxStack: 0
-  activeRate: 0
-  atk: 0
+  type: 4
+  prefab: {fileID: 4225058328980525259, guid: 9fa7bb4cad4ba0f4b9836401b087f595, type: 3}
+  maxStack: 8
+  activeRate: 10
+  atk: 8
