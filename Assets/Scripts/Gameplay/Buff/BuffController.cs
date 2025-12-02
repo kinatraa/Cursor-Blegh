@@ -19,10 +19,10 @@ public class BuffController : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.J))
         {
-            var newBuff = buffSystem.GetBuff(BuffType.TRUE_SHOT);
+            var newBuff = buffSystem.GetBuff(BuffType.INFERNO_FLAME);
             if (newBuff != null)
             {
-                Debug.Log("Added TRUE_SHOT");
+                Debug.Log("Added INFERNO_FLAME");
                 newBuff.AddStack();
                 if(!currentBuffs.Contains(newBuff))
                 {

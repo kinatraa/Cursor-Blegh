@@ -34,10 +34,12 @@ public abstract class BaseMonster : MonoBehaviour
     [SerializeField] private Color _damageColor = Color.red;
     [SerializeField] private float _fadeOutDuration = 0.5f;
 
-    private bool _isDead = false;
+    public bool isDead = false;
 
-    public bool _isFrozen = false;
+    public bool isFrozen = false;
     private Coroutine _freezeCoroutine;
+
+    public bool isOnFire = false;
 
     private void Awake()
     {
@@ -91,7 +93,7 @@ public abstract class BaseMonster : MonoBehaviour
     {
         while (true)
         {
-            if (_isFrozen)
+            if (isFrozen)
             {
                 yield return null;
                 continue;
@@ -161,18 +163,18 @@ public abstract class BaseMonster : MonoBehaviour
 
         for (int i = 0; i < _blinkCount; i++)
         {
-            if (_isDead) yield break;
+            if (isDead) yield break;
 
             _sr.color = _damageColor;
             yield return new WaitForSeconds(blinkInterval);
 
-            if (_isDead) yield break;
+            if (isDead) yield break;
 
             _sr.color = originalColor;
             yield return new WaitForSeconds(blinkInterval);
         }
 
-        if (!_isDead)
+        if (!isDead)
         {
             _sr.color = originalColor;
         }
@@ -186,12 +188,12 @@ public abstract class BaseMonster : MonoBehaviour
     }
 
     private IEnumerator IEFreeze(float duration){
-        if (!_isFrozen && _behaviorCoroutine != null){
+        if (!isFrozen && _behaviorCoroutine != null){
             StopCoroutine(_behaviorCoroutine);
             _behaviorCoroutine = null;
         }   
 
-        _isFrozen = true;
+        isFrozen = true;
 
         currentState = MonsterState.IDLE;
         PlayAnimation(ANIM_IDLE);
@@ -201,8 +203,8 @@ public abstract class BaseMonster : MonoBehaviour
 
         yield return new WaitForSeconds(duration);
 
-        if (!_isDead){
-            _isFrozen = false;
+        if (!isDead){
+            isFrozen = false;
             _sr.color = originalColor;
             if (_behaviorCoroutine == null){
                 _behaviorCoroutine = StartCoroutine(IEStateChange());
@@ -213,9 +215,9 @@ public abstract class BaseMonster : MonoBehaviour
 
     protected virtual void Die()
     {
-        if (_isDead) return;
+        if (isDead) return;
 
-        _isDead = true;
+        isDead = true;
 
         if (_behaviorCoroutine != null)
         {

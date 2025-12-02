@@ -23,7 +23,7 @@ public class FrostPrisonBuff : BaseBuff
         BaseMonster lastHitMonster = GameplayManager.Instance.monsterController.lastHitMonster;
         if (lastHitMonster == null) yield break;
 
-        if (lastHitMonster._isFrozen == true) yield break;
+        if (lastHitMonster.isFrozen == true) yield break;
         
         GameObject frostPrison = Object.Instantiate(
             data.prefab, 
