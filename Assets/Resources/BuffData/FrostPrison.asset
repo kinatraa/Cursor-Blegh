@@ -18,5 +18,5 @@ MonoBehaviour:
   type: 6
   prefab: {fileID: 3661293122173038182, guid: 1d3267788034ffb478121fdecb7e23dc, type: 3}
   maxStack: 8
-  activeRate: 100
+  activeRate: 10
   atk: 0

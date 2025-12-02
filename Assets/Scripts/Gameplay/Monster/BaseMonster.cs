@@ -195,19 +195,18 @@ public abstract class BaseMonster : MonoBehaviour
 
         currentState = MonsterState.IDLE;
         PlayAnimation(ANIM_IDLE);
-        _animator.speed = 0f;
 
         Color originalColor = _sr.color;
         _sr.color = Color.cyan;
 
         yield return new WaitForSeconds(duration);
 
-        _isFrozen = false;
-        _animator.speed = 1f;
-        _sr.color = originalColor;
-
-        if (_behaviorCoroutine == null && !_isDead){
-            _behaviorCoroutine = StartCoroutine(IEStateChange());
+        if (!_isDead){
+            _isFrozen = false;
+            _sr.color = originalColor;
+            if (_behaviorCoroutine == null){
+                _behaviorCoroutine = StartCoroutine(IEStateChange());
+            }
         }
         _freezeCoroutine = null;
     }
