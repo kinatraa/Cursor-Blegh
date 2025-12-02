@@ -19,10 +19,10 @@ public class BuffController : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.J))
         {
-            var newBuff = buffSystem.GetBuff(BuffType.SENTINEL_SHIELD);
+            var newBuff = buffSystem.GetBuff(BuffType.FROST_PRISON);
             if (newBuff != null)
             {
-                Debug.Log("Added SENTINEL_SHIELD");
+                Debug.Log("Added FROST PRISON");
                 newBuff.AddStack();
                 if(!currentBuffs.Contains(newBuff))
                 {

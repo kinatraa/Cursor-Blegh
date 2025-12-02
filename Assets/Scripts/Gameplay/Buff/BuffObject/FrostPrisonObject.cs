@@ -4,15 +4,18 @@ using UnityEngine;
 
 public class FrostPrisonObject : MonoBehaviour
 {
-    // Start is called before the first frame update
+    private SpriteRenderer _spriteRenderer;
+    public float _frostDuration = 5f;
+
     void Start()
     {
-        
+        StartCoroutine(IEDestroy());
     }
 
-    // Update is called once per frame
-    void Update()
+    private IEnumerator IEDestroy()
     {
+        yield return new WaitForSeconds(_frostDuration);
         
+        Destroy(gameObject);
     }
 }

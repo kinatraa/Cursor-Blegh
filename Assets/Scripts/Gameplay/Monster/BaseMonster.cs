@@ -36,6 +36,9 @@ public abstract class BaseMonster : MonoBehaviour
 
     private bool _isDead = false;
 
+    public bool _isFrozen = false;
+    private Coroutine _freezeCoroutine;
+
     private void Awake()
     {
         _sr = GetComponent<SpriteRenderer>();
@@ -88,6 +91,12 @@ public abstract class BaseMonster : MonoBehaviour
     {
         while (true)
         {
+            if (_isFrozen)
+            {
+                yield return null;
+                continue;
+            }
+
             currentState = MonsterState.IDLE;
             yield return StartCoroutine(IEIdle());
 
@@ -167,6 +176,40 @@ public abstract class BaseMonster : MonoBehaviour
         {
             _sr.color = originalColor;
         }
+    }
+
+    public void Freeze(float duration){
+        if (_freezeCoroutine != null){
+            StopCoroutine(_freezeCoroutine);
+        }
+        _freezeCoroutine = StartCoroutine(IEFreeze(duration));
+    }
+
+    private IEnumerator IEFreeze(float duration){
+        if (!_isFrozen && _behaviorCoroutine != null){
+            StopCoroutine(_behaviorCoroutine);
+            _behaviorCoroutine = null;
+        }   
+
+        _isFrozen = true;
+
+        currentState = MonsterState.IDLE;
+        PlayAnimation(ANIM_IDLE);
+        _animator.speed = 0f;
+
+        Color originalColor = _sr.color;
+        _sr.color = Color.cyan;
+
+        yield return new WaitForSeconds(duration);
+
+        _isFrozen = false;
+        _animator.speed = 1f;
+        _sr.color = originalColor;
+
+        if (_behaviorCoroutine == null && !_isDead){
+            _behaviorCoroutine = StartCoroutine(IEStateChange());
+        }
+        _freezeCoroutine = null;
     }
 
     protected virtual void Die()
