@@ -19,10 +19,10 @@ public class BuffController : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.J))
         {
-            var newBuff = buffSystem.GetBuff(BuffType.FROST_PRISON);
+            var newBuff = buffSystem.GetBuff(BuffType.TRUE_SHOT);
             if (newBuff != null)
             {
-                Debug.Log("Added FROST PRISON");
+                Debug.Log("Added TRUE_SHOT");
                 newBuff.AddStack();
                 if(!currentBuffs.Contains(newBuff))
                 {
