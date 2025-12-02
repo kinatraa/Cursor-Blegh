@@ -21,6 +21,8 @@ public class MonsterController : MonoBehaviour
     private List<BaseMonster> _monsterList = new List<BaseMonster>();
     public List<BaseMonster> MonsterList => _monsterList;
 
+    public BaseMonster lastHitMonster = null;
+
     private void Awake()
     {
         foreach (var monsterPrefab in monsterPrefabs)
