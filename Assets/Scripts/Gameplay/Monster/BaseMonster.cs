@@ -39,8 +39,6 @@ public abstract class BaseMonster : MonoBehaviour
     public bool isFrozen = false;
     private Coroutine _freezeCoroutine;
 
-    public bool isOnFire = false;
-
     private void Awake()
     {
         _sr = GetComponent<SpriteRenderer>();

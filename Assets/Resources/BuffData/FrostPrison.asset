@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b45b8895fbf15742bf3fad68d883252, type: 3}
   m_Name: FrostPrison
   m_EditorClassIdentifier: 
-  buffName: 
+  buffName: Frost Prison
   buffIcon: {fileID: -1670788883, guid: 1f7de30575ee67945805e503e6569232, type: 3}
   description: 
   type: 6

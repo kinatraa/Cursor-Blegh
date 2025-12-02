@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b45b8895fbf15742bf3fad68d883252, type: 3}
   m_Name: PoisonThorn
   m_EditorClassIdentifier: 
-  buffName: 
+  buffName: Poison Thorn
   buffIcon: {fileID: -1037121756, guid: 59d6fd698cac2844dbc97e49684e4c0f, type: 3}
   description: 
   type: 4

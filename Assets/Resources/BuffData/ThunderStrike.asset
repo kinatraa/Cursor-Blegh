@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b45b8895fbf15742bf3fad68d883252, type: 3}
   m_Name: ThunderStrike
   m_EditorClassIdentifier: 
-  buffName: 
-  buffIcon: {fileID: 0}
+  buffName: Thunder Strike
+  buffIcon: {fileID: 1837903492, guid: 8767bbda48c7d7e49a3da339baa2bfc6, type: 3}
   description: 
-  type: 0
-  prefab: {fileID: 0}
-  maxStack: 0
-  activeRate: 0
-  atk: 0
+  type: 5
+  prefab: {fileID: 7146366185793650149, guid: 098e0c11d917e6941bbbaa84ee8c42c5, type: 3}
+  maxStack: 8
+  activeRate: 10
+  atk: 8

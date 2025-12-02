@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b45b8895fbf15742bf3fad68d883252, type: 3}
   m_Name: InfernoFlame
   m_EditorClassIdentifier: 
-  buffName: 
+  buffName: Inferno Flame
   buffIcon: {fileID: -1496000654, guid: 5efcfe3c9dfc23649bf896732f43f6f6, type: 3}
   description: 
   type: 7
