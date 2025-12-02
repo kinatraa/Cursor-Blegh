@@ -63,7 +63,8 @@
         { "id": "FLAME_SLIME", "size": "MEDIUM", "min_count": 1, "max_count": 2 },
         { "id": "ELF_ASSASSIN", "size": "SMALL", "min_count": 1, "max_count": 1 },
         { "id": "TOXIC_SLIME", "size": "MEDIUM", "min_count": 2, "max_count": 3 },
-        { "id": "THUNDER_BEAST", "size": "MEDIUM", "min_count": 2, "max_count": 3 }
+        { "id": "THUNDER_BEAST", "size": "MEDIUM", "min_count": 2, "max_count": 3 },
+	{ "id": "SOLAR_EYE", "size": "MEDIUM", "min_count": 2, "max_count": 3 }
       ]
     },
     {
