@@ -23,6 +23,8 @@ public abstract class BaseBuff
         
     }
     
+    public BuffType GetBuffType() => data.type;
+    
     protected Coroutine StartCoroutine(IEnumerator r) 
         => CoroutineRunner.Instance.StartCoroutine(r);
 
