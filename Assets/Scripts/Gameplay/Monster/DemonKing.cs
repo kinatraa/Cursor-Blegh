@@ -109,27 +109,14 @@ public class DemonKing : BaseMonster
                Debug.LogWarning("LaserBeam prefab is not assigned!");
                return;
           }
-
-          if (_randomAngles)
+          
+          for (int i = 0; i < _laserCount; i++)
           {
-               for (int i = 0; i < _laserCount; i++)
-               {
-                    float randomAngle = Random.Range(0f, 360f);
-                    SpawnLaser(randomAngle);
-               }
-          }
-          else
-          {
-               float angleStep = 360f / _laserCount;
-            
-               for (int i = 0; i < _laserCount; i++)
-               {
-                    float angle = (i * angleStep) + _startAngleOffset;
-                    SpawnLaser(angle);
-               }
+               float randomAngle = Random.Range(0f, 360f);
+               SpawnLaser(randomAngle);
           }
         
-          Debug.Log($"<color=cyan>SolarEye fired {_laserCount} lasers!</color>");
+          Debug.Log($"<color=cyan>Demon King fired {_laserCount} lasers!</color>");
      }
      
      private void SpawnLaser(float angleDegrees)
@@ -255,6 +242,7 @@ public class DemonKing : BaseMonster
           var bulletInstance = Instantiate(_bulletPrefab, spawnPosition, Quaternion.identity);
 
           bulletInstance.speed = bulletSpeed;
+          bulletInstance.speed *= (int)(1 + projectileSpeed/100);
 
           Vector3 playerPosition = GameplayManager.Instance.weaponController.currentWeapon.transform.position;
 

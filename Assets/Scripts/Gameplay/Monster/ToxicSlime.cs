@@ -37,6 +37,7 @@ public class ToxicSlime : BaseMonster
         Vector3 spawnPosition = transform.position;
 
         var bulletInstance = Instantiate(_bulletPrefab, spawnPosition, Quaternion.identity);
+        bulletInstance.speed *= (int)(1 + projectileSpeed/100);
 
         float angleRadians = angleDegrees * Mathf.Deg2Rad;
         Vector3 direction = new Vector3(Mathf.Cos(angleRadians), Mathf.Sin(angleRadians), 0);

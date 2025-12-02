@@ -99,7 +99,7 @@ public class WaveController : MonoBehaviour
 
             if (pos != Vector3.zero)
             {
-                _monsterController.SpawnMonster(mType, pos, mSize);
+                _monsterController.SpawnMonster(mType, pos, mSize, currentWave);
                 currentBatchSpawns.Add(new SpawnData { position = pos, radius = radius });
                 Debug.Log($"[{i + 1}/{spawnQueue.Count}] Sinh [{info.id} - {info.size}] tại {FormatVector(pos)}");
             }

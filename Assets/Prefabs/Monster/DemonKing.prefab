@@ -52,6 +52,12 @@ MonoBehaviour:
   currentState: 0
   _chargePhaseRatio: 0.6
   _flipOnUpdate: 1
+  _blinkDuration: 0.5
+  _blinkCount: 3
+  _damageColor: {r: 1, g: 0, b: 0, a: 1}
+  _fadeOutDuration: 0.5
+  isDead: 0
+  isFrozen: 0
   _bulletPrefab: {fileID: 5331804312788445560, guid: 54da68bb3c6e7d04595d84217697cf23, type: 3}
   _bulletSpawnRadius: 0.5
   _shootDistance: 0.5
@@ -60,11 +66,16 @@ MonoBehaviour:
   _electricFieldDuration: 0.5
   _fieldRadiusMultiplier: 3
   _damageInterval: 0.2
-  _fadeOutDuration: 0.5
+  _fadeOutDurationTeleport: 0.5
   _invisibleDuration: 2
   _fadeInDuration: 0.5
   _normalSpeed: 5
   _fastSpeed: 15
+  _laserPrefab: {fileID: 4602900366159854681, guid: 62af2f17a392eed4f96f8fb956cc0acf, type: 3}
+  _laserCount: 4
+  _laserLength: 30
+  _randomAngles: 1
+  _startAngleOffset: 0
 --- !u!212 &5642569099112698426
 SpriteRenderer:
   m_ObjectHideFlags: 0

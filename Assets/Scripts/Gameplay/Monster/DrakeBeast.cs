@@ -151,6 +151,7 @@ public class DrakeBeast : BaseMonster
         Vector3 directionToPlayer = (playerPosition - transform.position).normalized;
 
         var bulletInstance = Instantiate(_bulletPrefab, transform.position + directionToPlayer * _bulletSpawnDistance, Quaternion.identity);
+        bulletInstance.speed *= (int)(1 + projectileSpeed/100);
         bulletInstance.StartProjectile(playerPosition);
     }
 

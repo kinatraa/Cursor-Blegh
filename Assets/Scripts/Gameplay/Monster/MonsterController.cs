@@ -34,7 +34,7 @@ public class MonsterController : MonoBehaviour
             }
         }
     }
-
+    
     public void SpawnMonster(MonsterType type, Vector3 position, MonsterSize size)
     {
         var key = (type, size);
@@ -50,6 +50,38 @@ public class MonsterController : MonoBehaviour
         _monsterList.Add(newMonster);
         
         Debug.Log($"Spawned {newMonster.data.monsterName} [{type} - {size}] at {position}");
+    }
+
+    public void SpawnMonster(MonsterType type, Vector3 position, MonsterSize size, int currentWave)
+    {
+        var key = (type, size);
+        
+        if (!_monsterDict.ContainsKey(key))
+        {
+            Debug.LogError($"Monster [{type} - {size}] not found in prefab list!");
+            return;
+        }
+
+        var prefab = _monsterDict[key];
+        var newMonster = Instantiate(prefab, position, Quaternion.identity, transform);
+        if (currentWave > 40)
+        {
+            float factor = 1;
+            if (!(currentWave <= 70))
+            {
+                factor = ((currentWave - 40) / 30) + factor;
+            }
+            UpgradeMonster(newMonster, factor);
+        }
+        _monsterList.Add(newMonster);
+        
+        Debug.Log($"Spawned {newMonster.data.monsterName} [{type} - {size}] at {position}");
+    }
+
+    private void UpgradeMonster(BaseMonster newMonster, float factor)
+    {
+        newMonster.currentHp = (int)(1.2 * factor);
+        if (!(newMonster.projectileSpeed >= 50)) newMonster.projectileSpeed += 5;
     }
     
     public float GetMonsterRadius(MonsterType type, MonsterSize size)

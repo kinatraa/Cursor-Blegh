@@ -23,6 +23,8 @@ public abstract class BaseMonster : MonoBehaviour
 
     protected float _remainingAnimTime;
 
+    public float projectileSpeed = 0f;
+
     [SerializeField] private float _chargePhaseRatio = 0.6f;
     protected float ChargePhaseRatio => _chargePhaseRatio;
     [SerializeField] private bool _flipOnUpdate = true;
