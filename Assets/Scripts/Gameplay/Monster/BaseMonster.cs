@@ -24,6 +24,7 @@ public abstract class BaseMonster : MonoBehaviour
     protected float _remainingAnimTime;
 
     public float projectileSpeed = 0f;
+    public float reduceAnimTime = 0f;
 
     [SerializeField] private float _chargePhaseRatio = 0.6f;
     protected float ChargePhaseRatio => _chargePhaseRatio;
@@ -114,7 +115,10 @@ public abstract class BaseMonster : MonoBehaviour
     {
         PlayAnimation(ANIM_IDLE);
         _sr.color = Color.white;
-        yield return new WaitForSeconds(Random.Range(3.0f, 5.0f));
+        float randomAnimTime = Random.Range(3.0f, 5.0f);
+        float animTime = 0f;
+        if (animTime < randomAnimTime - reduceAnimTime) animTime = randomAnimTime - reduceAnimTime;
+        yield return new WaitForSeconds(animTime);
     }
 
     protected virtual IEnumerator IECharging()

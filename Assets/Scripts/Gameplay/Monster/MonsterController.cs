@@ -81,7 +81,8 @@ public class MonsterController : MonoBehaviour
     private void UpgradeMonster(BaseMonster newMonster, float factor)
     {
         newMonster.currentHp = (int)(1.2 * factor);
-        if (!(newMonster.projectileSpeed >= 50)) newMonster.projectileSpeed += 5;
+        if (!(newMonster.projectileSpeed + 5*factor >= 50)) newMonster.projectileSpeed += 5 * factor;
+        if (!(newMonster.reduceAnimTime + 0.1*factor >= 0.5))  newMonster.reduceAnimTime += 0.1f * factor;
     }
     
     public float GetMonsterRadius(MonsterType type, MonsterSize size)
