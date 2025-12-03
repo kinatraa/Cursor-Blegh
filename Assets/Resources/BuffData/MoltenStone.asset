@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b45b8895fbf15742bf3fad68d883252, type: 3}
   m_Name: MoltenStone
   m_EditorClassIdentifier: 
-  buffName: 
-  buffIcon: {fileID: 0}
+  buffName: Molten Stone
+  buffIcon: {fileID: 1723287877, guid: 59d6fd698cac2844dbc97e49684e4c0f, type: 3}
   description: 
-  type: 0
-  prefab: {fileID: 0}
-  maxStack: 0
-  activeRate: 0
-  atk: 0
+  type: 8
+  prefab: {fileID: 3223668120361492561, guid: b9f26418972b55d458a855a9b272c64a, type: 3}
+  maxStack: 8
+  activeRate: 100
+  atk: 2

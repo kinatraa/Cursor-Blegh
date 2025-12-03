@@ -44,6 +44,8 @@ public class BoneAssassin : BaseMonster
         Vector3 spawnPosition = transform.position + spawnOffset;
         
         var bulletInstance = Instantiate(_bulletPrefab, spawnPosition, Quaternion.identity);
+        bulletInstance.speed += 2;
+        bulletInstance.speed *= (int)(1 + projectileSpeed/100);
 
         Vector3 playerPosition = GameplayManager.Instance.weaponController.currentWeapon.transform.position;
 

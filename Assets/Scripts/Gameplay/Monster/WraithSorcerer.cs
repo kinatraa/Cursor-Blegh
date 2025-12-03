@@ -48,9 +48,26 @@ public class WraithSorcerer : BaseMonster
         }
         
         var summonMonster = Instantiate(randomPrefab, spawnPosition, Quaternion.identity);
+        int currentWave = GameplayManager.Instance.waveController.currentWave;
+        UpgradeMonster(currentWave, summonMonster);
         summonMonster.transform.SetParent(GameplayManager.Instance.monsterController.transform);
         
         Debug.Log($"Wraith Sorcerer summoned {summonMonster.data.monsterName}");
+    }
+
+    private void UpgradeMonster(int currentWave, BaseMonster summonMonster)
+    {
+        if (currentWave > 40)
+        {
+            float factor = 1;
+            if (!(currentWave <= 70))
+            {
+                factor = ((currentWave - 40) / 30) + factor;
+            }
+            summonMonster.currentHp = (int)(1.2 * factor);
+            if (!(summonMonster.projectileSpeed + 5*factor >= 50)) summonMonster.projectileSpeed += 5 * factor;
+            if (!(summonMonster.reduceAnimTime + 0.1*factor >= 0.5))  summonMonster.reduceAnimTime += 0.1f * factor;
+        }
     }
 
     private Vector3 FindValidSpawnPosition(WaveController waveController, float spawnRadius)
