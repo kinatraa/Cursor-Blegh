@@ -71,8 +71,34 @@ public abstract class BaseWeapon : MonoBehaviour
         
         if (currentHp <= 0)
         {
-            Debug.Log("<color=red>WEAPON DESTROYED!</color>");
-            Destroy(gameObject);
+            var rebornBuff = GameplayManager.Instance.weaponController.rebornBuff;
+            if (rebornBuff != null && rebornBuff.TryRevive())
+            {
+                currentHp = 1;
+                GameEventManager.InvokeUpdatePlayerMaxHp(maxHp);
+                GameEventManager.InvokeUpdatePlayerHp(currentHp);
+
+                StartCoroutine(IEReviveEffect());
+                
+                rebornBuff.Remove();
+            }
+            else
+            {
+                Debug.Log("<color=red>WEAPON DESTROYED!</color>");
+                Destroy(gameObject);
+            }
+        }
+    }
+    
+    private IEnumerator IEReviveEffect()
+    {
+        int times = 5;
+        while (times-- > 0)
+        {
+            _sr.color = Color.yellow;
+            yield return new WaitForSeconds(0.1f);
+            _sr.color = Color.white;
+            yield return new WaitForSeconds(0.1f);
         }
     }
 

@@ -6,6 +6,7 @@ public class WeaponController : MonoBehaviour
 {
     public List<BaseWeapon> weapons = new List<BaseWeapon>();
     public BaseWeapon currentWeapon;
+    public RebornBuff rebornBuff = null;
     
     public WeaponSkillSystem weaponSkillSystem;
     

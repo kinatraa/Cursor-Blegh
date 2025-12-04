@@ -34,10 +34,10 @@ public class BuffController : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.K))
         {
-            var newBuff = buffSystem.GetBuff(BuffType.MYSTIC_POTION);
+            var newBuff = buffSystem.GetBuff(BuffType.IMMORTAL);
             if (newBuff != null)
             {
-                Debug.Log("Added FAIRY_ELIXIR");
+                Debug.Log("Added IMMORTAL");
                 newBuff.AddStack();
                 if (!currentBuffItems.Contains(newBuff))
                 {
