@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b45b8895fbf15742bf3fad68d883252, type: 3}
+  m_Name: PoisonThorn
+  m_EditorClassIdentifier: 
+  buffName: Poison Thorn
+  buffIcon: {fileID: -1037121756, guid: 59d6fd698cac2844dbc97e49684e4c0f, type: 3}
+  description: 
+  type: 4
+  effectType: 1
+  prefab: {fileID: 4225058328980525259, guid: 9fa7bb4cad4ba0f4b9836401b087f595, type: 3}
+  maxStack: 8
+  activeRate: 10
+  atk: 8

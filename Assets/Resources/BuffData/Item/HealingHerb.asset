@@ -10,13 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3b45b8895fbf15742bf3fad68d883252, type: 3}
-  m_Name: Shuriken
+  m_Name: HealingHerb
   m_EditorClassIdentifier: 
-  buffName: Shuriken
-  buffIcon: {fileID: 21300000, guid: 9ce82e04c78cd3446ab3a7d5ce40e5be, type: 3}
+  buffName: 
+  buffIcon: {fileID: 0}
   description: 
-  type: 1
-  prefab: {fileID: 7003861720382042040, guid: 59685563c058feb46926d81df3be0144, type: 3}
-  maxStack: 8
-  activeRate: 30
-  atk: 5
+  type: 12
+  effectType: 2
+  prefab: {fileID: 4533326777372104206, guid: a45a57ff9fbfd024982dd7a50845a062, type: 3}
+  maxStack: 4
+  activeRate: 100
+  atk: 0

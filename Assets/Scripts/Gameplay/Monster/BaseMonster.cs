@@ -296,6 +296,8 @@ public abstract class BaseMonster : MonoBehaviour
         if (GameplayManager.Instance != null &&
             GameplayManager.Instance.waveController != null)
         {
+            GameplayManager.Instance.monsterController.healingHerbBuff?.Activate();
+            
             if (GameplayManager.Instance.monsterController.lastHitMonster == this)
             {
                 GameplayManager.Instance.monsterController.lastHitMonster = null;

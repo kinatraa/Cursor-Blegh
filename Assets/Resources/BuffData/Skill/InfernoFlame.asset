@@ -10,13 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3b45b8895fbf15742bf3fad68d883252, type: 3}
-  m_Name: ThunderStrike
+  m_Name: InfernoFlame
   m_EditorClassIdentifier: 
-  buffName: Thunder Strike
-  buffIcon: {fileID: 1837903492, guid: 8767bbda48c7d7e49a3da339baa2bfc6, type: 3}
+  buffName: Inferno Flame
+  buffIcon: {fileID: -1496000654, guid: 5efcfe3c9dfc23649bf896732f43f6f6, type: 3}
   description: 
-  type: 5
-  prefab: {fileID: 7146366185793650149, guid: 098e0c11d917e6941bbbaa84ee8c42c5, type: 3}
+  type: 7
+  effectType: 1
+  prefab: {fileID: 1877189380096702639, guid: 3de0c7debd579704b97f53c010b45445, type: 3}
   maxStack: 8
-  activeRate: 100
-  atk: 8
+  activeRate: 10
+  atk: 6

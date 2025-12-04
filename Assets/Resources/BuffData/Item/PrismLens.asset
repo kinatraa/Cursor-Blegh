@@ -10,13 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3b45b8895fbf15742bf3fad68d883252, type: 3}
-  m_Name: SentinelShield
+  m_Name: PrismLens
   m_EditorClassIdentifier: 
-  buffName: Sentinel Shield
-  buffIcon: {fileID: 1501243301, guid: e4673787629823f4cb0dc2502673056e, type: 3}
+  buffName: 
+  buffIcon: {fileID: 0}
   description: 
-  type: 2
-  prefab: {fileID: 5395155806739734770, guid: 19e1af9858e32e046906d0a34fa7b6e6, type: 3}
-  maxStack: 8
-  activeRate: 100
+  type: 15
+  effectType: 2
+  prefab: {fileID: 0}
+  maxStack: 1
+  activeRate: 0
   atk: 0

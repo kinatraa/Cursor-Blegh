@@ -7,6 +7,7 @@ public abstract class BaseWeapon : MonoBehaviour
 {
     public WeaponData data;
 
+    public int maxHp;
     public int currentHp;
     public int currentScore;
     
@@ -103,10 +104,12 @@ public abstract class BaseWeapon : MonoBehaviour
     
     public void ResetWeapon()
     {
-        currentHp = data.hp;
+        maxHp = data.hp;
+        currentHp = maxHp;
         currentScore = 0;
         currentState = WeaponState.NORMAL;
-        GameEventManager.InvokeUpdatePlayerMaxHp(currentHp);
+        GameEventManager.InvokeUpdatePlayerMaxHp(maxHp);
+        GameEventManager.InvokeUpdatePlayerHp(currentHp);
         GameEventManager.InvokeUpdatePlayerScore(currentScore);
     }
 }

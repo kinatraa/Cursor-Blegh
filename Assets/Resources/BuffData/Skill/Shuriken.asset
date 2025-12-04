@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b45b8895fbf15742bf3fad68d883252, type: 3}
+  m_Name: Shuriken
+  m_EditorClassIdentifier: 
+  buffName: Shuriken
+  buffIcon: {fileID: 21300000, guid: 9ce82e04c78cd3446ab3a7d5ce40e5be, type: 3}
+  description: 
+  type: 1
+  effectType: 1
+  prefab: {fileID: 7003861720382042040, guid: 59685563c058feb46926d81df3be0144, type: 3}
+  maxStack: 8
+  activeRate: 30
+  atk: 5

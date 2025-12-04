@@ -22,6 +22,7 @@ public class MonsterController : MonoBehaviour
     public List<BaseMonster> MonsterList => _monsterList;
 
     public BaseMonster lastHitMonster = null;
+    public HealingHerbBuff healingHerbBuff = null;
 
     private void Awake()
     {

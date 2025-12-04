@@ -10,13 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3b45b8895fbf15742bf3fad68d883252, type: 3}
-  m_Name: PoisonThorn
+  m_Name: MedicBandage
   m_EditorClassIdentifier: 
-  buffName: Poison Thorn
-  buffIcon: {fileID: -1037121756, guid: 59d6fd698cac2844dbc97e49684e4c0f, type: 3}
+  buffName: 
+  buffIcon: {fileID: 0}
   description: 
-  type: 4
-  prefab: {fileID: 4225058328980525259, guid: 9fa7bb4cad4ba0f4b9836401b087f595, type: 3}
-  maxStack: 8
-  activeRate: 10
-  atk: 8
+  type: 18
+  effectType: 2
+  prefab: {fileID: 0}
+  maxStack: 1
+  activeRate: 0
+  atk: 0

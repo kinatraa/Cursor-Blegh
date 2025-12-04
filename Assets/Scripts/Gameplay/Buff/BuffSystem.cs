@@ -51,6 +51,42 @@ public class BuffSystem
                 case BuffType.MOLTEN_STONE:
                     _buffLogicDict[type] = new MoltenStoneBuff(data);
                     break;
+                case BuffType.LIFE_RESET:
+                    _buffLogicDict[type] = new LifeResetBuff(data);
+                    break;
+                case BuffType.VAMPIRIC_RAGE:
+                    _buffLogicDict[type] = new VampiricRageBuff(data);
+                    break;
+                case BuffType.IMMORTAL:
+                    _buffLogicDict[type] = new ImmortalBuff(data);
+                    break;
+                case BuffType.HEALING_HERB:
+                    _buffLogicDict[type] = new HealingHerbBuff(data);
+                    break;
+                case BuffType.REBORN:
+                    _buffLogicDict[type] = new RebornBuff(data);
+                    break;
+                case BuffType.THICK_CLOTH:
+                    _buffLogicDict[type] = new ThickClothBuff(data);
+                    break;
+                case BuffType.PRISM_LENS:
+                    _buffLogicDict[type] = new PrismLensBuff(data);
+                    break;
+                case BuffType.ARCANE_TOME:
+                    _buffLogicDict[type] = new ArcaneTomeBuff(data);
+                    break;
+                case BuffType.SHARPEN_STONE:
+                    _buffLogicDict[type] = new SharpenStoneBuff(data);
+                    break;
+                case BuffType.MEDIC_BANDAGE:
+                    _buffLogicDict[type] = new MedicBandageBuff(data);
+                    break;
+                case BuffType.FAIRY_ELIXIR:
+                    _buffLogicDict[type] = new FairyElixirBuff(data);
+                    break;
+                case BuffType.MYSTIC_POTION:
+                    _buffLogicDict[type] = new MysticPotionBuff(data);
+                    break;
             }
         }
 

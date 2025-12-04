@@ -12,6 +12,7 @@ public class BuffData : ScriptableObject
     
     [Header("Identity")]
     public BuffType type;
+    public BuffEffectType effectType;
     public GameObject prefab;
     
     [Header("Stats")]
@@ -43,4 +44,11 @@ public enum BuffType
     MEDIC_BANDAGE = 18,
     FAIRY_ELIXIR = 19,
     MYSTIC_POTION = 20,
+}
+
+public enum BuffEffectType
+{
+    NONE = 0,
+    SKILL = 1,
+    ITEM = 2,
 }

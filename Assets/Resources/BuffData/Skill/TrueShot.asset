@@ -10,13 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3b45b8895fbf15742bf3fad68d883252, type: 3}
-  m_Name: InfernoFlame
+  m_Name: TrueShot
   m_EditorClassIdentifier: 
-  buffName: Inferno Flame
-  buffIcon: {fileID: -1496000654, guid: 5efcfe3c9dfc23649bf896732f43f6f6, type: 3}
+  buffName: True Shot
+  buffIcon: {fileID: 0}
   description: 
-  type: 7
-  prefab: {fileID: 1877189380096702639, guid: 3de0c7debd579704b97f53c010b45445, type: 3}
+  type: 3
+  effectType: 1
+  prefab: {fileID: 0}
   maxStack: 8
   activeRate: 10
-  atk: 6
+  atk: 0

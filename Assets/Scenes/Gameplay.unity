@@ -638,6 +638,7 @@ MonoBehaviour:
   - {fileID: 1137475650948761922, guid: c2de78bc584a22c438f396b2d24496e4, type: 3}
   - {fileID: 3528062982681589570, guid: 985fc0ee207155f41adf621eb0d316ff, type: 3}
   lastHitMonster: {fileID: 0}
+  dropHeartRate: 0
 --- !u!1 &321407706
 GameObject:
   m_ObjectHideFlags: 0

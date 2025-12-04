@@ -5,7 +5,8 @@ using UnityEngine;
 
 public class BuffController : MonoBehaviour
 {
-    public List<BaseBuff> currentBuffs = new List<BaseBuff>();
+    public List<BaseBuff> currentBuffSkills = new List<BaseBuff>();
+    public List<BaseBuff> currentBuffItems  = new List<BaseBuff>();
     
     public BuffSystem buffSystem;
 
@@ -20,13 +21,27 @@ public class BuffController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.J))
         {
             var newBuff = buffSystem.GetBuff(BuffType.MOLTEN_STONE);
-            if (newBuff != null)
+            if (newBuff != null && !newBuff.IsMaxStack())
             {
                 Debug.Log("Added MOLTEN_STONE");
                 newBuff.AddStack();
-                if(!currentBuffs.Contains(newBuff))
+                if(!currentBuffSkills.Contains(newBuff))
                 {
-                    currentBuffs.Add(newBuff);
+                    currentBuffSkills.Add(newBuff);
+                }
+            }
+        }
+
+        if (Input.GetKeyDown(KeyCode.K))
+        {
+            var newBuff = buffSystem.GetBuff(BuffType.HEALING_HERB);
+            if (newBuff != null)
+            {
+                Debug.Log("Added HEALING_HERB");
+                newBuff.AddStack();
+                if(!currentBuffItems.Contains(newBuff))
+                {
+                    currentBuffItems.Add(newBuff);
                 }
             }
         }
@@ -34,7 +49,7 @@ public class BuffController : MonoBehaviour
 
     public void CheckBuffs()
     {
-        foreach (var buff in currentBuffs)
+        foreach (var buff in currentBuffSkills)
         {
             buff?.Activate();
         }
