@@ -12,12 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b45b8895fbf15742bf3fad68d883252, type: 3}
   m_Name: ArcaneTome
   m_EditorClassIdentifier: 
-  buffName: 
+  buffName: Arcane Tome
   buffIcon: {fileID: 0}
   description: 
   type: 16
   effectType: 2
   prefab: {fileID: 0}
-  maxStack: 1
+  maxStack: 0
   activeRate: 0
   atk: 0

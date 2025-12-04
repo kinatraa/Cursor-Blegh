@@ -1,6 +1,8 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public static class CombatResolver
 {
@@ -11,7 +13,8 @@ public static class CombatResolver
         if (weapon.currentState == WeaponState.BLINK) return;
         
         int damage = weapon.data.atk;
-        if(Random.Range(0, 100) < weapon.data.crit) damage = (int)(damage * (weapon.data.critDmg / 100f));
+        if(Random.Range(0, 100) < weapon.data.crit + weapon.critChanceToAdd) damage = (int)(damage * ((weapon.data
+            .critDmg + weapon.critDmgToAdd) / 100f));
         monster.TakeDamage(damage);
 
         if (monster is AncientSlime { currentState: MonsterState.ATTACK })
@@ -53,7 +56,8 @@ public static class CombatResolver
         if (!weapon || !monster) return;
 
         int damage = weapon.data.atk;
-        if(Random.Range(0, 100) < weapon.data.crit) damage = (int)(damage * (weapon.data.critDmg / 100f));
+        if(Random.Range(0, 100) < weapon.data.crit + weapon.critChanceToAdd) damage = (int)(damage * ((weapon.data
+            .critDmg + weapon.critDmgToAdd) / 100f));
         monster.TakeDamage(damage);
         Debug.Log($"<color=green>{weapon.name} damaged {monster.name}!</color>");
     }

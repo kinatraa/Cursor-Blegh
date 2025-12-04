@@ -95,9 +95,9 @@ public class EarthquakeSkill : BaseWeaponSkill
                     int baseDamage = weapon.data.atk;
                     int totalDamage = (int)(baseDamage * _damageMultiplier);
                     
-                    if (Random.Range(0, 100) < weapon.data.crit)
+                    if (Random.Range(0, 100) < weapon.data.crit + weapon.critChanceToAdd)
                     {
-                        totalDamage = (int)(totalDamage * (weapon.data.critDmg / 100f));
+                        totalDamage = (int)(totalDamage * ((weapon.data.critDmg + weapon.critDmgToAdd) / 100f));
                         Debug.Log($"<color=orange>CRITICAL EARTHQUAKE!</color>");
                     }
 

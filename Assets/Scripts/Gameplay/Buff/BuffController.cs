@@ -34,10 +34,10 @@ public class BuffController : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.K))
         {
-            var newBuff = buffSystem.GetBuff(BuffType.THICK_CLOTH);
+            var newBuff = buffSystem.GetBuff(BuffType.ARCANE_TOME);
             if (newBuff != null)
             {
-                Debug.Log("Added THICK_CLOTH");
+                Debug.Log("Added ARCANE_TOME");
                 newBuff.AddStack();
                 if (!currentBuffItems.Contains(newBuff))
                 {

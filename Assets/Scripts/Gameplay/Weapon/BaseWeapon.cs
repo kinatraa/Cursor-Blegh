@@ -10,6 +10,8 @@ public abstract class BaseWeapon : MonoBehaviour
     public int maxHp;
     public int currentHp;
     public int currentScore;
+    public float critChanceToAdd = 0f;
+    public float critDmgToAdd = 0f;
     
     public WeaponState currentState = WeaponState.NORMAL;
     
@@ -106,6 +108,8 @@ public abstract class BaseWeapon : MonoBehaviour
     {
         maxHp = data.hp;
         currentHp = maxHp;
+        critDmgToAdd = 0;
+        critChanceToAdd = 0f;
         currentScore = 0;
         currentState = WeaponState.NORMAL;
         GameEventManager.InvokeUpdatePlayerMaxHp(maxHp);

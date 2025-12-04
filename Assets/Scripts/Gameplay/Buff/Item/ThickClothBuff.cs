@@ -10,7 +10,7 @@ public class ThickClothBuff : BaseBuff
 
     public override void AddStack()
     {
-        if (stack < 4){
+        if (stack < data.maxStack){
             base.AddStack();
             Activate();
         }
