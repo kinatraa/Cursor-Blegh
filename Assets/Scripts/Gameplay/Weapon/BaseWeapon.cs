@@ -12,6 +12,7 @@ public abstract class BaseWeapon : MonoBehaviour
     public int currentScore;
     public float critChanceToAdd = 0f;
     public float critDmgToAdd = 0f;
+    public int damageToAdd = 0;
     
     public WeaponState currentState = WeaponState.NORMAL;
     

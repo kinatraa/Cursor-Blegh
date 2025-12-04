@@ -12,7 +12,7 @@ public static class CombatResolver
 
         if (weapon.currentState == WeaponState.BLINK) return;
         
-        int damage = weapon.data.atk;
+        int damage = weapon.data.atk + weapon.damageToAdd;
         if(Random.Range(0, 100) < weapon.data.crit + weapon.critChanceToAdd) damage = (int)(damage * ((weapon.data
             .critDmg + weapon.critDmgToAdd) / 100f));
         monster.TakeDamage(damage);
@@ -55,7 +55,7 @@ public static class CombatResolver
     {
         if (!weapon || !monster) return;
 
-        int damage = weapon.data.atk;
+        int damage = weapon.data.atk + weapon.damageToAdd;
         if(Random.Range(0, 100) < weapon.data.crit + weapon.critChanceToAdd) damage = (int)(damage * ((weapon.data
             .critDmg + weapon.critDmgToAdd) / 100f));
         monster.TakeDamage(damage);

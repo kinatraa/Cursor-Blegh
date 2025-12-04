@@ -19,5 +19,5 @@ MonoBehaviour:
   effectType: 2
   prefab: {fileID: 0}
   maxStack: 0
-  activeRate: 0
+  activeRate: 100
   atk: 0

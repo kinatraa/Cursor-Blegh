@@ -34,10 +34,10 @@ public class BuffController : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.K))
         {
-            var newBuff = buffSystem.GetBuff(BuffType.ARCANE_TOME);
+            var newBuff = buffSystem.GetBuff(BuffType.FAIRY_ELIXIR);
             if (newBuff != null)
             {
-                Debug.Log("Added ARCANE_TOME");
+                Debug.Log("Added FAIRY_ELIXIR");
                 newBuff.AddStack();
                 if (!currentBuffItems.Contains(newBuff))
                 {
