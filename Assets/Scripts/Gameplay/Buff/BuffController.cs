@@ -53,5 +53,6 @@ public class BuffController : MonoBehaviour
         {
             buff?.Activate();
         }
+        GameplayManager.Instance.monsterController.vampiricRageBuff?.Activate();
     }
 }
