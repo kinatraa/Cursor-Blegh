@@ -12,12 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b45b8895fbf15742bf3fad68d883252, type: 3}
   m_Name: MysticPotion
   m_EditorClassIdentifier: 
-  buffName: 
+  buffName: Mystic Poison
   buffIcon: {fileID: 0}
   description: 
   type: 20
   effectType: 2
   prefab: {fileID: 0}
-  maxStack: 1
-  activeRate: 0
+  maxStack: 0
+  activeRate: 100
   atk: 0

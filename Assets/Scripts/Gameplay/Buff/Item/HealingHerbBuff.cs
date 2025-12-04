@@ -18,9 +18,12 @@ public class HealingHerbBuff : BaseBuff
 
     public override void AddStack()
     {
-        base.AddStack();
+        if (stack < data.maxStack)
+        {
+            base.AddStack();
 
-        GameplayManager.Instance.monsterController.healingHerbBuff = this;
+            GameplayManager.Instance.monsterController.healingHerbBuff = this;
+        }
     }
 
     public override void Activate()

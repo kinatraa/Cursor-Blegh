@@ -76,6 +76,16 @@ public abstract class BaseWeapon : MonoBehaviour
         }
     }
 
+    public void HealByItem(int amount){
+        int totalHeal = amount;
+        if (GameplayManager.Instance.monsterController.mysticPotionBuff != null)
+        {
+            totalHeal += 2;
+        }
+        currentHp = Mathf.Min(currentHp + totalHeal, maxHp);
+        GameEventManager.InvokeUpdatePlayerHp(currentHp);
+    }
+
     private IEnumerator IETakeDamageAlert()
     {
         WeaponState previousState = currentState;

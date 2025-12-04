@@ -34,7 +34,7 @@ public class BuffController : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.K))
         {
-            var newBuff = buffSystem.GetBuff(BuffType.FAIRY_ELIXIR);
+            var newBuff = buffSystem.GetBuff(BuffType.MYSTIC_POTION);
             if (newBuff != null)
             {
                 Debug.Log("Added FAIRY_ELIXIR");
