@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: HealingHerb
   m_EditorClassIdentifier: 
   buffName: Healing Herb
-  buffIcon: {fileID: 0}
-  description: 
+  buffIcon: {fileID: 239400019, guid: 85fd376c6144b854dbc49c18a3018509, type: 3}
+  description: +5% enemy blood (health) drop rate.
   type: 12
   effectType: 2
   prefab: {fileID: 4533326777372104206, guid: a45a57ff9fbfd024982dd7a50845a062, type: 3}

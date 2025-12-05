@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: SharpenStone
   m_EditorClassIdentifier: 
   buffName: Sharpen Stone
-  buffIcon: {fileID: 0}
-  description: 
+  buffIcon: {fileID: -878984875, guid: 85fd376c6144b854dbc49c18a3018509, type: 3}
+  description: +1 base weapon damage.
   type: 17
   effectType: 2
   prefab: {fileID: 0}

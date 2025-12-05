@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: MysticPotion
   m_EditorClassIdentifier: 
   buffName: Mystic Poison
-  buffIcon: {fileID: 0}
-  description: 
+  buffIcon: {fileID: 1941096350, guid: 85fd376c6144b854dbc49c18a3018509, type: 3}
+  description: When picking up a health item, restore +2 additional HP.
   type: 20
   effectType: 2
   prefab: {fileID: 0}

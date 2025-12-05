@@ -13,8 +13,9 @@ MonoBehaviour:
   m_Name: PoisonThorn
   m_EditorClassIdentifier: 
   buffName: Poison Thorn
-  buffIcon: {fileID: -1037121756, guid: 59d6fd698cac2844dbc97e49684e4c0f, type: 3}
-  description: 
+  buffIcon: {fileID: -1920736363, guid: 85fd376c6144b854dbc49c18a3018509, type: 3}
+  description: On kill, 10% chance to fire 4 spikes in 4 directions, dealing 8 ATK
+    each.
   type: 4
   effectType: 1
   prefab: {fileID: 4225058328980525259, guid: 9fa7bb4cad4ba0f4b9836401b087f595, type: 3}
