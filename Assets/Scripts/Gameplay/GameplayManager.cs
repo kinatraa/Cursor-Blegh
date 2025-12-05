@@ -31,6 +31,11 @@ public class GameplayManager : Singleton<GameplayManager>
     {
         weaponController.ChooseWeapon(weaponType);
         waveController.SetCurrentWave(currentWave);
+
+        if (WaveRewardSystem.Instance != null)
+        {
+            WaveRewardSystem.Instance.StartWave();
+        }
     }
 
     private void NextWave()

@@ -61,6 +61,11 @@ public class WaveController : MonoBehaviour
         }
         
         Debug.Log($"=== Start Wave {currentWave} (Config Wave: {effectiveWave}) ===");
+
+        if (WaveRewardSystem.Instance != null)
+        {
+            WaveRewardSystem.Instance.StartWave();
+        }
         
         List<MonsterSpawnInfo> spawnQueue = new List<MonsterSpawnInfo>();
 

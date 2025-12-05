@@ -68,6 +68,12 @@ public abstract class BaseWeapon : MonoBehaviour
 
         currentHp -= damage;
         GameEventManager.InvokeUpdatePlayerHp(currentHp);
+
+        if (WaveRewardSystem.Instance != null)
+        {
+            WaveRewardSystem.Instance.OnDamageTaken();
+        }
+
         
         if (currentHp <= 0)
         {
