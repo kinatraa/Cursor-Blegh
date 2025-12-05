@@ -26,6 +26,8 @@ public class EarthquakeSkill : BaseWeaponSkill
 
     public override void Activate(BaseWeapon weapon)
     {
+        if (IsOnCooldown()) return;
+        
         base.Activate(weapon);
 
         if (_slamCoroutine != null)

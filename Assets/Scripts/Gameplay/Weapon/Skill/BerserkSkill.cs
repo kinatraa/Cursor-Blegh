@@ -29,6 +29,8 @@ public class BerserkSkill : BaseWeaponSkill
 
     public override void Activate(BaseWeapon weapon)
     {
+        if (IsOnCooldown()) return;
+        
         base.Activate(weapon);
 
         if (_berserkCoroutine != null)
