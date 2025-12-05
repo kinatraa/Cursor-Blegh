@@ -145,6 +145,12 @@ public abstract class BaseMonster : MonoBehaviour
     public virtual void TakeDamage(int damage)
     {
         Debug.Log($"{gameObject.name} is taking damage {damage}");
+        
+        if (ComboController.Instance != null)
+        {
+            ComboController.Instance.AddCombo();
+        }
+        
         currentHp -= damage;
 
         if (_blinkCoroutine != null)
