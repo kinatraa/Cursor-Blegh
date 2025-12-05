@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23ea0db9dfeaaa942af66cacb30426eb, type: 3}
   m_Name: Drakebeast
   m_EditorClassIdentifier: 
-  monsterName: 
+  monsterName: Drake Beast
   description: 
   type: 13
   size: 2

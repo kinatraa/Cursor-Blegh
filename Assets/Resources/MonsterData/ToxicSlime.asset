@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23ea0db9dfeaaa942af66cacb30426eb, type: 3}
   m_Name: ToxicSlime
   m_EditorClassIdentifier: 
-  monsterName: 
+  monsterName: Toxic Slime
   description: 
   type: 10
   size: 1
