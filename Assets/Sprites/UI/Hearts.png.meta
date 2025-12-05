@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 974a5a22dabefd645a159d7310b40e9d
+guid: 72046d70792a7bb449230d2cef914625
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -110,13 +110,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: axe_5
+      name: Hearts_0
       rect:
         serializedVersion: 2
-        x: 188
+        x: 32
         y: 33
-        width: 132
-        height: 133
+        width: 191
+        height: 176
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -124,20 +124,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 20cf2d92bc3e61b4d948036f78d1d1d3
-      internalID: 1773201159
+      spriteID: aea065034863ba443a8c34e72837bffe
+      internalID: 317817131
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: axe_7
+      name: Hearts_1
       rect:
         serializedVersion: 2
-        x: 527
-        y: 30
-        width: 131
-        height: 136
+        x: 253
+        y: 33
+        width: 192
+        height: 176
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -145,8 +145,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e9798e1250c42d44793402d2d5f56ab1
-      internalID: -1921716691
+      spriteID: a33b5d79c63a9934dad88e2789e6ebc8
+      internalID: 756963511
       vertices: []
       indices: 
       edges: []
@@ -154,7 +154,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 06152d33b47c9424d971e64a03e056fc
+    spriteID: d89ef09a17813cb439091a59965fcd6e
     internalID: 0
     vertices: []
     indices: 
@@ -162,14 +162,8 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      axe_0: 2105644551
-      axe_1: -941442349
-      axe_2: 2094972026
-      axe_3: -525803881
-      axe_4: -1909348744
-      axe_5: 1773201159
-      axe_6: 733662412
-      axe_7: -1921716691
+      Hearts_0: 317817131
+      Hearts_1: 756963511
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

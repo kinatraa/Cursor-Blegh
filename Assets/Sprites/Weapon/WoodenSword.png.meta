@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 7a340fdecd6d1af4aa356534dafc0891
+guid: 801adbacd6ecf4c41b811f7ee7eef2c2
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -43,7 +43,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -108,49 +108,7 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites:
-    - serializedVersion: 2
-      name: sword_0
-      rect:
-        serializedVersion: 2
-        x: 32
-        y: 187
-        width: 95
-        height: 142
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e314906bc7030a24c89648339407d8b1
-      internalID: 184797135
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: sword_5
-      rect:
-        serializedVersion: 2
-        x: 204
-        y: 11
-        width: 76
-        height: 150
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 79e2c80901d44b24c981364f8b3e11fb
-      internalID: 161460159
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
+    sprites: []
     outline: []
     physicsShape: []
     bones: []
@@ -161,15 +119,7 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable:
-      sword_0: 184797135
-      sword_1: -112522815
-      sword_2: 1505243951
-      sword_3: 1837648411
-      sword_4: 706222087
-      sword_5: 161460159
-      sword_6: -782460543
-      sword_7: 1638068230
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
