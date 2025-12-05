@@ -309,7 +309,20 @@ public abstract class BaseMonster : MonoBehaviour
                 GameplayManager.Instance.monsterController.lastHitMonster = null;
             }
 
-            GameplayManager.Instance.weaponController.currentWeapon.GainScore(data.score);
+            int baseScore = data.score;
+            int comboBonus = 0;
+            
+            if (ComboController.Instance != null)
+            {
+                comboBonus = ComboController.Instance.CalculateComboBonus();
+            }
+            
+            int totalScore = baseScore + comboBonus;
+            
+            GameplayManager.Instance.weaponController.currentWeapon.GainScore(totalScore);
+            
+            Debug.Log($"<color=yellow>Score: {baseScore} + {comboBonus} (Combo {ComboController.Instance?.GetCurrentCombo()}x) = {totalScore}</color>");
+            
             GameplayManager.Instance.monsterController.RemoveMonster(this);
         }
     }

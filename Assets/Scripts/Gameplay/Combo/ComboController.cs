@@ -45,14 +45,6 @@ public class ComboController : MonoBehaviour
         _currentCombo++;
         _comboTimer = _comboResetTime;
         _isComboActive = true;
-
-        int bonusScore = _currentCombo * _scorePerCombo;
-        
-        var weapon = GameplayManager.Instance.weaponController.currentWeapon;
-        if (weapon != null)
-        {
-            weapon.GainScore(bonusScore);
-        }
     }
 
     public void ResetCombo()
@@ -65,6 +57,11 @@ public class ComboController : MonoBehaviour
         _currentCombo = 0;
         _comboTimer = 0f;
         _isComboActive = false;
+    }
+
+    public int CalculateComboBonus()
+    {
+        return _currentCombo * _scorePerCombo;
     }
 
     public int GetCurrentCombo() => _currentCombo;
