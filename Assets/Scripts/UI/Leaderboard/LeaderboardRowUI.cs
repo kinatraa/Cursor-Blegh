@@ -1,5 +1,5 @@
 using UnityEngine;
-using TMPro; // Nhớ sử dụng TextMeshPro
+using TMPro;
 
 public class LeaderboardRowUI : MonoBehaviour
 {
