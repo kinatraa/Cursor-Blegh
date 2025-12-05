@@ -17,6 +17,5 @@ MonoBehaviour:
   atk: 15
   crit: 15
   critDmg: 120
-  icon: {fileID: 21300000, guid: 5649720afdd3c474db07d0f7d8904d17, type: 3}
-  prefab: {fileID: 3383860510323094720, guid: 604a68c4248cf3546a62e22fdc699f29, type: 3}
+  icon: {fileID: 21300000, guid: 205c852b32d4cca4c824d721d23dedd6, type: 3}
   skill: 4
