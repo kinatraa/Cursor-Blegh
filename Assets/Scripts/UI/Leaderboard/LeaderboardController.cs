@@ -46,7 +46,7 @@ public class LeaderboardController : MonoBehaviour
     private IEnumerator FetchLeaderboardRoutine()
     {
         if (loadingIndicator) loadingIndicator.SetActive(true);
-
+        
         string url = $"{BASE_URL}/get_all_players";
 
         using (UnityWebRequest request = UnityWebRequest.Get(url))
@@ -60,9 +60,7 @@ public class LeaderboardController : MonoBehaviour
             else
             {
                 string jsonResult = request.downloadHandler.text;
-                
                 List<PlayerData> allPlayers = JsonHelper.FromJson<PlayerData>(jsonResult);
-                
                 ProcessAndDisplayData(allPlayers);
             }
         }
@@ -137,8 +135,19 @@ public class LeaderboardController : MonoBehaviour
 
             if (request.result != UnityWebRequest.Result.Success)
             {
-                Debug.LogError($"Đăng ký thất bại: {request.error}\n{request.downloadHandler.text}");
-                onComplete?.Invoke(false);
+                if (request.responseCode == 409)
+                {
+                    Debug.LogWarning("Tên người chơi đã tồn tại. Sẽ sử dụng tên này để chơi.");
+                    CurrentPlayerName = name;
+                    PlayerPrefs.SetString("PlayerName", CurrentPlayerName);
+                    PlayerPrefs.Save();
+                    onComplete?.Invoke(true);
+                }
+                else
+                {
+                    Debug.LogError($"Đăng ký thất bại: {request.error}\n{request.downloadHandler.text}");
+                    onComplete?.Invoke(false);
+                }
             }
             else
             {
@@ -147,11 +156,11 @@ public class LeaderboardController : MonoBehaviour
                 CurrentPlayerId = newPlayer._id;
                 CurrentPlayerName = newPlayer.name;
                 
-                PlayerPrefs.SetString("PlayerID", CurrentPlayerId);
-                PlayerPrefs.SetString("PlayerName", CurrentPlayerName);
+                PlayerPrefs.SetString("PlayerID", CurrentPlayerId); 
+                PlayerPrefs.SetString("PlayerName", CurrentPlayerName); 
                 PlayerPrefs.Save();
 
-                Debug.Log($"Đăng ký thành công! ID: {CurrentPlayerId}");
+                Debug.Log($"Đăng ký thành công! Name: {CurrentPlayerName}");
                 onComplete?.Invoke(true);
             }
         }
@@ -159,17 +168,20 @@ public class LeaderboardController : MonoBehaviour
     
     public void SubmitScore(int wave, int score, int playtime)
     {
-        if (string.IsNullOrEmpty(CurrentPlayerId))
+        if (string.IsNullOrEmpty(CurrentPlayerName))
         {
-            Debug.LogError("Chưa có PlayerID. Không thể gửi điểm.");
+            Debug.LogError("Chưa có Tên người chơi (PlayerName). Không thể gửi điểm.");
             return;
         }
-        StartCoroutine(UpdateScoreRoutine(CurrentPlayerId, wave, score, playtime));
+        StartCoroutine(UpdateScoreRoutine(CurrentPlayerName, wave, score, playtime));
     }
 
-    private IEnumerator UpdateScoreRoutine(string id, int wave, int score, int playtime)
+    private IEnumerator UpdateScoreRoutine(string name, int wave, int score, int playtime)
     {
-        string url = $"{BASE_URL}/update_score/{id}";
+        // RL encode
+        // "Gamer VN" -> "Gamer%20VN"
+        string safeName = Uri.EscapeDataString(name);
+        string url = $"{BASE_URL}/update_score/{safeName}";
         
         UpdateScoreRequest requestBody = new UpdateScoreRequest 
         { 
@@ -190,15 +202,16 @@ public class LeaderboardController : MonoBehaviour
 
             if (request.result != UnityWebRequest.Result.Success)
             {
-                Debug.LogError($"Cập nhật điểm thất bại: {request.error}");
+                Debug.LogError($"Cập nhật điểm thất bại: {request.error} - {request.downloadHandler.text}");
             }
             else
             {
-                Debug.Log("Cập nhật điểm thành công lên Server!");
+                Debug.Log($"Cập nhật điểm thành công cho user: {name}!");
                 RefreshLeaderboard();
             }
         }
     }
+    
     private class DisplayInfo
     {
         public string name;
