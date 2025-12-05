@@ -302,13 +302,19 @@ public abstract class BaseMonster : MonoBehaviour
         if (GameplayManager.Instance != null &&
             GameplayManager.Instance.waveController != null)
         {
-            GameplayManager.Instance.monsterController.healingHerbBuff?.Activate();
+            // THAY ĐỔI: Xử lý HealingHerbBuff TRƯỚC khi tính điểm
+            bool shouldDropHealth = ShouldDropHealthPack();
+            if (shouldDropHealth)
+            {
+                DropHealthPack();
+            }
             
             if (GameplayManager.Instance.monsterController.lastHitMonster == this)
             {
                 GameplayManager.Instance.monsterController.lastHitMonster = null;
             }
 
+            // Tính điểm
             int baseScore = data.score;
             int comboBonus = 0;
             
@@ -324,6 +330,39 @@ public abstract class BaseMonster : MonoBehaviour
             Debug.Log($"<color=yellow>Score: {baseScore} + {comboBonus} (Combo {ComboController.Instance?.GetCurrentCombo()}x) = {totalScore}</color>");
             
             GameplayManager.Instance.monsterController.RemoveMonster(this);
+        }
+    }
+
+    private bool ShouldDropHealthPack()
+    {
+        float baseDropChance = 0.05f; // 5% base
+        float totalDropChance = baseDropChance;
+        
+        // Nếu có HealingHerbBuff, tăng thêm 5% mỗi stack
+        var healingBuff = GameplayManager.Instance.monsterController.healingHerbBuff;
+        if (healingBuff != null)
+        {
+            float buffBonus = healingBuff.GetStack * 0.05f; // 5% per stack
+            totalDropChance += buffBonus;
+            
+            Debug.Log($"<color=cyan>Health drop chance: {baseDropChance * 100}% + {buffBonus * 100}% (Buff {healingBuff.GetStack}x) = {totalDropChance * 100}%</color>");
+        }
+        
+        return Random.value < totalDropChance;
+    }
+
+    private void DropHealthPack()
+    {
+        GameObject healthPrefab = Resources.Load<GameObject>("Prefabs/Buff/HealingHerbObject");
+    
+        if (healthPrefab != null)
+        {
+            Instantiate(healthPrefab, transform.position, Quaternion.identity);
+            Debug.Log($"<color=green>❤ Health pack dropped!</color>");
+        }
+        else
+        {
+            Debug.LogWarning("Health pack prefab not found at Resources/Prefabs/Buff/HealingHerbObject");
         }
     }
 

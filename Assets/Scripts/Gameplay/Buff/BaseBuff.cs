@@ -5,6 +5,7 @@ using UnityEngine;
 public abstract class BaseBuff
 {
     protected BuffData data;
+    public int GetStack => stack;
     protected int stack;
     
     public BaseBuff(BuffData data)
