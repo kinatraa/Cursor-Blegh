@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b8e9277f03bad148b2603737a99e4f8, type: 3}
+  m_Name: AudioLibrary
+  m_EditorClassIdentifier: 
+  bgm:
+  - key: bgm_bossfight1
+    clip: {fileID: 8300000, guid: 34547bf541d3fb74791a499ebcf2e46e, type: 3}
+  - key: bgm_bossfight2
+    clip: {fileID: 8300000, guid: ca15a0a60d5028549a6245947413b45c, type: 3}
+  - key: bgm_gameplay
+    clip: {fileID: 8300000, guid: 0b6e3c094d15ed944a826c060f293616, type: 3}
+  - key: bgm_mainmenu
+    clip: {fileID: 8300000, guid: 958c1ae16e5ce4b42aa5d9bbaa33f9f5, type: 3}
+  sfx: []
