@@ -17,7 +17,8 @@ MonoBehaviour:
   description: Fully restores HP.
   type: 19
   effectType: 2
+  collectType: 1
   prefab: {fileID: 0}
-  maxStack: 0
+  maxStack: 9999
   activeRate: 0
   atk: 0

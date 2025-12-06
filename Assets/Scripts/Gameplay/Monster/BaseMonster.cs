@@ -353,7 +353,10 @@ public abstract class BaseMonster : MonoBehaviour
 
     private void DropHealthPack()
     {
-        GameObject healthPrefab = Resources.Load<GameObject>("Prefabs/Buff/HealingHerbObject");
+        var healingHerbData = GameplayManager.Instance.buffController.buffSystem.GetBuffData(BuffType.HEALING_HERB);
+        if (healingHerbData == null) return;
+
+        GameObject healthPrefab = healingHerbData.prefab;
     
         if (healthPrefab != null)
         {
@@ -362,7 +365,7 @@ public abstract class BaseMonster : MonoBehaviour
         }
         else
         {
-            Debug.LogWarning("Health pack prefab not found at Resources/Prefabs/Buff/HealingHerbObject");
+            Debug.LogWarning("Health pack prefab not found");
         }
     }
 

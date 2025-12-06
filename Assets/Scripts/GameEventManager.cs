@@ -21,6 +21,8 @@ public static class GameEventManager
     public static Action<int> onUpdatePlayerScore;
     public static Action<int> onUpdateWave;
     public static Action<int> onAddRerollAmount;
+    public static Action<BuffData> onChooseBuff;
+    public static Action<BuffData> onUpdateBuffStack;
     
     public static void InvokeGameStart()
     {
@@ -75,5 +77,15 @@ public static class GameEventManager
     public static void InvokeAddRerollAmount(int amount)
     {
         onAddRerollAmount?.Invoke(amount);
+    }
+
+    public static void InvokeChooseBuff(BuffData buffData)
+    {
+        onChooseBuff?.Invoke(buffData);
+    }
+
+    public static void InvokeUpdateBuffStack(BuffData buffData)
+    {
+        onUpdateBuffStack?.Invoke(buffData);
     }
 }

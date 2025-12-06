@@ -13,6 +13,7 @@ public class BuffData : ScriptableObject
     [Header("Identity")]
     public BuffType type;
     public BuffEffectType effectType;
+    public CollectType collectType;
     public GameObject prefab;
     
     [Header("Stats")]
@@ -51,4 +52,10 @@ public enum BuffEffectType
     NONE = 0,
     SKILL = 1,
     ITEM = 2,
+}
+
+public enum CollectType
+{
+    CAN_COLLECT = 0,
+    CAN_NOT_COLLECT = 1,
 }

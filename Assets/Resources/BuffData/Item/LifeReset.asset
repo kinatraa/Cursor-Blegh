@@ -17,7 +17,8 @@ MonoBehaviour:
   description: Gain +3 rerolls for the next core selection.
   type: 9
   effectType: 2
+  collectType: 1
   prefab: {fileID: 0}
-  maxStack: 1
+  maxStack: 9999
   activeRate: 0
   atk: 0

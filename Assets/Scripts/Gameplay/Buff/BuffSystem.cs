@@ -19,6 +19,15 @@ public class BuffSystem
         _buffLogicDict = new Dictionary<BuffType, BaseBuff>();
     }
 
+    public BuffData GetBuffData(BuffType buffType)
+    {
+        if (_buffDataDict.ContainsKey(buffType))
+        {
+            return _buffDataDict[buffType];
+        }
+        return null;
+    }
+
     public BaseBuff GetBuff(BuffType type)
     {
         if (!_buffLogicDict.ContainsKey(type))

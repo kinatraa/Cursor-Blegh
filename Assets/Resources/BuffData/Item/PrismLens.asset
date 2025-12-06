@@ -17,7 +17,8 @@ MonoBehaviour:
   description: +5% Critical Damage
   type: 15
   effectType: 2
+  stackType: 0
   prefab: {fileID: 0}
-  maxStack: 0
+  maxStack: 9999
   activeRate: 0
   atk: 0

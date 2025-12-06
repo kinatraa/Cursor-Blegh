@@ -16,36 +16,70 @@ public class BuffController : MonoBehaviour
         buffSystem = new BuffSystem(new List<BuffData>(allBuffs));
     }
 
-    private void Update()
+    private void OnEnable()
     {
-        if (Input.GetKeyDown(KeyCode.J))
+        GameEventManager.onChooseBuff += AddBuff;
+    }
+
+    private void OnDisable()
+    {
+        GameEventManager.onChooseBuff -= AddBuff;
+    }
+
+    private void AddBuff(BuffData buffData)
+    {
+        var newBuff = buffSystem.GetBuff(buffData.type);
+        if (newBuff == null) return;
+
+        newBuff.AddStack();
+        switch (newBuff.data.effectType)
         {
-            var newBuff = buffSystem.GetBuff(BuffType.MOLTEN_STONE);
-            if (newBuff != null && !newBuff.IsMaxStack())
-            {
-                Debug.Log("Added MOLTEN_STONE");
-                newBuff.AddStack();
+            case BuffEffectType.SKILL:
                 if(!currentBuffSkills.Contains(newBuff))
                 {
                     currentBuffSkills.Add(newBuff);
                 }
-            }
-        }
-
-        if (Input.GetKeyDown(KeyCode.K))
-        {
-            var newBuff = buffSystem.GetBuff(BuffType.IMMORTAL);
-            if (newBuff != null)
-            {
-                Debug.Log("Added IMMORTAL");
-                newBuff.AddStack();
+                break;
+            case BuffEffectType.ITEM:
                 if (!currentBuffItems.Contains(newBuff))
                 {
                     currentBuffItems.Add(newBuff);
                 }
-            }
+                break;
         }
+        GameEventManager.InvokeUpdateBuffStack(buffData);
     }
+
+    // private void Update()
+    // {
+    //     if (Input.GetKeyDown(KeyCode.J))
+    //     {
+    //         var newBuff = buffSystem.GetBuff(BuffType.MOLTEN_STONE);
+    //         if (newBuff != null && !newBuff.IsMaxStack())
+    //         {
+    //             Debug.Log("Added MOLTEN_STONE");
+    //             newBuff.AddStack();
+    //             if(!currentBuffSkills.Contains(newBuff))
+    //             {
+    //                 currentBuffSkills.Add(newBuff);
+    //             }
+    //         }
+    //     }
+    //
+    //     if (Input.GetKeyDown(KeyCode.K))
+    //     {
+    //         var newBuff = buffSystem.GetBuff(BuffType.IMMORTAL);
+    //         if (newBuff != null)
+    //         {
+    //             Debug.Log("Added IMMORTAL");
+    //             newBuff.AddStack();
+    //             if (!currentBuffItems.Contains(newBuff))
+    //             {
+    //                 currentBuffItems.Add(newBuff);
+    //             }
+    //         }
+    //     }
+    // }
 
     public void CheckBuffs()
     {
@@ -75,5 +109,26 @@ public class BuffController : MonoBehaviour
         }
 
         return false;
+    }
+
+    public int GetBuffCurrentStack(BuffType buffType)
+    {
+        foreach (var buff in currentBuffItems)
+        {
+            if (buff.data.type == buffType)
+            {
+                return buff.GetStack;
+            }
+        }
+        
+        foreach (var buff in currentBuffSkills)
+        {
+            if (buff.data.type == buffType)
+            {
+                return buff.GetStack;
+            }
+        }
+
+        return 0;
     }
 }

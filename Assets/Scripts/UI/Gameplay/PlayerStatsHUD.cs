@@ -18,7 +18,7 @@ public class PlayerStatsHUD : UIHud
             if (i < maxHp)
             {
                 heartIcons[i].gameObject.SetActive(true);
-                heartIcons[i].transform.GetChild(0).gameObject.SetActive(false);
+                heartIcons[i].transform.GetChild(0).gameObject.SetActive(true);
             }
             else
             {
@@ -33,11 +33,11 @@ public class PlayerStatsHUD : UIHud
         {
             if (i < hp)
             {
-                heartIcons[i].transform.GetChild(0).gameObject.SetActive(false);
+                heartIcons[i].transform.GetChild(0).gameObject.SetActive(true);
             }
             else
             {
-                heartIcons[i].transform.GetChild(0).gameObject.SetActive(true);
+                heartIcons[i].transform.GetChild(0).gameObject.SetActive(false);
             }
         }
     }

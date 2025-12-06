@@ -5,8 +5,8 @@ using UnityEngine;
 public abstract class BaseBuff
 {
     public readonly BuffData data;
-    public int GetStack => stack;
     protected int stack;
+    public int GetStack => stack;
     
     public BaseBuff(BuffData data)
     {

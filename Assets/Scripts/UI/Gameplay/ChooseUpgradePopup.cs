@@ -7,7 +7,7 @@ using UnityEngine.UI;
 
 public class ChooseUpgradePopup : UIPopup
 {
-    public List<ChooseOptionButton> optionButtons = new List<ChooseOptionButton>();
+    public List<ChooseBuffButton> optionButtons = new List<ChooseBuffButton>();
     public TextMeshProUGUI rerollAmountText;
     
     private List<BuffData> _canAddStackBuffs = new List<BuffData>();
@@ -59,11 +59,11 @@ public class ChooseUpgradePopup : UIPopup
         {
             if (i >= _canAddStackBuffs.Count)
             {
-                optionButtons[i].image.transform.parent.gameObject.SetActive(false);
+                optionButtons[i].gameObject.SetActive(false);
             }
             else
             {
-                optionButtons[i].image.transform.parent.gameObject.SetActive(true);
+                optionButtons[i].gameObject.SetActive(true);
                 optionButtons[i].Setup(_canAddStackBuffs[i]);
             }
         }
@@ -74,27 +74,6 @@ public class ChooseUpgradePopup : UIPopup
         _rerollAmount += amount;
         rerollAmountText.text = $"Roll: {_rerollAmount}";
     }
-    
-    public void ChooseOption1()
-    {
-        Debug.Log("ChooseOption1");
-        
-        Hide();
-    }
-    
-    public void ChooseOption2()
-    {
-        Debug.Log("ChooseOption2");
-        
-        Hide();
-    }
-    
-    public void ChooseOption3()
-    {
-        Debug.Log("ChooseOption3");
-        
-        Hide();
-    }
 
     public void Reroll()
     {
@@ -104,20 +83,5 @@ public class ChooseUpgradePopup : UIPopup
         SetupChooseOption();
 
         UpdateRerollAmount(-1);
-    }
-}
-
-[Serializable]
-public class ChooseOptionButton
-{
-    public Image image;
-    public TextMeshProUGUI title;
-    public TextMeshProUGUI description;
-
-    public void Setup(BuffData data)
-    {
-        image.sprite = data.buffIcon;
-        title.text = data.buffName;
-        description.text = data.description;
     }
 }

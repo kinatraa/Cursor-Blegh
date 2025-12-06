@@ -17,7 +17,8 @@ MonoBehaviour:
   description: When picking up a health item, restore +2 additional HP.
   type: 20
   effectType: 2
+  stackType: 0
   prefab: {fileID: 0}
-  maxStack: 0
+  maxStack: 1
   activeRate: 100
   atk: 0
