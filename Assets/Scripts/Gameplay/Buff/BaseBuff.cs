@@ -61,4 +61,6 @@ public abstract class BaseBuff
     protected Coroutine StartCoroutine(IEnumerator r) 
         => CoroutineRunner.Instance.StartCoroutine(r);
 
+    protected void StopCoroutine(Coroutine r) 
+        => CoroutineRunner.Instance.StopCoroutine(r);
 }

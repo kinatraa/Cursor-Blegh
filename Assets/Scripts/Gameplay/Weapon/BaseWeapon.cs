@@ -15,6 +15,7 @@ public abstract class BaseWeapon : MonoBehaviour
     public int damageToAdd = 0;
     
     public WeaponState currentState = WeaponState.NORMAL;
+    public bool isImmortal = false;
     
     private SpriteRenderer _sr;
     private Coroutine _takeDamageCoroutine;
@@ -57,6 +58,8 @@ public abstract class BaseWeapon : MonoBehaviour
 
     public void TakeDamage(int damage = 1)
     {
+        if (isImmortal) return;
+        
         if (currentState == WeaponState.NORMAL)
         {
             if (_takeDamageCoroutine != null)
@@ -69,11 +72,7 @@ public abstract class BaseWeapon : MonoBehaviour
         currentHp -= damage;
         GameEventManager.InvokeUpdatePlayerHp(currentHp);
 
-        if (WaveRewardSystem.Instance != null)
-        {
-            WaveRewardSystem.Instance.OnDamageTaken();
-        }
-
+        GameplayManager.Instance.waveRewardSystem.OnDamageTaken();
         
         if (currentHp <= 0)
         {
@@ -149,6 +148,7 @@ public abstract class BaseWeapon : MonoBehaviour
     
     public void ResetWeapon()
     {
+        isImmortal = false;
         maxHp = data.hp;
         currentHp = maxHp;
         critDmgToAdd = 0;

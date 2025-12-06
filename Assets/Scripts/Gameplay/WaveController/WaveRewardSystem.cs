@@ -2,26 +2,12 @@
 
 public class WaveRewardSystem : MonoBehaviour
 {
-    public static WaveRewardSystem Instance { get; private set; }
-
     [Header("Wave Reward Settings")]
     [SerializeField] private int _completionBonus = 100;
     [SerializeField] private int _perfectBonus = 500;
 
     private int _startWaveHP = 0;
     private bool _hasTakenDamage = false;
-
-    private void Awake()
-    {
-        if (Instance == null)
-        {
-            Instance = this;
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
-    }
 
     private void OnEnable()
     {
@@ -79,13 +65,5 @@ public class WaveRewardSystem : MonoBehaviour
     {
         var weapon = GameplayManager.Instance.weaponController.currentWeapon;
         return weapon != null && !_hasTakenDamage && weapon.currentHp == _startWaveHP;
-    }
-
-    private void OnDestroy()
-    {
-        if (Instance == this)
-        {
-            Instance = null;
-        }
     }
 }

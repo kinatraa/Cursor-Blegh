@@ -1870,6 +1870,7 @@ MonoBehaviour:
   waveController: {fileID: 1179435695}
   stateController: {fileID: 541907409}
   buffController: {fileID: 367418637}
+  waveRewardSystem: {fileID: 829384827}
   weaponType: 1
   currentWave: 3
 --- !u!1 &829384826

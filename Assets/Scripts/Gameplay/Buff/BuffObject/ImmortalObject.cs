@@ -1,4 +1,6 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class ImmortalObject : MonoBehaviour
@@ -20,8 +22,13 @@ public class ImmortalObject : MonoBehaviour
     private LineRenderer _lineRenderer;
     private float _currentPulse = 0f;
 
-    private void Awake(){
+    private void Awake()
+    {
         SetupLineRenderer();
+    }
+
+    private void OnEnable()
+    {
         StartCoroutine(IEAnimateShield());
     }
 
