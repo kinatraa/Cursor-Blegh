@@ -45,6 +45,11 @@ public class ComboController : MonoBehaviour
         _currentCombo++;
         _comboTimer = _comboResetTime;
         _isComboActive = true;
+        string hitKey = "combo_add";
+        if (AudioManager.Instance != null)
+        {
+            AudioManager.Instance.ShotSfx(hitKey, volume: 2f, pitch: 1f + _currentCombo * 0.2f);
+        }
     }
 
     public void ResetCombo()

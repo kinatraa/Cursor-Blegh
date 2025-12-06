@@ -106,5 +106,9 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: 5ad706bfa55bfad48b23ffa84f836aaa, type: 3}
   - key: buff_flame
     clip: {fileID: 8300000, guid: ca76f6b96c5c4f14bafe4d35f6b0f583, type: 3}
+  - key: buff_shield
+    clip: {fileID: 8300000, guid: ab129259a7923264ab4245a7ccc8655d, type: 3}
   - key: buff_thunder
     clip: {fileID: 8300000, guid: 14a0bc3f29179a0419e6d1e98f06ebc2, type: 3}
+  - key: combo_add
+    clip: {fileID: 8300000, guid: 8f6876617ea284c4da1d35815077ffe2, type: 3}
