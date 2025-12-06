@@ -20,6 +20,7 @@ public static class GameEventManager
     public static Action<int> onUpdatePlayerHP;
     public static Action<int> onUpdatePlayerScore;
     public static Action<int> onUpdateWave;
+    public static Action<int> onAddRerollAmount;
     
     public static void InvokeGameStart()
     {
@@ -69,5 +70,10 @@ public static class GameEventManager
     public static void InvokeUpdateWave(int wave)
     {
         onUpdateWave?.Invoke(wave);
+    }
+
+    public static void InvokeAddRerollAmount(int amount)
+    {
+        onAddRerollAmount?.Invoke(amount);
     }
 }

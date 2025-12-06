@@ -23,6 +23,6 @@ public class LifeResetBuff : BaseBuff
     public override void AddStack()
     {
         base.AddStack();
-        // Add 3 rolls
+        GameEventManager.InvokeAddRerollAmount(3);
     }
 }

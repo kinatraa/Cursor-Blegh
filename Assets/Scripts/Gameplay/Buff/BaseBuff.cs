@@ -4,7 +4,7 @@ using UnityEngine;
 
 public abstract class BaseBuff
 {
-    protected BuffData data;
+    public readonly BuffData data;
     public int GetStack => stack;
     protected int stack;
     
@@ -53,6 +53,7 @@ public abstract class BaseBuff
 
     public virtual bool IsMaxStack()
     {
+        if (data.maxStack == 0) return false;
         return stack >= data.maxStack;
     }
     

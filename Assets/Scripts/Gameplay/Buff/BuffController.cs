@@ -55,4 +55,25 @@ public class BuffController : MonoBehaviour
         }
         GameplayManager.Instance.monsterController.vampiricRageBuff?.Activate();
     }
+
+    public bool IsBuffMaxStack(BuffType buffType)
+    {
+        foreach (var buff in currentBuffItems)
+        {
+            if (buff.data.type == buffType)
+            {
+                return buff.IsMaxStack();
+            }
+        }
+        
+        foreach (var buff in currentBuffSkills)
+        {
+            if (buff.data.type == buffType)
+            {
+                return buff.IsMaxStack();
+            }
+        }
+
+        return false;
+    }
 }
