@@ -12,7 +12,7 @@ public static class CombatResolver
 
         if (weapon.currentState == WeaponState.BLINK) return;
         
-        List<string> hitSounds = new List<string> { "attack1", "attack2", "weapon_swish", "weapon_swoosh" };
+        List<string> hitSounds = new List<string> { "attack_1", "attack_2", "weapon_swish", "weapon_swoosh" };
         int randomChance = UnityEngine.Random.Range(0, hitSounds.Count);
         string hitKey = hitSounds[randomChance];
         if (AudioManager.Instance != null)

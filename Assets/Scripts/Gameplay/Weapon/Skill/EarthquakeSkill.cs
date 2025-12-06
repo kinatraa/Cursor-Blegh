@@ -39,7 +39,7 @@ public class EarthquakeSkill : BaseWeaponSkill
         string hitKey = "sfx_groundslam";
         if (AudioManager.Instance != null)
         {
-            AudioManager.Instance.ShotSfx(hitKey);
+            AudioManager.Instance.ShotSfx(hitKey, 5f, 0.5f);
         }
 
         _slamCoroutine = weapon.StartCoroutine(IEGroundSlam(weapon));

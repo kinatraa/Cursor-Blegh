@@ -13,6 +13,11 @@ public class ToxicSlime : BaseMonster
         Debug.Log("This monster does not attack");
         yield return null;
     }
+
+    protected override IEnumerator IECharging()
+    {
+        yield return null;
+    }
     
     protected override IEnumerator IEDieSequence()
     {

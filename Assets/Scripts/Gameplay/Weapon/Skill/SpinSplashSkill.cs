@@ -40,12 +40,6 @@
                 ForceResetState(weapon);
             }
             
-            string hitKey = "attack3";
-            if (AudioManager.Instance != null)
-            {
-                AudioManager.Instance.ShotSfx(hitKey);
-            }
-            
             _spinCoroutine = weapon.StartCoroutine(IESpinSplash(weapon));
         }
 
@@ -91,6 +85,12 @@
             if (spriteRenderer != null)
             {
                 spriteRenderer.color = _spinColor;
+            }
+            
+            string hitKey = "attack_3";
+            if (AudioManager.Instance != null)
+            {
+                AudioManager.Instance.ShotSfx(hitKey);
             }
             
             while (elapsed < _spinDuration)

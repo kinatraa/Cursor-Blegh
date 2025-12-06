@@ -80,7 +80,7 @@ public class BoneAssassin : BaseMonster
         string hitKey = "monster_disappear";
         if (AudioManager.Instance != null)
         {
-            AudioManager.Instance.ShotSfx(hitKey);
+            AudioManager.Instance.ShotSfx(hitKey, 3f, 2f);
         }
 
         yield return StartCoroutine(IEFadeOutTeleport());
@@ -92,7 +92,7 @@ public class BoneAssassin : BaseMonster
         hitKey = "monster_appear";
         if (AudioManager.Instance != null)
         {
-            AudioManager.Instance.ShotSfx(hitKey);
+            AudioManager.Instance.ShotSfx(hitKey, 2f);
         }
 
         yield return StartCoroutine(IEFadeInTeleport());

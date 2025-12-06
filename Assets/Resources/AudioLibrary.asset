@@ -44,7 +44,7 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: b5ea7d2de10be9442bffa290c6826858, type: 3}
   - key: monster_die1
     clip: {fileID: 8300000, guid: 49497de77e1d85947b9b9383c5a10008, type: 3}
-  - key: monster_die
+  - key: monster_die2
     clip: {fileID: 8300000, guid: 326c7aeb51e631f4e907363372747130, type: 3}
   - key: monster_die3
     clip: {fileID: 8300000, guid: 19910b433fb26064a8a04fbf8a0d8fa1, type: 3}
@@ -86,8 +86,8 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: 10cd54481f7480f488724a2d9b0a84ce, type: 3}
   - key: monster_shoot
     clip: {fileID: 8300000, guid: 3f88d43117403e942b444a6674d53970, type: 3}
-  - key: monster_disapear
-    clip: {fileID: 8300000, guid: 791e3db5591139e43838d589de8b76b8, type: 3}
+  - key: monster_disappear
+    clip: {fileID: 8300000, guid: 43fb719a0d6c0d24498eed555a1d6302, type: 3}
   - key: monster_appear
     clip: {fileID: 8300000, guid: 8e065295179385c4497118a917947635, type: 3}
   - key: monster_explode

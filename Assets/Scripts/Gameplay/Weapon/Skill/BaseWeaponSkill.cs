@@ -16,11 +16,6 @@ public abstract class BaseWeaponSkill
     {
         if (IsOnCooldown())
         {
-            string hitKey = "item_hover";
-            if (AudioManager.Instance != null)
-            {
-                AudioManager.Instance.ShotSfx(hitKey);
-            }
             float remainingCooldown = GetRemainingCooldown();
             Debug.Log($"<color=yellow>Skill {data.type} on cooldown! {remainingCooldown:F1}s remaining</color>");
             return;
@@ -52,6 +47,13 @@ public abstract class BaseWeaponSkill
             _isOnCooldown = false;
             return false;
         }
+        
+        string hitKey = "item_hover";
+        if (AudioManager.Instance != null)
+        {
+            AudioManager.Instance.ShotSfx(hitKey, 2f, 0.5f);
+        }
+        
         return true;
     }
 }

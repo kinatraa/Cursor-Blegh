@@ -123,6 +123,13 @@ public abstract class BaseMonster : MonoBehaviour
 
     protected virtual IEnumerator IECharging()
     {
+        
+        string hitKey = "monster_hit";
+        if (AudioManager.Instance != null)
+        {
+            AudioManager.Instance.ShotSfx(hitKey);
+        }
+        
         PlayAnimation(ANIM_ATTACK);
         _sr.color = Color.blue;
 
@@ -151,7 +158,7 @@ public abstract class BaseMonster : MonoBehaviour
             ComboController.Instance.AddCombo();
         }
         
-        List<string> hitSounds = new List<string> { "monster_hit",  "monster_hit1","monster_hit2","monster_hit3","monster_hit4"};
+        List<string> hitSounds = new List<string> {  "monster_hit1","monster_hit2","monster_hit3","monster_hit4", "sfx_hit1", "sfx_hit2"};
         int randomChance = UnityEngine.Random.Range(0, hitSounds.Count);
         string hitKey = hitSounds[randomChance];
         if (AudioManager.Instance != null)

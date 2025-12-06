@@ -2000,7 +2000,7 @@ MonoBehaviour:
   buffController: {fileID: 367418637}
   waveRewardSystem: {fileID: 829384827}
   weaponType: 1
-  currentWave: 3
+  currentWave: 0
 --- !u!1 &829384826
 GameObject:
   m_ObjectHideFlags: 0
@@ -2730,7 +2730,7 @@ MonoBehaviour:
   _waveConfigFile: {fileID: 4900000, guid: b8702bef772dc0f4b86d60efe0ab3c6d, type: 3}
   spawnAreaSize: {x: 13, y: 5.96}
   spawnCenter: {x: 0, y: 0, z: 0}
-  currentWave: 1
+  currentWave: 0
 --- !u!1 &1206538032
 GameObject:
   m_ObjectHideFlags: 0
