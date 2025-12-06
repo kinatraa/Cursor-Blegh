@@ -167,7 +167,7 @@ public abstract class BaseWeapon : MonoBehaviour
     public void ResetWeapon()
     {
         isImmortal = false;
-        maxHp = data.hp;
+        if(data != null) maxHp = data.hp;
         currentHp = maxHp;
         critDmgToAdd = 0;
         critChanceToAdd = 0f;

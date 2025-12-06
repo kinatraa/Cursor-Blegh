@@ -131,4 +131,10 @@ public class BuffController : MonoBehaviour
 
         return 0;
     }
+
+    public void Reset()
+    {
+        currentBuffSkills = new List<BaseBuff>();
+        currentBuffItems = new List<BaseBuff>();
+    }
 }

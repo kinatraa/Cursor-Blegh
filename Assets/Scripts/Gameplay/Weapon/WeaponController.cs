@@ -20,6 +20,16 @@ public class WeaponController : MonoBehaviour
         weaponSkillSystem = new WeaponSkillSystem(new List<WeaponSkillData>(allSkills));
     }
 
+    private void OnEnable()
+    {
+        GameEventManager.onChooseWeapon += ChooseWeapon;
+    }
+
+    private void OnDisable()
+    {
+        GameEventManager.onChooseWeapon -= ChooseWeapon;
+    }
+
     private void Update()
     {
         if (currentWeapon)
@@ -46,7 +56,7 @@ public class WeaponController : MonoBehaviour
         }
     }
 
-    public void ChooseWeapon(WeaponType type)
+    private void ChooseWeapon(WeaponType type)
     {
         foreach (var weapon in weapons)
         {
@@ -61,5 +71,10 @@ public class WeaponController : MonoBehaviour
                 weapon.gameObject.SetActive(false);
             }
         }
+    }
+
+    public void Reset()
+    {
+        rebornBuff = null;
     }
 }

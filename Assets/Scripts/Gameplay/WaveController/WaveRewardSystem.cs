@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 public class WaveRewardSystem : MonoBehaviour
 {
@@ -65,5 +66,11 @@ public class WaveRewardSystem : MonoBehaviour
     {
         var weapon = GameplayManager.Instance.weaponController.currentWeapon;
         return weapon != null && !_hasTakenDamage && weapon.currentHp == _startWaveHP;
+    }
+
+    public void Reset()
+    {
+        _startWaveHP = 0;
+        _hasTakenDamage = false;
     }
 }

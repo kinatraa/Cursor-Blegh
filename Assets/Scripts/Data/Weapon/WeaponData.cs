@@ -12,8 +12,10 @@ public class WeaponData : ScriptableObject
     public float crit;
     public float critDmg;
 
-    [Header("Visuals")]
+    [Header("Visuals")] 
+    public string weaponName;
     public Sprite icon;
+    [TextArea] public string description;
     
     [Header("Skills")]
     public WeaponSkillType skill;

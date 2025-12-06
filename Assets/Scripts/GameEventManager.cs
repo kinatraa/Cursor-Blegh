@@ -23,6 +23,7 @@ public static class GameEventManager
     public static Action<int> onAddRerollAmount;
     public static Action<BuffData> onChooseBuff;
     public static Action<BuffData> onUpdateBuffStack;
+    public static Action<WeaponType> onChooseWeapon;
     
     public static void InvokeGameStart()
     {
@@ -87,5 +88,10 @@ public static class GameEventManager
     public static void InvokeUpdateBuffStack(BuffData buffData)
     {
         onUpdateBuffStack?.Invoke(buffData);
+    }
+
+    public static void InvokeChooseWeapon(WeaponType weaponType)
+    {
+        onChooseWeapon?.Invoke(weaponType);
     }
 }

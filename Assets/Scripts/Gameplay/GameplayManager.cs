@@ -6,31 +6,37 @@ using UnityEngine;
 
 public class GameplayManager : Singleton<GameplayManager>
 {
-    [Header("Controller")] 
-    public WeaponController weaponController;
+    [Header("Controller")] public WeaponController weaponController;
     public MonsterController monsterController;
     public WaveController waveController;
     public StateMachine stateController;
     public BuffController buffController;
     public WaveRewardSystem waveRewardSystem;
-    
-    [Header("Test Level Data")] 
-    public WeaponType weaponType;
+
+    public WeaponType currentWeaponType = WeaponType.WOODEN_SWORD;
     public int currentWave = 1;
 
     private void OnEnable()
     {
+        GameEventManager.onGameStart += StartGame;
         GameEventManager.onNextWave += NextWave;
     }
 
     private void OnDisable()
     {
+        GameEventManager.onGameStart -= StartGame;
         GameEventManager.onNextWave -= NextWave;
     }
 
     private void Start()
     {
-        weaponController.ChooseWeapon(weaponType);
+    }
+
+    private void StartGame()
+    {
+        ResetGame();
+
+        currentWave = 1;
         waveController.SetCurrentWave(currentWave);
 
         if (waveRewardSystem != null)
@@ -46,11 +52,14 @@ public class GameplayManager : Singleton<GameplayManager>
         stateController.ChangeState(0);
     }
 
-    private void Update()
+    private void ResetGame()
     {
-        if (Input.GetKeyDown(KeyCode.E))
-        {
-            stateController.Next();
-        }
+        weaponController.Reset();
+        monsterController.Reset();
+        waveController.Reset();
+        stateController.gameObject.SetActive(true);
+        stateController.StartMachine();
+        buffController.Reset();
+        waveRewardSystem.Reset();
     }
 }

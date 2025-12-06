@@ -15,6 +15,8 @@ public class SentinelShieldBuff : BaseBuff
 
     public override void AddStack()
     {
+        base.AddStack();
+        
         if (!_holder) _holder = GameplayManager.Instance.weaponController.currentWeapon.transform;
 
         var newOrb = Object.Instantiate(data.prefab, _holder);

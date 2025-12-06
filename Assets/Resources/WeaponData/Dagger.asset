@@ -17,5 +17,7 @@ MonoBehaviour:
   atk: 8
   crit: 50
   critDmg: 150
+  weaponName: Dagger
   icon: {fileID: 21300000, guid: 3ff2414127effc34d9982ef6190c653d, type: 3}
+  description: 'Stealth: Become invisible and immune to damage from enemies.'
   skill: 2

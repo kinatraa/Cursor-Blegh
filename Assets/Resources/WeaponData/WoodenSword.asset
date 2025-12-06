@@ -17,5 +17,8 @@ MonoBehaviour:
   atk: 10
   crit: 0
   critDmg: 110
+  weaponName: Wooden Sword
   icon: {fileID: 21300000, guid: 801adbacd6ecf4c41b811f7ee7eef2c2, type: 3}
+  description: 'Spin Slash: The weapon spins rapidly in place, destroying all enemy
+    projectiles within a small radius around you.'
   skill: 1

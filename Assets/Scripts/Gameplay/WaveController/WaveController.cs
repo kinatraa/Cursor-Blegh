@@ -181,6 +181,11 @@ public class WaveController : MonoBehaviour
         Gizmos.color = Color.red;
         Gizmos.DrawWireCube(spawnCenter, new Vector3(spawnAreaSize.x, spawnAreaSize.y, 1));
     }
+
+    public void Reset()
+    {
+        
+    }
 }
 
 public struct SpawnData
