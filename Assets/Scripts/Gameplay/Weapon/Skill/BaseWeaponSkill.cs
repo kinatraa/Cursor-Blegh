@@ -16,6 +16,11 @@ public abstract class BaseWeaponSkill
     {
         if (IsOnCooldown())
         {
+            string hitKey = "item_hover";
+            if (AudioManager.Instance != null)
+            {
+                AudioManager.Instance.ShotSfx(hitKey);
+            }
             float remainingCooldown = GetRemainingCooldown();
             Debug.Log($"<color=yellow>Skill {data.type} on cooldown! {remainingCooldown:F1}s remaining</color>");
             return;
@@ -35,14 +40,6 @@ public abstract class BaseWeaponSkill
         float remainingCooldown =Mathf.Max(0f, data.cooldown - elapsed);
         return remainingCooldown;
     }
-
-    // public float GetCooldownProgress()
-    // {
-    //     if (!_isOnCooldown) return 1f;
-    //     
-    //     float elapsed = Time.time - _lastActiveTime;
-    //     return Mathf.Clamp01(elapsed / data.cooldown);
-    // }
 
     public bool IsOnCooldown()
     {

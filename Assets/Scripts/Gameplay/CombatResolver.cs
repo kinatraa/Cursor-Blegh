@@ -12,6 +12,14 @@ public static class CombatResolver
 
         if (weapon.currentState == WeaponState.BLINK) return;
         
+        List<string> hitSounds = new List<string> { "attack1", "attack2", "weapon_swish", "weapon_swoosh" };
+        int randomChance = UnityEngine.Random.Range(0, hitSounds.Count);
+        string hitKey = hitSounds[randomChance];
+        if (AudioManager.Instance != null)
+        {
+            AudioManager.Instance.ShotSfx(hitKey);
+        }
+        
         int damage = weapon.data.atk + weapon.damageToAdd;
         if(Random.Range(0, 100) < weapon.data.crit + weapon.critChanceToAdd) damage = (int)(damage * ((weapon.data
             .critDmg + weapon.critDmgToAdd) / 100f));

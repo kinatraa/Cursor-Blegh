@@ -19,6 +19,11 @@ public class InfernoBeast : BaseMonster
         int bulletCount = Random.Range(_minBullets, _maxBullets + 1);
         for (int i = 0; i < bulletCount; i++)
         {
+            string hitKey = "monster_shoot";
+            if (AudioManager.Instance != null)
+            {
+                AudioManager.Instance.ShotSfx(hitKey);
+            }
             SpawnBullet();
             yield return new WaitForSeconds(_projectileSpawnWaitTime);
         }

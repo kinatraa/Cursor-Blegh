@@ -41,7 +41,7 @@ public class WaveController : MonoBehaviour
         }
     }
 
-    public void SimulateSpawnLogic()
+    public void SpawnMonsters()
     {
         if (_waveData == null || _maxConfiguredWave == 0) return;
         
@@ -109,6 +109,12 @@ public class WaveController : MonoBehaviour
             {
                 Debug.LogWarning($"Can't find position for {info.id}!");
             }
+        }
+        
+        string hitKey = "item_choose";
+        if (AudioManager.Instance != null)
+        {
+            AudioManager.Instance.ShotSfx(hitKey);
         }
         
         Debug.Log("========================================\n");

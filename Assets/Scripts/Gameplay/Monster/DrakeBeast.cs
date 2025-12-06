@@ -55,6 +55,11 @@ public class DrakeBeast : BaseMonster
         var currentAnimState = _animator.GetCurrentAnimatorStateInfo(0);
         if (currentAnimState.IsName(ANIM_ATTACK))
         {
+            string hitKey = "monster_lunge";
+            if (AudioManager.Instance != null)
+            {
+                AudioManager.Instance.ShotSfx(hitKey);
+            }
             yield return StartCoroutine(IELungeAttack());
         }
         else if (currentAnimState.IsName(ANIM_SKILL))
@@ -86,6 +91,11 @@ public class DrakeBeast : BaseMonster
             elapsed += Time.deltaTime;
             float t = elapsed / _lungeDuration;
             transform.position = Vector3.Lerp(startPos, targetPos, t);
+            string hitKey = "monster_bite";
+            if (AudioManager.Instance != null)
+            {
+                AudioManager.Instance.ShotSfx(hitKey);
+            }
             PlayAnimation(ANIM_START_ATTACK);
 
             if (!hasDamaged){
@@ -127,6 +137,11 @@ public class DrakeBeast : BaseMonster
             elapsed += Time.deltaTime;
 
             if (elapsed - lastSpawnTime >= _bulletSpawnInterval){
+                string hitKey = "monster_shoot";
+                if (AudioManager.Instance != null)
+                {
+                    AudioManager.Instance.ShotSfx(hitKey);
+                }
                 SpawnBreathBullet(weaponController);
                 lastSpawnTime = elapsed;
             }

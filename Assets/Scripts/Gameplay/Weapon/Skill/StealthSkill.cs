@@ -32,6 +32,12 @@ public class StealthSkill : BaseWeaponSkill
             weapon.StopCoroutine(_stealthCoroutine);
             ForceResetState(weapon);
         }
+        
+        string hitKey = "sfx_disappear";
+        if (AudioManager.Instance != null)
+        {
+            AudioManager.Instance.ShotSfx(hitKey);
+        }
 
         _stealthCoroutine = weapon.StartCoroutine(IEStealth(weapon));
     }

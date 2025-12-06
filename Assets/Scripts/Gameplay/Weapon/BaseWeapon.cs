@@ -1,7 +1,7 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = System.Random;
 
 public abstract class BaseWeapon : MonoBehaviour
 {
@@ -69,6 +69,14 @@ public abstract class BaseWeapon : MonoBehaviour
             _takeDamageCoroutine = StartCoroutine(IETakeDamageAlert());
         }
 
+        List<string> hitSounds = new List<string> { "weapon_hit1", "weapon_hit2" };
+        int randomChance = UnityEngine.Random.Range(0, hitSounds.Count);
+        string hitKey = hitSounds[randomChance];
+        if (AudioManager.Instance != null)
+        {
+            AudioManager.Instance.ShotSfx(hitKey);
+        }
+        
         currentHp -= damage;
         GameEventManager.InvokeUpdatePlayerHp(currentHp);
 
@@ -79,6 +87,11 @@ public abstract class BaseWeapon : MonoBehaviour
             var rebornBuff = GameplayManager.Instance.weaponController.rebornBuff;
             if (rebornBuff != null && rebornBuff.TryRevive())
             {
+                string hitKey1 = "item_pickup";
+                if (AudioManager.Instance != null)
+                {
+                    AudioManager.Instance.ShotSfx(hitKey1);
+                }
                 currentHp = 1;
                 GameEventManager.InvokeUpdatePlayerMaxHp(maxHp);
                 GameEventManager.InvokeUpdatePlayerHp(currentHp);
@@ -109,6 +122,11 @@ public abstract class BaseWeapon : MonoBehaviour
 
     public void HealByItem(int amount){
         int totalHeal = amount;
+        string hitKey = "item_pickup";
+        if (AudioManager.Instance != null)
+        {
+            AudioManager.Instance.ShotSfx(hitKey);
+        }
         if (GameplayManager.Instance.monsterController.mysticPotionBuff != null)
         {
             totalHeal += 2;
