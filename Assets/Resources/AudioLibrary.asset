@@ -21,4 +21,94 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: 0b6e3c094d15ed944a826c060f293616, type: 3}
   - key: bgm_mainmenu
     clip: {fileID: 8300000, guid: 958c1ae16e5ce4b42aa5d9bbaa33f9f5, type: 3}
-  sfx: []
+  - key: piano
+    clip: {fileID: 8300000, guid: d3375b04e9db6004ca950b7863f3b368, type: 3}
+  sfx:
+  - key: attack_1
+    clip: {fileID: 8300000, guid: cd0342cf1b3b551499a95d58c5ef04a2, type: 3}
+  - key: attack_2
+    clip: {fileID: 8300000, guid: caf8fdd88006f5246aade5feb1ddd963, type: 3}
+  - key: attack_3
+    clip: {fileID: 8300000, guid: 6799670653b485b48be52692a96d7576, type: 3}
+  - key: button_back
+    clip: {fileID: 8300000, guid: 1ecd2c6bc8c53de4db76cfa2014e084b, type: 3}
+  - key: button_click
+    clip: {fileID: 8300000, guid: e3433003bbe2c3642b19b0a7ee64c34f, type: 3}
+  - key: button_hover
+    clip: {fileID: 8300000, guid: 3187172e293f7f24abbdd6cc72e41724, type: 3}
+  - key: item_choose
+    clip: {fileID: 8300000, guid: 75c702069a9186444b2cb8919816286d, type: 3}
+  - key: item_hover
+    clip: {fileID: 8300000, guid: 8c092e874e573104e88e09a3539e4685, type: 3}
+  - key: item_pickup
+    clip: {fileID: 8300000, guid: b5ea7d2de10be9442bffa290c6826858, type: 3}
+  - key: monster_die1
+    clip: {fileID: 8300000, guid: 49497de77e1d85947b9b9383c5a10008, type: 3}
+  - key: monster_die2
+    clip: {fileID: 8300000, guid: 326c7aeb51e631f4e907363372747130, type: 3}
+  - key: monster_die3
+    clip: {fileID: 8300000, guid: 19910b433fb26064a8a04fbf8a0d8fa1, type: 3}
+  - key: monster_hit
+    clip: {fileID: 8300000, guid: df3b4aee14b059f4db6a1bb9c994fa67, type: 3}
+  - key: monster_hit1
+    clip: {fileID: 8300000, guid: 90433c15c32a8794693c2975f8c87a61, type: 3}
+  - key: monster_hit2
+    clip: {fileID: 8300000, guid: 40897bf5fae0a344d952e20973c223f4, type: 3}
+  - key: monster_hit3
+    clip: {fileID: 8300000, guid: 8639289c17d77194482cc7e7182cf7b0, type: 3}
+  - key: monster_hit4
+    clip: {fileID: 8300000, guid: 5b89e564d88a1ea46824021dabb2a708, type: 3}
+  - key: sfx_gameover
+    clip: {fileID: 8300000, guid: b2d15a5ba7d511045b269240265adcdf, type: 3}
+  - key: sfx_hit1
+    clip: {fileID: 8300000, guid: 2f800dddec3711b419bd095e1d398294, type: 3}
+  - key: sfx_berserk
+    clip: {fileID: 8300000, guid: 622f9c46ab2856840acaf184f645fd0e, type: 3}
+  - key: sfx_hit2
+    clip: {fileID: 8300000, guid: 4fb6761f00495c44db13767ca07b0500, type: 3}
+  - key: sfx_hit3
+    clip: {fileID: 8300000, guid: a5b64aeac0ae68f4cbacbcc1d00b2167, type: 3}
+  - key: sfx_levelup
+    clip: {fileID: 8300000, guid: 08b9cad58a829844eb1dc2ca897c9513, type: 3}
+  - key: sfx_pop
+    clip: {fileID: 8300000, guid: 131d6922390a36a45958aec999037cd0, type: 3}
+  - key: weapon_hit1
+    clip: {fileID: 8300000, guid: 4cd8bf261c1e91643a5a7ac76b6a03fc, type: 3}
+  - key: weapon_hit2
+    clip: {fileID: 8300000, guid: fb036de244a7217478a0eaff81124cdf, type: 3}
+  - key: weapon_swish
+    clip: {fileID: 8300000, guid: 7e7e7ac2b4d92dc43923c304b8d5b579, type: 3}
+  - key: weapon_swoosh
+    clip: {fileID: 8300000, guid: 5ffff1245fd5cbc418cad72befcf0aa1, type: 3}
+  - key: sfx_disappear
+    clip: {fileID: 8300000, guid: be4458295d0eae64e8bde9f1ad655810, type: 3}
+  - key: sfx_groundslam
+    clip: {fileID: 8300000, guid: 10cd54481f7480f488724a2d9b0a84ce, type: 3}
+  - key: monster_shoot
+    clip: {fileID: 8300000, guid: 3f88d43117403e942b444a6674d53970, type: 3}
+  - key: monster_disappear
+    clip: {fileID: 8300000, guid: 43fb719a0d6c0d24498eed555a1d6302, type: 3}
+  - key: monster_appear
+    clip: {fileID: 8300000, guid: 8e065295179385c4497118a917947635, type: 3}
+  - key: monster_explode
+    clip: {fileID: 8300000, guid: 43270ad42fe506840b8ae10b2139a9a1, type: 3}
+  - key: monster_lasershoot
+    clip: {fileID: 8300000, guid: 700a290b7d4ba9d4a95d78d79ae8f723, type: 3}
+  - key: monster_summon
+    clip: {fileID: 8300000, guid: 3160abda5e806594a8f5898a70f0ba12, type: 3}
+  - key: monster_lunge
+    clip: {fileID: 8300000, guid: 369f3ea26f13e6344a8f8aeeda4755fa, type: 3}
+  - key: monster_bite
+    clip: {fileID: 8300000, guid: f8ed955399994fd48b7c80025d77719a, type: 3}
+  - key: monster_thunder
+    clip: {fileID: 8300000, guid: 2174791af7edf24418a3f4310c107c89, type: 3}
+  - key: buff_frost
+    clip: {fileID: 8300000, guid: 5ad706bfa55bfad48b23ffa84f836aaa, type: 3}
+  - key: buff_flame
+    clip: {fileID: 8300000, guid: ca76f6b96c5c4f14bafe4d35f6b0f583, type: 3}
+  - key: buff_shield
+    clip: {fileID: 8300000, guid: ab129259a7923264ab4245a7ccc8655d, type: 3}
+  - key: buff_thunder
+    clip: {fileID: 8300000, guid: 14a0bc3f29179a0419e6d1e98f06ebc2, type: 3}
+  - key: combo_add
+    clip: {fileID: 8300000, guid: 8f6876617ea284c4da1d35815077ffe2, type: 3}

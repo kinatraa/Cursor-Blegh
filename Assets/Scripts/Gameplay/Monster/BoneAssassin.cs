@@ -18,6 +18,13 @@ public class BoneAssassin : BaseMonster
     protected override IEnumerator IEAttackPlayer()
     {
         _sr.color = Color.red;
+        
+        string hitKey = "monster_shoot";
+        if (AudioManager.Instance != null)
+        {
+            AudioManager.Instance.ShotSfx(hitKey);
+        }
+        
         SpawnBullet();
 
         yield return new WaitForSeconds(_delayBeforeTeleport);
@@ -69,12 +76,24 @@ public class BoneAssassin : BaseMonster
             Debug.LogWarning("No valid teleport position found!");
             yield break;
         }
+        
+        string hitKey = "monster_disappear";
+        if (AudioManager.Instance != null)
+        {
+            AudioManager.Instance.ShotSfx(hitKey, 3f, 2f);
+        }
 
         yield return StartCoroutine(IEFadeOutTeleport());
 
         transform.position = newPosition;
 
         yield return new WaitForSeconds(_invisibleDuration);
+        
+        hitKey = "monster_appear";
+        if (AudioManager.Instance != null)
+        {
+            AudioManager.Instance.ShotSfx(hitKey, 2f);
+        }
 
         yield return StartCoroutine(IEFadeInTeleport());
 

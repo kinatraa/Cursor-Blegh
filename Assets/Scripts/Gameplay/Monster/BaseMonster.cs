@@ -123,6 +123,13 @@ public abstract class BaseMonster : MonoBehaviour
 
     protected virtual IEnumerator IECharging()
     {
+        
+        string hitKey = "monster_hit";
+        if (AudioManager.Instance != null)
+        {
+            AudioManager.Instance.ShotSfx(hitKey);
+        }
+        
         PlayAnimation(ANIM_ATTACK);
         _sr.color = Color.blue;
 
@@ -149,6 +156,14 @@ public abstract class BaseMonster : MonoBehaviour
         if (ComboController.Instance != null)
         {
             ComboController.Instance.AddCombo();
+        }
+        
+        List<string> hitSounds = new List<string> {  "monster_hit1","monster_hit2","monster_hit3","monster_hit4", "sfx_hit1", "sfx_hit2"};
+        int randomChance = UnityEngine.Random.Range(0, hitSounds.Count);
+        string hitKey = hitSounds[randomChance];
+        if (AudioManager.Instance != null)
+        {
+            AudioManager.Instance.ShotSfx(hitKey);
         }
         
         currentHp -= damage;
@@ -246,6 +261,14 @@ public abstract class BaseMonster : MonoBehaviour
         {
             collider.enabled = false;
         }
+        
+        List<string> hitSounds = new List<string> { "monster_die1",  "monster_die2","monster_die3"};
+        int randomChance = UnityEngine.Random.Range(0, hitSounds.Count);
+        string hitKey = hitSounds[randomChance];
+        if (AudioManager.Instance != null)
+        {
+            AudioManager.Instance.ShotSfx(hitKey);
+        }
 
         StartCoroutine(IEDieSequence());
     }
@@ -302,7 +325,6 @@ public abstract class BaseMonster : MonoBehaviour
         if (GameplayManager.Instance != null &&
             GameplayManager.Instance.waveController != null)
         {
-            // THAY ĐỔI: Xử lý HealingHerbBuff TRƯỚC khi tính điểm
             bool shouldDropHealth = ShouldDropHealthPack();
             if (shouldDropHealth)
             {
@@ -313,8 +335,7 @@ public abstract class BaseMonster : MonoBehaviour
             {
                 GameplayManager.Instance.monsterController.lastHitMonster = null;
             }
-
-            // Tính điểm
+            
             int baseScore = data.score;
             int comboBonus = 0;
             
@@ -335,14 +356,13 @@ public abstract class BaseMonster : MonoBehaviour
 
     private bool ShouldDropHealthPack()
     {
-        float baseDropChance = 0.05f; // 5% base
+        float baseDropChance = 0.05f;
         float totalDropChance = baseDropChance;
         
-        // Nếu có HealingHerbBuff, tăng thêm 5% mỗi stack
         var healingBuff = GameplayManager.Instance.monsterController.healingHerbBuff;
         if (healingBuff != null)
         {
-            float buffBonus = healingBuff.GetStack * 0.05f; // 5% per stack
+            float buffBonus = healingBuff.GetStack * 0.05f;
             totalDropChance += buffBonus;
             
             Debug.Log($"<color=cyan>Health drop chance: {baseDropChance * 100}% + {buffBonus * 100}% (Buff {healingBuff.GetStack}x) = {totalDropChance * 100}%</color>");

@@ -110,6 +110,12 @@ public class DemonKing : BaseMonster
                return;
           }
           
+          string hitKey = "monster_lasershoot";
+          if (AudioManager.Instance != null)
+          {
+               AudioManager.Instance.ShotSfx(hitKey);
+          }
+          
           for (int i = 0; i < _laserCount; i++)
           {
                float randomAngle = Random.Range(0f, 360f);
@@ -134,6 +140,11 @@ public class DemonKing : BaseMonster
      private IEnumerator IESkill2()
      {
           _sr.color = Color.red;
+          string hitKey = "monster_shoot";
+          if (AudioManager.Instance != null)
+          {
+               AudioManager.Instance.ShotSfx(hitKey);
+          }
           for (int i = 0; i < 12; i++)
           {
                float angle = i * 30f;
@@ -147,6 +158,11 @@ public class DemonKing : BaseMonster
      private IEnumerator IESkill3()
      {
           _sr.color = Color.red;
+          string hitKey = "monster_shoot";
+          if (AudioManager.Instance != null)
+          {
+               AudioManager.Instance.ShotSfx(hitKey);
+          }
           SpawnBullet(_fastSpeed);
           yield return new WaitForSeconds(_remainingAnimTime);
           _sr.color = Color.white;
@@ -157,11 +173,29 @@ public class DemonKing : BaseMonster
           _sr.color = Color.red;
           _isInvincible = true;
           
+          string hitKey = "monster_disappear";
+          if (AudioManager.Instance != null)
+          {
+               AudioManager.Instance.ShotSfx(hitKey);
+          }
+          
           yield return StartCoroutine(IETeleportToPlayer());
 
           yield return new WaitForSeconds(_exploreOffsetDuration);
           
           PlayAnimation(ANIM_SKILL4_START);
+          
+          hitKey = "monster_appear";
+          if (AudioManager.Instance != null)
+          {
+               AudioManager.Instance.ShotSfx(hitKey);
+          }
+          
+          hitKey = "monster_explode";
+          if (AudioManager.Instance != null)
+          {
+               AudioManager.Instance.ShotSfx(hitKey);
+          }
           
           yield return StartCoroutine(Explore());
           

@@ -87,6 +87,12 @@
                 spriteRenderer.color = _spinColor;
             }
             
+            string hitKey = "attack_3";
+            if (AudioManager.Instance != null)
+            {
+                AudioManager.Instance.ShotSfx(hitKey);
+            }
+            
             while (elapsed < _spinDuration)
             {
                 if (weapon == null) yield break;

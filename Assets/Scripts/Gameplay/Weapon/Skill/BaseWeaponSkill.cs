@@ -36,14 +36,6 @@ public abstract class BaseWeaponSkill
         return remainingCooldown;
     }
 
-    // public float GetCooldownProgress()
-    // {
-    //     if (!_isOnCooldown) return 1f;
-    //     
-    //     float elapsed = Time.time - _lastActiveTime;
-    //     return Mathf.Clamp01(elapsed / data.cooldown);
-    // }
-
     public bool IsOnCooldown()
     {
         if (!_isOnCooldown) return false;
@@ -55,6 +47,13 @@ public abstract class BaseWeaponSkill
             _isOnCooldown = false;
             return false;
         }
+        
+        string hitKey = "item_hover";
+        if (AudioManager.Instance != null)
+        {
+            AudioManager.Instance.ShotSfx(hitKey, 2f, 0.5f);
+        }
+        
         return true;
     }
 }

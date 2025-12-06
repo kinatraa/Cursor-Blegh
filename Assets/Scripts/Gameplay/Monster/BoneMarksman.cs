@@ -11,6 +11,13 @@ public class BoneMarksman : BaseMonster
     protected override IEnumerator IEAttackPlayer()
     {
         _sr.color = Color.red;
+        
+        string hitKey = "monster_shoot";
+        if (AudioManager.Instance != null)
+        {
+            AudioManager.Instance.ShotSfx(hitKey);
+        }
+        
         SpawnBullet();
 
         yield return new WaitForSeconds(_remainingAnimTime);

@@ -13,12 +13,22 @@ public class ToxicSlime : BaseMonster
         Debug.Log("This monster does not attack");
         yield return null;
     }
+
+    protected override IEnumerator IECharging()
+    {
+        yield return null;
+    }
     
     protected override IEnumerator IEDieSequence()
     {
         PlayAnimation(ANIM_DIE);
         yield return new WaitForSeconds(_animator.GetCurrentAnimatorStateInfo(0).length);
         yield return StartCoroutine(IEFadeOut());
+        string hitKey = "monster_shoot";
+        if (AudioManager.Instance != null)
+        {
+            AudioManager.Instance.ShotSfx(hitKey);
+        }
         for (int i = 0; i < 6; i++)
         {
             float angle = i * 60f;

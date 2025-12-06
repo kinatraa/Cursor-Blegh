@@ -25,6 +25,12 @@ public class ThunderBeast : BaseMonster
     
     protected override IEnumerator IEAttackPlayer()
     {
+        string hitKey = "monster_thunder";
+        if (AudioManager.Instance != null)
+        {
+            AudioManager.Instance.ShotSfx(hitKey);
+        }
+        
         PlayAnimation(ANIM_ATTACK);
         
         yield return StartCoroutine(IEActivateElectricField());
@@ -51,7 +57,6 @@ public class ThunderBeast : BaseMonster
         {
             elapsed += Time.deltaTime;
             
-            // Deal damage
             if (elapsed - lastDamageTime >= _damageInterval)
             {
                 DealDamageInField();
@@ -59,7 +64,6 @@ public class ThunderBeast : BaseMonster
                 _damagedWeaponsThisInterval.Clear();
             }
             
-            // Animate circle
             if (_animateCircle && _circleLineRenderer != null)
             {
                 AnimateElectricCircle(elapsed);

@@ -8,6 +8,6 @@ public class CombatState : State
 {
     private void OnEnable()
     {
-        GameplayManager.Instance.waveController.SimulateSpawnLogic();
+        GameplayManager.Instance.waveController.SpawnMonsters();
     }
 }

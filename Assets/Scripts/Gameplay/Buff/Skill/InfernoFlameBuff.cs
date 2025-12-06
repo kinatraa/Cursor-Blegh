@@ -34,6 +34,12 @@ public class InfernoFlameBuff : BaseBuff
         
         infernoFlame.transform.SetParent(lastHitMonster.transform);
         
+        string hitKey = "buff_flame";
+        if (AudioManager.Instance != null)
+        {
+            AudioManager.Instance.ShotSfx(hitKey);
+        }
+        
         InfernoFlameObject flameObject = infernoFlame.GetComponent<InfernoFlameObject>();
         if (flameObject != null)
         {

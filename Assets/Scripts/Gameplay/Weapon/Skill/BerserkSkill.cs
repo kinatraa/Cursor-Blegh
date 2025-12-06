@@ -38,6 +38,12 @@ public class BerserkSkill : BaseWeaponSkill
             weapon.StopCoroutine(_berserkCoroutine);
             ForceResetState(weapon);
         }
+        
+        string hitKey = "sfx_berserk";
+        if (AudioManager.Instance != null)
+        {
+            AudioManager.Instance.ShotSfx(hitKey);
+        }
 
         _berserkCoroutine = weapon.StartCoroutine(IEBerserk(weapon));
     }

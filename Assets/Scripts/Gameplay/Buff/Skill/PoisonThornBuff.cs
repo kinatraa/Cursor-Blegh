@@ -40,6 +40,12 @@ public class PoisonThornBuff : BaseBuff
                 spawnPosition,
                 Quaternion.identity
             );
+            
+            string hitKey = "attack_3";
+            if (AudioManager.Instance != null)
+            {
+                AudioManager.Instance.ShotSfx(hitKey, pitch: 2f);
+            }
 
             PoisonThornObject thornObject = thorn.GetComponent<PoisonThornObject>();
             if (thornObject != null)

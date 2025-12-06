@@ -35,6 +35,12 @@ public class EarthquakeSkill : BaseWeaponSkill
             weapon.StopCoroutine(_slamCoroutine);
             ForceResetState(weapon);
         }
+        
+        string hitKey = "sfx_groundslam";
+        if (AudioManager.Instance != null)
+        {
+            AudioManager.Instance.ShotSfx(hitKey, 5f, 0.5f);
+        }
 
         _slamCoroutine = weapon.StartCoroutine(IEGroundSlam(weapon));
     }

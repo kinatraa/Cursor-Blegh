@@ -16,6 +16,12 @@ public class SolarEye : BaseMonster
         PlayAnimation(ANIM_ATTACK);
         _sr.color = Color.yellow;
         
+        string hitKey = "monster_lasershoot";
+        if (AudioManager.Instance != null)
+        {
+            AudioManager.Instance.ShotSfx(hitKey);
+        }
+        
         ShootLasers();
         
         yield return new WaitForSeconds(_remainingAnimTime);
