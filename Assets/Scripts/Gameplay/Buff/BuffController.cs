@@ -20,10 +20,10 @@ public class BuffController : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.J))
         {
-            var newBuff = buffSystem.GetBuff(BuffType.MOLTEN_STONE);
+            var newBuff = buffSystem.GetBuff(BuffType.SENTINEL_SHIELD);
             if (newBuff != null && !newBuff.IsMaxStack())
             {
-                Debug.Log("Added MOLTEN_STONE");
+                Debug.Log("Added SENTINEL_SHIELD");
                 newBuff.AddStack();
                 if(!currentBuffSkills.Contains(newBuff))
                 {

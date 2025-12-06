@@ -33,6 +33,12 @@ public class FrostPrisonBuff : BaseBuff
         
         float frostTime = frostPrison.GetComponent<FrostPrisonObject>()._frostDuration;
         
+        string hitKey = "buff_frost";
+        if (AudioManager.Instance != null)
+        {
+            AudioManager.Instance.ShotSfx(hitKey);
+        }
+        
         frostPrison.transform.SetParent(lastHitMonster.transform);
 
         lastHitMonster.Freeze(frostTime);

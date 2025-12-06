@@ -2000,7 +2000,7 @@ MonoBehaviour:
   buffController: {fileID: 367418637}
   waveRewardSystem: {fileID: 829384827}
   weaponType: 1
-  currentWave: 0
+  currentWave: 1
 --- !u!1 &829384826
 GameObject:
   m_ObjectHideFlags: 0

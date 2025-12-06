@@ -24,6 +24,12 @@ public class SentinelShieldBuff : BaseBuff
 
         UpdateOrbAngles();
         
+        string hitKey = "buff_shield";
+        if (AudioManager.Instance != null)
+        {
+            AudioManager.Instance.ShotSfx(hitKey, pitch: 2f);
+        }
+        
         StartCoroutine(IEOrbit());
     }
 

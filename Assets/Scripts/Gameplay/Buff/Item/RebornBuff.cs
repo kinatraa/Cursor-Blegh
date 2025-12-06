@@ -25,6 +25,11 @@ public class RebornBuff : BaseBuff
     {
         if (!hasRevived)
         {
+            string hitKey = "item_pickup";
+            if (AudioManager.Instance != null)
+            {
+                AudioManager.Instance.ShotSfx(hitKey, pitch: 2f);
+            }
             hasRevived = true;
             Debug.Log("<color=yellow>IMMORTAL BUFF ACTIVATED - REVIVED WITH 1 HP!</color>");
             return true;

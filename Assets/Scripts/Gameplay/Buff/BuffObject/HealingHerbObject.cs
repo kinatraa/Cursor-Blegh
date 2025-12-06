@@ -7,6 +7,11 @@ public class HealingHerbObject : MonoBehaviour
     {
         if (other.CompareTag(ConstTag.WEAPON))
         {
+            string hitKey = "item_choose";
+            if (AudioManager.Instance != null)
+            {
+                AudioManager.Instance.ShotSfx(hitKey, pitch: 2f);
+            }
             var weapon = GameplayManager.Instance.weaponController.currentWeapon;
             weapon.HealByItem(_healAmount);
             

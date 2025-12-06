@@ -64,6 +64,12 @@ public class ImmortalBuff : BaseBuff
         _currentShield.transform.localPosition = Vector3.zero;
         _currentShield.transform.localRotation = Quaternion.identity;
         
+        string hitKey = "buff_shield";
+        if (AudioManager.Instance != null)
+        {
+            AudioManager.Instance.ShotSfx(hitKey, pitch: 2f);
+        }
+        
         Debug.Log("<color=cyan>Immortal Shield ACTIVATED!</color>");
     }
 

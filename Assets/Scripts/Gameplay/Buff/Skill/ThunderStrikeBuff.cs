@@ -46,6 +46,12 @@ public class ThunderStrikeBuff : BaseBuff
             {
                 thunderObject.Strike(targetMonster.transform.position);
             }
+            
+            string hitKey = "buff_thunder";
+            if (AudioManager.Instance != null)
+            {
+                AudioManager.Instance.ShotSfx(hitKey, pitch: 2f);
+            }
 
             targetMonster.TakeDamage(data.atk);
             
