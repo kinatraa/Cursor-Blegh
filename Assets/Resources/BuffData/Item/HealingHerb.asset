@@ -19,5 +19,5 @@ MonoBehaviour:
   effectType: 2
   prefab: {fileID: 4533326777372104206, guid: a45a57ff9fbfd024982dd7a50845a062, type: 3}
   maxStack: 4
-  activeRate: 100
+  activeRate: 5
   atk: 0

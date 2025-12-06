@@ -18,6 +18,6 @@ MonoBehaviour:
   type: 19
   effectType: 2
   prefab: {fileID: 0}
-  maxStack: 0
+  maxStack: 1
   activeRate: 0
   atk: 0
