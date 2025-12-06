@@ -34,12 +34,12 @@ public class BuffController : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.K))
         {
-            var newBuff = buffSystem.GetBuff(BuffType.HEALING_HERB);
+            var newBuff = buffSystem.GetBuff(BuffType.IMMORTAL);
             if (newBuff != null)
             {
-                Debug.Log("Added HEALING_HERB");
+                Debug.Log("Added IMMORTAL");
                 newBuff.AddStack();
-                if(!currentBuffItems.Contains(newBuff))
+                if (!currentBuffItems.Contains(newBuff))
                 {
                     currentBuffItems.Add(newBuff);
                 }
@@ -53,5 +53,6 @@ public class BuffController : MonoBehaviour
         {
             buff?.Activate();
         }
+        GameplayManager.Instance.monsterController.vampiricRageBuff?.Activate();
     }
 }

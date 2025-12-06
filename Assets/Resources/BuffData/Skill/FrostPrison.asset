@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: FrostPrison
   m_EditorClassIdentifier: 
   buffName: Frost Prison
-  buffIcon: {fileID: -1670788883, guid: 1f7de30575ee67945805e503e6569232, type: 3}
-  description: 
+  buffIcon: {fileID: -2107095538, guid: 85fd376c6144b854dbc49c18a3018509, type: 3}
+  description: On hit, 10% chance to freeze the enemy for 3s.
   type: 6
   effectType: 1
   prefab: {fileID: 3661293122173038182, guid: 1d3267788034ffb478121fdecb7e23dc, type: 3}

@@ -30,6 +30,8 @@
 
         public override void Activate(BaseWeapon weapon)
         {
+            if (IsOnCooldown()) return;
+            
             base.Activate(weapon);
 
             if (_spinCoroutine != null)

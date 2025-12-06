@@ -5,6 +5,7 @@ using UnityEngine;
 public abstract class BaseBuff
 {
     protected BuffData data;
+    public int GetStack => stack;
     protected int stack;
     
     public BaseBuff(BuffData data)
@@ -60,4 +61,6 @@ public abstract class BaseBuff
     protected Coroutine StartCoroutine(IEnumerator r) 
         => CoroutineRunner.Instance.StartCoroutine(r);
 
+    protected void StopCoroutine(Coroutine r) 
+        => CoroutineRunner.Instance.StopCoroutine(r);
 }

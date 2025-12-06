@@ -6,6 +6,7 @@ public class WeaponController : MonoBehaviour
 {
     public List<BaseWeapon> weapons = new List<BaseWeapon>();
     public BaseWeapon currentWeapon;
+    public RebornBuff rebornBuff = null;
     
     public WeaponSkillSystem weaponSkillSystem;
     
@@ -31,7 +32,17 @@ public class WeaponController : MonoBehaviour
         if (Input.GetMouseButtonDown(1))
         {
             var skill = weaponSkillSystem.GetSkill(currentWeapon.data.skill);
-            skill.Activate(currentWeapon);
+            if (skill != null)
+            {
+                if (!skill.IsOnCooldown())
+                {
+                    skill.Activate(currentWeapon);
+                }
+                else
+                {
+                    Debug.Log($"<color=red>Skill on cooldown: {skill.GetRemainingCooldown():F1}s</color>");
+                }
+            }
         }
     }
 

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8044291130132215548}
   - component: {fileID: 9217361488593828339}
   - component: {fileID: 6473157291136870226}
-  - component: {fileID: 4258876003263903768}
+  - component: {fileID: 283361458980754084}
   - component: {fileID: 7452977530178370523}
   m_Layer: 0
   m_Name: WoodenSword
@@ -31,7 +31,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -76,7 +76,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 10
-  m_Sprite: {fileID: 21300000, guid: 3ac37929ec27f4043beb6a44d845df7a, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 801adbacd6ecf4c41b811f7ee7eef2c2, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -114,8 +114,8 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!58 &4258876003263903768
-CircleCollider2D:
+--- !u!60 &283361458980754084
+PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -146,9 +146,24 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.60138196, y: 0.9287424}
-  serializedVersion: 2
-  m_Radius: 0.11500451
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1.484375, y: 1.484375}
+    newSize: {x: 8, y: 8}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: 0.356257, y: 0.062100656}
+      - {x: -0.048437502, y: 0.4234375}
+      - {x: -0.4203125, y: 0.4140625}
+      - {x: -0.4140625, y: 0.0421875}
+      - {x: -0.04951811, y: -0.33259916}
+  m_UseDelaunayMesh: 0
 --- !u!114 &7452977530178370523
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -162,3 +177,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   data: {fileID: 11400000, guid: 2f097800afc306f48867c716289509b0, type: 2}
+  maxHp: 0
+  currentHp: 0
+  currentScore: 0
+  critChanceToAdd: 0
+  critDmgToAdd: 0
+  damageToAdd: 0
+  currentState: 0

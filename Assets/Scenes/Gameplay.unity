@@ -638,7 +638,6 @@ MonoBehaviour:
   - {fileID: 1137475650948761922, guid: c2de78bc584a22c438f396b2d24496e4, type: 3}
   - {fileID: 3528062982681589570, guid: 985fc0ee207155f41adf621eb0d316ff, type: 3}
   lastHitMonster: {fileID: 0}
-  dropHeartRate: 0
 --- !u!1 &321407706
 GameObject:
   m_ObjectHideFlags: 0
@@ -1871,8 +1870,55 @@ MonoBehaviour:
   waveController: {fileID: 1179435695}
   stateController: {fileID: 541907409}
   buffController: {fileID: 367418637}
+  waveRewardSystem: {fileID: 829384827}
   weaponType: 1
-  currentWave: 1
+  currentWave: 3
+--- !u!1 &829384826
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 829384828}
+  - component: {fileID: 829384827}
+  m_Layer: 0
+  m_Name: WaveRewardSystem
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &829384827
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 829384826}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 492729f4bb694373b941a75c6caf8813, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _completionBonus: 100
+  _perfectBonus: 500
+--- !u!4 &829384828
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 829384826}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -2.1431217, y: 0.87144446, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &937452980
 GameObject:
   m_ObjectHideFlags: 0
@@ -2329,7 +2375,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e08a9a60b8e73445b95aabd1caa4267, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  apiUrl: https://game-backend-wheat.vercel.app/get_all_players
   contentContainer: {fileID: 0}
   rowPrefab: {fileID: 3757988388945231679, guid: 716c3e0f84e6e7742abc375a346f20d8, type: 3}
   loadingIndicator: {fileID: 0}
@@ -2825,6 +2870,52 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1316590252
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1316590254}
+  - component: {fileID: 1316590253}
+  m_Layer: 0
+  m_Name: ComboController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1316590253
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1316590252}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a7e6426f06bb879449d8ab09c9369405, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _comboResetTime: 3
+  _scorePerCombo: 10
+--- !u!4 &1316590254
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1316590252}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -2.1431217, y: 0.87144446, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4866,6 +4957,8 @@ SceneRoots:
   - {fileID: 1090187800}
   - {fileID: 1179435694}
   - {fileID: 367418638}
+  - {fileID: 1316590254}
+  - {fileID: 829384828}
   - {fileID: 1614906634}
   - {fileID: 1428828288}
   - {fileID: 1356587818}

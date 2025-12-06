@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: InfernoFlame
   m_EditorClassIdentifier: 
   buffName: Inferno Flame
-  buffIcon: {fileID: -1496000654, guid: 5efcfe3c9dfc23649bf896732f43f6f6, type: 3}
-  description: 
+  buffIcon: {fileID: -1992400930, guid: 85fd376c6144b854dbc49c18a3018509, type: 3}
+  description: On hit, 10% chance to burn the enemy for 3s (dealing 6 ATK/s).
   type: 7
   effectType: 1
   prefab: {fileID: 1877189380096702639, guid: 3de0c7debd579704b97f53c010b45445, type: 3}

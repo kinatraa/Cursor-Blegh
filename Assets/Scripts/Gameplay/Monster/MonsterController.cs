@@ -23,6 +23,8 @@ public class MonsterController : MonoBehaviour
 
     public BaseMonster lastHitMonster = null;
     public HealingHerbBuff healingHerbBuff = null;
+    public MysticPotionBuff mysticPotionBuff = null;
+    public VampiricRageBuff vampiricRageBuff = null;
 
     private void Awake()
     {

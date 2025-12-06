@@ -7,4 +7,18 @@ public class PrismLensBuff : BaseBuff
     public PrismLensBuff(BuffData data) : base(data)
     {
     }
+
+    public override void AddStack()
+    {
+        base.AddStack();
+        Activate();
+    }
+
+    public override void Activate()
+    {
+        BaseWeapon weapon = GameplayManager.Instance.weaponController.currentWeapon;
+        if (weapon == null) return;
+
+        weapon.critDmgToAdd += 5f;
+    }
 }

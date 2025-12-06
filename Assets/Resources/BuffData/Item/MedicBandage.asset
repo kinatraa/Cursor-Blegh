@@ -12,12 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b45b8895fbf15742bf3fad68d883252, type: 3}
   m_Name: MedicBandage
   m_EditorClassIdentifier: 
-  buffName: 
-  buffIcon: {fileID: 0}
-  description: 
+  buffName: Medic Bandage
+  buffIcon: {fileID: 2030821960, guid: 85fd376c6144b854dbc49c18a3018509, type: 3}
+  description: 'Restore 1 HP instantly. If HP is full, gain +1 Max HP(Max stack for
+    Max HP bonus: 2).'
   type: 18
   effectType: 2
   prefab: {fileID: 0}
-  maxStack: 1
+  maxStack: 2
   activeRate: 0
   atk: 0

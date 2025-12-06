@@ -10,8 +10,12 @@ public abstract class BaseWeapon : MonoBehaviour
     public int maxHp;
     public int currentHp;
     public int currentScore;
+    public float critChanceToAdd = 0f;
+    public float critDmgToAdd = 0f;
+    public int damageToAdd = 0;
     
     public WeaponState currentState = WeaponState.NORMAL;
+    public bool isImmortal = false;
     
     private SpriteRenderer _sr;
     private Coroutine _takeDamageCoroutine;
@@ -54,6 +58,8 @@ public abstract class BaseWeapon : MonoBehaviour
 
     public void TakeDamage(int damage = 1)
     {
+        if (isImmortal) return;
+        
         if (currentState == WeaponState.NORMAL)
         {
             if (_takeDamageCoroutine != null)
@@ -65,12 +71,50 @@ public abstract class BaseWeapon : MonoBehaviour
 
         currentHp -= damage;
         GameEventManager.InvokeUpdatePlayerHp(currentHp);
+
+        GameplayManager.Instance.waveRewardSystem.OnDamageTaken();
         
         if (currentHp <= 0)
         {
-            Debug.Log("<color=red>WEAPON DESTROYED!</color>");
-            Destroy(gameObject);
+            var rebornBuff = GameplayManager.Instance.weaponController.rebornBuff;
+            if (rebornBuff != null && rebornBuff.TryRevive())
+            {
+                currentHp = 1;
+                GameEventManager.InvokeUpdatePlayerMaxHp(maxHp);
+                GameEventManager.InvokeUpdatePlayerHp(currentHp);
+
+                StartCoroutine(IEReviveEffect());
+                
+                rebornBuff.Remove();
+            }
+            else
+            {
+                Debug.Log("<color=red>WEAPON DESTROYED!</color>");
+                Destroy(gameObject);
+            }
         }
+    }
+    
+    private IEnumerator IEReviveEffect()
+    {
+        int times = 5;
+        while (times-- > 0)
+        {
+            _sr.color = Color.yellow;
+            yield return new WaitForSeconds(0.1f);
+            _sr.color = Color.white;
+            yield return new WaitForSeconds(0.1f);
+        }
+    }
+
+    public void HealByItem(int amount){
+        int totalHeal = amount;
+        if (GameplayManager.Instance.monsterController.mysticPotionBuff != null)
+        {
+            totalHeal += 2;
+        }
+        currentHp = Mathf.Min(currentHp + totalHeal, maxHp);
+        GameEventManager.InvokeUpdatePlayerHp(currentHp);
     }
 
     private IEnumerator IETakeDamageAlert()
@@ -104,8 +148,11 @@ public abstract class BaseWeapon : MonoBehaviour
     
     public void ResetWeapon()
     {
+        isImmortal = false;
         maxHp = data.hp;
         currentHp = maxHp;
+        critDmgToAdd = 0;
+        critChanceToAdd = 0f;
         currentScore = 0;
         currentState = WeaponState.NORMAL;
         GameEventManager.InvokeUpdatePlayerMaxHp(maxHp);

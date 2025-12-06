@@ -12,12 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b45b8895fbf15742bf3fad68d883252, type: 3}
   m_Name: Immortal
   m_EditorClassIdentifier: 
-  buffName: 
-  buffIcon: {fileID: 0}
-  description: 
+  buffName: Immortal
+  buffIcon: {fileID: 1375933791, guid: 85fd376c6144b854dbc49c18a3018509, type: 3}
+  description: Generates an invincibility shield (lasts 2s) every 10s.
   type: 11
   effectType: 2
-  prefab: {fileID: 0}
+  prefab: {fileID: 639107146625016360, guid: fae4c60e8c395f54f9bcc423b4d3ab7f, type: 3}
   maxStack: 1
   activeRate: 0
   atk: 0

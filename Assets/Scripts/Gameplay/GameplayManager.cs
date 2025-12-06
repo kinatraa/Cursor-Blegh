@@ -12,6 +12,7 @@ public class GameplayManager : Singleton<GameplayManager>
     public WaveController waveController;
     public StateMachine stateController;
     public BuffController buffController;
+    public WaveRewardSystem waveRewardSystem;
     
     [Header("Test Level Data")] 
     public WeaponType weaponType;
@@ -31,6 +32,11 @@ public class GameplayManager : Singleton<GameplayManager>
     {
         weaponController.ChooseWeapon(weaponType);
         waveController.SetCurrentWave(currentWave);
+
+        if (waveRewardSystem != null)
+        {
+            waveRewardSystem.StartWave();
+        }
     }
 
     private void NextWave()

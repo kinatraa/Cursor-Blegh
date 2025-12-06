@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23ea0db9dfeaaa942af66cacb30426eb, type: 3}
   m_Name: ElfMarksman
   m_EditorClassIdentifier: 
-  monsterName: 
+  monsterName: Goblin Marksman
   description: 
   type: 3
   size: 0
