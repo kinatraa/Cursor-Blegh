@@ -126,6 +126,7 @@ public class AudioManager : Singleton<AudioManager>
             musicSource.volume = volume * _bgmVolumeScale;
             musicSource.clip = clip;
             musicSource.loop = true;
+            musicSource.priority = 30;
             musicSource.Play();
         }
     }
