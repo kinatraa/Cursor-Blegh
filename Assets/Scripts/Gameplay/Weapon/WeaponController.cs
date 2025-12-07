@@ -40,6 +40,8 @@ public class WeaponController : MonoBehaviour
             currentWeapon.transform.position = mousePos;
         }
 
+        if (currentWeapon is DefaultCursor) return;
+
         if (Input.GetMouseButtonDown(1))
         {
             var skill = weaponSkillSystem.GetSkill(currentWeapon.data.skill);
