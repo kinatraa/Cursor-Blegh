@@ -10,17 +10,20 @@ public class UIManager : Singleton<UIManager>
     
     [Header("Popup")]
     public UIPopup chooseUpgradePopup;
+    public UIPopup settingPopup;
+    public UIPopup pausePopup;
+    public UIPopup losePopup;
 
     private void Start()
     {
-        ShowUIMenu();
-        HideUIChooseWeapon();
-        HideUIGameplay();
+        Reset();
     }
 
     private void OnEnable()
     {
         GameEventManager.onGameStart += ShowUIGameplay;
+        GameEventManager.onGameLose += ShowPopupLose;
+        GameEventManager.onQuitGame += Reset;
         
         GameEventManager.onChooseUpgradeState += chooseUpgradePopup.Show;
         
@@ -33,6 +36,8 @@ public class UIManager : Singleton<UIManager>
     private void OnDisable()
     {
         GameEventManager.onGameStart -= ShowUIGameplay;
+        GameEventManager.onGameLose -= ShowPopupLose;
+        GameEventManager.onQuitGame -= Reset;
         
         GameEventManager.onChooseUpgradeState -= chooseUpgradePopup.Show;
         
@@ -40,6 +45,16 @@ public class UIManager : Singleton<UIManager>
         GameEventManager.onUpdatePlayerHP -= UpdateHealthBar;
         GameEventManager.onUpdatePlayerScore -= UpdateScoreText;
         GameEventManager.onUpdateWave -= UpdateWaveText;
+    }
+
+    public void ShowPopupLose()
+    {
+        losePopup.Show();
+    }
+
+    public void HidePopupLose()
+    {
+        losePopup.Hide();
     }
 
     public void ShowUIMenu()
@@ -90,5 +105,21 @@ public class UIManager : Singleton<UIManager>
     private void UpdateWaveText(int wave)
     {
         uiGameplay.UpdateWaveText(wave);
+    }
+
+    private void Reset()
+    {
+        Time.timeScale = 0;
+        
+        uiGameplay.Reset();
+        
+        ShowUIMenu();
+        HideUIChooseWeapon();
+        HideUIGameplay();
+        
+        chooseUpgradePopup.gameObject.SetActive(false);
+        settingPopup.gameObject.SetActive(false);
+        pausePopup.gameObject.SetActive(false);
+        losePopup.gameObject.SetActive(false);
     }
 }

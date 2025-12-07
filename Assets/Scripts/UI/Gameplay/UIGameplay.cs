@@ -6,6 +6,7 @@ using UnityEngine;
 public class UIGameplay : MonoBehaviour
 {
     public UIHud playerStatsHUD;
+    public UIHud buffsHUD;
 
     public void SetupHealthBar(int maxHp)
     {
@@ -25,5 +26,11 @@ public class UIGameplay : MonoBehaviour
     public void UpdateWaveText(int wave)
     {
         (playerStatsHUD as PlayerStatsHUD)?.UpdateWaveText(wave);
+    }
+
+    public void Reset()
+    {
+        playerStatsHUD.Reset();
+        buffsHUD.Reset();
     }
 }

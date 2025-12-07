@@ -25,6 +25,8 @@ public class MonsterController : MonoBehaviour
     public HealingHerbBuff healingHerbBuff = null;
     public MysticPotionBuff mysticPotionBuff = null;
     public VampiricRageBuff vampiricRageBuff = null;
+    
+    public List<GameObject> heartObjects = new List<GameObject>();
 
     private void Awake()
     {
@@ -140,14 +142,21 @@ public class MonsterController : MonoBehaviour
 
     public void Reset()
     {
-        if (_monsterList != null)
+        var copyMonsters = new List<BaseMonster>(MonsterList);
+        foreach (var m in copyMonsters)
         {
-            foreach (var monster in _monsterList)
-            {
-                Destroy(monster.gameObject);
-            }
+            if (m)
+                Destroy(m.gameObject);
         }
         _monsterList = new List<BaseMonster>();
+        
+        var copyHearts = new List<GameObject>(heartObjects);
+        foreach (var m in copyHearts)
+        {
+            if (m)
+                Destroy(m.gameObject);
+        }
+        heartObjects = new List<GameObject>();
 
         lastHitMonster = null;
         healingHerbBuff = null;

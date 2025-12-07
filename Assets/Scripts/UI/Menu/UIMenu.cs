@@ -12,7 +12,7 @@ public class UIMenu : MonoBehaviour
 
     public void Setting()
     {
-        
+        UIManager.Instance.settingPopup.Show();
     }
 
     public void Leaderboard()

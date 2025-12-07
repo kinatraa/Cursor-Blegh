@@ -32,6 +32,12 @@ public class UIChooseWeapon : MonoBehaviour
         HideUI();
     }
 
+    public void Exit()
+    {
+        UIManager.Instance.ShowUIMenu();
+        UIManager.Instance.HideUIChooseWeapon();
+    }
+
     private void HideUI()
     {
         GameEventManager.InvokeGameStart();

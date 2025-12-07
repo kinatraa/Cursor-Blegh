@@ -102,8 +102,8 @@ public abstract class BaseWeapon : MonoBehaviour
             }
             else
             {
-                Debug.Log("<color=red>WEAPON DESTROYED!</color>");
-                Destroy(gameObject);
+                GameEventManager.InvokeGameLose();
+                gameObject.SetActive(false);
             }
         }
     }
