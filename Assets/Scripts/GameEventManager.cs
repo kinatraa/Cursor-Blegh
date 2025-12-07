@@ -23,6 +23,7 @@ public static class GameEventManager
     public static Action<int> onUpdatePlayerHP;
     public static Action<int> onUpdatePlayerScore;
     public static Action<int> onUpdateWave;
+    public static Action<int> onUpdateCombo;
     public static Action<int> onAddRerollAmount;
     public static Action<BuffData> onChooseBuff;
     public static Action<BuffData> onUpdateBuffStack;
@@ -106,5 +107,10 @@ public static class GameEventManager
     public static void InvokeChangeSfxVolume(int newVolume)
     {
         onChangeSfxVolume?.Invoke(newVolume);
+    }
+
+    public static void InvokeUpdateCombo(int newCombo)
+    {
+        onUpdateCombo?.Invoke(newCombo);
     }
 }
