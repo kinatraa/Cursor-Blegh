@@ -17,7 +17,7 @@ public static class CombatResolver
         string hitKey = hitSounds[randomChance];
         if (AudioManager.Instance != null)
         {
-            AudioManager.Instance.ShotSfx(hitKey);
+            AudioManager.Instance.ShotSfx(hitKey, volume: 0.75f);
         }
         
         int damage = weapon.data.atk + weapon.damageToAdd;
