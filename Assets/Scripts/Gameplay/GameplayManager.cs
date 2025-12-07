@@ -37,7 +37,7 @@ public class GameplayManager : Singleton<GameplayManager>
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape) && !_loseGame)
+        if (Input.GetKeyDown(KeyCode.Escape) && !_loseGame && UIManager.Instance.uiGameplay.gameObject.activeInHierarchy)
         {
             UIManager.Instance.pausePopup.Show();
         }
