@@ -256,7 +256,7 @@ public class DemonKing : BaseMonster
           _sr.color = targetColor;
      }
 
-     public override void TakeDamage(int damage){
+     public override void TakeDamage(int damage, bool isPlaySfx = true){
           if (_isInvincible){
                Debug.Log("Demon King is invincible and took no damage.");
                return;
