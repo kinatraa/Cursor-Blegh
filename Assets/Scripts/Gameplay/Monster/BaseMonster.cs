@@ -149,7 +149,7 @@ public abstract class BaseMonster : MonoBehaviour
         yield return new WaitForSeconds(_remainingAnimTime);
     }
 
-    public virtual void TakeDamage(int damage)
+    public virtual void TakeDamage(int damage, bool isPlaySfx = true)
     {
         Debug.Log($"{gameObject.name} is taking damage {damage}");
         
@@ -157,13 +157,16 @@ public abstract class BaseMonster : MonoBehaviour
         {
             ComboController.Instance.AddCombo();
         }
-        
-        List<string> hitSounds = new List<string> {  "monster_hit1","monster_hit2","monster_hit3","monster_hit4", "sfx_hit1", "sfx_hit2"};
-        int randomChance = UnityEngine.Random.Range(0, hitSounds.Count);
-        string hitKey = hitSounds[randomChance];
-        if (AudioManager.Instance != null)
+
+        if (isPlaySfx)
         {
-            AudioManager.Instance.ShotSfx(hitKey);
+            List<string> hitSounds = new List<string> {  "monster_hit1","monster_hit2","monster_hit3","monster_hit4", "sfx_hit1", "sfx_hit2"};
+            int randomChance = UnityEngine.Random.Range(0, hitSounds.Count);
+            string hitKey = hitSounds[randomChance];
+            if (AudioManager.Instance != null)
+            {
+                AudioManager.Instance.ShotSfx(hitKey);
+            }
         }
         
         currentHp -= damage;
