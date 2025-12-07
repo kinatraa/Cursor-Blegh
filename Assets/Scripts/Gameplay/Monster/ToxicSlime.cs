@@ -29,9 +29,9 @@ public class ToxicSlime : BaseMonster
         {
             AudioManager.Instance.ShotSfx(hitKey);
         }
-        for (int i = 0; i < 6; i++)
+        for (int i = 0; i < 8; i++)
         {
-            float angle = i * 60f;
+            float angle = i * 45f;
             SpawnBulletInDirection(angle);
         }
         Destroy(gameObject);

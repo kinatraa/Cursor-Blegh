@@ -5,9 +5,9 @@ using UnityEngine;
 public class ThunderBeast : BaseMonster
 {
     [Header("Thunder Attack Settings")]
-    [SerializeField] private float _electricFieldDuration = 2f;
-    [SerializeField] private float _fieldRadiusMultiplier = 3f;
-    [SerializeField] private float _damageInterval = 0.2f;
+    [SerializeField] private float _electricFieldDuration = 3f;
+    [SerializeField] private float _fieldRadiusMultiplier = 1.5f;
+    [SerializeField] private float _damageInterval = 0.1f;
     [SerializeField] private Color _electricColor = new Color(0.5f, 0.8f, 1f, 0.5f);
     
     [Header("Visual Circle Settings")]
@@ -83,7 +83,6 @@ public class ThunderBeast : BaseMonster
         
         _circleLineRenderer = _electricCircle.AddComponent<LineRenderer>();
         
-        _circleLineRenderer.material = new Material(Shader.Find("Sprites/Default"));
         _circleLineRenderer.startColor = _electricColor;
         _circleLineRenderer.endColor = _electricColor;
         _circleLineRenderer.startWidth = _circleLineWidth;

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using JetBrains.Annotations;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class DemonKing : BaseMonster
 {
@@ -12,29 +13,24 @@ public class DemonKing : BaseMonster
      
      [Header("Skill settings")]
      [SerializeField] private BaseMonsterProjectile _bulletPrefab;
-     [SerializeField] private float _bulletSpawnRadius = 0.5f;
-     [SerializeField] private float _shootDistance = 0.5f;
-     [SerializeField] private float _exploreRange = 2.5f;
-     [SerializeField] private float _exploreOffsetDuration = 0.0f;
-     [SerializeField] private float _electricFieldDuration = 1.0f;
-     [SerializeField] private float _fieldRadiusMultiplier = 3f;
-     [SerializeField] private float _damageInterval = 0.2f;
-
-     [Header("Teleport Settings")]
-     [SerializeField] private float _fadeOutDurationTeleport = 0.5f; 
-     [SerializeField] private float _invisibleDuration = 2f;
-     [SerializeField] private float _fadeInDuration = 0.5f;
-
-     [Header("Bullet Speed Settings")]
-     [SerializeField] private float _normalSpeed = 5f;
-     [SerializeField] private float _fastSpeed = 15f;
-     
-     [Header("Laser Attack Settings")]
-     [SerializeField] private LaserBeam _laserPrefab;
-     [SerializeField] private int _laserCount = 4;
-     [SerializeField] private float _laserLength = 30f;
-     [SerializeField] private bool _randomAngles = true; 
-     [SerializeField] private float _startAngleOffset = 0f;
+      private const float BulletSpawnRadius = 0.5f;
+      private const float ShootDistance = 0.5f;
+      private const float ExploreOffsetDuration = 0.25f;
+      private const float ExploreFieldDuration = 1.0f;
+      private const float FieldRadiusMultiplier = 2f;
+      private const float DamageInterval = 0.01f;
+      
+      private const float FadeOutDurationTeleport = 0.5f; 
+      private const float InvisibleDuration = 2f;
+      private const float FadeInDuration = 0.5f;
+      
+      private const float NormalSpeed = 5f;
+      private const float FastSpeed = 15f;
+      
+      [SerializeField] private LaserBeam _laserPrefab;
+      private const int LaserCount = 4;
+      private const float LaserLength = 30f;
+      private bool _randomAngles = true; 
 
      private bool _isExplore = false;
      private bool _isInvincible = false;
@@ -116,13 +112,13 @@ public class DemonKing : BaseMonster
                AudioManager.Instance.ShotSfx(hitKey);
           }
           
-          for (int i = 0; i < _laserCount; i++)
+          for (int i = 0; i < LaserCount; i++)
           {
                float randomAngle = Random.Range(0f, 360f);
                SpawnLaser(randomAngle);
           }
         
-          Debug.Log($"<color=cyan>Demon King fired {_laserCount} lasers!</color>");
+          Debug.Log($"<color=cyan>Demon King fired {LaserCount} lasers!</color>");
      }
      
      private void SpawnLaser(float angleDegrees)
@@ -132,7 +128,7 @@ public class DemonKing : BaseMonster
           float angleRadians = angleDegrees * Mathf.Deg2Rad;
           Vector3 direction = new Vector3(Mathf.Cos(angleRadians), Mathf.Sin(angleRadians), 0f);
         
-          laser.Initialize(transform.position, direction, _laserLength);
+          laser.Initialize(transform.position, direction, LaserLength);
         
           Debug.Log($"<color=yellow>Laser spawned at angle {angleDegrees}°</color>");
      }
@@ -148,7 +144,7 @@ public class DemonKing : BaseMonster
           for (int i = 0; i < 12; i++)
           {
                float angle = i * 30f;
-               SpawnBulletInDirection(angle, _normalSpeed);
+               SpawnBulletInDirection(angle, NormalSpeed);
           }
           
           yield return new WaitForSeconds(_remainingAnimTime);
@@ -163,7 +159,7 @@ public class DemonKing : BaseMonster
           {
                AudioManager.Instance.ShotSfx(hitKey);
           }
-          SpawnBullet(_fastSpeed);
+          SpawnBullet(FastSpeed);
           yield return new WaitForSeconds(_remainingAnimTime);
           _sr.color = Color.white;
      }
@@ -181,7 +177,7 @@ public class DemonKing : BaseMonster
           
           yield return StartCoroutine(IETeleportToPlayer());
 
-          yield return new WaitForSeconds(_exploreOffsetDuration);
+          yield return new WaitForSeconds(ExploreOffsetDuration);
           
           PlayAnimation(ANIM_SKILL4_START);
           
@@ -217,7 +213,7 @@ public class DemonKing : BaseMonster
 
           transform.position = playerPosition;
 
-          yield return new WaitForSeconds(_invisibleDuration);
+          yield return new WaitForSeconds(InvisibleDuration);
 
           yield return StartCoroutine(IEFadeInTeleport());
      }
@@ -228,10 +224,10 @@ public class DemonKing : BaseMonster
           Color startColor = _sr.color;
           Color targetColor = new Color(startColor.r, startColor.g, startColor.b, 0f);
         
-          while (elapsed < _fadeOutDurationTeleport)
+          while (elapsed < FadeOutDurationTeleport)
           {
                elapsed += Time.deltaTime;
-               float t = elapsed / _fadeOutDurationTeleport;
+               float t = elapsed / FadeOutDurationTeleport;
                _sr.color = Color.Lerp(startColor, targetColor, t);
                yield return null;
           }
@@ -245,10 +241,10 @@ public class DemonKing : BaseMonster
           Color startColor = _sr.color;
           Color targetColor = new Color(startColor.r, startColor.g, startColor.b, 1f);
         
-          while (elapsed < _fadeInDuration)
+          while (elapsed < FadeInDuration)
           {
                elapsed += Time.deltaTime;
-               float t = elapsed / _fadeInDuration;
+               float t = elapsed / FadeInDuration;
                _sr.color = Color.Lerp(startColor, targetColor, t);
                yield return null;
           }
@@ -270,7 +266,7 @@ public class DemonKing : BaseMonster
                return;
           }
 
-          Vector3 spawnOffset = Random.insideUnitCircle.normalized * _bulletSpawnRadius;
+          Vector3 spawnOffset = Random.insideUnitCircle.normalized * BulletSpawnRadius;
           Vector3 spawnPosition = transform.position + spawnOffset;
         
           var bulletInstance = Instantiate(_bulletPrefab, spawnPosition, Quaternion.identity);
@@ -288,7 +284,7 @@ public class DemonKing : BaseMonster
      private IEnumerator Explore()
      {
           float monsterRadius = GetMonsterRadius();
-          _currentFieldRadius = monsterRadius * _fieldRadiusMultiplier;
+          _currentFieldRadius = monsterRadius * FieldRadiusMultiplier;
           _isExplore = true;
           
           Debug.Log("Demon King kaboom");
@@ -296,12 +292,12 @@ public class DemonKing : BaseMonster
           
           float elapsed = 0f;
           float lastDamageTime = 0f;
-          while (elapsed < _electricFieldDuration)
+          while (elapsed < ExploreFieldDuration)
           {
                elapsed += Time.deltaTime;
             
                // Deal damage
-               if (elapsed - lastDamageTime >= _damageInterval)
+               if (elapsed - lastDamageTime >= DamageInterval)
                {
                     DealDamageInField();
                     lastDamageTime = elapsed;
@@ -360,7 +356,7 @@ public class DemonKing : BaseMonster
 
           float angleRadians = angleDegrees * Mathf.Deg2Rad;
           Vector3 direction = new Vector3(Mathf.Cos(angleRadians), Mathf.Sin(angleRadians), 0);
-          Vector3 targetPosition = transform.position + direction * _shootDistance;
+          Vector3 targetPosition = transform.position + direction * ShootDistance;
 
           bulletInstance.StartProjectile(targetPosition);
 

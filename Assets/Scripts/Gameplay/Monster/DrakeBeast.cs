@@ -8,19 +8,19 @@ public class DrakeBeast : BaseMonster
     private const string ANIM_START_ATTACK = "StartAttack";
     
     [Header("Bullet Settings")]
-    [SerializeField] private BaseMonsterProjectile _bulletPrefab;
-    [SerializeField] private float _bulletSpawnRadius = 0.5f;
-    [SerializeField] private float _breathDuration = 3f; 
-    [SerializeField] private float _minBreathDuration = 2f;
-    [SerializeField] private float _maxBreathDuration = 4f;
-    [SerializeField] private float _bulletSpawnInterval = 0.15f;
-    [SerializeField] private float _bulletSpawnDistance = 1f;
+    [SerializeField] private BaseMonsterProjectile _bulletPrefab; 
+    private float _bulletSpawnRadius = 0.5f;
+    private float _breathDuration = 4f;
+    private const float MinBreathDuration = 3f;
+    private const float MaxBreathDuration = 6f;
+    private const float BulletSpawnInterval = 0.15f;
+    private const float BulletSpawnDistance = 1f;
 
-    [Header("Attack Settings")]
-    [SerializeField] private float _lungeSpeed = 8f; 
-    [SerializeField] private float _lungeDuration = 0.5f;
-    [SerializeField] private float _damageRadius = 1f;
-    [SerializeField] private float _lungeStartRatio = 0.5f;
+    private float _lungeSpeed = 10f;
+    private const float LungeDuration = 0.2f;
+    private const float DamageRadius = 1f;
+    private float _lungeStartRatio = 0.5f;
+    private const float LungeMaxDistance = 2f;
 
 
     private bool _isBreathing = false;
@@ -29,16 +29,13 @@ public class DrakeBeast : BaseMonster
     protected override IEnumerator IECharging()
     {
         int attackState = Random.Range(0, 2);
-        // _sr.color = Color.blue;
-        if (attackState == 1)
-        {
-            PlayAnimation(ANIM_ATTACK);
-        }
-        else
-        {
-            PlayAnimation(ANIM_SKILL);
-        }
+
+        Vector3 startPos = transform.position;
+        Vector3 targetPos = GameplayManager.Instance.weaponController.currentWeapon.transform.position;
+        if (Vector3.Distance(startPos, targetPos) > LungeMaxDistance) attackState = 0;
         
+        PlayAnimation(attackState == 1 ? ANIM_ATTACK : ANIM_SKILL);
+
         yield return null;
         
         float totalDuration = _animator.GetCurrentAnimatorStateInfo(0).length;
@@ -87,9 +84,9 @@ public class DrakeBeast : BaseMonster
         float elapsed = 0f;
         bool hasDamaged = false;
 
-        while (elapsed < _lungeDuration){
+        while (elapsed < LungeDuration){
             elapsed += Time.deltaTime;
-            float t = elapsed / _lungeDuration;
+            float t = elapsed / LungeDuration;
             transform.position = Vector3.Lerp(startPos, targetPos, t);
             string hitKey = "monster_bite";
             if (AudioManager.Instance != null)
@@ -100,7 +97,7 @@ public class DrakeBeast : BaseMonster
 
             if (!hasDamaged){
                 float distanceToWeapon = Vector3.Distance(transform.position, currentWeapon.transform.position);
-                if (distanceToWeapon <= _damageRadius){
+                if (distanceToWeapon <= DamageRadius){
                     CombatResolver.MonsterDamageWeapon(currentWeapon, this);
                     Debug.Log("DrakeBeast damaged the player's weapon during lunge attack.");
                     hasDamaged = true;
@@ -110,7 +107,7 @@ public class DrakeBeast : BaseMonster
             
             yield return null;
         }
-        float remainingTime = _remainingAnimTime - _lungeDuration;
+        float remainingTime = _remainingAnimTime - LungeDuration;
         if (remainingTime > 0){
             yield return new WaitForSeconds(remainingTime);
         }
@@ -126,7 +123,7 @@ public class DrakeBeast : BaseMonster
         // _sr.color = new Color(1f, 0.5f, 0f);
         _isBreathing = true;
 
-        float actualBreathDuration = Random.Range(_minBreathDuration, _maxBreathDuration);
+        float actualBreathDuration = Random.Range(MinBreathDuration, MaxBreathDuration);
 
         float elapsed = 0f;
         float lastSpawnTime = 0f;
@@ -136,7 +133,7 @@ public class DrakeBeast : BaseMonster
         while (elapsed < actualBreathDuration && _isBreathing){
             elapsed += Time.deltaTime;
 
-            if (elapsed - lastSpawnTime >= _bulletSpawnInterval){
+            if (elapsed - lastSpawnTime >= BulletSpawnInterval){
                 string hitKey = "monster_shoot";
                 if (AudioManager.Instance != null)
                 {
@@ -165,7 +162,7 @@ public class DrakeBeast : BaseMonster
         Vector3 playerPosition = weaponController.currentWeapon.transform.position;
         Vector3 directionToPlayer = (playerPosition - transform.position).normalized;
 
-        var bulletInstance = Instantiate(_bulletPrefab, transform.position + directionToPlayer * _bulletSpawnDistance, Quaternion.identity);
+        var bulletInstance = Instantiate(_bulletPrefab, transform.position + directionToPlayer * BulletSpawnDistance, Quaternion.identity);
         bulletInstance.speed *= (int)(1 + projectileSpeed/100);
         bulletInstance.StartProjectile(playerPosition);
     }

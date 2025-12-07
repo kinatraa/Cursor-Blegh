@@ -17,6 +17,6 @@ MonoBehaviour:
   type: 14
   size: 2
   rank: 0
-  hp: 2400
-  score: 5000
+  hp: 4800
+  score: 3500
   attackType: 2

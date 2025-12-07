@@ -58,7 +58,7 @@ public abstract class BaseMonster : MonoBehaviour
 
     private void Update()
     {
-        if (_flipOnUpdate)
+        if (_flipOnUpdate && !isDead)
         {
             UpdateFacingDirection();
         }
@@ -66,6 +66,8 @@ public abstract class BaseMonster : MonoBehaviour
 
     protected void UpdateFacingDirection()
     {
+        if (isDead) return;
+
         if (_currentWeapon)
         {
             Vector3 playerPos = _currentWeapon.transform.position;
@@ -115,7 +117,7 @@ public abstract class BaseMonster : MonoBehaviour
     {
         PlayAnimation(ANIM_IDLE);
         _sr.color = Color.white;
-        float randomAnimTime = Random.Range(3.0f, 5.0f);
+        float randomAnimTime = Random.Range(2.0f, 3.0f);
         float animTime = 0f;
         if (animTime < randomAnimTime - reduceAnimTime) animTime = randomAnimTime - reduceAnimTime;
         yield return new WaitForSeconds(animTime);
@@ -273,7 +275,7 @@ public abstract class BaseMonster : MonoBehaviour
         }
 
         List<string> hitSounds = new List<string> { "monster_die1", "monster_die2", "monster_die3" };
-        int randomChance = UnityEngine.Random.Range(0, hitSounds.Count);
+        int randomChance = Random.Range(0, hitSounds.Count);
         string hitKey = hitSounds[randomChance];
         if (AudioManager.Instance != null)
         {

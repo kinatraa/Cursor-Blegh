@@ -7,7 +7,7 @@ public class BoneAssassin : BaseMonster
     [Header("Attack Settings")]
     [SerializeField] private BaseMonsterProjectile _bulletPrefab;
     [SerializeField] private float _bulletSpawnRadius = 0.5f;
-    [SerializeField] private float _delayBeforeTeleport = 2f;
+    [SerializeField] private float _delayBeforeTeleport = 1f;
     [SerializeField] private float _teleportSpeed = 10f;
 
     [Header("Teleport Settings")]

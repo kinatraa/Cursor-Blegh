@@ -50,6 +50,8 @@ MonoBehaviour:
   data: {fileID: 11400000, guid: 828a2af4a4dfda64f844fe097e26e228, type: 2}
   currentHp: 0
   currentState: 0
+  projectileSpeed: 0
+  reduceAnimTime: 0
   _chargePhaseRatio: 0.6
   _flipOnUpdate: 1
   _blinkDuration: 0.5
@@ -62,9 +64,9 @@ MonoBehaviour:
   _bulletSpawnRadius: 0.5
   _shootDistance: 0.5
   _exploreRange: 2
-  _exploreOffsetDuration: 0.5
+  _exploreOffsetDuration: 0.25
   _electricFieldDuration: 0.5
-  _fieldRadiusMultiplier: 3
+  _fieldRadiusMultiplier: 2
   _damageInterval: 0.2
   _fadeOutDurationTeleport: 0.5
   _invisibleDuration: 2
