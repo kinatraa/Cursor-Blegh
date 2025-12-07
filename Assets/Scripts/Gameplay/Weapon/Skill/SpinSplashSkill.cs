@@ -6,8 +6,8 @@
     {
 
         [Header("Spin Splash Settings")]
-        [SerializeField] private float _spinDuration = 1f;
-        [SerializeField] private float _spinSpeed = 360f;
+        [SerializeField] private float _spinDuration = 0.5f;
+        [SerializeField] private float _spinSpeed = 720f;
         [SerializeField] private float _projectileDestroyRadius = 3f;
         [SerializeField] private int _numberOfSpins = 1;
         [SerializeField] private float _checkInterval = 0.05f;

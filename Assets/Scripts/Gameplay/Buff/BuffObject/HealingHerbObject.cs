@@ -3,6 +3,14 @@ using UnityEngine;
 public class HealingHerbObject : MonoBehaviour
 {
     private int _healAmount = 1;
+    private float _lifetimeDuration = 3f;
+
+    private void Start()
+    {
+        // Tự destroy sau 3 giây
+        Destroy(gameObject, _lifetimeDuration);
+    }
+    
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag(ConstTag.WEAPON))
