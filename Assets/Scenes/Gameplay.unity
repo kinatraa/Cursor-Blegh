@@ -7369,7 +7369,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _waveConfigFile: {fileID: 4900000, guid: b8702bef772dc0f4b86d60efe0ab3c6d, type: 3}
-  spawnAreaSize: {x: 13, y: 5.96}
+  spawnAreaSize: {x: 10, y: 6}
   spawnCenter: {x: 0, y: 0, z: 0}
   currentWave: 1
 --- !u!1 &1190395740
