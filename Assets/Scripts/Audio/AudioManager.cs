@@ -3,12 +3,21 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using Random = System.Random;
 
 public class AudioManager : Singleton<AudioManager>
 {
     [SerializeField] private AudioLibrary audioLibrary;
     [SerializeField] private AudioSource sfxSource;
     [SerializeField] private AudioSource musicSource;
+
+    private int _sfxPoolSize = 100;
+    private float _minPitch = 0.9f;
+    private float _maxPitch = 1.1f;
+    
+    private List<AudioSource> _sfxPool = new List<AudioSource>();
+    private Dictionary<string, float> _lastPlayedTime = new Dictionary<string, float>();
+    private int _curSourceIndex = 0;
     
     private Dictionary<string, AudioClip> _audioDict = new Dictionary<string, AudioClip>();
     private float _bgmVolumeScale = 1;
@@ -21,6 +30,31 @@ public class AudioManager : Singleton<AudioManager>
         
         foreach (var e in audioLibrary.bgm)
             _audioDict[e.key] = e.clip;
+
+        InitAudioPool();
+    }
+
+    private void InitAudioPool()
+    {
+        _sfxPool = new List<AudioSource>();
+        
+        GameObject container = new GameObject("SFX_Pool_Container");
+        container.transform.SetParent(transform);
+
+        for (int i = 1; i < _sfxPoolSize; i++)
+        {
+            GameObject obj = new GameObject($"SFX_Source_{i}");
+            obj.transform.SetParent(container.transform);
+            
+            AudioSource source = obj.AddComponent<AudioSource>();
+            
+            source.playOnAwake = false;
+            source.loop = false;
+            source.spatialBlend = 0f;
+            source.priority = 60;
+            
+            _sfxPool.Add(source);
+        }
     }
 
     private void OnEnable()
@@ -50,13 +84,38 @@ public class AudioManager : Singleton<AudioManager>
     {
         if (_audioDict.TryGetValue(key, out var clip))
         {
-            sfxSource.pitch = pitch;
-            sfxSource.PlayOneShot(clip, volume * _sfxVolumeScale);
+            _lastPlayedTime[key] = Time.time;
+
+            AudioSource sourceToUse = GetAvailableSource();
+            
+            sourceToUse.Stop();
+            
+            sourceToUse.pitch = pitch * UnityEngine.Random.Range(_minPitch, _maxPitch);
+            sourceToUse.volume = volume;
+            sourceToUse.clip = clip;
+            sourceToUse.Play();
         }
         else
         {
             Debug.LogWarning($"Audio key '{key}' not found!");
         }
+    }
+
+    private AudioSource GetAvailableSource()
+    {
+        for (int i = 0; i < _sfxPool.Count; i++)
+        {
+            if (!_sfxPool[i].isPlaying)
+                return _sfxPool[i];
+        }
+        
+        _curSourceIndex++;
+        if (_curSourceIndex >= _sfxPool.Count)
+        {
+            _curSourceIndex = 0;
+        };
+        
+        return _sfxPool[_curSourceIndex];
     }
 
     public void PlayMusic(string key, float volume = 1f, float pitch = 1f)
@@ -66,6 +125,7 @@ public class AudioManager : Singleton<AudioManager>
             musicSource.pitch = pitch;
             musicSource.volume = volume * _bgmVolumeScale;
             musicSource.clip = clip;
+            musicSource.loop = true;
             musicSource.Play();
         }
     }

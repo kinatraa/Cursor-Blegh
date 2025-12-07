@@ -16,6 +16,7 @@ public class WaveController : MonoBehaviour
 
     private WaveCollection _waveData;
     private int _maxConfiguredWave = 0; 
+    private const int BOSS_WAVE_INTERVAL = 30;
     
     private MonsterController _monsterController;
     private void Awake()
@@ -41,26 +42,48 @@ public class WaveController : MonoBehaviour
         }
     }
 
+    private bool IsBossWave(int wave)
+    {
+        if (wave == 40) return true;
+        if ((wave > 40) && (wave - 40) % BOSS_WAVE_INTERVAL == 0) return true;
+        return false;
+    }
+
+    private int GetEffectiveWave(int wave)
+    {
+        if (wave <= _maxConfiguredWave) return wave;
+        
+        int offset = wave - _maxConfiguredWave;
+        int cycleLength = 9;
+        int cycleWave = ((offset - 1) % cycleLength) + 31;
+        return cycleWave;
+    }
+
     public void SpawnMonsters()
     {
         if (_waveData == null || _maxConfiguredWave == 0) return;
         
-        int effectiveWave = currentWave; 
-
-        if (currentWave > _maxConfiguredWave)
-        {
-            effectiveWave = ((currentWave - 1) % _maxConfiguredWave) + 1;
-        }
+        WaveConfig config = null;
         
-        WaveConfig config = _waveData.waves.Find(w => effectiveWave >= w.wave_min && effectiveWave <= w.wave_max);
+        if (IsBossWave(currentWave))
+        {
+            AudioManager.Instance.PlayMusic("bgm_bossfight" + Random.Range(1, 3), volume: 0.5f);
+            config = _waveData.waves.Find(w => w.wave_min == 40 && w.wave_max == 40);
+            Debug.Log($"<color=yellow>=== BOSS WAVE {currentWave} ===</color>");
+        }
+        else
+        {
+            AudioManager.Instance.PlayMusic("bgm_gameplay", volume: 0.5f);
+            int effectiveWave = GetEffectiveWave(currentWave);
+            config = _waveData.waves.Find(w => effectiveWave >= w.wave_min && effectiveWave <= w.wave_max);
+            Debug.Log($"=== Start Wave {currentWave} (Config Wave: {effectiveWave}) ===");
+        }
 
         if (config == null)
         {
             Debug.LogWarning("Not found wave config");
             return;
         }
-        
-        Debug.Log($"=== Start Wave {currentWave} (Config Wave: {effectiveWave}) ===");
 
         GameplayManager.Instance.waveRewardSystem.StartWave();
         

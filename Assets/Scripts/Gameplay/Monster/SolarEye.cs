@@ -14,7 +14,7 @@ public class SolarEye : BaseMonster
     protected override IEnumerator IEAttackPlayer()
     {
         PlayAnimation(ANIM_ATTACK);
-        _sr.color = Color.yellow;
+        // _sr.color = Color.yellow;
         
         string hitKey = "monster_lasershoot";
         if (AudioManager.Instance != null)

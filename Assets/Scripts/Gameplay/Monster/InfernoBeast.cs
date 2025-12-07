@@ -14,7 +14,7 @@ public class InfernoBeast : BaseMonster
 
     protected override IEnumerator IEAttackPlayer()
     {
-        _sr.color = Color.red;
+        // _sr.color = Color.red;
 
         int bulletCount = Random.Range(_minBullets, _maxBullets + 1);
         for (int i = 0; i < bulletCount; i++)

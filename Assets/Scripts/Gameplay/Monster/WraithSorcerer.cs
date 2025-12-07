@@ -12,7 +12,7 @@ public class WraithSorcerer : BaseMonster
     {
         PlayAnimation(ANIM_ATTACK);
 
-        _sr.color = _summonColor;
+        // _sr.color = _summonColor;
         
         string hitKey = "monster_summon";
         if (AudioManager.Instance != null)

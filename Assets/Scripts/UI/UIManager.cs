@@ -78,6 +78,7 @@ public class UIManager : Singleton<UIManager>
 
     public void ShowUIChooseWeapon()
     {
+        AudioManager.Instance.PlayMusic("bgm_gameplay");
         uiChooseWeapon.gameObject.SetActive(true);
     }
 
@@ -88,7 +89,6 @@ public class UIManager : Singleton<UIManager>
 
     public void ShowUIGameplay()
     {
-        AudioManager.Instance.PlayMusic("bgm_gameplay");
         uiGameplay.gameObject.SetActive(true);
     }
     

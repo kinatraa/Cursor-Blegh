@@ -44,7 +44,7 @@ public class DemonKing : BaseMonster
      protected override IEnumerator IECharging()
      {
           int attackState = Random.Range(0, 4);
-          _sr.color = Color.blue;
+          // _sr.color = Color.blue;
 
           switch (attackState)
           {
@@ -95,7 +95,7 @@ public class DemonKing : BaseMonster
 
      private IEnumerator IESkill1()
      {
-          _sr.color = Color.yellow;
+          // _sr.color = Color.yellow;
           ShootLasers();
           
           yield return new WaitForSeconds(_remainingAnimTime);
@@ -139,7 +139,7 @@ public class DemonKing : BaseMonster
      
      private IEnumerator IESkill2()
      {
-          _sr.color = Color.red;
+          // _sr.color = Color.red;
           string hitKey = "monster_shoot";
           if (AudioManager.Instance != null)
           {
@@ -157,7 +157,7 @@ public class DemonKing : BaseMonster
      
      private IEnumerator IESkill3()
      {
-          _sr.color = Color.red;
+          // _sr.color = Color.red;
           string hitKey = "monster_shoot";
           if (AudioManager.Instance != null)
           {
@@ -170,7 +170,7 @@ public class DemonKing : BaseMonster
      
      private IEnumerator IESkill4()
      {
-          _sr.color = Color.red;
+          // _sr.color = Color.red;
           _isInvincible = true;
           
           string hitKey = "monster_disappear";
@@ -256,7 +256,7 @@ public class DemonKing : BaseMonster
           _sr.color = targetColor;
      }
 
-     public override void TakeDamage(int damage){
+     public override void TakeDamage(int damage, bool isPlaySfx = true){
           if (_isInvincible){
                Debug.Log("Demon King is invincible and took no damage.");
                return;

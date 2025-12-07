@@ -17,16 +17,33 @@ public class LeaderboardPopup : UIPopup
     {
         base.Show();
 
-        var playerList = controller.GetLeaderboardData();
-        int count = playerList.Count;
+        StartCoroutine(LoadAndDisplayLeaderboard());
+    }
 
+    private IEnumerator LoadAndDisplayLeaderboard()
+    {
+        yield return StartCoroutine(LeaderboardController.Instance.RefreshLeaderboard());
+        
+        var playerList = LeaderboardController.Instance.GetLeaderboardData();
+        int count = playerList.Count;
+        Debug.Log($"PLAYER LEADERBOARD: {count}");
+
+        if (count == 0)
+        {
+            Debug.LogWarning("No players with history to display!");
+            yield break;
+        }
+        
         EnsureRows(count);
 
         for (int i = 0; i < rows.Count; i++)
         {
             if (i < count)
             {
-                rows[i].UpdateText(playerList[i]);
+                var player = playerList[i];
+                Debug.Log($"Displaying player {i}: {player.name} - Score: {player.GetBestHistory.score}");
+                
+                rows[i].UpdateText(player);
                 rows[i].gameObject.SetActive(true);
             }
             else

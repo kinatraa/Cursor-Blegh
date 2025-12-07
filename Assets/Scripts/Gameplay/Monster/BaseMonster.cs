@@ -130,7 +130,7 @@ public abstract class BaseMonster : MonoBehaviour
         }
 
         PlayAnimation(ANIM_ATTACK);
-        _sr.color = Color.blue;
+        // _sr.color = Color.blue;
 
         yield return null;
         float totalDuration = _animator.GetCurrentAnimatorStateInfo(0).length;
@@ -144,11 +144,11 @@ public abstract class BaseMonster : MonoBehaviour
 
     protected virtual IEnumerator IEAttackPlayer()
     {
-        _sr.color = Color.red;
+        // _sr.color = Color.red;
         yield return new WaitForSeconds(_remainingAnimTime);
     }
 
-    public virtual void TakeDamage(int damage)
+    public virtual void TakeDamage(int damage, bool isPlaySfx = true)
     {
         Debug.Log($"{gameObject.name} is taking damage {damage}");
 
@@ -157,13 +157,15 @@ public abstract class BaseMonster : MonoBehaviour
             ComboController.Instance.AddCombo();
         }
 
-        List<string> hitSounds = new List<string>
-            { "monster_hit1", "monster_hit2", "monster_hit3", "monster_hit4", "sfx_hit1", "sfx_hit2" };
-        int randomChance = UnityEngine.Random.Range(0, hitSounds.Count);
-        string hitKey = hitSounds[randomChance];
-        if (AudioManager.Instance != null)
+        if (isPlaySfx)
         {
-            AudioManager.Instance.ShotSfx(hitKey);
+            List<string> hitSounds = new List<string> {  "monster_hit1","monster_hit2","monster_hit3","monster_hit4", "sfx_hit1", "sfx_hit2"};
+            int randomChance = UnityEngine.Random.Range(0, hitSounds.Count);
+            string hitKey = hitSounds[randomChance];
+            if (AudioManager.Instance != null)
+            {
+                AudioManager.Instance.ShotSfx(hitKey, volume: 0.75f);
+            }
         }
 
         currentHp -= damage;
@@ -229,7 +231,7 @@ public abstract class BaseMonster : MonoBehaviour
         PlayAnimation(ANIM_IDLE);
 
         Color originalColor = _sr.color;
-        _sr.color = Color.cyan;
+        // _sr.color = Color.cyan;
 
         yield return new WaitForSeconds(duration);
 

@@ -39,7 +39,7 @@ public class ShurikenBuff : BaseBuff
                 {
                     AudioManager.Instance.ShotSfx(hitKey, pitch: 2f);
                 }
-                monster.TakeDamage(data.atk);
+                monster.TakeDamage(data.atk, isPlaySfx: false);
             }
         }
 
