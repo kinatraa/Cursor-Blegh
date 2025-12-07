@@ -6,10 +6,8 @@ using System.Text;
 using UnityEngine;
 using UnityEngine.Networking;
 
-public class LeaderboardController : MonoBehaviour
+public class LeaderboardController : Singleton<LeaderboardController>
 {
-    public static LeaderboardController Instance { get; private set; }
-    
     [Header("Settings")]
     private const string BASE_URL = "https://game-backend-wheat.vercel.app";
 
@@ -37,28 +35,8 @@ public class LeaderboardController : MonoBehaviour
 
     private void Awake()
     {
-        if (Instance == null)
-        {
-            Instance = this;
-            transform.SetParent(null);
-            DontDestroyOnLoad(gameObject);
-        }
-        else
-        {
-            Destroy(gameObject);
-            return;
-        }
-        
         CurrentPlayerId = PlayerPrefs.GetString("PlayerID", "");
         CurrentPlayerName = PlayerPrefs.GetString("PlayerName", "");
-    }
-
-    private void Start()
-    {
-        if (contentContainer != null)
-        {
-            RefreshLeaderboard();
-        }
     }
     
     public IEnumerator RefreshLeaderboard()

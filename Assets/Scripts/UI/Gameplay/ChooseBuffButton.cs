@@ -34,6 +34,7 @@ public class ChooseBuffButton : MonoBehaviour
 
     public void Choose()
     {
+        AudioManager.Instance.ShotSfx("button_click");
         GameEventManager.InvokeChooseBuff(_buffData);
         UIManager.Instance.chooseUpgradePopup.Hide();
     }

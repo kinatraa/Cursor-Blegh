@@ -13,11 +13,13 @@ public class PausePopup : UIPopup
 
     public void Exit()
     {
+        AudioManager.Instance.ShotSfx("button_click");
         GameEventManager.InvokeQuitGame();
     }
 
     public void Resume()
     {
+        AudioManager.Instance.ShotSfx("button_click");
         Time.timeScale = 1;
         
         Hide();

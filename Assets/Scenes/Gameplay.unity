@@ -18015,7 +18015,6 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 2086799279}
   - {fileID: 160225804}
   - {fileID: 1249740256}
   - {fileID: 44771009}
@@ -18040,7 +18039,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rowPrefab: {fileID: 4780048179501801835, guid: 093ceb237078d9e41815df8bc428beca, type: 3}
-  controller: {fileID: 2086799278}
   container: {fileID: 1203897614}
   rows: []
 --- !u!1 &2063079322
@@ -18441,17 +18439,17 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2086799277}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 2057992938}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_SizeDelta: {x: 18, y: 10}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &2091503241
 GameObject:
@@ -19147,6 +19145,7 @@ SceneRoots:
   - {fileID: 831708683}
   - {fileID: 1235169037}
   - {fileID: 225715280}
+  - {fileID: 2086799279}
   - {fileID: 2057992938}
   - {fileID: 1673580272}
   - {fileID: 946754059}

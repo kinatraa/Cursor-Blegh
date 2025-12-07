@@ -77,6 +77,7 @@ public class ChooseUpgradePopup : UIPopup
 
     public void Reroll()
     {
+        AudioManager.Instance.ShotSfx("button_click");
         if (_rerollAmount <= 0) return;
         
         _canAddStackBuffs.Shuffle();

@@ -19,13 +19,20 @@ public class LosePopup : UIPopup
 
     public void Exit()
     {
+        AudioManager.Instance.ShotSfx("button_click");
         GameEventManager.InvokeQuitGame();
     }
 
     private void UpdateFinalText()
     {
-        scoreText.text = $"{GameplayManager.Instance.weaponController.currentWeapon.currentScore}";
-        waveText.text = $"{GameplayManager.Instance.waveController.currentWave}";
-        timeText.text = $"{GameplayManager.Instance.playTimeTracker.playTime}";
+        var score = GameplayManager.Instance.weaponController.currentWeapon.currentScore;
+        var wave = GameplayManager.Instance.waveController.currentWave;
+        var time = (int)GameplayManager.Instance.playTimeTracker.playTime;
+        
+        LeaderboardController.Instance.SubmitScore(wave, score, time);
+        
+        scoreText.text = $"{score}";
+        waveText.text = $"{wave}";
+        timeText.text = $"{time}";
     }
 }

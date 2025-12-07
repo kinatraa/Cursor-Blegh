@@ -103,7 +103,7 @@ public abstract class BaseWeapon : MonoBehaviour
             else
             {
                 GameEventManager.InvokeGameLose();
-                gameObject.SetActive(false);
+                GameplayManager.Instance.weaponController.SetDefaultCursor();
             }
         }
     }

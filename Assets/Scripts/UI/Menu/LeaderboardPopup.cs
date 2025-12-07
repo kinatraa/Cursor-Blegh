@@ -5,7 +5,6 @@ using UnityEngine;
 public class LeaderboardPopup : UIPopup
 {
     public LeaderboardRow rowPrefab;
-    public LeaderboardController controller;
 
     public RectTransform container;
     public List<LeaderboardRow> rows = new List<LeaderboardRow>();
@@ -91,6 +90,7 @@ public class LeaderboardPopup : UIPopup
 
     public void Exit()
     {
+        AudioManager.Instance.ShotSfx("button_click");
         Hide();
     }
 }

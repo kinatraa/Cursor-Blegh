@@ -20,8 +20,8 @@ public class AudioManager : Singleton<AudioManager>
     private int _curSourceIndex = 0;
     
     private Dictionary<string, AudioClip> _audioDict = new Dictionary<string, AudioClip>();
-    private float _bgmVolumeScale = 1;
-    private float _sfxVolumeScale = 1;
+    private float _bgmVolumeScale = 0.5f;
+    private float _sfxVolumeScale = 0.5f;
     
     protected override void Awake()
     {

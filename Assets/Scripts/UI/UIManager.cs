@@ -19,7 +19,7 @@ public class UIManager : Singleton<UIManager>
     {
         base.Awake();
         
-        Cursor.visible = false;
+        LeaderboardController.Instance.RegisterPlayer("Duc Enh");
     }
 
     private void Start()
