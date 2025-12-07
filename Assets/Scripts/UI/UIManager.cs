@@ -15,6 +15,13 @@ public class UIManager : Singleton<UIManager>
     public UIPopup losePopup;
     public UIPopup leaderboardPopup;
 
+    protected override void Awake()
+    {
+        base.Awake();
+        
+        Cursor.visible = false;
+    }
+
     private void Start()
     {
         Reset();
@@ -115,6 +122,7 @@ public class UIManager : Singleton<UIManager>
         Time.timeScale = 0;
         
         uiGameplay.Reset();
+        GameplayManager.Instance.weaponController.SetDefaultCursor();
         
         ShowUIMenu();
         HideUIChooseWeapon();

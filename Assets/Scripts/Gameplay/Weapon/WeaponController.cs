@@ -5,17 +5,18 @@ using UnityEngine;
 public class WeaponController : MonoBehaviour
 {
     public List<BaseWeapon> weapons = new List<BaseWeapon>();
+    public BaseWeapon defaultCursor;
     public BaseWeapon currentWeapon;
     public RebornBuff rebornBuff = null;
-    
+
     public WeaponSkillSystem weaponSkillSystem;
-    
+
     private Camera _mainCamera;
 
     private void Awake()
     {
         _mainCamera = Camera.main;
-        
+
         var allSkills = Resources.LoadAll<WeaponSkillData>("WeaponData/WeaponSkillData");
         weaponSkillSystem = new WeaponSkillSystem(new List<WeaponSkillData>(allSkills));
     }
@@ -58,6 +59,7 @@ public class WeaponController : MonoBehaviour
 
     private void ChooseWeapon(WeaponType type)
     {
+        defaultCursor.gameObject.SetActive(false);
         foreach (var weapon in weapons)
         {
             if (weapon.data.weaponType == type)
@@ -76,5 +78,15 @@ public class WeaponController : MonoBehaviour
     public void Reset()
     {
         rebornBuff = null;
+    }
+
+    public void SetDefaultCursor()
+    {
+        currentWeapon = defaultCursor;
+        defaultCursor.gameObject.SetActive(true);
+        foreach (var weapon in weapons)
+        {
+            weapon.gameObject.SetActive(false);
+        }
     }
 }
