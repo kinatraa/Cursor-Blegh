@@ -51,4 +51,9 @@ public class PlayerStatsHUD : UIHud
     {
         waveText.text = $"Wave {wave}";
     }
+
+    public override void Reset()
+    {
+        base.Reset();
+    }
 }

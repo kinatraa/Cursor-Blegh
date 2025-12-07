@@ -8,9 +8,12 @@ public static class GameEventManager
     public static Action onGameStart;
     public static Action onGameWin;
     public static Action onGameLose;
-    public static Action onReplayGame;
+    public static Action onQuitGame;
 
     public static Action onNextWave;
+    
+    public static Action<int> onChangeBgmVolume;
+    public static Action<int> onChangeSfxVolume;
     
     // State
     public static Action onChooseUpgradeState;
@@ -40,9 +43,9 @@ public static class GameEventManager
         onGameLose?.Invoke();
     }
 
-    public static void InvokeReplayGame()
+    public static void InvokeQuitGame()
     {
-        onReplayGame?.Invoke();
+        onQuitGame?.Invoke();
     }
 
     public static void InvokeNextWave()
@@ -93,5 +96,15 @@ public static class GameEventManager
     public static void InvokeChooseWeapon(WeaponType weaponType)
     {
         onChooseWeapon?.Invoke(weaponType);
+    }
+
+    public static void InvokeChangeBgmVolume(int newVolume)
+    {
+        onChangeBgmVolume?.Invoke(newVolume);
+    }
+
+    public static void InvokeChangeSfxVolume(int newVolume)
+    {
+        onChangeSfxVolume?.Invoke(newVolume);
     }
 }

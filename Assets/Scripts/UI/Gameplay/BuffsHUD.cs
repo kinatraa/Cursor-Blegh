@@ -11,14 +11,7 @@ public class BuffsHUD : UIHud
 
     private void Awake()
     {
-        foreach (BuffSlot buffSlot in buffSkillSlots)
-        {
-            buffSlot.Reset();
-        }
-        foreach (BuffSlot buffSlot in buffItemSlots)
-        {
-            buffSlot.Reset();
-        }
+        Reset();
     }
 
     private void OnEnable()
@@ -71,6 +64,20 @@ public class BuffsHUD : UIHud
                 buffSlot.Setup(buffData);
                 break;
             }
+        }
+    }
+
+    public override void Reset()
+    {
+        base.Reset();
+        
+        foreach (BuffSlot buffSlot in buffSkillSlots)
+        {
+            buffSlot.Reset();
+        }
+        foreach (BuffSlot buffSlot in buffItemSlots)
+        {
+            buffSlot.Reset();
         }
     }
 }

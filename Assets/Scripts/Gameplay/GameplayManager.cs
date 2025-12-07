@@ -12,28 +12,41 @@ public class GameplayManager : Singleton<GameplayManager>
     public StateMachine stateController;
     public BuffController buffController;
     public WaveRewardSystem waveRewardSystem;
+    public PlayTimeTracker playTimeTracker;
 
     public WeaponType currentWeaponType = WeaponType.WOODEN_SWORD;
     public int currentWave = 1;
 
+    private bool _loseGame = false;
+    
     private void OnEnable()
     {
         GameEventManager.onGameStart += StartGame;
+        GameEventManager.onGameLose += LoseGame;
+        GameEventManager.onQuitGame += ResetGame;
         GameEventManager.onNextWave += NextWave;
     }
 
     private void OnDisable()
     {
         GameEventManager.onGameStart -= StartGame;
+        GameEventManager.onGameLose -= LoseGame;
+        GameEventManager.onQuitGame -= ResetGame;
         GameEventManager.onNextWave -= NextWave;
     }
 
-    private void Start()
+    private void Update()
     {
+        if (Input.GetKeyDown(KeyCode.Escape) && !_loseGame)
+        {
+            UIManager.Instance.pausePopup.Show();
+        }
     }
 
     private void StartGame()
     {
+        Time.timeScale = 1;
+        
         ResetGame();
 
         currentWave = 1;
@@ -52,8 +65,16 @@ public class GameplayManager : Singleton<GameplayManager>
         stateController.ChangeState(0);
     }
 
+    private void LoseGame()
+    {
+        _loseGame = true;
+        Time.timeScale = 0;
+    }
+
     private void ResetGame()
     {
+        _loseGame = false;
+        
         weaponController.Reset();
         monsterController.Reset();
         waveController.Reset();

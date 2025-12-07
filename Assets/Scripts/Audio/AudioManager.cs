@@ -20,6 +20,8 @@ public class AudioManager : Singleton<AudioManager>
     private int _curSourceIndex = 0;
     
     private Dictionary<string, AudioClip> _audioDict = new Dictionary<string, AudioClip>();
+    private float _bgmVolumeScale = 1;
+    private float _sfxVolumeScale = 1;
     
     protected override void Awake()
     {
@@ -54,7 +56,30 @@ public class AudioManager : Singleton<AudioManager>
             _sfxPool.Add(source);
         }
     }
-    
+
+    private void OnEnable()
+    {
+        GameEventManager.onChangeBgmVolume += ChangeBgmVolume;
+        GameEventManager.onChangeSfxVolume += ChangeSfxVolume;
+    }
+
+    private void OnDisable()
+    {
+        GameEventManager.onChangeBgmVolume -= ChangeBgmVolume;
+        GameEventManager.onChangeSfxVolume -= ChangeSfxVolume;
+    }
+
+    private void ChangeBgmVolume(int newVolume)
+    {
+        _bgmVolumeScale = newVolume / 100f;
+        musicSource.volume = _bgmVolumeScale;
+    }
+
+    private void ChangeSfxVolume(int newVolume)
+    {
+        _sfxVolumeScale = newVolume / 100f;
+    }
+
     public void ShotSfx(string key, float volume = 1f, float pitch = 1f)
     {
         if (_audioDict.TryGetValue(key, out var clip))
@@ -98,7 +123,7 @@ public class AudioManager : Singleton<AudioManager>
         if (_audioDict.TryGetValue(key, out var clip))
         {
             musicSource.pitch = pitch;
-            musicSource.volume = volume;
+            musicSource.volume = volume * _bgmVolumeScale;
             musicSource.clip = clip;
             musicSource.loop = true;
             musicSource.Play();

@@ -123,13 +123,12 @@ public abstract class BaseMonster : MonoBehaviour
 
     protected virtual IEnumerator IECharging()
     {
-        
         string hitKey = "monster_hit";
         if (AudioManager.Instance != null)
         {
             AudioManager.Instance.ShotSfx(hitKey);
         }
-        
+
         PlayAnimation(ANIM_ATTACK);
         _sr.color = Color.blue;
 
@@ -152,7 +151,7 @@ public abstract class BaseMonster : MonoBehaviour
     public virtual void TakeDamage(int damage, bool isPlaySfx = true)
     {
         Debug.Log($"{gameObject.name} is taking damage {damage}");
-        
+
         if (ComboController.Instance != null)
         {
             ComboController.Instance.AddCombo();
@@ -168,7 +167,7 @@ public abstract class BaseMonster : MonoBehaviour
                 AudioManager.Instance.ShotSfx(hitKey);
             }
         }
-        
+
         currentHp -= damage;
 
         if (_blinkCoroutine != null)
@@ -208,18 +207,23 @@ public abstract class BaseMonster : MonoBehaviour
         }
     }
 
-    public void Freeze(float duration){
-        if (_freezeCoroutine != null){
+    public void Freeze(float duration)
+    {
+        if (_freezeCoroutine != null)
+        {
             StopCoroutine(_freezeCoroutine);
         }
+
         _freezeCoroutine = StartCoroutine(IEFreeze(duration));
     }
 
-    private IEnumerator IEFreeze(float duration){
-        if (!isFrozen && _behaviorCoroutine != null){
+    private IEnumerator IEFreeze(float duration)
+    {
+        if (!isFrozen && _behaviorCoroutine != null)
+        {
             StopCoroutine(_behaviorCoroutine);
             _behaviorCoroutine = null;
-        }   
+        }
 
         isFrozen = true;
 
@@ -231,13 +235,16 @@ public abstract class BaseMonster : MonoBehaviour
 
         yield return new WaitForSeconds(duration);
 
-        if (!isDead){
+        if (!isDead)
+        {
             isFrozen = false;
             _sr.color = originalColor;
-            if (_behaviorCoroutine == null){
+            if (_behaviorCoroutine == null)
+            {
                 _behaviorCoroutine = StartCoroutine(IEStateChange());
             }
         }
+
         _freezeCoroutine = null;
     }
 
@@ -264,8 +271,8 @@ public abstract class BaseMonster : MonoBehaviour
         {
             collider.enabled = false;
         }
-        
-        List<string> hitSounds = new List<string> { "monster_die1",  "monster_die2","monster_die3"};
+
+        List<string> hitSounds = new List<string> { "monster_die1", "monster_die2", "monster_die3" };
         int randomChance = UnityEngine.Random.Range(0, hitSounds.Count);
         string hitKey = hitSounds[randomChance];
         if (AudioManager.Instance != null)
@@ -333,26 +340,27 @@ public abstract class BaseMonster : MonoBehaviour
             {
                 DropHealthPack();
             }
-            
+
             if (GameplayManager.Instance.monsterController.lastHitMonster == this)
             {
                 GameplayManager.Instance.monsterController.lastHitMonster = null;
             }
-            
+
             int baseScore = data.score;
             int comboBonus = 0;
-            
+
             if (ComboController.Instance != null)
             {
                 comboBonus = ComboController.Instance.CalculateComboBonus();
             }
-            
+
             int totalScore = baseScore + comboBonus;
-            
+
             GameplayManager.Instance.weaponController.currentWeapon.GainScore(totalScore);
-            
-            Debug.Log($"<color=yellow>Score: {baseScore} + {comboBonus} (Combo {ComboController.Instance?.GetCurrentCombo()}x) = {totalScore}</color>");
-            
+
+            Debug.Log(
+                $"<color=yellow>Score: {baseScore} + {comboBonus} (Combo {ComboController.Instance?.GetCurrentCombo()}x) = {totalScore}</color>");
+
             GameplayManager.Instance.monsterController.RemoveMonster(this);
         }
     }
@@ -361,16 +369,17 @@ public abstract class BaseMonster : MonoBehaviour
     {
         float baseDropChance = 0.05f;
         float totalDropChance = baseDropChance;
-        
+
         var healingBuff = GameplayManager.Instance.monsterController.healingHerbBuff;
         if (healingBuff != null)
         {
             float buffBonus = healingBuff.GetStack * 0.05f;
             totalDropChance += buffBonus;
-            
-            Debug.Log($"<color=cyan>Health drop chance: {baseDropChance * 100}% + {buffBonus * 100}% (Buff {healingBuff.GetStack}x) = {totalDropChance * 100}%</color>");
+
+            Debug.Log(
+                $"<color=cyan>Health drop chance: {baseDropChance * 100}% + {buffBonus * 100}% (Buff {healingBuff.GetStack}x) = {totalDropChance * 100}%</color>");
         }
-        
+
         return Random.value < totalDropChance;
     }
 
@@ -380,10 +389,11 @@ public abstract class BaseMonster : MonoBehaviour
         if (healingHerbData == null) return;
 
         GameObject healthPrefab = healingHerbData.prefab;
-    
+
         if (healthPrefab != null)
         {
-            Instantiate(healthPrefab, transform.position, Quaternion.identity);
+            GameplayManager.Instance.monsterController.heartObjects.Add(Instantiate(healthPrefab, transform.position,
+                Quaternion.identity));
             Debug.Log($"<color=green>❤ Health pack dropped!</color>");
         }
         else
