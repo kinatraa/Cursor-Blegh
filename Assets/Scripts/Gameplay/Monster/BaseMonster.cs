@@ -130,7 +130,7 @@ public abstract class BaseMonster : MonoBehaviour
         }
 
         PlayAnimation(ANIM_ATTACK);
-        _sr.color = Color.blue;
+        // _sr.color = Color.blue;
 
         yield return null;
         float totalDuration = _animator.GetCurrentAnimatorStateInfo(0).length;
@@ -144,7 +144,7 @@ public abstract class BaseMonster : MonoBehaviour
 
     protected virtual IEnumerator IEAttackPlayer()
     {
-        _sr.color = Color.red;
+        // _sr.color = Color.red;
         yield return new WaitForSeconds(_remainingAnimTime);
     }
 
@@ -231,7 +231,7 @@ public abstract class BaseMonster : MonoBehaviour
         PlayAnimation(ANIM_IDLE);
 
         Color originalColor = _sr.color;
-        _sr.color = Color.cyan;
+        // _sr.color = Color.cyan;
 
         yield return new WaitForSeconds(duration);
 

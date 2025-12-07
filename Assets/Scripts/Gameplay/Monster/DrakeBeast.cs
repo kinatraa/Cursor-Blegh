@@ -29,7 +29,7 @@ public class DrakeBeast : BaseMonster
     protected override IEnumerator IECharging()
     {
         int attackState = Random.Range(0, 2);
-        _sr.color = Color.blue;
+        // _sr.color = Color.blue;
         if (attackState == 1)
         {
             PlayAnimation(ANIM_ATTACK);
@@ -76,7 +76,7 @@ public class DrakeBeast : BaseMonster
             yield break;
         }
         
-        _sr.color = Color.red;
+        // _sr.color = Color.red;
         
         yield return new WaitForSeconds(_remainingAnimTime);
 
@@ -123,7 +123,7 @@ public class DrakeBeast : BaseMonster
             yield break;
         }
 
-        _sr.color = new Color(1f, 0.5f, 0f);
+        // _sr.color = new Color(1f, 0.5f, 0f);
         _isBreathing = true;
 
         float actualBreathDuration = Random.Range(_minBreathDuration, _maxBreathDuration);

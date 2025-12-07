@@ -11,7 +11,7 @@ public class FlameSlime : BaseMonster
     
     protected override IEnumerator IEAttackPlayer()
     {
-        _sr.color = Color.red;
+        // _sr.color = Color.red;
         string hitKey = "monster_shoot";
         if (AudioManager.Instance != null)
         {
