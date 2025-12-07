@@ -59,6 +59,7 @@ public class UIManager : Singleton<UIManager>
 
     public void ShowUIMenu()
     {
+        AudioManager.Instance.PlayMusic("bgm_mainmenu");
         uiMenu.gameObject.SetActive(true);
     }
 
@@ -79,6 +80,7 @@ public class UIManager : Singleton<UIManager>
 
     public void ShowUIGameplay()
     {
+        AudioManager.Instance.PlayMusic("bgm_gameplay");
         uiGameplay.gameObject.SetActive(true);
     }
     
