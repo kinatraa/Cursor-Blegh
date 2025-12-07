@@ -6,23 +6,22 @@ public class LeaderboardPopup : UIPopup
 {
     public LeaderboardRow rowPrefab;
     public LeaderboardController controller;
-    
+
     public RectTransform container;
     public List<LeaderboardRow> rows = new List<LeaderboardRow>();
-    private float _rowHeight = 0.7838001f;
-    private float _rowSpacing = 0.7838001f;
+    private float _rowHeight = 0.8f;
+    private float _rowSpacing = 0;
 
-    
+
     public override void Show()
     {
         base.Show();
-    
+
         var playerList = controller.GetLeaderboardData();
         int count = playerList.Count;
-        Debug.Log($"PLAYER LEADERBOARD: {count}");
-        
+
         EnsureRows(count);
-        
+
         for (int i = 0; i < rows.Count; i++)
         {
             if (i < count)
@@ -35,12 +34,12 @@ public class LeaderboardPopup : UIPopup
                 rows[i].gameObject.SetActive(false);
             }
         }
-        
+
         ResizeContainer(count);
-        
+
         RepositionRows();
     }
-    
+
     private void EnsureRows(int targetCount)
     {
         while (rows.Count < targetCount)
@@ -66,10 +65,10 @@ public class LeaderboardPopup : UIPopup
         for (int i = 0; i < rows.Count; i++)
         {
             RectTransform rt = rows[i].GetComponent<RectTransform>();
-        
+
             float y = -i * (_rowHeight + _rowSpacing);
 
-            rt.anchoredPosition = new Vector2(0, y);
+            rt.anchoredPosition = new Vector2(0, y - 0.4f);
         }
     }
 
