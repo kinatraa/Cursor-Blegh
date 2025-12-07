@@ -83,7 +83,7 @@
       "wave_min": 21,
       "wave_max": 29,
       "count_min": 15,
-      "count_max": 18,
+      "count_max": 24,
       "is_boss_wave": false,
       "enemies": [
         { "id": "SLIME_PRIMORDIAL", "size": "SMALL", "min_count": 2, "max_count": 3 },
@@ -113,8 +113,8 @@
     {
       "wave_min": 31,
       "wave_max": 39,
-      "count_min": 18,
-      "count_max": 20,
+      "count_min": 22,
+      "count_max": 32,
       "is_boss_wave": false,
       "enemies": [
         { "id": "SLIME_PRIMORDIAL", "size": "SMALL", "min_count": 2, "max_count": 3 },
