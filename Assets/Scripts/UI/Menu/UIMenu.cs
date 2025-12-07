@@ -17,6 +17,6 @@ public class UIMenu : MonoBehaviour
 
     public void Leaderboard()
     {
-        
+        UIManager.Instance.leaderboardPopup.Show();
     }
 }

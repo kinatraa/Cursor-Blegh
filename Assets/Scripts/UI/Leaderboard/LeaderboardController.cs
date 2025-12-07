@@ -8,8 +8,6 @@ using UnityEngine.Networking;
 
 public class LeaderboardController : MonoBehaviour
 {
-    public static LeaderboardController Instance { get; private set; }
-
     [Header("Settings")]
     private const string BASE_URL = "https://game-backend-wheat.vercel.app";
 
@@ -18,19 +16,19 @@ public class LeaderboardController : MonoBehaviour
     public GameObject rowPrefab;
     public GameObject loadingIndicator;
 
-    private List<DisplayInfo> _leaderboardData = new List<DisplayInfo>();
+    private List<PlayerData> _leaderboardData = new List<PlayerData>();
     
     // get leaderboard data
-    public List<DisplayInfo> GetLeaderboardData() => _leaderboardData;
+    public List<PlayerData> GetLeaderboardData() =>
+        _leaderboardData
+            .OrderByDescending(p => p.GetBestHistory.score)
+            .ToList();
     
     public string CurrentPlayerId { get; private set; }
     public string CurrentPlayerName { get; private set; }
 
     private void Awake()
     {
-        if (Instance == null) Instance = this;
-        else Destroy(gameObject);
-        
         CurrentPlayerId = PlayerPrefs.GetString("PlayerID", "");
         CurrentPlayerName = PlayerPrefs.GetString("PlayerName", "");
     }
@@ -65,57 +63,11 @@ public class LeaderboardController : MonoBehaviour
             else
             {
                 string jsonResult = request.downloadHandler.text;
-                List<PlayerData> allPlayers = JsonHelper.FromJson<PlayerData>(jsonResult);
-                ProcessAndDisplayData(allPlayers);
+                _leaderboardData = JsonHelper.FromJson<PlayerData>(jsonResult);
             }
         }
 
         if (loadingIndicator) loadingIndicator.SetActive(false);
-    }
-
-    private void ProcessAndDisplayData(List<PlayerData> rawData)
-    {
-        foreach (Transform child in contentContainer)
-        {
-            Destroy(child.gameObject);
-        }
-        
-        var displayList = new List<DisplayInfo>();
-
-        foreach (var player in rawData)
-        {
-            if (player.history == null || player.history.Count == 0) continue;
-            
-            PlayHistory bestRun = player.history.OrderByDescending(h => h.score).First();
-
-            displayList.Add(new DisplayInfo
-            {
-                name = string.IsNullOrEmpty(player.name) ? "Unknown" : player.name,
-                score = bestRun.score,
-                wave = bestRun.wave,
-                date = bestRun.playedAt
-            });
-        }
-        
-        displayList = displayList.OrderByDescending(x => x.score).ToList();
-        _leaderboardData = displayList;
-        
-        for (int i = 0; i < displayList.Count; i++)
-        {
-            GameObject newRow = Instantiate(rowPrefab, contentContainer);
-            LeaderboardRowUI rowUI = newRow.GetComponent<LeaderboardRowUI>();
-
-            if (rowUI != null)
-            {
-                rowUI.SetData(
-                    i + 1, 
-                    displayList[i].name, 
-                    displayList[i].score, 
-                    displayList[i].wave, 
-                    displayList[i].date
-                );
-            }
-        }
     }
     
     // register player
