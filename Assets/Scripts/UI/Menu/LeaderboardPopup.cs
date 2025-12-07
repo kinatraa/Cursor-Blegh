@@ -5,8 +5,7 @@ using UnityEngine;
 public class LeaderboardPopup : UIPopup
 {
     public LeaderboardRow rowPrefab;
-    public LeaderboardController controller;
-    
+
     public RectTransform container;
     public List<LeaderboardRow> rows = new List<LeaderboardRow>();
     private float _rowHeight = 0.7838001f;
@@ -16,10 +15,23 @@ public class LeaderboardPopup : UIPopup
     public override void Show()
     {
         base.Show();
-    
-        var playerList = controller.GetLeaderboardData();
+
+        StartCoroutine(LoadAndDisplayLeaderboard());
+    }
+
+    private IEnumerator LoadAndDisplayLeaderboard()
+    {
+        yield return StartCoroutine(LeaderboardController.Instance.RefreshLeaderboard());
+        
+        var playerList = LeaderboardController.Instance.GetLeaderboardData();
         int count = playerList.Count;
         Debug.Log($"PLAYER LEADERBOARD: {count}");
+
+        if (count == 0)
+        {
+            Debug.LogWarning("No players with history to display!");
+            yield break;
+        }
         
         EnsureRows(count);
         
@@ -27,7 +39,10 @@ public class LeaderboardPopup : UIPopup
         {
             if (i < count)
             {
-                rows[i].UpdateText(playerList[i]);
+                var player = playerList[i];
+                Debug.Log($"Displaying player {i}: {player.name} - Score: {player.GetBestHistory.score}");
+                
+                rows[i].UpdateText(player);
                 rows[i].gameObject.SetActive(true);
             }
             else
@@ -37,7 +52,6 @@ public class LeaderboardPopup : UIPopup
         }
         
         ResizeContainer(count);
-        
         RepositionRows();
     }
     

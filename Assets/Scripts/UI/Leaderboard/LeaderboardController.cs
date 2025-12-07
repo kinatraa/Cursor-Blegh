@@ -8,6 +8,8 @@ using UnityEngine.Networking;
 
 public class LeaderboardController : MonoBehaviour
 {
+    public static LeaderboardController Instance { get; private set; }
+    
     [Header("Settings")]
     private const string BASE_URL = "https://game-backend-wheat.vercel.app";
 
@@ -19,16 +21,34 @@ public class LeaderboardController : MonoBehaviour
     private List<PlayerData> _leaderboardData = new List<PlayerData>();
     
     // get leaderboard data
-    public List<PlayerData> GetLeaderboardData() =>
-        _leaderboardData
+    public List<PlayerData> GetLeaderboardData()
+    {
+        var validPlayers = _leaderboardData
+            .Where(p => p.history != null && p.history.Count > 0)
             .OrderByDescending(p => p.GetBestHistory.score)
             .ToList();
+        
+        Debug.Log($"Valid players with history: {validPlayers.Count}/{_leaderboardData.Count}");
+        return validPlayers;
+    }
     
     public string CurrentPlayerId { get; private set; }
     public string CurrentPlayerName { get; private set; }
 
     private void Awake()
     {
+        if (Instance == null)
+        {
+            Instance = this;
+            transform.SetParent(null);
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+            return;
+        }
+        
         CurrentPlayerId = PlayerPrefs.GetString("PlayerID", "");
         CurrentPlayerName = PlayerPrefs.GetString("PlayerName", "");
     }
@@ -41,9 +61,9 @@ public class LeaderboardController : MonoBehaviour
         }
     }
     
-    public void RefreshLeaderboard()
+    public IEnumerator RefreshLeaderboard()
     {
-        StartCoroutine(FetchLeaderboardRoutine());
+        yield return StartCoroutine(FetchLeaderboardRoutine());
     }
 
     private IEnumerator FetchLeaderboardRoutine()
@@ -63,7 +83,23 @@ public class LeaderboardController : MonoBehaviour
             else
             {
                 string jsonResult = request.downloadHandler.text;
-                _leaderboardData = JsonHelper.FromJson<PlayerData>(jsonResult);
+                Debug.Log($"JSON received:\n{jsonResult}");
+                
+                try
+                {
+                    _leaderboardData = JsonHelper.FromJson<PlayerData>(jsonResult);
+                    Debug.Log($"Parsed {_leaderboardData.Count} players");
+                    
+                    for (int i = 0; i < _leaderboardData.Count; i++)
+                    {
+                        var player = _leaderboardData[i];
+                        Debug.Log($"Player {i}: {player.name}, History count: {(player.history != null ? player.history.Count : 0)}");
+                    }
+                }
+                catch (Exception e)
+                {
+                    Debug.LogError($"Parse JSON failed: {e.Message}\n{e.StackTrace}");
+                }
             }
         }
 
