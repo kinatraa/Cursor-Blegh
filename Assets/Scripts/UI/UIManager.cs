@@ -13,6 +13,7 @@ public class UIManager : Singleton<UIManager>
     public UIPopup settingPopup;
     public UIPopup pausePopup;
     public UIPopup losePopup;
+    public UIPopup leaderboardPopup;
 
     private void Start()
     {
@@ -123,5 +124,6 @@ public class UIManager : Singleton<UIManager>
         settingPopup.gameObject.SetActive(false);
         pausePopup.gameObject.SetActive(false);
         losePopup.gameObject.SetActive(false);
+        leaderboardPopup.gameObject.SetActive(false);
     }
 }
