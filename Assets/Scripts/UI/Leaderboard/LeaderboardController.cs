@@ -17,6 +17,11 @@ public class LeaderboardController : MonoBehaviour
     public Transform contentContainer;
     public GameObject rowPrefab;
     public GameObject loadingIndicator;
+
+    private List<DisplayInfo> _leaderboardData = new List<DisplayInfo>();
+    
+    // get leaderboard data
+    public List<DisplayInfo> GetLeaderboardData() => _leaderboardData;
     
     public string CurrentPlayerId { get; private set; }
     public string CurrentPlayerName { get; private set; }
@@ -93,6 +98,7 @@ public class LeaderboardController : MonoBehaviour
         }
         
         displayList = displayList.OrderByDescending(x => x.score).ToList();
+        _leaderboardData = displayList;
         
         for (int i = 0; i < displayList.Count; i++)
         {
@@ -112,6 +118,7 @@ public class LeaderboardController : MonoBehaviour
         }
     }
     
+    // register player
     public void RegisterPlayer(string playerName, Action<bool> onComplete = null)
     {
         StartCoroutine(RegisterPlayerRoutine(playerName, onComplete));
@@ -166,6 +173,7 @@ public class LeaderboardController : MonoBehaviour
         }
     }
     
+    // update score
     public void SubmitScore(int wave, int score, int playtime)
     {
         if (string.IsNullOrEmpty(CurrentPlayerName))
@@ -178,7 +186,6 @@ public class LeaderboardController : MonoBehaviour
 
     private IEnumerator UpdateScoreRoutine(string name, int wave, int score, int playtime)
     {
-        // RL encode
         // "Gamer VN" -> "Gamer%20VN"
         string safeName = Uri.EscapeDataString(name);
         string url = $"{BASE_URL}/update_score/{safeName}";
@@ -212,7 +219,7 @@ public class LeaderboardController : MonoBehaviour
         }
     }
     
-    private class DisplayInfo
+    public class DisplayInfo
     {
         public string name;
         public int score;
