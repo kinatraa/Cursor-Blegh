@@ -337,6 +337,13 @@ public abstract class BaseMonster : MonoBehaviour
         if (GameplayManager.Instance != null &&
             GameplayManager.Instance.waveController != null)
         {
+
+            var healingBuff = GameplayManager.Instance.monsterController.healingHerbBuff;
+            if (healingBuff != null && isDead)
+            {
+                healingBuff.Activate();
+            }
+
             bool shouldDropHealth = ShouldDropHealthPack();
             if (shouldDropHealth)
             {
@@ -369,13 +376,13 @@ public abstract class BaseMonster : MonoBehaviour
 
     private bool ShouldDropHealthPack()
     {
-        float baseDropChance = 0.05f;
+        float baseDropChance = 0.02f;
         float totalDropChance = baseDropChance;
 
         var healingBuff = GameplayManager.Instance.monsterController.healingHerbBuff;
         if (healingBuff != null)
         {
-            float buffBonus = healingBuff.GetStack * 0.05f;
+            float buffBonus = healingBuff.GetStack * 0.02f;
             totalDropChance += buffBonus;
 
             Debug.Log(

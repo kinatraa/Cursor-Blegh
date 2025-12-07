@@ -12234,8 +12234,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a7e6426f06bb879449d8ab09c9369405, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _comboResetTime: 3
-  _scorePerCombo: 10
+  _comboResetTime: 1.5
+  _scorePerCombo: 5
 --- !u!4 &1316590254
 Transform:
   m_ObjectHideFlags: 0

@@ -6,8 +6,8 @@ public class ComboController : MonoBehaviour
     public static ComboController Instance { get; private set; }
 
     [Header("Combo Settings")]
-    [SerializeField] private float _comboResetTime = 3f;
-    [SerializeField] private int _scorePerCombo = 10;
+    [SerializeField] private float _comboResetTime = 1.5f;
+    [SerializeField] private int _scorePerCombo = 5;
 
     private int _currentCombo = 0;
     private float _comboTimer = 0f;
