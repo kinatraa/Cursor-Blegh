@@ -14,10 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   buffName: Thunder Strike
   buffIcon: {fileID: 1351710591, guid: 85fd376c6144b854dbc49c18a3018509, type: 3}
-  description: On hit, 10% chance to release a lightning chain hitting 2 enemies,
-    dealing 8 ATK.
+  description: On hit, 5% chance to release a lightning chain hitting 2 enemies,
+    dealing 4 ATK(+3%/stack).
   type: 5
   effectType: 1
+  collectType: 0
   prefab: {fileID: 7146366185793650149, guid: 098e0c11d917e6941bbbaa84ee8c42c5, type: 3}
   maxStack: 8
   activeRate: 10

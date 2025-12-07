@@ -15,9 +15,10 @@ MonoBehaviour:
   buffName: Sentinel Shield
   buffIcon: {fileID: -273637344, guid: 85fd376c6144b854dbc49c18a3018509, type: 3}
   description: Creates an energy orb orbiting the player. Enemy projectiles that
-    hit the orb are destroyed.
+    hit the orb are destroyed(+1 orb/stack).
   type: 2
   effectType: 1
+  collectType: 0
   prefab: {fileID: 5395155806739734770, guid: 19e1af9858e32e046906d0a34fa7b6e6, type: 3}
   maxStack: 8
   activeRate: 100

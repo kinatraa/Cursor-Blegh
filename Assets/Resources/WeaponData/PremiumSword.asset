@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weaponType: 4
   hp: 3
-  atk: 15
+  atk: 20
   crit: 15
   critDmg: 120
   weaponName: Crystal Sword

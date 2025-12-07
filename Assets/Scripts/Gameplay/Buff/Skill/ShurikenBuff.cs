@@ -34,11 +34,11 @@ public class ShurikenBuff : BaseBuff
                 
                 yield return StartCoroutine(IEMoveShuriken(shuriken.transform, monster.transform, 10f));
                 if (!monster) continue;
-                string hitKey = "attack_3";
-                if (AudioManager.Instance != null)
-                {
-                    AudioManager.Instance.ShotSfx(hitKey, pitch: 2f);
-                }
+                // string hitKey = "attack_3";
+                // if (AudioManager.Instance != null)
+                // {
+                //     AudioManager.Instance.ShotSfx(hitKey, pitch: 2f);
+                // }
                 monster.TakeDamage(data.atk, isPlaySfx: false);
             }
         }

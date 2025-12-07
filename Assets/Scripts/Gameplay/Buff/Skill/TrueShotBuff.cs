@@ -12,7 +12,7 @@ public class TrueShotBuff : BaseBuff
     public override void Activate()
     {
         int currentStack = stack;
-        float activateChance = data.activeRate + (currentStack - 1) * 5f;
+        float activateChance = data.activeRate + (currentStack - 1) * 3f;
         
         if (Random.value * 100 >= activateChance) return;
 

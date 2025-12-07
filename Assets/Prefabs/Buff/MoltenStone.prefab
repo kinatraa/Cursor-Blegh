@@ -100,7 +100,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a2c83a9fa4abb749b6ada8d0a5b7898, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _damageTickRate: 0.2
+  _damageTickRate: 0.5
   _trailStartWidth: 0.3
   _trailEndWidth: 0.1
 --- !u!96 &8062562961414267033

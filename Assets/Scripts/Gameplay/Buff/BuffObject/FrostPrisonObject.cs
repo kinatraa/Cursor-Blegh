@@ -5,7 +5,7 @@ using UnityEngine;
 public class FrostPrisonObject : MonoBehaviour
 {
     private SpriteRenderer _spriteRenderer;
-    public float _frostDuration = 5f;
+    public float _frostDuration = 3f;
 
     void Start()
     {

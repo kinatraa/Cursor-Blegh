@@ -4,7 +4,7 @@ using UnityEngine;
 public class InfernoFlameObject : MonoBehaviour
 {
     [SerializeField] private float _flameDuration = 3f;
-    [SerializeField] private int _damagePerSecond = 6;
+    [SerializeField] private int _damagePerSecond = 3;
     [SerializeField] private float _tickRate = 1f;
 
     private BaseMonster _targetMonster;

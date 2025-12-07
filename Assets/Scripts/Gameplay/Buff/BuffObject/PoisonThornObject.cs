@@ -5,7 +5,7 @@ using UnityEngine;
 public class PoisonThornObject : MonoBehaviour
 {
     private float _speed = 10f;
-    private float _lifetime = 5f;
+    private float _lifetime = 3f;
     private int _damage = 0;
 
     private Vector2 _direction;

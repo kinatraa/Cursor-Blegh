@@ -129,7 +129,7 @@ public abstract class BaseWeapon : MonoBehaviour
         }
         if (GameplayManager.Instance.monsterController.mysticPotionBuff != null)
         {
-            totalHeal += 2;
+            totalHeal += 1;
         }
         currentHp = Mathf.Min(currentHp + totalHeal, maxHp);
         GameEventManager.InvokeUpdatePlayerHp(currentHp);

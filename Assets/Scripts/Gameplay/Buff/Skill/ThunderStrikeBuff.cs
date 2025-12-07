@@ -14,7 +14,7 @@ public class ThunderStrikeBuff : BaseBuff
     public override void Activate()
     {
         int currentStack = stack;
-        float activateChance = data.activeRate + (currentStack - 1) * 10f;
+        float activateChance = data.activeRate + (currentStack - 1) * 3f;
 
         if (Random.value * 100 >= activateChance) return;
 

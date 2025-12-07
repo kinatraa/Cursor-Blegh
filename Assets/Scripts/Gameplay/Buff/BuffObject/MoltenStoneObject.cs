@@ -6,13 +6,13 @@ public class MoltenStoneObject : MonoBehaviour
 {
     private TrailRenderer _trailRenderer;
     private SpriteRenderer _spriteRenderer;
-    [SerializeField] private float _damageTickRate = 0.2f; 
+    [SerializeField] private float _damageTickRate = 0.5f; 
     [SerializeField] private float _trailStartWidth = 0.3f;
     [SerializeField] private float _trailEndWidth = 0.1f;
     private Material _trailMaterial;
 
     private Transform _weaponTransform;
-    private float _trailDuration;
+    private float _trailDuration = 1;
     private int _damage;
     private HashSet<BaseMonster> _damagedMonsters = new HashSet<BaseMonster>();
     private float _nextDamageTime;

@@ -27,7 +27,7 @@ public class MoltenStoneBuff : BaseBuff
         BaseWeapon currentWeapon = GameplayManager.Instance.weaponController.currentWeapon;
         if (currentWeapon == null) return;
 
-        float trailDuration = 1f + (stack - 1) * 0.5f;
+        float trailDuration = 1f + (stack - 1) * 0.2f;
 
         _currentMoltenTrail = Object.Instantiate(
             data.prefab,

@@ -19,6 +19,6 @@ public class PrismLensBuff : BaseBuff
         BaseWeapon weapon = GameplayManager.Instance.weaponController.currentWeapon;
         if (weapon == null) return;
 
-        weapon.critDmgToAdd += 5f;
+        weapon.critDmgToAdd += 3f;
     }
 }

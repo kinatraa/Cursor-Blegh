@@ -14,10 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   buffName: Arcane Tome
   buffIcon: {fileID: -1711587742, guid: 85fd376c6144b854dbc49c18a3018509, type: 3}
-  description: +5% Critical Chance
+  description: +3% Critical Chance
   type: 16
   effectType: 2
-  stackType: 0
+  collectType: 0
   prefab: {fileID: 0}
   maxStack: 9999
   activeRate: 100

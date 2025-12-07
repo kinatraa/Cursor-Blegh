@@ -15,10 +15,11 @@ MonoBehaviour:
   buffName: Molten Stone
   buffIcon: {fileID: 1356071308, guid: 85fd376c6144b854dbc49c18a3018509, type: 3}
   description: Creates a fire trail following the weapon for 1s. The trail deals
-    2 ATK every 0.25s to enemies
+    1 ATK every 0.5s to enemies(+0.2s remaining time/stack)
   type: 8
   effectType: 1
+  collectType: 0
   prefab: {fileID: 3223668120361492561, guid: b9f26418972b55d458a855a9b272c64a, type: 3}
   maxStack: 8
   activeRate: 100
-  atk: 2
+  atk: 1

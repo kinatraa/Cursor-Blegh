@@ -18,6 +18,6 @@ public class ArcaneTomeBuff : BaseBuff
         BaseWeapon weapon = GameplayManager.Instance.weaponController.currentWeapon;
         if (weapon == null) return;
 
-        weapon.critChanceToAdd += 5f;
+        weapon.critChanceToAdd += 3f;
     }
 }

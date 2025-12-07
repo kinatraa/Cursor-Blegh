@@ -14,10 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   buffName: Shuriken
   buffIcon: {fileID: -2134864320, guid: 85fd376c6144b854dbc49c18a3018509, type: 3}
-  description: On hit, 30% chance to fire a bouncing dart (1 bounce) dealing 5 damage.
+  description: On hit, 15% chance to fire a bouncing dart (1 bounce) dealing 1 damage(+1
+    bounce/stack).
   type: 1
   effectType: 1
+  collectType: 0
   prefab: {fileID: 7003861720382042040, guid: 59685563c058feb46926d81df3be0144, type: 3}
   maxStack: 8
-  activeRate: 30
-  atk: 5
+  activeRate: 15
+  atk: 1

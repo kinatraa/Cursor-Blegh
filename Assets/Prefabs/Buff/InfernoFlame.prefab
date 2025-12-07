@@ -47,7 +47,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _flameDuration: 3
-  _damagePerSecond: 6
+  _damagePerSecond: 3
   _tickRate: 1
 --- !u!212 &938948549579459169
 SpriteRenderer:

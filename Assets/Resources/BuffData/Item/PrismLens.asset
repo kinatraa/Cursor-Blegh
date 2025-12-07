@@ -14,10 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   buffName: Prism Lens
   buffIcon: {fileID: 526553106, guid: 85fd376c6144b854dbc49c18a3018509, type: 3}
-  description: +5% Critical Damage
+  description: +3% Critical Damage
   type: 15
   effectType: 2
-  stackType: 0
+  collectType: 0
   prefab: {fileID: 0}
   maxStack: 9999
   activeRate: 0

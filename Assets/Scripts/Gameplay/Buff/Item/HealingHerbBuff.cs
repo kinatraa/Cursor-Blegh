@@ -30,7 +30,7 @@ public class HealingHerbBuff : BaseBuff
     {
         base.Activate();
 
-        float activeRate = data.activeRate + (stack - 1) * 5f;
+        float activeRate = data.activeRate + (stack - 1) * 2f;
         if (Random.value * 100 >= activeRate) return;
 
         var spawnPos = GameplayManager.Instance.monsterController.lastHitMonster.transform.position;
