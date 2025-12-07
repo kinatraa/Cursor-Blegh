@@ -27,6 +27,11 @@ public class UIGameplay : MonoBehaviour
     {
         (playerStatsHUD as PlayerStatsHUD)?.UpdateWaveText(wave);
     }
+    
+    public void UpdateComboText(int combo)
+    {
+        (playerStatsHUD as PlayerStatsHUD)?.UpdateComboText(combo);
+    }
 
     public void Reset()
     {

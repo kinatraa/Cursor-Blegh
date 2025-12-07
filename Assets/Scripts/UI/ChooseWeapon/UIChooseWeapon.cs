@@ -7,6 +7,7 @@ public class UIChooseWeapon : MonoBehaviour
 {
     public TextMeshProUGUI titleText;
     public TextMeshProUGUI descriptionText;
+    public TextMeshProUGUI atkDefText;
     
     public void ChooseWoodenSword()
     {
@@ -54,6 +55,7 @@ public class UIChooseWeapon : MonoBehaviour
     {
         titleText.text = $"{data.weaponName}";
         descriptionText.text = $"{data.description}";
+        atkDefText.text = $"ATK: {data.atk}     HP: {data.hp}";
         titleText.transform.parent.gameObject.SetActive(true);
     }
     

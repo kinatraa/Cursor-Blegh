@@ -43,6 +43,7 @@ public class ComboController : MonoBehaviour
     public void AddCombo()
     {
         _currentCombo++;
+        GameEventManager.InvokeUpdateCombo(_currentCombo);
         _comboTimer = _comboResetTime;
         _isComboActive = true;
         string hitKey = "combo_add";
@@ -60,6 +61,7 @@ public class ComboController : MonoBehaviour
         }
 
         _currentCombo = 0;
+        GameEventManager.InvokeUpdateCombo(_currentCombo);
         _comboTimer = 0f;
         _isComboActive = false;
     }

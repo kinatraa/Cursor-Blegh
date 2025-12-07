@@ -39,6 +39,7 @@ public class UIManager : Singleton<UIManager>
         GameEventManager.onUpdatePlayerHP += UpdateHealthBar;
         GameEventManager.onUpdatePlayerScore += UpdateScoreText;
         GameEventManager.onUpdateWave += UpdateWaveText;
+        GameEventManager.onUpdateCombo += UpdateComboText;
     }
 
     private void OnDisable()
@@ -53,6 +54,7 @@ public class UIManager : Singleton<UIManager>
         GameEventManager.onUpdatePlayerHP -= UpdateHealthBar;
         GameEventManager.onUpdatePlayerScore -= UpdateScoreText;
         GameEventManager.onUpdateWave -= UpdateWaveText;
+        GameEventManager.onUpdateCombo -= UpdateComboText;
     }
 
     public void ShowPopupLose()
@@ -115,6 +117,11 @@ public class UIManager : Singleton<UIManager>
     private void UpdateWaveText(int wave)
     {
         uiGameplay.UpdateWaveText(wave);
+    }
+
+    private void UpdateComboText(int combo)
+    {
+        uiGameplay.UpdateComboText(combo);
     }
 
     private void Reset()
