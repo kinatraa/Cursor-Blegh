@@ -143,10 +143,8 @@ public abstract class BaseWeapon : MonoBehaviour
         int times = 3;
         while (times-- > 0)
         {
-            _sr.color = Color.red;
-            yield return new WaitForSeconds(0.2f);
             _sr.color = Color.white;
-            yield return new WaitForSeconds(0.2f);
+            yield return new WaitForSeconds(0.15f);
         }
 
         if (previousState == WeaponState.NORMAL)

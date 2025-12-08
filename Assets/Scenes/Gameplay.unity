@@ -9870,7 +9870,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!212 &996941418
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -11022,8 +11022,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _waveConfigFile: {fileID: 4900000, guid: b8702bef772dc0f4b86d60efe0ab3c6d, type: 3}
-  spawnAreaSize: {x: 10, y: 6}
-  spawnCenter: {x: 0, y: 0, z: 0}
+  spawnAreaSize: {x: 12, y: 6.5}
+  spawnCenter: {x: 0, y: 0.19, z: 0}
   currentWave: 1
 --- !u!1 &1203897613
 GameObject:
@@ -18536,7 +18536,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5b2d2e3c1d02c047b22a425969739b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  waitTime: 5
+  waitTime: 2
 --- !u!1 &2077235009
 GameObject:
   m_ObjectHideFlags: 0

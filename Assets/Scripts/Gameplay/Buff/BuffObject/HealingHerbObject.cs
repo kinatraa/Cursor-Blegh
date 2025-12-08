@@ -7,7 +7,6 @@ public class HealingHerbObject : MonoBehaviour
 
     private void Start()
     {
-        // Tự destroy sau 3 giây
         Destroy(gameObject, _lifetimeDuration);
     }
     

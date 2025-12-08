@@ -80,6 +80,11 @@ public class MonsterController : MonoBehaviour
             UpgradeMonster(newMonster, factor);
         }
 
+        if ((currentWave - 1) % 3 == 0)
+        {
+            UpgradeMonsterPerRound(newMonster);
+        }
+
         _monsterList.Add(newMonster);
 
         Debug.Log($"Spawned {newMonster.data.monsterName} [{type} - {size}] at {position}");
@@ -87,9 +92,14 @@ public class MonsterController : MonoBehaviour
 
     private void UpgradeMonster(BaseMonster newMonster, float factor)
     {
-        newMonster.currentHp = (int)(1.2 * factor);
+        newMonster.currentHp = (int)(1.5 * factor * newMonster.currentHp);
         if (!(newMonster.projectileSpeed + 5 * factor >= 50)) newMonster.projectileSpeed += 5 * factor;
         if (!(newMonster.reduceAnimTime + 0.1 * factor >= 0.5)) newMonster.reduceAnimTime += 0.1f * factor;
+    }
+
+    private void UpgradeMonsterPerRound(BaseMonster newMonster)
+    {
+        newMonster.currentHp = (int)(1.02 * newMonster.currentHp);
     }
 
     public float GetMonsterRadius(MonsterType type, MonsterSize size)

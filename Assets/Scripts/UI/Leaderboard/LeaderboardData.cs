@@ -33,7 +33,7 @@ public class PlayerData
                     score = 0, 
                     wave = 0, 
                     playtime = 0, 
-                    playedAt = DateTime.Now.ToString("yyyy-MM-ddTHH:mm:ss.fffZ") 
+                    playedAt = DateTime.Now.ToString("dd-MM-yyyy") 
                 };
             }
 

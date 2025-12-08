@@ -72,12 +72,13 @@ public class AudioManager : Singleton<AudioManager>
     private void ChangeBgmVolume(int newVolume)
     {
         _bgmVolumeScale = newVolume / 100f;
-        musicSource.volume = _bgmVolumeScale;
+        musicSource.volume *= _bgmVolumeScale;
     }
 
     private void ChangeSfxVolume(int newVolume)
     {
         _sfxVolumeScale = newVolume / 100f;
+        sfxSource.volume *= _sfxVolumeScale;
     }
 
     public void ShotSfx(string key, float volume = 1f, float pitch = 1f)
@@ -91,7 +92,7 @@ public class AudioManager : Singleton<AudioManager>
             sourceToUse.Stop();
             
             sourceToUse.pitch = pitch * UnityEngine.Random.Range(_minPitch, _maxPitch);
-            sourceToUse.volume = volume;
+            sourceToUse.volume = volume * _sfxVolumeScale;
             sourceToUse.clip = clip;
             sourceToUse.Play();
         }

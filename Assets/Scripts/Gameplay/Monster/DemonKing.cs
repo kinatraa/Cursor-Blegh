@@ -20,7 +20,7 @@ public class DemonKing : BaseMonster
       private const float FieldRadiusMultiplier = 2f;
       private const float DamageInterval = 0.01f;
       
-      private const float FadeOutDurationTeleport = 0.5f; 
+      private const float FadeOutDurationTeleport = 0.25f; 
       private const float InvisibleDuration = 2f;
       private const float FadeInDuration = 0.5f;
       
@@ -36,6 +36,16 @@ public class DemonKing : BaseMonster
      private bool _isInvincible = false;
      private float _currentFieldRadius = 0f;
      private HashSet<BaseWeapon> _damagedWeaponsThisInterval = new HashSet<BaseWeapon>();
+     
+     protected override IEnumerator IEIdle()
+     {
+          PlayAnimation(ANIM_IDLE);
+          _sr.color = Color.white;
+          float randomAnimTime = Random.Range(0.5f, 1.5f);
+          float animTime = 0f;
+          if (animTime < randomAnimTime - reduceAnimTime) animTime = randomAnimTime - reduceAnimTime;
+          yield return new WaitForSeconds(animTime);
+     }
 
      protected override IEnumerator IECharging()
      {
@@ -159,6 +169,8 @@ public class DemonKing : BaseMonster
           {
                AudioManager.Instance.ShotSfx(hitKey);
           }
+          SpawnBullet(FastSpeed);
+          yield return new WaitForSeconds(Random.Range(0.2f, 0.7f));
           SpawnBullet(FastSpeed);
           yield return new WaitForSeconds(_remainingAnimTime);
           _sr.color = Color.white;

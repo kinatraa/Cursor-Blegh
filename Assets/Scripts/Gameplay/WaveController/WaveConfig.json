@@ -15,7 +15,7 @@
       "wave_min": 3,
       "wave_max": 5,
       "count_min": 9,
-      "count_max": 12,
+      "count_max": 13,
       "is_boss_wave": false,
       "enemies": [
         { "id": "SLIME_PRIMORDIAL", "size": "SMALL", "min_count": 5, "max_count": 7 },
@@ -26,7 +26,7 @@
     {
       "wave_min": 6,
       "wave_max": 9,
-      "count_min": 12,
+      "count_min": 10,
       "count_max": 15,
       "is_boss_wave": false,
       "enemies": [
@@ -52,8 +52,8 @@
     {
       "wave_min": 11,
       "wave_max": 19,
-      "count_min": 12,
-      "count_max": 15,
+      "count_min": 14,
+      "count_max": 21,
       "is_boss_wave": false,
       "enemies": [
         { "id": "SLIME_PRIMORDIAL", "size": "SMALL", "min_count": 2, "max_count": 3 },
@@ -70,8 +70,8 @@
     {
       "wave_min": 20,
       "wave_max": 20,
-      "count_min": 15,
-      "count_max": 15,
+      "count_min": 14,
+      "count_max": 16,
       "is_boss_wave": false,
       "enemies": [
         { "id": "SLIME_PRIMORDIAL", "size": "SMALL", "min_count": 4, "max_count": 5 },

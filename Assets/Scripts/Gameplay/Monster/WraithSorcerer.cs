@@ -21,6 +21,10 @@ public class WraithSorcerer : BaseMonster
         }
 
         SummonMonster();
+        yield return new WaitForSeconds(0.25f);
+        SummonMonster();
+        yield return new WaitForSeconds(0.25f);
+        SummonMonster();
         yield return new WaitForSeconds(_remainingAnimTime);
         
         _sr.color = Color.white;

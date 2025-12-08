@@ -31,7 +31,7 @@ public abstract class BaseMonster : MonoBehaviour
     [SerializeField] private bool _flipOnUpdate = true;
 
     [Header("Visual Effects")] [SerializeField]
-    private float _blinkDuration = 0.5f;
+    private float _blinkDuration = 0.25f;
 
     [SerializeField] private int _blinkCount = 3;
     [SerializeField] private Color _damageColor = Color.red;
