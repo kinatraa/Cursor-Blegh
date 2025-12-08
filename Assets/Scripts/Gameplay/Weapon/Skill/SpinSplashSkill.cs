@@ -49,6 +49,7 @@
             if (_isSkillActivate)
             {
                 weapon.transform.localRotation = Quaternion.identity;
+                weapon.transform.rotation = _cachedOriginalRotation;
                 weapon.currentState = _cachedOriginalState;
                 
                 var spriteRenderer = weapon.GetComponent<SpriteRenderer>();
@@ -72,6 +73,7 @@
             {
                 _cachedOriginalColor = weapon.GetComponent<SpriteRenderer>()?.color ??  Color.white;
                 _cachedOriginalState = weapon.currentState;
+                _cachedOriginalRotation = weapon.transform.localRotation;
                 _isSkillActivate = true;
             }
             

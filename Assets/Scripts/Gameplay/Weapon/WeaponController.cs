@@ -44,6 +44,8 @@ public class WeaponController : MonoBehaviour
 
         if (Input.GetMouseButtonDown(1))
         {
+            if (weaponSkillSystem == null || currentWeapon == null || currentWeapon.data == null) return;
+
             var skill = weaponSkillSystem.GetSkill(currentWeapon.data.skill);
             if (skill != null)
             {

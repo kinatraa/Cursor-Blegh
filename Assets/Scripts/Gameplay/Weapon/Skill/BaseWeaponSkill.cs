@@ -29,7 +29,7 @@ public abstract class BaseWeaponSkill
 
     public float GetRemainingCooldown()
     {
-        if (_isOnCooldown) return 0f;
+        if (!_isOnCooldown) return 0f;
         
         float elapsed = Time.time - _lastActiveTime;
         float remainingCooldown =Mathf.Max(0f, data.cooldown - elapsed);

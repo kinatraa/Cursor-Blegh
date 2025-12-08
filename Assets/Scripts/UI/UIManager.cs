@@ -181,6 +181,7 @@ public class UIManager : Singleton<UIManager>
         if (GameplayManager.Instance?.monsterController == null) return;
         
         var monsterController = GameplayManager.Instance.monsterController;
+
         var healthPacks = new List<GameObject>(monsterController.heartObjects);
         
         foreach (var pack in healthPacks)

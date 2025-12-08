@@ -129,9 +129,9 @@ public class LaserBeam : BaseMonsterProjectile
             // Deal damage on interval
             if (timer - _lastDamageTime >= _damageInterval)
             {
+                _damagedWeaponsThisFrame.Clear();
                 DealDamageToWeaponsInRange();
                 _lastDamageTime = timer;
-                _damagedWeaponsThisFrame.Clear();
             }
             
             yield return null;
@@ -207,6 +207,8 @@ public class LaserBeam : BaseMonsterProjectile
                 _damagedWeaponsThisFrame.Add(weapon);
             }
         }
+
+        return;
     }
 
     private void OnDrawGizmos()

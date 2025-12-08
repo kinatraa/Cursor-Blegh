@@ -93,19 +93,22 @@ public class EarthquakeSkill : BaseWeaponSkill
         int hitCount = 0;
         Collider2D[] hits = Physics2D.OverlapCircleAll(weapon.transform.position, _damageRadius);
 
+        if (hits == null || hits.Length == 0) return hitCount;
+
         foreach (var hit in hits)
         {
+            if (hit == null) continue;
             if (hit.CompareTag(ConstTag.MONSTER))
             {
                 var monster = hit.GetComponent<BaseMonster>();
                 if (monster != null)
                 {
                     int baseDamage = weapon.data.atk;
-                    int totalDamage = (int)(baseDamage * _damageMultiplier);
+                    int totalDamage = Mathf.RoundToInt(baseDamage * _damageMultiplier);
                     
                     if (Random.Range(0, 100) < weapon.data.crit + weapon.critChanceToAdd)
                     {
-                        totalDamage = (int)(totalDamage * ((weapon.data.critDmg + weapon.critDmgToAdd) / 100f));
+                        totalDamage = Mathf.RoundToInt(totalDamage * ((weapon.data.critDmg + weapon.critDmgToAdd) / 100f));
                         Debug.Log($"<color=orange>CRITICAL EARTHQUAKE!</color>");
                     }
 

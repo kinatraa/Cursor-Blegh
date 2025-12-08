@@ -11,6 +11,8 @@ public abstract class BaseMonsterProjectile : MonoBehaviour
     protected Vector3 _targetPosition;
     protected bool _isMoving = false;
 
+    private Coroutine _moveCoroutine;
+
     public void StartProjectile(Vector3 target)
     {
         _targetPosition = target;
@@ -19,7 +21,12 @@ public abstract class BaseMonsterProjectile : MonoBehaviour
     }
     protected virtual void SetTarget(Vector3 targetPosition = new Vector3())
     {
-        StartCoroutine(IEProjectileMove(targetPosition));
+        // StartCoroutine(IEProjectileMove(targetPosition));
+        if (_moveCoroutine != null)
+        {
+            StopCoroutine(_moveCoroutine);
+        }
+        _moveCoroutine = StartCoroutine(IEProjectileMove(targetPosition));
     }
 
     protected virtual IEnumerator IEProjectileMove(Vector3 targetPosition)
@@ -44,6 +51,11 @@ public abstract class BaseMonsterProjectile : MonoBehaviour
     public void Destroy()
     {
         _isMoving = false;
+        if (_moveCoroutine != null)
+        {
+            StopCoroutine(_moveCoroutine);
+            _moveCoroutine = null;
+        }
         Destroy(gameObject);
     }
 }

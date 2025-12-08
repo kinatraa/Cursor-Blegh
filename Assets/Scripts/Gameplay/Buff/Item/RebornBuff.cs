@@ -11,7 +11,10 @@ public class RebornBuff : BaseBuff
     public override void Dispose()
     {
         base.Dispose();
-        GameplayManager.Instance.weaponController.rebornBuff = null;
+        if (GameplayManager.Instance?.weaponController != null)
+        {
+            GameplayManager.Instance.weaponController.rebornBuff = null;
+        }
     }
 
     public override void AddStack()

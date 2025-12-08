@@ -37,6 +37,7 @@ public abstract class BaseWeapon : MonoBehaviour
         if (other.CompareTag(ConstTag.MONSTER))
         {
             BaseMonster monster = other.GetComponent<BaseMonster>();
+            if (monster == null) return;
             GameplayManager.Instance.monsterController.lastHitMonster = monster;
             
             if (currentState == WeaponState.SKILL_ACTIVE && data.weaponType == WeaponType.DAGGER)
@@ -52,6 +53,7 @@ public abstract class BaseWeapon : MonoBehaviour
         else if (other.CompareTag(ConstTag.MONSTER_PROJECTILE))
         {
             BaseMonsterProjectile projectile = other.GetComponent<BaseMonsterProjectile>();
+            if (projectile == null) return;
             CombatResolver.CollisionResolve(this, projectile);
         }
     }
@@ -143,8 +145,10 @@ public abstract class BaseWeapon : MonoBehaviour
         int times = 3;
         while (times-- > 0)
         {
+            _sr.color = Color.red;
+            yield return new WaitForSeconds(0.1f);
             _sr.color = Color.white;
-            yield return new WaitForSeconds(0.15f);
+            yield return new WaitForSeconds(0.1f);
         }
 
         if (previousState == WeaponState.NORMAL)
@@ -164,6 +168,7 @@ public abstract class BaseWeapon : MonoBehaviour
     
     public void ResetWeapon()
     {
+        
         isImmortal = false;
         if(data != null) maxHp = data.hp;
         currentHp = maxHp;

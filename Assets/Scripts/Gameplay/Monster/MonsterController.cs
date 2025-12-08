@@ -74,7 +74,7 @@ public class MonsterController : MonoBehaviour
             float factor = 1;
             if (!(currentWave <= 70))
             {
-                factor = ((currentWave - 40) / 30) + factor;
+                factor = ((currentWave - 40) / 30f) + factor;
             }
 
             UpgradeMonster(newMonster, factor);
