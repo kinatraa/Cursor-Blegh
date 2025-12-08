@@ -129,16 +129,86 @@ public class UIManager : Singleton<UIManager>
         Time.timeScale = 0;
         
         uiGameplay.Reset();
-        GameplayManager.Instance.weaponController.SetDefaultCursor();
         
         ShowUIMenu();
         HideUIChooseWeapon();
         HideUIGameplay();
+
+        ClearAllProjectiles();
+        ClearAllMonsters();
+        ClearAllHealthPacks();
+        ResetWeapon();
+
+        GameplayManager.Instance.weaponController.SetDefaultCursor();
         
         chooseUpgradePopup.gameObject.SetActive(false);
         settingPopup.gameObject.SetActive(false);
         pausePopup.gameObject.SetActive(false);
         losePopup.gameObject.SetActive(false);
         leaderboardPopup.gameObject.SetActive(false);
+    }
+
+    private void ClearAllProjectiles()
+    {
+        BaseMonsterProjectile[] playerProjectiles = FindObjectsOfType<BaseMonsterProjectile>();
+        foreach (var projectile in playerProjectiles)
+        {
+            Destroy(projectile.gameObject);
+        }
+    }
+
+    private void ClearAllMonsters()
+    {
+        if (GameplayManager.Instance?.monsterController == null) return;
+        
+        var monsterController = GameplayManager.Instance.monsterController;
+        var monsters = new List<BaseMonster>(monsterController.MonsterList);
+        
+        foreach (var monster in monsters)
+        {
+            if (monster != null)
+            {
+                Destroy(monster.gameObject);
+            }
+        }
+        
+        monsterController.ClearAllMonsters();
+        
+        Debug.Log($"<color=orange>Cleared {monsters.Count} monsters</color>");
+    }
+
+    private void ClearAllHealthPacks()
+    {
+        if (GameplayManager.Instance?.monsterController == null) return;
+        
+        var monsterController = GameplayManager.Instance.monsterController;
+        var healthPacks = new List<GameObject>(monsterController.heartObjects);
+        
+        foreach (var pack in healthPacks)
+        {
+            if (pack != null)
+            {
+                Destroy(pack);
+            }
+        }
+        
+        monsterController.heartObjects.Clear();
+        
+        Debug.Log($"<color=orange>Cleared {healthPacks.Count} health packs</color>");
+    }
+
+    private void ResetWeapon()
+    {
+        if (GameplayManager.Instance?.weaponController == null) return;
+        
+        var weaponController = GameplayManager.Instance.weaponController;
+        
+        if (weaponController.currentWeapon != null)
+        {
+            Destroy(weaponController.currentWeapon.gameObject);
+            weaponController.currentWeapon = null;
+        }
+        
+        Debug.Log("<color=orange>Weapon reset to null</color>");
     }
 }

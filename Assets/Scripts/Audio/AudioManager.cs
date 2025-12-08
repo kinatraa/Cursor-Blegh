@@ -72,7 +72,7 @@ public class AudioManager : Singleton<AudioManager>
     private void ChangeBgmVolume(int newVolume)
     {
         _bgmVolumeScale = newVolume / 100f;
-        musicSource.volume *= _bgmVolumeScale;
+        musicSource.volume = _bgmVolumeScale;
     }
 
     private void ChangeSfxVolume(int newVolume)

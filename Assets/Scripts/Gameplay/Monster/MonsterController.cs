@@ -173,4 +173,12 @@ public class MonsterController : MonoBehaviour
         mysticPotionBuff = null;
         vampiricRageBuff = null;
     }
+    
+
+    public void ClearAllMonsters()
+    {
+        Reset();
+        _monsterList.Clear();
+        lastHitMonster = null;
+    }
 }
