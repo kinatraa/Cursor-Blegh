@@ -43,7 +43,7 @@ public class LeaderboardRow : MonoBehaviour
             Debug.LogWarning("waveText is not assigned!");
 
         if (timeText != null)
-            timeText.text = bestHistory.playedAt ?? "";
+            timeText.text = bestHistory.playtime.ToString() ?? "";
         else
             Debug.LogWarning("dateText is not assigned!");
     }

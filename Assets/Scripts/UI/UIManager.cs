@@ -137,7 +137,6 @@ public class UIManager : Singleton<UIManager>
         ClearAllProjectiles();
         ClearAllMonsters();
         ClearAllHealthPacks();
-        ResetWeapon();
 
         GameplayManager.Instance.weaponController.SetDefaultCursor();
         
@@ -195,20 +194,5 @@ public class UIManager : Singleton<UIManager>
         monsterController.heartObjects.Clear();
         
         Debug.Log($"<color=orange>Cleared {healthPacks.Count} health packs</color>");
-    }
-
-    private void ResetWeapon()
-    {
-        if (GameplayManager.Instance?.weaponController == null) return;
-        
-        var weaponController = GameplayManager.Instance.weaponController;
-        
-        if (weaponController.currentWeapon != null)
-        {
-            Destroy(weaponController.currentWeapon.gameObject);
-            weaponController.currentWeapon = null;
-        }
-        
-        Debug.Log("<color=orange>Weapon reset to null</color>");
     }
 }
