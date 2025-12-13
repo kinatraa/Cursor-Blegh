@@ -1,0 +1,811 @@
+fileFormatVersion: 2
+guid: 928d5a02f3d08bf409b70f19be71e0ba
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: 11500000, guid: 62a9f0aa5b59740cfbadc7e5f9823bb0, type: 3}
+  textureImporterSettings:
+    alphaSource: 1
+    mipMapMode: 0
+    enableMipMap: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+    convertToNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+    swizzle: 50462976
+    isReadable: 0
+    streamingMipmaps: 0
+    streamingMipmapsPriority: 0
+    vTOnly: 0
+    ignoreMipmapLimit: 0
+    nPOTScale: 1
+    sRGBTexture: 1
+    spriteMode: 2
+    spriteExtrude: 1
+    spriteMeshType: 1
+    alignment: 0
+    spritePivot: {x: 0.5, y: 0.5}
+    spritePixelsToUnits: 100
+    spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+    spriteGenerateFallbackPhysicsShape: 0
+    generateCubemap: 6
+    cubemapConvolution: 0
+    seamlessCubemap: 0
+    alphaIsTransparency: 1
+    spriteTessellationDetail: -1
+    textureType: 8
+    textureShape: 1
+    singleChannelComponent: 0
+    flipbookRows: 0
+    flipbookColumns: 0
+    ignorePngGamma: 0
+    cookieMode: 0
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+    normalMap: 0
+    textureFormat: 0
+    maxTextureSize: 0
+    lightmap: 0
+    compressionQuality: 0
+    linearTexture: 0
+    grayScaleToAlpha: 0
+    rGBM: 0
+    cubemapConvolutionSteps: 0
+    cubemapConvolutionExponent: 0
+    maxTextureSizeSet: 0
+    compressionQualitySet: 0
+    textureFormatSet: 0
+    applyGammaDecoding: 0
+  previousAsepriteImporterSettings:
+    fileImportMode: 1
+    importHiddenLayers: 0
+    layerImportMode: 1
+    defaultPivotSpace: 0
+    defaultPivotAlignment: 7
+    customPivotPosition: {x: 0.5, y: 0.5}
+    mosaicPadding: 4
+    spritePadding: 0
+    generateModelPrefab: 1
+    generateAnimationClips: 1
+    addSortingGroup: 1
+    addShadowCasters: 0
+  asepriteImporterSettings:
+    fileImportMode: 1
+    importHiddenLayers: 0
+    layerImportMode: 1
+    defaultPivotSpace: 0
+    defaultPivotAlignment: 7
+    customPivotPosition: {x: 0.5, y: 0.5}
+    mosaicPadding: 4
+    spritePadding: 0
+    generateModelPrefab: 1
+    generateAnimationClips: 1
+    addSortingGroup: 1
+    addShadowCasters: 0
+  importFileNodeState: 1
+  platformSettingsDirtyTick: 0
+  textureAssetName: 
+  singleSpriteImportData:
+  - name: 
+    originalName: 
+    pivot: {x: 0, y: 0}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 0
+      height: 0
+    spriteID: 
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 0, y: 0}
+  animatedSpriteImportData:
+  - name: ppglowcard_Frame_0
+    originalName: 
+    pivot: {x: 0.47229552, y: -0.06904232}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 4
+      width: 379
+      height: 449
+    spriteID: 5d6c457420aed194cacfe9077e4de27c
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: -73, y: -27}
+  - name: ppglowcard_Frame_1
+    originalName: 
+    pivot: {x: 0.4798928, y: -0.06904232}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 2744
+      width: 373
+      height: 449
+    spriteID: 8ce2a274b69a9794d82f916c20d225bd
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: -73, y: 2713}
+  - name: ppglowcard_Frame_2
+    originalName: 
+    pivot: {x: 0.49860725, y: -0.06904232}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 772
+      y: 916
+      width: 359
+      height: 449
+    spriteID: ee7f956960af4aa45abd75dfca647292
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 695, y: 885}
+  - name: ppglowcard_Frame_3
+    originalName: 
+    pivot: {x: 0.4798928, y: -0.06904232}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 3201
+      width: 373
+      height: 449
+    spriteID: 8ca96967a7a769a43b25543b2c01fb07
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: -73, y: 3170}
+  - name: ppglowcard_Frame_4
+    originalName: 
+    pivot: {x: 0.47229552, y: -0.06904232}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 461
+      width: 379
+      height: 449
+    spriteID: c66cd4c62ef4e1444b3f376d3e3eac99
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: -73, y: 430}
+  - name: ppglowcard_Frame_5
+    originalName: 
+    pivot: {x: 0.4798928, y: -0.06904232}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 391
+      y: 4
+      width: 373
+      height: 449
+    spriteID: b6c912d107e0a7943bf6ebc5813d86b1
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 314, y: -27}
+  - name: ppglowcard_Frame_6
+    originalName: 
+    pivot: {x: 0.49860725, y: -0.06904232}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 772
+      y: 1373
+      width: 359
+      height: 449
+    spriteID: dfdb3c340f76a794ea5c490b88283998
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 695, y: 1342}
+  - name: ppglowcard_Frame_7
+    originalName: 
+    pivot: {x: 0.4798928, y: -0.06904232}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 391
+      y: 461
+      width: 373
+      height: 449
+    spriteID: 67d58c48196793e429c31f4792098f06
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 314, y: 430}
+  - name: ppglowcard_Frame_8
+    originalName: 
+    pivot: {x: 0.47229552, y: -0.06904232}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 918
+      width: 379
+      height: 449
+    spriteID: 766a963861c3430418c535c4b8806fd1
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: -73, y: 887}
+  - name: ppglowcard_Frame_9
+    originalName: 
+    pivot: {x: 0.4798928, y: -0.06904232}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 391
+      y: 918
+      width: 373
+      height: 449
+    spriteID: 360614e0552b4ca4987c87f971259958
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 314, y: 887}
+  - name: ppglowcard_Frame_10
+    originalName: 
+    pivot: {x: 0.49860725, y: -0.06904232}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 772
+      y: 1830
+      width: 359
+      height: 449
+    spriteID: a9e32819d18f1734aacd06ed1567bf9a
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 695, y: 1799}
+  - name: ppglowcard_Frame_11
+    originalName: 
+    pivot: {x: 0.4798928, y: -0.06904232}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 391
+      y: 1375
+      width: 373
+      height: 449
+    spriteID: 65af4b33c65b7a84399c1f4dc9f7caa7
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 314, y: 1344}
+  - name: ppglowcard_Frame_12
+    originalName: 
+    pivot: {x: 0.47229552, y: -0.06904232}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 1375
+      width: 379
+      height: 449
+    spriteID: 34fc368e00ae6374fa7a6d6622456ef2
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: -73, y: 1344}
+  - name: ppglowcard_Frame_13
+    originalName: 
+    pivot: {x: 0.4798928, y: -0.06904232}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 391
+      y: 1832
+      width: 373
+      height: 449
+    spriteID: 1210707fea165be48b87db9fd1faa621
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 314, y: 1801}
+  - name: ppglowcard_Frame_14
+    originalName: 
+    pivot: {x: 0.49860725, y: -0.06904232}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 772
+      y: 2287
+      width: 359
+      height: 449
+    spriteID: 4fdc9b391a0564a44a6ff2e84f742119
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 695, y: 2256}
+  - name: ppglowcard_Frame_15
+    originalName: 
+    pivot: {x: 0.4798928, y: -0.06904232}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 391
+      y: 2289
+      width: 373
+      height: 449
+    spriteID: 1bc7836bbfea1764db6b6fdaaea6db5a
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 314, y: 2258}
+  - name: ppglowcard_Frame_16
+    originalName: 
+    pivot: {x: 0.47089946, y: -0.07158837}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 2289
+      width: 378
+      height: 447
+    spriteID: 0313b0becd2fb124e9260644eb5ce61c
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: -74, y: 2257}
+  - name: ppglowcard_Frame_17
+    originalName: 
+    pivot: {x: 0.4784946, y: -0.07158837}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 772
+      y: 461
+      width: 372
+      height: 447
+    spriteID: 7698116e8b5e59740b638a5c477a8bce
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 694, y: 429}
+  - name: ppglowcard_Frame_18
+    originalName: 
+    pivot: {x: 0.49859944, y: -0.07158837}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 772
+      y: 3201
+      width: 357
+      height: 447
+    spriteID: 296296f34ef3a924cb3315079f12855a
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 694, y: 3169}
+  - name: ppglowcard_Frame_19
+    originalName: 
+    pivot: {x: 0.4798928, y: -0.06904232}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 391
+      y: 2746
+      width: 373
+      height: 449
+    spriteID: a7b8ffed41390ec44b36d97c7b4c71d7
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 314, y: 2715}
+  - name: ppglowcard_Frame_20
+    originalName: 
+    pivot: {x: 0.47229552, y: -0.06904232}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 1832
+      width: 379
+      height: 449
+    spriteID: 03e14c967d5643f418f701a1d201dd50
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: -73, y: 1801}
+  - name: ppglowcard_Frame_21
+    originalName: 
+    pivot: {x: 0.4798928, y: -0.06904232}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 391
+      y: 3203
+      width: 373
+      height: 449
+    spriteID: 58b07462e16073841b5929ab279d1362
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 314, y: 3172}
+  - name: ppglowcard_Frame_22
+    originalName: 
+    pivot: {x: 0.49860725, y: -0.06904232}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 772
+      y: 2744
+      width: 359
+      height: 449
+    spriteID: 6a23cd9634a8aa94db5b027221780c95
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 695, y: 2713}
+  - name: ppglowcard_Frame_23
+    originalName: 
+    pivot: {x: 0.4798928, y: -0.06904232}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 772
+      y: 4
+      width: 373
+      height: 449
+    spriteID: f281904979f8b25459775c3562be2545
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 695, y: -27}
+  spriteSheetImportData: []
+  asepriteLayers:
+  - layerIndex: 0
+    guid: -995455321
+    name: ppglowcard
+    layerFlags: 0
+    layerType: 0
+    blendMode: 0
+    cells:
+    - name: ppglowcard_Frame_0
+      frameIndex: 0
+      cellRect:
+        x: 0
+        y: 0
+        width: 512
+        height: 512
+      spriteId: 5d6c457420aed194cacfe9077e4de27c
+    - name: ppglowcard_Frame_1
+      frameIndex: 1
+      cellRect:
+        x: 0
+        y: 0
+        width: 512
+        height: 512
+      spriteId: 8ce2a274b69a9794d82f916c20d225bd
+    - name: ppglowcard_Frame_2
+      frameIndex: 2
+      cellRect:
+        x: 0
+        y: 0
+        width: 512
+        height: 512
+      spriteId: ee7f956960af4aa45abd75dfca647292
+    - name: ppglowcard_Frame_3
+      frameIndex: 3
+      cellRect:
+        x: 0
+        y: 0
+        width: 512
+        height: 512
+      spriteId: 8ca96967a7a769a43b25543b2c01fb07
+    - name: ppglowcard_Frame_4
+      frameIndex: 4
+      cellRect:
+        x: 0
+        y: 0
+        width: 512
+        height: 512
+      spriteId: c66cd4c62ef4e1444b3f376d3e3eac99
+    - name: ppglowcard_Frame_5
+      frameIndex: 5
+      cellRect:
+        x: 0
+        y: 0
+        width: 512
+        height: 512
+      spriteId: b6c912d107e0a7943bf6ebc5813d86b1
+    - name: ppglowcard_Frame_6
+      frameIndex: 6
+      cellRect:
+        x: 0
+        y: 0
+        width: 512
+        height: 512
+      spriteId: dfdb3c340f76a794ea5c490b88283998
+    - name: ppglowcard_Frame_7
+      frameIndex: 7
+      cellRect:
+        x: 0
+        y: 0
+        width: 512
+        height: 512
+      spriteId: 67d58c48196793e429c31f4792098f06
+    - name: ppglowcard_Frame_8
+      frameIndex: 8
+      cellRect:
+        x: 0
+        y: 0
+        width: 512
+        height: 512
+      spriteId: 766a963861c3430418c535c4b8806fd1
+    - name: ppglowcard_Frame_9
+      frameIndex: 9
+      cellRect:
+        x: 0
+        y: 0
+        width: 512
+        height: 512
+      spriteId: 360614e0552b4ca4987c87f971259958
+    - name: ppglowcard_Frame_10
+      frameIndex: 10
+      cellRect:
+        x: 0
+        y: 0
+        width: 512
+        height: 512
+      spriteId: a9e32819d18f1734aacd06ed1567bf9a
+    - name: ppglowcard_Frame_11
+      frameIndex: 11
+      cellRect:
+        x: 0
+        y: 0
+        width: 512
+        height: 512
+      spriteId: 65af4b33c65b7a84399c1f4dc9f7caa7
+    - name: ppglowcard_Frame_12
+      frameIndex: 12
+      cellRect:
+        x: 0
+        y: 0
+        width: 512
+        height: 512
+      spriteId: 34fc368e00ae6374fa7a6d6622456ef2
+    - name: ppglowcard_Frame_13
+      frameIndex: 13
+      cellRect:
+        x: 0
+        y: 0
+        width: 512
+        height: 512
+      spriteId: 1210707fea165be48b87db9fd1faa621
+    - name: ppglowcard_Frame_14
+      frameIndex: 14
+      cellRect:
+        x: 0
+        y: 0
+        width: 512
+        height: 512
+      spriteId: 4fdc9b391a0564a44a6ff2e84f742119
+    - name: ppglowcard_Frame_15
+      frameIndex: 15
+      cellRect:
+        x: 0
+        y: 0
+        width: 512
+        height: 512
+      spriteId: 1bc7836bbfea1764db6b6fdaaea6db5a
+    - name: ppglowcard_Frame_16
+      frameIndex: 16
+      cellRect:
+        x: 0
+        y: 0
+        width: 512
+        height: 512
+      spriteId: 0313b0becd2fb124e9260644eb5ce61c
+    - name: ppglowcard_Frame_17
+      frameIndex: 17
+      cellRect:
+        x: 0
+        y: 0
+        width: 512
+        height: 512
+      spriteId: 7698116e8b5e59740b638a5c477a8bce
+    - name: ppglowcard_Frame_18
+      frameIndex: 18
+      cellRect:
+        x: 0
+        y: 0
+        width: 512
+        height: 512
+      spriteId: 296296f34ef3a924cb3315079f12855a
+    - name: ppglowcard_Frame_19
+      frameIndex: 19
+      cellRect:
+        x: 0
+        y: 0
+        width: 512
+        height: 512
+      spriteId: a7b8ffed41390ec44b36d97c7b4c71d7
+    - name: ppglowcard_Frame_20
+      frameIndex: 20
+      cellRect:
+        x: 0
+        y: 0
+        width: 512
+        height: 512
+      spriteId: 03e14c967d5643f418f701a1d201dd50
+    - name: ppglowcard_Frame_21
+      frameIndex: 21
+      cellRect:
+        x: 0
+        y: 0
+        width: 512
+        height: 512
+      spriteId: 58b07462e16073841b5929ab279d1362
+    - name: ppglowcard_Frame_22
+      frameIndex: 22
+      cellRect:
+        x: 0
+        y: 0
+        width: 512
+        height: 512
+      spriteId: 6a23cd9634a8aa94db5b027221780c95
+    - name: ppglowcard_Frame_23
+      frameIndex: 23
+      cellRect:
+        x: 0
+        y: 0
+        width: 512
+        height: 512
+      spriteId: f281904979f8b25459775c3562be2545
+    linkedCells: []
+    parentIndex: -1
+  platformSettings: []
+  generatePhysicsShape: 0
+  secondarySpriteTextures: []
+  spritePackingTag: 
+  canvasSize: {x: 512, y: 512}
