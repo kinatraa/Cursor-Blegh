@@ -30,8 +30,8 @@ public class LeaderboardController : Singleton<LeaderboardController>
         return validPlayers;
     }
     
-    public string CurrentPlayerId { get; private set; }
-    public string CurrentPlayerName { get; private set; }
+    public string CurrentPlayerId { get; set; }
+    public string CurrentPlayerName { get; set; }
 
     private void Awake()
     {
