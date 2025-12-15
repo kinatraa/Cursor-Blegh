@@ -15,12 +15,12 @@ public class UIManager : Singleton<UIManager>
     public UIPopup losePopup;
     public UIPopup leaderboardPopup;
 
-    protected override void Awake()
-    {
-        base.Awake();
+    //protected override void Awake()
+    //{
+    //    base.Awake();
         
-        LeaderboardController.Instance.RegisterPlayer("Duc Enh");
-    }
+    //    //LeaderboardController.Instance.RegisterPlayer("Duc Enh");
+    //}
 
     private void Start()
     {
